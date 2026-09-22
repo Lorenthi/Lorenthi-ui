@@ -48,7 +48,7 @@ export const OrderButton = React.forwardRef<HTMLButtonElement, OrderButtonProps>
       ref={ref}
       type="button"
       data-state={stage}
-      className={cn("pxui-orderb", block && "pxui-orderb-block", className)}
+      className={cn("lui-orderb", block && "lui-orderb-block", className)}
       disabled={disabled || bezig || klaar}
       onClick={() => void run()}
       {...rest}
@@ -56,7 +56,7 @@ export const OrderButton = React.forwardRef<HTMLButtonElement, OrderButtonProps>
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={stage}
-          className="pxui-orderb-label"
+          className="lui-orderb-label"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: bezig ? 0 : 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
@@ -73,7 +73,7 @@ export const OrderButton = React.forwardRef<HTMLButtonElement, OrderButtonProps>
         {bezig && (
           <motion.span
             key="truck"
-            className="pxui-orderb-truck"
+            className="lui-orderb-truck"
             initial={{ x: "-130%", opacity: 0 }}
             animate={traag ? { x: "0%", opacity: 1 } : { x: ["-130%", "0%", "130%"], opacity: [0, 1, 1] }}
             exit={{ opacity: 0 }}
@@ -81,7 +81,7 @@ export const OrderButton = React.forwardRef<HTMLButtonElement, OrderButtonProps>
             aria-hidden="true"
           >
             <Icon name="truck" size={22} />
-            <span className="pxui-orderb-dust" />
+            <span className="lui-orderb-dust" />
           </motion.span>
         )}
       </AnimatePresence>

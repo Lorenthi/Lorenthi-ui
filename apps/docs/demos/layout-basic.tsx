@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Card, CardContent, Container, Grid, Row, Spacer, Stack, Text } from "@projectx/ui";
+import { Badge, Card, CardContent, Container, Grid, Row, Spacer, Stack, Text } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

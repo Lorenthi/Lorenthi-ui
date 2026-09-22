@@ -1,5 +1,5 @@
 "use client";
-import { Field, Textarea } from "@projectx/ui";
+import { Field, Textarea } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

@@ -95,7 +95,7 @@ export const ConfettiBurst = React.forwardRef<HTMLSpanElement, ConfettiBurstProp
           else if (ref) (ref as React.MutableRefObject<HTMLSpanElement | null>).current = node;
         }}
         aria-hidden="true"
-        className={cn("pxui-confetti", className)}
+        className={cn("lui-confetti", className)}
         {...rest}
       />
     );

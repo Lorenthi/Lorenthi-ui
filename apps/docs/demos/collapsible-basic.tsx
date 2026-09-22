@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Badge, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@projectx/ui";
+import { Badge, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@lorenthi/ui";
 
 export default function Demo() {
   const [open, setOpen] = useState(true);

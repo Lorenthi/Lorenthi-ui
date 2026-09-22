@@ -16,13 +16,13 @@ export const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(functio
   const items = React.Children.toArray(children).filter(Boolean);
 
   return (
-    <nav ref={ref} aria-label="Kruimelpad" className={cn("pxui-breadcrumb", className)} {...rest}>
-      <ol className="pxui-breadcrumb-list">
+    <nav ref={ref} aria-label="Kruimelpad" className={cn("lui-breadcrumb", className)} {...rest}>
+      <ol className="lui-breadcrumb-list">
         {items.map((item, index) => (
-          <li className="pxui-breadcrumb-entry" key={index}>
+          <li className="lui-breadcrumb-entry" key={index}>
             {item}
             {index < items.length - 1 && (
-              <span className="pxui-breadcrumb-separator" aria-hidden="true">
+              <span className="lui-breadcrumb-separator" aria-hidden="true">
                 {separator ?? <Icon name="chevronRight" size={14} />}
               </span>
             )}
@@ -44,7 +44,7 @@ export const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItem
   function BreadcrumbItem({ current, asChild, icon, className, children, ...rest }, ref) {
     if (current) {
       return (
-        <span className={cn("pxui-breadcrumb-item", "pxui-breadcrumb-current", className)} aria-current="page">
+        <span className={cn("lui-breadcrumb-item", "lui-breadcrumb-current", className)} aria-current="page">
           {icon}
           {children}
         </span>
@@ -52,7 +52,7 @@ export const BreadcrumbItem = React.forwardRef<HTMLAnchorElement, BreadcrumbItem
     }
     const Comp = (asChild ? Slot : "a") as React.ElementType;
     return (
-      <Comp ref={ref} className={cn("pxui-breadcrumb-item", className)} {...rest}>
+      <Comp ref={ref} className={cn("lui-breadcrumb-item", className)} {...rest}>
         {icon}
         {children}
       </Comp>

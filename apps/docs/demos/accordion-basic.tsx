@@ -1,5 +1,5 @@
 "use client";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Icon } from "@projectx/ui";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

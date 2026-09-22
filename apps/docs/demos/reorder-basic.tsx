@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge, Icon } from "@projectx/ui";
-import { ReorderList, ReorderListItem } from "@projectx/ui/motion";
+import { Badge, Icon } from "@lorenthi/ui";
+import { ReorderList, ReorderListItem } from "@lorenthi/ui/motion";
 
 interface Taak {
   id: string;

@@ -55,7 +55,7 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(function Rat
       aria-valuetext={`${score} van ${max}`}
       tabIndex={vast ? undefined : 0}
       data-readonly={vast ? "" : undefined}
-      className={cn("pxui-rating", className)}
+      className={cn("lui-rating", className)}
       onKeyDown={(event) => {
         if (vast) return;
         const stap = half ? 0.5 : 1;
@@ -70,14 +70,14 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(function Rat
       onMouseLeave={() => setZweef(null)}
       {...rest}
     >
-      <span className="pxui-rating-sterren">
+      <span className="lui-rating-sterren">
         {Array.from({ length: max }, (_, i) => {
           const ster = i + 1;
           const vulling = Math.min(Math.max(getoond - i, 0), 1);
           return (
             <span
               key={ster}
-              className="pxui-rating-ster"
+              className="lui-rating-ster"
               style={{ width: size, height: size }}
               onMouseMove={(event) => {
                 if (vast) return;
@@ -92,15 +92,15 @@ export const Rating = React.forwardRef<HTMLDivElement, RatingProps>(function Rat
                 setScore(helft ? ster - 0.5 : ster);
               }}
             >
-              <Icon name="star" size={size} className="pxui-rating-leeg" />
-              <span className="pxui-rating-vol" style={{ width: `${vulling * 100}%` }}>
+              <Icon name="star" size={size} className="lui-rating-leeg" />
+              <span className="lui-rating-vol" style={{ width: `${vulling * 100}%` }}>
                 <Icon name="star" size={size} />
               </span>
             </span>
           );
         })}
       </span>
-      {caption && <span className="pxui-rating-caption">{caption}</span>}
+      {caption && <span className="lui-rating-caption">{caption}</span>}
     </div>
   );
 });

@@ -17,11 +17,11 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(function
 ) {
   if (lines && lines > 1) {
     return (
-      <div ref={ref} className={cn("pxui-skeleton-stack", className)} {...rest}>
+      <div ref={ref} className={cn("lui-skeleton-stack", className)} {...rest}>
         {Array.from({ length: lines }).map((_, index) => (
           <div
             key={index}
-            className="pxui-skeleton"
+            className="lui-skeleton"
             style={{ height, width: index === lines - 1 ? "62%" : "100%" }}
           />
         ))}
@@ -32,7 +32,7 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(function
   return (
     <div
       ref={ref}
-      className={cn("pxui-skeleton", circle && "pxui-skeleton-circle", className)}
+      className={cn("lui-skeleton", circle && "lui-skeleton-circle", className)}
       style={{ width: width ?? "100%", height, ...style }}
       aria-hidden="true"
       {...rest}

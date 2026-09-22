@@ -1,18 +1,18 @@
 /* ============================ OtpInput ============================ */
-.pxui-otp { display: flex; gap: 10px; }
-.pxui-otp-box {
+.lui-otp { display: flex; gap: 10px; }
+.lui-otp-box {
   flex: 1; min-width: 0; width: 100%; height: 58px;
   text-align: center; font-size: 23px; font-weight: 600; font-family: var(--mono);
   background: var(--surface); color: var(--text);
   border: 1px solid var(--border-strong); border-radius: var(--r-md);
   transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
 }
-.pxui-otp-box:focus { outline: none; border-color: var(--accent); box-shadow: var(--ring); }
-.pxui-otp-box:disabled { background: var(--surface-3); color: var(--text-3); cursor: not-allowed; }
+.lui-otp-box:focus { outline: none; border-color: var(--accent); box-shadow: var(--ring); }
+.lui-otp-box:disabled { background: var(--surface-3); color: var(--text-3); cursor: not-allowed; }
 
-.pxui-otp-invalid .pxui-otp-box { border-color: var(--red); }
-.pxui-otp-invalid { animation: pxui-otp-shake .35s var(--ease); }
-@keyframes pxui-otp-shake {
+.lui-otp-invalid .lui-otp-box { border-color: var(--red); }
+.lui-otp-invalid { animation: lui-otp-shake .35s var(--ease); }
+@keyframes lui-otp-shake {
   0%, 100% { transform: translateX(0); }
   20% { transform: translateX(-6px); }
   40% { transform: translateX(6px); }
@@ -21,6 +21,6 @@
 }
 
 @media (max-width: 480px) {
-  .pxui-otp { gap: 7px; }
-  .pxui-otp-box { height: 52px; font-size: 20px; }
+  .lui-otp { gap: 7px; }
+  .lui-otp-box { height: 52px; font-size: 20px; }
 }

@@ -70,15 +70,15 @@ export const Composer = React.forwardRef<HTMLInputElement, ComposerProps>(functi
   const capitalise = (sentence: string) => sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
   return (
-    <div className={cn("pxui-composer", className)} {...rest}>
-      <div className={cn("pxui-composer-box", listening && "pxui-composer-listening")}>
+    <div className={cn("lui-composer", className)} {...rest}>
+      <div className={cn("lui-composer-box", listening && "lui-composer-listening")}>
         <input
           ref={(node) => {
             input.current = node;
             if (typeof ref === "function") ref(node);
             else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
           }}
-          className="pxui-composer-input"
+          className="lui-composer-input"
           placeholder={listening ? "Aan het luisteren…" : placeholder}
           value={text}
           disabled={disabled}
@@ -96,7 +96,7 @@ export const Composer = React.forwardRef<HTMLInputElement, ComposerProps>(functi
           <VoiceButton
             size="sm"
             lang={voiceLang}
-            className="pxui-composer-voice"
+            className="lui-composer-voice"
             onInterim={(spoken) => {
               setListening(true);
               setText(capitalise(spoken));
@@ -116,16 +116,16 @@ export const Composer = React.forwardRef<HTMLInputElement, ComposerProps>(functi
 
         <button
           type="button"
-          className="pxui-composer-submit"
+          className="lui-composer-submit"
           disabled={disabled || !text.trim()}
           onClick={() => submit()}
         >
           <Icon name="plus" size={17} />
-          {submitLabel && <span className="pxui-composer-submit-label">{submitLabel}</span>}
+          {submitLabel && <span className="lui-composer-submit-label">{submitLabel}</span>}
         </button>
       </div>
 
-      {children && <div className="pxui-composer-quick">{children}</div>}
+      {children && <div className="lui-composer-quick">{children}</div>}
     </div>
   );
 });

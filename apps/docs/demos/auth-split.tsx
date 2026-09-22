@@ -10,7 +10,7 @@ import {
   Icon,
   Input,
   SsoButton,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [bezig, setBezig] = useState<string | null>(null);
@@ -23,7 +23,7 @@ export default function Demo() {
           <>
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 700, fontSize: 17 }}>
               <Icon name="idcard" size={22} />
-              ProjectX
+              Lorenthi
             </div>
             <div>
               <h2 style={{ fontSize: 30, lineHeight: 1.15, letterSpacing: "-0.03em", margin: 0 }}>
@@ -35,7 +35,7 @@ export default function Demo() {
                 Agenda, dossiers en facturatie op één plek. Aanmelden kan met eID of itsme®.
               </p>
             </div>
-            <div style={{ fontSize: 13, opacity: 0.7 }}>© 2026 ProjectX — Antwerpen</div>
+            <div style={{ fontSize: 13, opacity: 0.7 }}>© 2026 Lorenthi — Antwerpen</div>
           </>
         }
       >
@@ -55,7 +55,7 @@ export default function Demo() {
               >
                 <Icon name="idcard" size={18} />
               </span>
-              <strong style={{ fontSize: 16 }}>ProjectX</strong>
+              <strong style={{ fontSize: 16 }}>Lorenthi</strong>
             </>
           }
           title="Welkom terug"

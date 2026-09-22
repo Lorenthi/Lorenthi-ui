@@ -44,13 +44,13 @@ export const SendButton = React.forwardRef<HTMLButtonElement, SendButtonProps>(f
   const fout = stage === "error";
 
   return (
-    <span className="pxui-sendb-wrap">
+    <span className="lui-sendb-wrap">
       <motion.button
         ref={ref}
         type="button"
         layout
         data-state={stage}
-        className={cn("pxui-sendb", className)}
+        className={cn("lui-sendb", className)}
         disabled={disabled || bezig || klaar}
         onClick={() => void run()}
         animate={{ opacity: bezig && !traag ? 0 : 1, scale: bezig && !traag ? 0.9 : 1 }}
@@ -60,7 +60,7 @@ export const SendButton = React.forwardRef<HTMLButtonElement, SendButtonProps>(f
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
             key={stage}
-            className="pxui-sendb-label"
+            className="lui-sendb-label"
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
@@ -78,7 +78,7 @@ export const SendButton = React.forwardRef<HTMLButtonElement, SendButtonProps>(f
         {bezig && !traag && (
           <motion.span
             key="plane"
-            className="pxui-sendb-plane"
+            className="lui-sendb-plane"
             initial={{ x: 0, y: 0, scale: 0.7, rotate: -8, opacity: 0 }}
             animate={{ x: [0, 14, 150], y: [0, -6, -90], scale: [0.7, 1, 0.55], rotate: [-8, -12, -24], opacity: [0, 1, 0] }}
             exit={{ opacity: 0 }}

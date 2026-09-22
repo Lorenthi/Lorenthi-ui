@@ -48,15 +48,15 @@ export const Collapsible = React.forwardRef<HTMLDivElement, CollapsibleProps>(fu
       value={{
         open: isOpen,
         setOpen: setIsOpen,
-        contentId: `pxui-collapsible-content-${id}`,
-        triggerId: `pxui-collapsible-trigger-${id}`,
+        contentId: `lui-collapsible-content-${id}`,
+        triggerId: `lui-collapsible-trigger-${id}`,
         disabled,
       }}
     >
       <div
         ref={ref}
         data-state={isOpen ? "open" : "closed"}
-        className={cn("pxui-collapsible", className)}
+        className={cn("lui-collapsible", className)}
         {...rest}
       >
         {children}
@@ -85,7 +85,7 @@ export const CollapsibleTrigger = React.forwardRef<HTMLButtonElement, Collapsibl
         aria-controls={contentId}
         disabled={asChild ? undefined : disabled}
         data-state={open ? "open" : "closed"}
-        className={asChild ? className : cn("pxui-collapsible-trigger", className)}
+        className={asChild ? className : cn("lui-collapsible-trigger", className)}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           onClick?.(event);
           if (!disabled) setOpen(!open);
@@ -94,7 +94,7 @@ export const CollapsibleTrigger = React.forwardRef<HTMLButtonElement, Collapsibl
       >
         {children}
         {chevron && (
-          <span className="pxui-collapsible-chevron" aria-hidden="true">
+          <span className="lui-collapsible-chevron" aria-hidden="true">
             <Icon name="chevronDown" size={16} />
           </span>
         )}
@@ -123,10 +123,10 @@ export const CollapsibleContent = React.forwardRef<HTMLDivElement, CollapsibleCo
         role="region"
         aria-labelledby={triggerId}
         data-state={open ? "open" : "closed"}
-        className={cn("pxui-collapsible-content", className)}
+        className={cn("lui-collapsible-content", className)}
         {...rest}
       >
-        <div className="pxui-collapsible-inner">{children}</div>
+        <div className="lui-collapsible-inner">{children}</div>
       </div>
     );
   }

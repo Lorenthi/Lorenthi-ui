@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Fab, Icon, SpeedDial, SpeedDialAction } from "@projectx/ui";
+import { Fab, Icon, SpeedDial, SpeedDialAction } from "@lorenthi/ui";
 
 export default function Demo() {
   const [laatste, setLaatste] = useState<string>();

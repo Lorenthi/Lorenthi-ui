@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   Avatar, Badge, Button, Icon, ListRow, RowIcon, RowList,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const AGENDA = [
   { tijd: "09:00", naam: "Lisa Vanreppelen", reden: "Controle · diabetische retinopathie", status: "klaar" },

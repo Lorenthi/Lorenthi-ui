@@ -40,7 +40,7 @@ export const Sparkline = React.forwardRef<HTMLDivElement, SparklineProps>(functi
   });
 
   return (
-    <div ref={ref} className={cn("pxui-sparkline", className)} style={{ height }} {...rest}>
+    <div ref={ref} className={cn("lui-sparkline", className)} style={{ height }} {...rest}>
       <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" width="100%" height={height}>
         {filled && (
           <polygon points={`0,${height} ${points.join(" ")} ${width},${height}`} fill={color} opacity="0.12" />
@@ -76,17 +76,17 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(function
   const max = Math.max(...data.map((item) => item.value), 1);
 
   return (
-    <div ref={ref} className={cn("pxui-barchart", className)} style={{ height }} {...rest}>
+    <div ref={ref} className={cn("lui-barchart", className)} style={{ height }} {...rest}>
       {data.map((item, index) => (
-        <div className="pxui-barchart-col" key={`${item.label}-${index}`}>
+        <div className="lui-barchart-col" key={`${item.label}-${index}`}>
           {showValues && (
-            <span className="pxui-barchart-value">
+            <span className="lui-barchart-value">
               {formatValue ? formatValue(item.value) : item.value}
             </span>
           )}
-          <div className="pxui-barchart-track">
+          <div className="lui-barchart-track">
             <div
-              className="pxui-barchart-bar"
+              className="lui-barchart-bar"
               style={{
                 height: `${(item.value / max) * 100}%`,
                 background: item.color ?? color,
@@ -95,7 +95,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(function
               title={`${item.label}: ${item.value}`}
             />
           </div>
-          <span className="pxui-barchart-label">{item.label}</span>
+          <span className="lui-barchart-label">{item.label}</span>
         </div>
       ))}
     </div>
@@ -140,7 +140,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(functi
     });
 
   return (
-    <div ref={ref} className={cn("pxui-linechart", className)} {...rest}>
+    <div ref={ref} className={cn("lui-linechart", className)} {...rest}>
       <svg viewBox={`0 0 ${width} ${height}`} width="100%" height={height} preserveAspectRatio="none">
         {grid &&
           [0, 0.25, 0.5, 0.75, 1].map((fraction) => (
@@ -150,7 +150,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(functi
               x2={width}
               y1={padding + fraction * (height - padding * 2)}
               y2={padding + fraction * (height - padding * 2)}
-              className="pxui-linechart-grid"
+              className="lui-linechart-grid"
             />
           ))}
         {series.map((entry, index) => {
@@ -180,7 +180,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(functi
         })}
       </svg>
       {labels && (
-        <div className="pxui-linechart-labels">
+        <div className="lui-linechart-labels">
           {labels.map((label) => (
             <span key={label}>{label}</span>
           ))}
@@ -218,8 +218,8 @@ export const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>(func
   let offset = 0;
 
   return (
-    <div ref={ref} className={cn("pxui-donut", className)} {...rest}>
-      <div className="pxui-donut-figure" style={{ width: size, height: size }}>
+    <div ref={ref} className={cn("lui-donut", className)} {...rest}>
+      <div className="lui-donut-figure" style={{ width: size, height: size }}>
         <svg width={size} height={size}>
           <circle
             cx={size / 2}
@@ -227,7 +227,7 @@ export const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>(func
             r={radius}
             fill="none"
             strokeWidth={thickness}
-            className="pxui-donut-track"
+            className="lui-donut-track"
           />
           {data.map((item, index) => {
             const fraction = item.value / total;
@@ -253,9 +253,9 @@ export const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>(func
           })}
         </svg>
         {(centerValue || centerLabel) && (
-          <div className="pxui-donut-center">
-            {centerValue && <span className="pxui-donut-value">{centerValue}</span>}
-            {centerLabel && <span className="pxui-donut-label">{centerLabel}</span>}
+          <div className="lui-donut-center">
+            {centerValue && <span className="lui-donut-value">{centerValue}</span>}
+            {centerLabel && <span className="lui-donut-label">{centerLabel}</span>}
           </div>
         )}
       </div>
@@ -284,12 +284,12 @@ export const ChartLegend = React.forwardRef<HTMLDivElement, ChartLegendProps>(fu
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-legend", vertical && "pxui-legend-vertical", className)} {...rest}>
+    <div ref={ref} className={cn("lui-legend", vertical && "lui-legend-vertical", className)} {...rest}>
       {items.map((item) => (
-        <span className="pxui-legend-item" key={item.label}>
-          <span className="pxui-legend-swatch" style={{ background: item.color }} />
+        <span className="lui-legend-item" key={item.label}>
+          <span className="lui-legend-swatch" style={{ background: item.color }} />
           {item.label}
-          {item.value !== undefined && <span className="pxui-legend-value">{item.value}</span>}
+          {item.value !== undefined && <span className="lui-legend-value">{item.value}</span>}
         </span>
       ))}
     </div>

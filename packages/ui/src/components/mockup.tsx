@@ -18,16 +18,16 @@ export const MockupBrowser = React.forwardRef<HTMLDivElement, MockupBrowserProps
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-mockup", "pxui-mockup-browser", dark && "pxui-mockup-dark", className)} {...rest}>
-      <div className="pxui-mockup-bar">
+    <div ref={ref} className={cn("lui-mockup", "lui-mockup-browser", dark && "lui-mockup-dark", className)} {...rest}>
+      <div className="lui-mockup-bar">
         {!hideDots && <Dots />}
         {url !== undefined && (
-          <span className="pxui-mockup-url" title={url}>
+          <span className="lui-mockup-url" title={url}>
             {url}
           </span>
         )}
       </div>
-      <div className="pxui-mockup-screen">{children}</div>
+      <div className="lui-mockup-screen">{children}</div>
     </div>
   );
 });
@@ -45,12 +45,12 @@ export const MockupWindow = React.forwardRef<HTMLDivElement, MockupWindowProps>(
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-mockup", "pxui-mockup-window", dark && "pxui-mockup-dark", className)} {...rest}>
-      <div className="pxui-mockup-bar">
+    <div ref={ref} className={cn("lui-mockup", "lui-mockup-window", dark && "lui-mockup-dark", className)} {...rest}>
+      <div className="lui-mockup-bar">
         {!hideDots && <Dots />}
-        {title && <span className="pxui-mockup-title">{title}</span>}
+        {title && <span className="lui-mockup-title">{title}</span>}
       </div>
-      <div className="pxui-mockup-screen">{children}</div>
+      <div className="lui-mockup-screen">{children}</div>
     </div>
   );
 });
@@ -111,36 +111,36 @@ export const MockupPhone = React.forwardRef<HTMLDivElement, MockupPhoneProps>(fu
   return (
     <div
       ref={ref}
-      className={cn("pxui-mockup-phone", className)}
+      className={cn("lui-mockup-phone", className)}
       style={
         {
-          "--pxui-phone-w": `${width}px`,
-          ...(frameColor ? { "--pxui-phone-ring": frameColor } : {}),
-          ...(screen ? { "--pxui-phone-screen": screen } : {}),
-          ...(wallpaper ? { "--pxui-phone-wallpaper": `url("${wallpaper}")` } : {}),
+          "--lui-phone-w": `${width}px`,
+          ...(frameColor ? { "--lui-phone-ring": frameColor } : {}),
+          ...(screen ? { "--lui-phone-screen": screen } : {}),
+          ...(wallpaper ? { "--lui-phone-wallpaper": `url("${wallpaper}")` } : {}),
           ...style,
         } as React.CSSProperties
       }
       {...rest}
     >
-      <div className="pxui-mockup-phone-frame" style={{ aspectRatio: `1 / ${ratio}` }}>
+      <div className="lui-mockup-phone-frame" style={{ aspectRatio: `1 / ${ratio}` }}>
         {buttons && (
           <>
-            <span className="pxui-mockup-phone-btn pxui-mockup-phone-silent" aria-hidden="true" />
-            <span className="pxui-mockup-phone-btn pxui-mockup-phone-vol-up" aria-hidden="true" />
-            <span className="pxui-mockup-phone-btn pxui-mockup-phone-vol-down" aria-hidden="true" />
-            <span className="pxui-mockup-phone-btn pxui-mockup-phone-power" aria-hidden="true" />
+            <span className="lui-mockup-phone-btn lui-mockup-phone-silent" aria-hidden="true" />
+            <span className="lui-mockup-phone-btn lui-mockup-phone-vol-up" aria-hidden="true" />
+            <span className="lui-mockup-phone-btn lui-mockup-phone-vol-down" aria-hidden="true" />
+            <span className="lui-mockup-phone-btn lui-mockup-phone-power" aria-hidden="true" />
           </>
         )}
 
-        <div className="pxui-mockup-phone-screen" data-top={top} data-tone={tone(screenTone, screen, wallpaper)}>
+        <div className="lui-mockup-phone-screen" data-top={top} data-tone={tone(screenTone, screen, wallpaper)}>
           {(statusBar !== false || top !== "none") && (
-            <div className="pxui-mockup-phone-status">
-              {top !== "none" && <span className={cn("pxui-mockup-phone-top", `pxui-mockup-phone-${top}`)} />}
+            <div className="lui-mockup-phone-status">
+              {top !== "none" && <span className={cn("lui-mockup-phone-top", `lui-mockup-phone-${top}`)} />}
               {statusBar === true ? (
                 <>
-                  <span className="pxui-mockup-phone-time">{time}</span>
-                  <span className="pxui-mockup-phone-icons" aria-hidden="true">
+                  <span className="lui-mockup-phone-time">{time}</span>
+                  <span className="lui-mockup-phone-icons" aria-hidden="true">
                     <Signaal />
                     <Wifi />
                     <Batterij />
@@ -152,9 +152,9 @@ export const MockupPhone = React.forwardRef<HTMLDivElement, MockupPhoneProps>(fu
             </div>
           )}
 
-          <div className="pxui-mockup-phone-content">{children}</div>
+          <div className="lui-mockup-phone-content">{children}</div>
 
-          {homeBar && <span className="pxui-mockup-phone-home" aria-hidden="true" />}
+          {homeBar && <span className="lui-mockup-phone-home" aria-hidden="true" />}
         </div>
       </div>
     </div>
@@ -242,7 +242,7 @@ function Batterij() {
 
 function Dots() {
   return (
-    <span className="pxui-mockup-dots" aria-hidden="true">
+    <span className="lui-mockup-dots" aria-hidden="true">
       <span />
       <span />
       <span />

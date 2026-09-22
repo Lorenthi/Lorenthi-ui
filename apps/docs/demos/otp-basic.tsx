@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Field, OtpInput } from "@projectx/ui";
+import { Field, OtpInput } from "@lorenthi/ui";
 
 export default function Demo() {
   const [code, setCode] = useState("");

@@ -3,11 +3,11 @@ import { useMemo, useState } from "react";
 import {
   Avatar, Badge, Button, Icon, Input, Pagination, Table, TableBody, TableCell, TableHead, TableHeader,
   TableRow, TableToolbar,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const RIJEN = [
   { naam: "ITWORXS BV", contact: "Davey Verhoeven", seats: 24, status: "actief", bedrag: 696 },
-  { naam: "ProjectX NV", contact: "Ilse Peeters", seats: 112, status: "actief", bedrag: 3248 },
+  { naam: "Lorenthi NV", contact: "Ilse Peeters", seats: 112, status: "actief", bedrag: 3248 },
   { naam: "Delta Solutions", contact: "Karim Aznar", seats: 8, status: "proef", bedrag: 0 },
   { naam: "Noord Logistiek", contact: "Sofie Claes", seats: 46, status: "achterstallig", bedrag: 1334 },
 ];

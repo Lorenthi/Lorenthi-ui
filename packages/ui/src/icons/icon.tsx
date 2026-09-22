@@ -8,7 +8,7 @@ export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "name"> {
 }
 
 /**
- * Icon — rendert één glyph uit de eigen ProjectX UI icon set.
+ * Icon — rendert één glyph uit de eigen Lorenthi UI icon set.
  * Kleur volgt `currentColor`, dus elk component stuurt de kleur via CSS.
  */
 export const Icon = React.forwardRef<SVGSVGElement, IconProps>(function Icon(

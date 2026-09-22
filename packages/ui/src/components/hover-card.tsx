@@ -91,7 +91,7 @@ export const HoverCardTrigger = React.forwardRef<HTMLElement, HoverCardTriggerPr
     return (
       <Comp
         ref={composeRefs(ref, anchorRef)}
-        className={asChild ? className : cn("pxui-hovercard-trigger", className)}
+        className={asChild ? className : cn("lui-hovercard-trigger", className)}
         onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
           onMouseEnter?.(event);
           openen();
@@ -140,7 +140,7 @@ export const HoverCardContent = React.forwardRef<HTMLDivElement, HoverCardConten
           ref={composeRefs(ref, contentRef)}
           role="tooltip"
           data-side={position.side}
-          className={cn("pxui-hovercard", className)}
+          className={cn("lui-hovercard", className)}
           style={{ width, ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
           onMouseEnter={openen}
           onMouseLeave={sluiten}

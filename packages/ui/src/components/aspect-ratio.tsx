@@ -18,7 +18,7 @@ export const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>(fu
   return (
     <div
       ref={ref}
-      className={cn("pxui-aspect", className)}
+      className={cn("lui-aspect", className)}
       style={{ aspectRatio: String(ratio), ...style }}
       {...rest}
     />

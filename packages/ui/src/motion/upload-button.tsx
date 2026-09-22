@@ -143,12 +143,12 @@ export const UploadButton = React.forwardRef<HTMLDivElement, UploadButtonProps>(
   const fout = stage === "error";
 
   return (
-    <div ref={ref} data-stage={stage} className={cn("pxui-upb", className)} {...rest}>
+    <div ref={ref} data-stage={stage} className={cn("lui-upb", className)} {...rest}>
       <input
         ref={veld}
         type="file"
         accept={accept}
-        className="pxui-upb-file"
+        className="lui-upb-file"
         tabIndex={-1}
         disabled={disabled}
         onChange={(event) => kies(event.target.files?.[0] ?? null)}
@@ -156,18 +156,18 @@ export const UploadButton = React.forwardRef<HTMLDivElement, UploadButtonProps>(
 
       <button
         type="button"
-        className="pxui-upb-field"
+        className="lui-upb-field"
         disabled={disabled || bezig}
         onClick={() => veld.current?.click()}
       >
         <Icon name="file" size={15} />
-        <span className="pxui-upb-name">{bestand ? bestand.name : woorden.placeholder}</span>
+        <span className="lui-upb-name">{bestand ? bestand.name : woorden.placeholder}</span>
       </button>
 
       <motion.button
         type="button"
         layout
-        className="pxui-upb-action"
+        className="lui-upb-action"
         data-state={stage}
         disabled={disabled || !bestand || bezig || klaar}
         onClick={start}
@@ -175,7 +175,7 @@ export const UploadButton = React.forwardRef<HTMLDivElement, UploadButtonProps>(
       >
         {/* de vullende balk kruipt mee met de voortgang */}
         <motion.span
-          className="pxui-upb-progress"
+          className="lui-upb-progress"
           animate={{ scaleX: bezig || klaar ? deel : 0 }}
           transition={{ duration: traag ? 0 : 0.25, ease: "easeOut" }}
           aria-hidden="true"
@@ -183,7 +183,7 @@ export const UploadButton = React.forwardRef<HTMLDivElement, UploadButtonProps>(
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
             key={stage}
-            className="pxui-upb-label"
+            className="lui-upb-label"
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
@@ -196,7 +196,7 @@ export const UploadButton = React.forwardRef<HTMLDivElement, UploadButtonProps>(
         </AnimatePresence>
       </motion.button>
 
-      <span className="pxui-sr-only" aria-live="polite">
+      <span className="lui-sr-only" aria-live="polite">
         {bezig ? `${Math.round(deel * 100)}%` : klaar ? "Upload klaar" : fout ? "Upload mislukt" : ""}
       </span>
     </div>

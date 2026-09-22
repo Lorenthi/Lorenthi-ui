@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Card, CardContent, SwatchPicker } from "@projectx/ui";
+import { Card, CardContent, SwatchPicker } from "@lorenthi/ui";
 
 const TOKENS = ["var(--accent)", "var(--violet)", "var(--green)", "var(--amber)", "var(--red)", "var(--blue)"];
 

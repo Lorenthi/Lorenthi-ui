@@ -63,7 +63,7 @@ export const Container = React.forwardRef<HTMLElement, ContainerProps>(function 
       data-size={size}
       data-padded={padded ? "" : undefined}
       {...data({ gap, align, justify })}
-      className={cn("pxui-container", className)}
+      className={cn("lui-container", className)}
       {...rest}
     />
   );
@@ -79,7 +79,7 @@ export const Stack = React.forwardRef<HTMLElement, StackProps>(function Stack(
       ref={ref}
       data-divided={divided ? "" : undefined}
       {...data({ gap, align, justify })}
-      className={cn("pxui-stack", className)}
+      className={cn("lui-stack", className)}
       {...rest}
     />
   );
@@ -95,7 +95,7 @@ export const Row = React.forwardRef<HTMLElement, RowProps>(function Row(
       ref={ref}
       data-wrap={wrap ? "" : undefined}
       {...data({ gap, align, justify })}
-      className={cn("pxui-row", className)}
+      className={cn("lui-row", className)}
       {...rest}
     />
   );
@@ -110,11 +110,11 @@ export const Grid = React.forwardRef<HTMLElement, GridProps>(function Grid(
     <Comp
       ref={ref}
       {...data({ gap, align, justify })}
-      className={cn("pxui-grid", className)}
+      className={cn("lui-grid", className)}
       style={
         {
-          "--pxui-grid-cols": cols ? `repeat(${cols}, minmax(0, 1fr))` : undefined,
-          "--pxui-grid-min": `${min}px`,
+          "--lui-grid-cols": cols ? `repeat(${cols}, minmax(0, 1fr))` : undefined,
+          "--lui-grid-min": `${min}px`,
           ...style,
         } as React.CSSProperties
       }
@@ -132,7 +132,7 @@ export const Spacer = React.forwardRef<HTMLSpanElement, SpacerProps>(function Sp
     <span
       ref={ref}
       aria-hidden="true"
-      className={cn("pxui-spacer", className)}
+      className={cn("lui-spacer", className)}
       style={{
         flex: size === undefined ? 1 : "none",
         width: horizontal ? size : undefined,

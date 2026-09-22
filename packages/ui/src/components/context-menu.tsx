@@ -73,7 +73,7 @@ export const ContextMenuTrigger = React.forwardRef<HTMLDivElement, ContextMenuTr
     return (
       <Comp
         ref={ref}
-        className={asChild ? className : cn("pxui-context-trigger", className)}
+        className={asChild ? className : cn("lui-context-trigger", className)}
         onContextMenu={(event: React.MouseEvent<HTMLDivElement>) => {
           onContextMenu?.(event);
           if (disabled) return;

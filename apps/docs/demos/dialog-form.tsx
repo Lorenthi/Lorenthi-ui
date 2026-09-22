@@ -2,7 +2,7 @@
 import {
   Button, Dialog, DialogBody, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader,
   DialogTitle, DialogTrigger, Field, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   return (

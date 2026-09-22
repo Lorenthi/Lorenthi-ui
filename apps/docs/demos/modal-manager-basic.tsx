@@ -4,7 +4,7 @@ import {
   Button, Dialog, DialogBody, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, Field, Icon, Input, Select,
   SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea, ModalProvider, createModals, useModal,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 /* ---------- 1. Elke modal is een gewoon component met onClose ---------- */
 function VoorschriftModal({ patient, onClose }: { patient: string; onClose: () => void }) {

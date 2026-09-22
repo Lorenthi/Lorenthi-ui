@@ -83,14 +83,14 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(f
           aria-describedby={field["aria-describedby"]}
           data-state={open ? "open" : "closed"}
           className={cn(
-            "pxui-datefield",
-            `pxui-datefield-${size}`,
-            field.invalid && "pxui-datefield-invalid",
+            "lui-datefield",
+            `lui-datefield-${size}`,
+            field.invalid && "lui-datefield-invalid",
             className
           )}
         >
-          <Icon name="calendar" size={16} className="pxui-datefield-icon" />
-          <span className={cn("pxui-datefield-value", !date && "pxui-datefield-placeholder")}>
+          <Icon name="calendar" size={16} className="lui-datefield-icon" />
+          <span className={cn("lui-datefield-value", !date && "lui-datefield-placeholder")}>
             {date ? formatDate(date, format, locale) : placeholder}
           </span>
           {clearable && date && !field.disabled && (
@@ -98,7 +98,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(f
               role="button"
               tabIndex={-1}
               aria-label="Datum wissen"
-              className="pxui-datefield-clear"
+              className="lui-datefield-clear"
               onClick={(event) => {
                 event.stopPropagation();
                 setDate(null);
@@ -110,7 +110,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(f
         </button>
       </PopoverTrigger>
 
-      <PopoverContent align="start" flush className="pxui-datefield-popover">
+      <PopoverContent align="start" flush className="lui-datefield-popover">
         <Calendar
           mode="single"
           selected={date}
@@ -124,7 +124,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(f
             showToday ? (
               <button
                 type="button"
-                className="pxui-datefield-today"
+                className="lui-datefield-today"
                 onClick={() => {
                   setDate(new Date());
                   setOpen(false);
@@ -199,14 +199,14 @@ export const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePick
             aria-invalid={invalid || undefined}
             data-state={open ? "open" : "closed"}
             className={cn(
-              "pxui-datefield",
-              `pxui-datefield-${size}`,
-              invalid && "pxui-datefield-invalid",
+              "lui-datefield",
+              `lui-datefield-${size}`,
+              invalid && "lui-datefield-invalid",
               className
             )}
           >
-            <Icon name="calendar" size={16} className="pxui-datefield-icon" />
-            <span className={cn("pxui-datefield-value", !range?.from && "pxui-datefield-placeholder")}>
+            <Icon name="calendar" size={16} className="lui-datefield-icon" />
+            <span className={cn("lui-datefield-value", !range?.from && "lui-datefield-placeholder")}>
               {label}
             </span>
             {clearable && range?.from && !disabledInput && (
@@ -214,7 +214,7 @@ export const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePick
                 role="button"
                 tabIndex={-1}
                 aria-label="Periode wissen"
-                className="pxui-datefield-clear"
+                className="lui-datefield-clear"
                 onClick={(event) => {
                   event.stopPropagation();
                   setRange({});
@@ -226,15 +226,15 @@ export const DateRangePicker = React.forwardRef<HTMLButtonElement, DateRangePick
           </button>
         </PopoverTrigger>
 
-        <PopoverContent align="start" flush className="pxui-datefield-popover">
-          <div className="pxui-daterange">
+        <PopoverContent align="start" flush className="lui-datefield-popover">
+          <div className="lui-daterange">
             {presets && presets.length > 0 && (
-              <div className="pxui-daterange-presets">
+              <div className="lui-daterange-presets">
                 {presets.map((preset) => (
                   <button
                     key={preset.label}
                     type="button"
-                    className="pxui-daterange-preset"
+                    className="lui-daterange-preset"
                     onClick={() => {
                       setRange(preset.range);
                       setOpen(false);

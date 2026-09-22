@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Avatar, Composer, Message, MessageDay, MessageThread } from "@projectx/ui";
+import { Avatar, Composer, Message, MessageDay, MessageThread } from "@lorenthi/ui";
 
 interface Bericht {
   id: number;

@@ -1,5 +1,5 @@
 "use client";
-import { BarChart, Card, CardContent, CardHeader, CardTitle, LineChart } from "@projectx/ui";
+import { BarChart, Card, CardContent, CardHeader, CardTitle, LineChart } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

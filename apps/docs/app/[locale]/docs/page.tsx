@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Alert, Badge, Button, Card, CardContent, Icon } from "@projectx/ui";
+import { Alert, Badge, Button, Card, CardContent, Icon } from "@lorenthi/ui";
 import { COMPONENTS, componentsByCategory, entryTag } from "@/content/catalog";
 import { DocsTag } from "@/components/docs-tag";
 import { richTags } from "@/components/rich";
@@ -44,7 +44,7 @@ export default async function DocsIntroPage({ params }: { params: Promise<{ loca
   return (
     <div className="docs-body">
       <Badge tone="accent">{t("badge")}</Badge>
-      <h1 className="docs-title" style={{ marginTop: 14 }}>ProjectX UI</h1>
+      <h1 className="docs-title" style={{ marginTop: 14 }}>Lorenthi UI</h1>
       <p className="docs-lead">{t.rich("lead", richTags)}</p>
 
       <div className="docs-section">
@@ -100,7 +100,7 @@ export default async function DocsIntroPage({ params }: { params: Promise<{ loca
         <h2 className="docs-section-title">{t("overviewTitle")}</h2>
         {groups.map((group) => (
           <div key={group.category} style={{ marginTop: 20 }}>
-            <div className="pxui-eyebrow">
+            <div className="lui-eyebrow">
               {CATEGORY_KEYS[group.category] ? tCategory(CATEGORY_KEYS[group.category]) : group.category}
             </div>
             <div style={{ display: "grid", gap: 8, marginTop: 10, gridTemplateColumns: "repeat(auto-fill, minmax(210px, 1fr))" }}>

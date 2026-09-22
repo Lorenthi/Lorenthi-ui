@@ -15,7 +15,7 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(function Sp
   return (
     <svg
       ref={ref}
-      className={cn("pxui-spinner", className)}
+      className={cn("lui-spinner", className)}
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -25,8 +25,8 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(function Sp
       aria-hidden={label ? undefined : true}
       {...rest}
     >
-      <circle className="pxui-spinner-track" cx="12" cy="12" r="9" strokeWidth="2.5" />
-      <path className="pxui-spinner-head" d="M21 12a9 9 0 00-9-9" strokeWidth="2.5" strokeLinecap="round" />
+      <circle className="lui-spinner-track" cx="12" cy="12" r="9" strokeWidth="2.5" />
+      <path className="lui-spinner-head" d="M21 12a9 9 0 00-9-9" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 });

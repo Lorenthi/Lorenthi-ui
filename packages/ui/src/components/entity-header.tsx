@@ -42,50 +42,50 @@ export const EntityHeader = React.forwardRef<HTMLDivElement, EntityHeaderProps>(
       <div
         ref={ref}
         className={cn(
-          "pxui-entity",
-          `pxui-entity-${size}`,
-          divider && "pxui-entity-divider",
+          "lui-entity",
+          `lui-entity-${size}`,
+          divider && "lui-entity-divider",
           className
         )}
         {...rest}
       >
-        {media && <div className="pxui-entity-media">{media}</div>}
+        {media && <div className="lui-entity-media">{media}</div>}
 
-        <div className="pxui-entity-identity">
-          <h1 className="pxui-entity-title">
+        <div className="lui-entity-identity">
+          <h1 className="lui-entity-title">
             {title}
-            {titleSuffix && <span className="pxui-entity-suffix">{titleSuffix}</span>}
+            {titleSuffix && <span className="lui-entity-suffix">{titleSuffix}</span>}
           </h1>
-          {meta && <div className="pxui-entity-meta">{meta}</div>}
+          {meta && <div className="lui-entity-meta">{meta}</div>}
         </div>
 
-        {tags && <div className="pxui-entity-tags">{tags}</div>}
+        {tags && <div className="lui-entity-tags">{tags}</div>}
 
         {details && details.length > 0 && (
-          <div className="pxui-entity-details">
+          <div className="lui-entity-details">
             {details.map((detail, index) => {
               const content = (
                 <>
-                  {detail.icon && <span className="pxui-entity-detail-icon">{detail.icon}</span>}
+                  {detail.icon && <span className="lui-entity-detail-icon">{detail.icon}</span>}
                   {detail.label}
                 </>
               );
               if (detail.href) {
                 return (
-                  <a key={index} className="pxui-entity-detail" href={detail.href}>
+                  <a key={index} className="lui-entity-detail" href={detail.href}>
                     {content}
                   </a>
                 );
               }
               if (detail.onClick) {
                 return (
-                  <button key={index} type="button" className="pxui-entity-detail" onClick={detail.onClick}>
+                  <button key={index} type="button" className="lui-entity-detail" onClick={detail.onClick}>
                     {content}
                   </button>
                 );
               }
               return (
-                <span key={index} className="pxui-entity-detail pxui-entity-detail-static">
+                <span key={index} className="lui-entity-detail lui-entity-detail-static">
                   {content}
                 </span>
               );
@@ -93,7 +93,7 @@ export const EntityHeader = React.forwardRef<HTMLDivElement, EntityHeaderProps>(
           </div>
         )}
 
-        {actions && <div className="pxui-entity-actions">{actions}</div>}
+        {actions && <div className="lui-entity-actions">{actions}</div>}
         {children}
       </div>
     );

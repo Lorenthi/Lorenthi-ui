@@ -2,7 +2,7 @@
 import {
   Badge, Button, Card, CardContent, Checkbox, Icon, ListRow, Progress, RowList,
   SectionHeader, Workspace, WorkspaceMain, WorkspacePanel, WorkspaceRail,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const STAPPEN = ["Anamnese", "Metingen", "Onderzoek", "Besluit", "Afronden"];
 

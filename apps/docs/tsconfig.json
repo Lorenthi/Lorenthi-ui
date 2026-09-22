@@ -5,7 +5,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./*"],
-      "@projectx/ui": ["../../packages/ui/src/index.ts"]
+      "@lorenthi/ui": ["../../packages/ui/src/index.ts"]
     },
     "incremental": true
   },

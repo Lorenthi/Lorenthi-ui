@@ -19,7 +19,7 @@ export const MotionSegmented = React.forwardRef<HTMLDivElement, MotionSegmentedP
   ref
 ) {
   const auto = React.useId();
-  const id = layoutId ?? `pxui-segmented-${auto}`;
+  const id = layoutId ?? `lui-segmented-${auto}`;
   const reduced = useReducedMotion();
 
   const [current, setCurrent] = useControllableState<string | undefined>({
@@ -34,10 +34,10 @@ export const MotionSegmented = React.forwardRef<HTMLDivElement, MotionSegmentedP
         ref={ref}
         role="tablist"
         className={cn(
-          "pxui-segmented",
-          `pxui-segmented-${size}`,
-          block && "pxui-segmented-block",
-          "pxui-motion-segmented",
+          "lui-segmented",
+          `lui-segmented-${size}`,
+          block && "lui-segmented-block",
+          "lui-motion-segmented",
           className
         )}
         {...rest}
@@ -53,19 +53,19 @@ export const MotionSegmented = React.forwardRef<HTMLDivElement, MotionSegmentedP
               aria-label={option.ariaLabel}
               disabled={option.disabled}
               data-state={active ? "active" : "inactive"}
-              className="pxui-segmented-item"
+              className="lui-segmented-item"
               onClick={() => setCurrent(option.value)}
             >
               {active && (
                 <motion.span
-                  layoutId="pxui-segmented-indicator"
-                  className="pxui-motion-segmented-indicator"
+                  layoutId="lui-segmented-indicator"
+                  className="lui-motion-segmented-indicator"
                   transition={
                     reduced ? { duration: 0 } : { type: "spring", stiffness: 480, damping: 38, mass: 0.7 }
                   }
                 />
               )}
-              {option.icon && <span className="pxui-segmented-icon">{option.icon}</span>}
+              {option.icon && <span className="lui-segmented-icon">{option.icon}</span>}
               {option.label}
             </button>
           );

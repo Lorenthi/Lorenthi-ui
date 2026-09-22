@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Swimlanes, type ScheduleEvent, type ScheduleResource } from "@projectx/ui";
+import { Avatar, Swimlanes, type ScheduleEvent, type ScheduleResource } from "@lorenthi/ui";
 
 const KAMERS: ScheduleResource[] = [
   { key: "k1", label: "Kabinet 1", sublabel: "Dr. Reyniers", media: <Avatar name="K 1" size={26} square /> },

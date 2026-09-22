@@ -1,7 +1,7 @@
 /**
- * ProjectX UI — eigen icon set.
+ * Lorenthi UI — eigen icon set.
  * Eén <path>-string per glyph, 24x24 grid, stroke-based (2px, ronde caps).
- * Zelfde tekenstijl als het ProjectX UI-design. Geen icon-library nodig.
+ * Zelfde tekenstijl als het Lorenthi UI-design. Geen icon-library nodig.
  */
 export const ICONS = {
   /* navigatie / chevrons */

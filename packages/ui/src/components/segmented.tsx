@@ -37,7 +37,7 @@ export const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>(functi
     <div
       ref={ref}
       role="tablist"
-      className={cn("pxui-segmented", `pxui-segmented-${size}`, block && "pxui-segmented-block", className)}
+      className={cn("lui-segmented", `lui-segmented-${size}`, block && "lui-segmented-block", className)}
       {...rest}
     >
       {options.map((option) => (
@@ -49,10 +49,10 @@ export const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>(functi
           aria-label={option.ariaLabel}
           disabled={option.disabled}
           data-state={current === option.value ? "active" : "inactive"}
-          className="pxui-segmented-item"
+          className="lui-segmented-item"
           onClick={() => setCurrent(option.value)}
         >
-          {option.icon && <span className="pxui-segmented-icon">{option.icon}</span>}
+          {option.icon && <span className="lui-segmented-icon">{option.icon}</span>}
           {option.label}
         </button>
       ))}

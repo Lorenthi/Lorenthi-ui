@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Icon, Timeline, TimelineItem } from "@projectx/ui";
+import { Badge, Icon, Timeline, TimelineItem } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

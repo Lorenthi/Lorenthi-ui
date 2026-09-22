@@ -113,32 +113,32 @@ async function testAlles(page, basis) {
   console.log("\nContextMenu");
   await ga("/docs/componenten/context-menu");
   {
-    const zone = await page.$(".pxui-context-trigger div");
+    const zone = await page.$(".lui-context-trigger div");
     const doos = await zone.boundingBox();
     await page.mouse.click(doos.x + 100, doos.y + 60, { button: "right" });
     await wacht(350);
-    check("opent bij rechtermuisklik", Boolean(await page.$(".pxui-menu")));
+    check("opent bij rechtermuisklik", Boolean(await page.$(".lui-menu")));
 
-    const eerste = await (await page.$(".pxui-menu")).boundingBox();
+    const eerste = await (await page.$(".lui-menu")).boundingBox();
     await page.mouse.click(doos.x + 20, doos.y + 20, { button: "right" });
     await wacht(400);
-    const tweede = await (await page.$(".pxui-menu")).boundingBox();
+    const tweede = await (await page.$(".lui-menu")).boundingBox();
     check("verhuist mee met de cursor", Math.abs(tweede.x - eerste.x) > 50,
       `x ${Math.round(eerste.x)} -> ${Math.round(tweede.x)}`);
 
-    const items = await page.$$("[data-pxui-menuitem]");
+    const items = await page.$$("[data-lui-menuitem]");
     await items[0].click();
     await wacht(300);
-    check("sluit na een keuze", !(await page.$(".pxui-menu")));
+    check("sluit na een keuze", !(await page.$(".lui-menu")));
     check("geeft de keuze door", (await page.evaluate(() => document.body.innerText)).includes("Gekozen: Details"));
   }
 
   console.log("\nHoverCard");
   await ga("/docs/componenten/hover-card");
   {
-    await (await page.$(".pxui-hovercard-trigger")).hover();
+    await (await page.$(".lui-hovercard-trigger")).hover();
     await wacht(700);
-    const kaart = await page.$(".pxui-hovercard");
+    const kaart = await page.$(".lui-hovercard");
     check("opent bij hoveren", Boolean(kaart));
     if (kaart) {
       const tekst = await page.evaluate((el) => el.innerText, kaart);
@@ -146,44 +146,44 @@ async function testAlles(page, basis) {
     }
     await page.mouse.move(5, 5);
     await wacht(600);
-    check("sluit weer", !(await page.$(".pxui-hovercard")));
+    check("sluit weer", !(await page.$(".lui-hovercard")));
   }
 
   console.log("\nMessageThread");
   await ga("/docs/componenten/message-thread");
   {
-    const voor = (await page.$$(".pxui-message")).length;
-    await page.type(".pxui-composer textarea, .pxui-composer input", "Creditnota is verstuurd.");
+    const voor = (await page.$$(".lui-message")).length;
+    await page.type(".lui-composer textarea, .lui-composer input", "Creditnota is verstuurd.");
     await page.keyboard.press("Enter");
     await wacht(400);
-    const na = (await page.$$(".pxui-message")).length;
+    const na = (await page.$$(".lui-message")).length;
     check("Composer voegt een bericht toe", na === voor + 1, `${voor} -> ${na}`);
   }
 
   console.log("\nMockup");
   await ga("/docs/componenten/mockup");
   {
-    check("browserframe staat er", Boolean(await page.$(".pxui-mockup-browser")));
+    check("browserframe staat er", Boolean(await page.$(".lui-mockup-browser")));
     for (const knop of await page.$$('[role="tab"]')) {
       if ((await page.evaluate((el) => el.innerText.trim(), knop)) === "Telefoon") await knop.click();
     }
     await wacht(400);
-    check("wisselt naar het telefoonframe", Boolean(await page.$(".pxui-mockup-phone")));
-    const status = await page.$(".pxui-mockup-phone-status");
+    check("wisselt naar het telefoonframe", Boolean(await page.$(".lui-mockup-phone")));
+    const status = await page.$(".lui-mockup-phone-status");
     check("telefoon heeft een statusbalk", Boolean(status));
   }
 
   console.log("\nTimeline");
   await ga("/docs/componenten/timeline");
-  check("tekent alle stippen", (await page.$$(".pxui-timeline-item")).length === 5);
+  check("tekent alle stippen", (await page.$$(".lui-timeline-item")).length === 5);
 
   console.log("\nResizable");
   await ga("/docs/componenten/resizable");
   {
-    const breedte = async () => (await (await page.$(".pxui-resizable-panel")).boundingBox()).width;
+    const breedte = async () => (await (await page.$(".lui-resizable-panel")).boundingBox()).width;
     const voor = await breedte();
 
-    const greep = await page.$(".pxui-resizable-handle");
+    const greep = await page.$(".lui-resizable-handle");
     const doos = await greep.boundingBox();
     await page.mouse.move(doos.x + doos.width / 2, doos.y + doos.height / 2);
     await page.mouse.down();
@@ -201,55 +201,55 @@ async function testAlles(page, basis) {
 
     for (let i = 0; i < 40; i += 1) await page.keyboard.press("ArrowLeft");
     await wacht(300);
-    const groep = (await (await page.$(".pxui-resizable")).boundingBox()).width;
+    const groep = (await (await page.$(".lui-resizable")).boundingBox()).width;
     check("minSize houdt stand", (await breedte()) / groep > 0.18);
   }
 
   console.log("\nCarousel");
   await ga("/docs/componenten/carousel");
   {
-    const spoor = await page.$(".pxui-carousel-track");
+    const spoor = await page.$(".lui-carousel-track");
     const begin = await page.evaluate((el) => el.scrollLeft, spoor);
-    const knoppen = await page.$$(".pxui-carousel-btn");
+    const knoppen = await page.$$(".lui-carousel-btn");
     await knoppen[1].click();
     await wacht(700);
     check("volgende schuift op", (await page.evaluate((el) => el.scrollLeft, spoor)) > begin + 50);
 
-    const actief = await page.$$eval(".pxui-carousel-dot", (els) =>
+    const actief = await page.$$eval(".lui-carousel-dot", (els) =>
       els.findIndex((el) => el.hasAttribute("data-active"))
     );
     check("de stip volgt de positie", actief === 1);
 
-    const stippen = await page.$$(".pxui-carousel-dot");
+    const stippen = await page.$$(".lui-carousel-dot");
     await stippen[stippen.length - 1].click();
     await wacht(800);
     const eind = await page.evaluate((el) => ({ links: el.scrollLeft, max: el.scrollWidth - el.clientWidth }), spoor);
     check("stip springt naar het laatste item", eind.links >= eind.max - 4);
     check("knop volgende gaat uit op het einde",
-      (await page.$eval(".pxui-carousel-btn:last-of-type", (el) => el.disabled)) === true);
+      (await page.$eval(".lui-carousel-btn:last-of-type", (el) => el.disabled)) === true);
   }
 
   console.log("\nToggle");
   await ga("/docs/componenten/toggle");
   {
-    const eerste = await page.$(".pxui-toggle");
+    const eerste = await page.$(".lui-toggle");
     const voor = await page.evaluate((el) => el.getAttribute("aria-pressed"), eerste);
     await eerste.click();
     await wacht(200);
     check("klikken wisselt aria-pressed", voor !== (await page.evaluate((el) => el.getAttribute("aria-pressed"), eerste)));
 
-    const items = await page.$$(".pxui-toggle-group .pxui-toggle");
+    const items = await page.$$(".lui-toggle-group .lui-toggle");
     await items[1].click();
     await wacht(200);
-    const meerdere = await page.$$eval(".pxui-toggle-group .pxui-toggle", (els) =>
+    const meerdere = await page.$$eval(".lui-toggle-group .lui-toggle", (els) =>
       els.filter((el) => el.getAttribute("aria-pressed") === "true").length
     );
     check("groep multiple: meerdere tegelijk aan", meerdere >= 2, `${meerdere} aan`);
 
-    const enkel = await page.$$(".pxui-btn-group .pxui-toggle");
+    const enkel = await page.$$(".lui-btn-group .lui-toggle");
     await enkel[2].click();
     await wacht(250);
-    const aantal = await page.$$eval(".pxui-btn-group .pxui-toggle", (els) =>
+    const aantal = await page.$$eval(".lui-btn-group .lui-toggle", (els) =>
       els.filter((el) => el.getAttribute("aria-pressed") === "true").length
     );
     check("groep single: hoogstens één aan", aantal === 1, `${aantal} aan`);
@@ -258,15 +258,15 @@ async function testAlles(page, basis) {
   console.log("\nCollapsible");
   await ga("/docs/componenten/collapsible");
   {
-    const hoogte = () => page.$eval(".pxui-collapsible-inner", (el) => Math.round(el.getBoundingClientRect().height));
+    const hoogte = () => page.$eval(".lui-collapsible-inner", (el) => Math.round(el.getBoundingClientRect().height));
     const open = await hoogte();
-    await (await page.$(".pxui-collapsible-trigger")).click();
+    await (await page.$(".lui-collapsible-trigger")).click();
     await wacht(700);
     check("dichtklappen brengt de hoogte naar nul", (await hoogte()) === 0, `${open} -> 0 px`);
     check("dichte inhoud is niet focusbaar",
-      (await page.$eval(".pxui-collapsible-inner", (el) => getComputedStyle(el).visibility)) === "hidden");
+      (await page.$eval(".lui-collapsible-inner", (el) => getComputedStyle(el).visibility)) === "hidden");
 
-    await (await page.$(".pxui-collapsible-trigger")).click();
+    await (await page.$(".lui-collapsible-trigger")).click();
     await wacht(700);
     check("opent weer op volle hoogte", (await hoogte()) > 50);
   }
@@ -274,7 +274,7 @@ async function testAlles(page, basis) {
   console.log("\nScrollArea");
   await ga("/docs/componenten/scroll-area");
   {
-    const vlak = await page.$(".pxui-scroll-area");
+    const vlak = await page.$(".lui-scroll-area");
     const randen = (el) => ({ boven: el.hasAttribute("data-fade-top"), onder: el.hasAttribute("data-fade-bottom") });
     const begin = await page.evaluate(randen, vlak);
     check("bovenaan geen vervaging, onderaan wel", begin.boven === false && begin.onder === true);
@@ -311,9 +311,9 @@ async function testAlles(page, basis) {
   await ga("/docs/componenten/accordion");
   {
     const hoogte = () =>
-      page.$eval(".pxui-accordion-content-wrap", (el) => Math.round(el.getBoundingClientRect().height));
+      page.$eval(".lui-accordion-content-wrap", (el) => Math.round(el.getBoundingClientRect().height));
     const voor = await hoogte();
-    await (await page.$(".pxui-accordion-trigger")).click();
+    await (await page.$(".lui-accordion-trigger")).click();
     await wacht(600);
     const na = await hoogte();
     check("Accordion animeert de hoogte", voor !== na && (voor === 0 || na === 0), `${voor} -> ${na} px`);
@@ -334,7 +334,7 @@ async function testAlles(page, basis) {
   console.log("\nQrCode");
   await ga("/docs/componenten/qr-code");
   {
-    const modules = await page.$eval(".pxui-qr-fg", (el) => (el.getAttribute("d").match(/M/g) ?? []).length);
+    const modules = await page.$eval(".lui-qr-fg", (el) => (el.getAttribute("d").match(/M/g) ?? []).length);
     check("tekent een volledige code", modules > 200, `${modules} donkere modules`);
   }
 }
@@ -368,7 +368,7 @@ if (!basis) {
   const poort = await vrijePoort();
   basis = `http://localhost:${poort}`;
   console.log(`Site starten op ${basis} …`);
-  server = spawn("npm", ["start", "-w", "@projectx/docs"], {
+  server = spawn("npm", ["start", "-w", "@lorenthi/docs"], {
     cwd: root,
     env: { ...process.env, PORT: String(poort) },
     stdio: "ignore",

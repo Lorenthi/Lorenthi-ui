@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FileDrop, FileItem } from "@projectx/ui";
+import { FileDrop, FileItem } from "@lorenthi/ui";
 
 export default function Demo() {
   const [files, setFiles] = useState<Array<{ name: string; size: number }>>([

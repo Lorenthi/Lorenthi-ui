@@ -2,7 +2,7 @@
  * cn — eigen mini-implementatie van het "classnames"-patroon.
  * Geen clsx, geen tailwind-merge: nul dependencies.
  *
- *   cn("pxui-btn", isPrimary && "pxui-btn-primary", { "is-open": open })
+ *   cn("lui-btn", isPrimary && "lui-btn-primary", { "is-open": open })
  */
 export type ClassValue =
   | string

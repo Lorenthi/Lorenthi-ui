@@ -1,5 +1,5 @@
 "use client";
-import { Progress, ProgressCircle } from "@projectx/ui";
+import { Progress, ProgressCircle } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

@@ -1,5 +1,5 @@
 /**
- * Stappenplan voor de opbouw van ProjectX UI.
+ * Stappenplan voor de opbouw van Lorenthi UI.
  * Zet `done: true` zodra een stap klaar is — de introductiepagina toont de voortgang.
  */
 export interface RoadmapStep {
@@ -46,7 +46,7 @@ export const ROADMAP: RoadmapStep[] = [
   },
   {
     title: "CLI & registry",
-    description: "npx projectx-ui init / add / list — componenten kopiëren naar andere projecten, zoals shadcn.",
+    description: "npx lorenthi-ui init / add / list — componenten kopiëren naar andere projecten, zoals shadcn.",
     done: true,
   },
   {
@@ -64,7 +64,7 @@ export const ROADMAP: RoadmapStep[] = [
   {
     title: "Beweging (optioneel)",
     description:
-      "MotionDrawerContent, ReorderList en MotionSegmented achter @projectx/ui/motion. De kern blijft dependency-vrij; de CLI slaat deze over bij add --all.",
+      "MotionDrawerContent, ReorderList en MotionSegmented achter @lorenthi/ui/motion. De kern blijft dependency-vrij; de CLI slaat deze over bij add --all.",
     done: true,
   },
   {

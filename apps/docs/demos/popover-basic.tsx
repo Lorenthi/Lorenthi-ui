@@ -1,5 +1,5 @@
 "use client";
-import { Button, Field, Icon, Input, Popover, PopoverContent, PopoverTrigger } from "@projectx/ui";
+import { Button, Field, Icon, Input, Popover, PopoverContent, PopoverTrigger } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

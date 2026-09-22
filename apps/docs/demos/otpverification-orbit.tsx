@@ -1,6 +1,6 @@
 "use client";
-import { Icon } from "@projectx/ui";
-import { OtpVerification } from "@projectx/ui/motion";
+import { Icon } from "@lorenthi/ui";
+import { OtpVerification } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (
@@ -16,7 +16,7 @@ export default function Demo() {
       texts={{
         title: (
           <>
-            Verifieer je <span className="pxui-otpv-accent">code</span>
+            Verifieer je <span className="lui-otpv-accent">code</span>
           </>
         ),
         description: "Vul de 4-cijferige beveiligingscode in die we naar je toestel stuurden.",

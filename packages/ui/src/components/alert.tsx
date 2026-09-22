@@ -31,17 +31,17 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert
   ref
 ) {
   return (
-    <div ref={ref} role="alert" className={cn("pxui-alert", `pxui-alert-${tone}`, className)} {...rest}>
+    <div ref={ref} role="alert" className={cn("lui-alert", `lui-alert-${tone}`, className)} {...rest}>
       {icon !== null && (
-        <span className="pxui-alert-icon">{icon ?? <Icon name={TONE_ICON[tone]} size={17} />}</span>
+        <span className="lui-alert-icon">{icon ?? <Icon name={TONE_ICON[tone]} size={17} />}</span>
       )}
-      <div className="pxui-alert-body">
-        {title && <div className="pxui-alert-title">{title}</div>}
-        {children && <div className="pxui-alert-text">{children}</div>}
-        {action && <div className="pxui-alert-action">{action}</div>}
+      <div className="lui-alert-body">
+        {title && <div className="lui-alert-title">{title}</div>}
+        {children && <div className="lui-alert-text">{children}</div>}
+        {action && <div className="lui-alert-action">{action}</div>}
       </div>
       {onDismiss && (
-        <button type="button" className="pxui-alert-close" aria-label="Sluiten" onClick={onDismiss}>
+        <button type="button" className="lui-alert-close" aria-label="Sluiten" onClick={onDismiss}>
           <Icon name="x" size={15} />
         </button>
       )}

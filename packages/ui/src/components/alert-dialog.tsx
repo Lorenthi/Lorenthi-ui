@@ -79,22 +79,22 @@ export function AlertDialog({
         hideClose
         static
         role="alertdialog"
-        className={cn("pxui-alert-dialog", className)}
+        className={cn("lui-alert-dialog", className)}
       >
-        <div className="pxui-alert-dialog-body">
+        <div className="lui-alert-dialog-body">
           {naam && (
-            <span className={cn("pxui-alert-dialog-icon", destructive && "pxui-alert-dialog-icon-danger")}>
+            <span className={cn("lui-alert-dialog-icon", destructive && "lui-alert-dialog-icon-danger")}>
               <Icon name={naam} size={20} />
             </span>
           )}
-          <div className="pxui-alert-dialog-text">
-            <h2 className="pxui-alert-dialog-title">{title}</h2>
-            {description && <p className="pxui-alert-dialog-description">{description}</p>}
+          <div className="lui-alert-dialog-text">
+            <h2 className="lui-alert-dialog-title">{title}</h2>
+            {description && <p className="lui-alert-dialog-description">{description}</p>}
             {children}
           </div>
         </div>
 
-        <div className="pxui-alert-dialog-actions">
+        <div className="lui-alert-dialog-actions">
           <Button
             ref={cancelRef}
             variant="secondary"

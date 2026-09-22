@@ -1,5 +1,5 @@
 "use client";
-import { AspectRatio, Segmented } from "@projectx/ui";
+import { AspectRatio, Segmented } from "@lorenthi/ui";
 import { useState } from "react";
 
 export default function Demo() {

@@ -1,5 +1,5 @@
 "use client";
-import { Breadcrumb, BreadcrumbItem, Icon } from "@projectx/ui";
+import { Breadcrumb, BreadcrumbItem, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

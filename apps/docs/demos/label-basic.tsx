@@ -1,5 +1,5 @@
 "use client";
-import { Input, Label } from "@projectx/ui";
+import { Input, Label } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

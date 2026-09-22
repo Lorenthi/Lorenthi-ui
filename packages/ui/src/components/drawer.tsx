@@ -45,7 +45,7 @@ export function Drawer({ open, defaultOpen = false, onOpenChange, children }: Dr
   const id = React.useId();
 
   return (
-    <DrawerContext.Provider value={{ open: isOpen, setOpen: setIsOpen, titleId: `pxui-drawer-title-${id}` }}>
+    <DrawerContext.Provider value={{ open: isOpen, setOpen: setIsOpen, titleId: `lui-drawer-title-${id}` }}>
       {children}
     </DrawerContext.Provider>
   );
@@ -116,7 +116,7 @@ export const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps
     return (
       <Portal>
         <div
-          className="pxui-overlay pxui-overlay-plain"
+          className="lui-overlay lui-overlay-plain"
           data-state={state}
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setOpen(false);
@@ -133,7 +133,7 @@ export const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps
             aria-labelledby={titleId}
             tabIndex={-1}
             data-state={state}
-            className={cn("pxui-drawer", `pxui-drawer-${side}`, className)}
+            className={cn("lui-drawer", `lui-drawer-${side}`, className)}
             style={{ ...(size ? { [horizontal ? "width" : "height"]: size } : {}), ...style }}
             {...rest}
           >
@@ -141,7 +141,7 @@ export const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps
               <Button
                 variant="ghost"
                 size="sm"
-                className="pxui-drawer-close"
+                className="lui-drawer-close"
                 aria-label="Sluiten"
                 icon={<Icon name="x" size={16} />}
                 onClick={() => setOpen(false)}
@@ -157,14 +157,14 @@ export const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps
 
 export const DrawerHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DrawerHeader({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-drawer-header", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-drawer-header", className)} {...rest} />;
   }
 );
 
 export const DrawerTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
   function DrawerTitle({ className, ...rest }, ref) {
     const { titleId } = useDrawer("DrawerTitle");
-    return <h2 ref={ref} id={titleId} className={cn("pxui-drawer-title", className)} {...rest} />;
+    return <h2 ref={ref} id={titleId} className={cn("lui-drawer-title", className)} {...rest} />;
   }
 );
 
@@ -172,17 +172,17 @@ export const DrawerDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(function DrawerDescription({ className, ...rest }, ref) {
-  return <p ref={ref} className={cn("pxui-drawer-description", className)} {...rest} />;
+  return <p ref={ref} className={cn("lui-drawer-description", className)} {...rest} />;
 });
 
 export const DrawerBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DrawerBody({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-drawer-body", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-drawer-body", className)} {...rest} />;
   }
 );
 
 export const DrawerFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DrawerFooter({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-drawer-footer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-drawer-footer", className)} {...rest} />;
   }
 );

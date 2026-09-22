@@ -1,5 +1,5 @@
 "use client";
-import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@projectx/ui";
+import { Field, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

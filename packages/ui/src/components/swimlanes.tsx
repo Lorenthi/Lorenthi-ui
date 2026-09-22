@@ -89,27 +89,27 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
   return (
     <div
       ref={ref}
-      className={cn("pxui-swim", className)}
+      className={cn("lui-swim", className)}
       style={
         {
           ...style,
-          ["--pxui-swim-label" as string]: `${labelWidth}px`,
-          ["--pxui-swim-lane" as string]: `${laneHeight}px`,
-          ["--pxui-swim-hour" as string]: `${60 * pxPerMinute}px`,
+          ["--lui-swim-label" as string]: `${labelWidth}px`,
+          ["--lui-swim-lane" as string]: `${laneHeight}px`,
+          ["--lui-swim-hour" as string]: `${60 * pxPerMinute}px`,
         } as React.CSSProperties
       }
       {...rest}
     >
-      <div className="pxui-swim-scroll">
-        <div className="pxui-swim-inner" style={{ width: labelWidth + trackWidth }}>
+      <div className="lui-swim-scroll">
+        <div className="lui-swim-inner" style={{ width: labelWidth + trackWidth }}>
           {/* Tijdas */}
-          <div className="pxui-swim-axis">
-            <div className="pxui-swim-axis-label" />
-            <div className="pxui-swim-axis-track" style={{ width: trackWidth }}>
+          <div className="lui-swim-axis">
+            <div className="lui-swim-axis-label" />
+            <div className="lui-swim-axis-track" style={{ width: trackWidth }}>
               {hours.map((hour) => (
                 <span
                   key={hour}
-                  className="pxui-swim-tick"
+                  className="lui-swim-tick"
                   style={{ left: (hour * 60 - dayStart) * pxPerMinute }}
                 >
                   {formatTime(hour * 60)}
@@ -123,24 +123,24 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
             const list = byResource.get(resource.key) ?? [];
 
             return (
-              <div className="pxui-swim-lane" key={resource.key} data-today={resource.today ? "" : undefined}>
-                <div className="pxui-swim-label">
-                  {resource.media && <span className="pxui-swim-media">{resource.media}</span>}
-                  <span className="pxui-swim-label-text">
-                    <span className="pxui-swim-name">{resource.label}</span>
-                    <span className="pxui-swim-count">
+              <div className="lui-swim-lane" key={resource.key} data-today={resource.today ? "" : undefined}>
+                <div className="lui-swim-label">
+                  {resource.media && <span className="lui-swim-media">{resource.media}</span>}
+                  <span className="lui-swim-label-text">
+                    <span className="lui-swim-name">{resource.label}</span>
+                    <span className="lui-swim-count">
                       {resource.sublabel ?? `${countBookable(list)} ${countLabel}`}
                     </span>
                   </span>
                 </div>
 
-                <div className="pxui-swim-track" style={{ width: trackWidth }}>
-                  <div className="pxui-swim-lines" aria-hidden="true" />
+                <div className="lui-swim-track" style={{ width: trackWidth }}>
+                  <div className="lui-swim-lines" aria-hidden="true" />
 
                   {resource.blocked && (
-                    <div className="pxui-swim-blocked-full">
+                    <div className="lui-swim-blocked-full">
                       {resource.blockedLabel && (
-                        <span className="pxui-swim-blocked-label">{resource.blockedLabel}</span>
+                        <span className="lui-swim-blocked-label">{resource.blockedLabel}</span>
                       )}
                     </div>
                   )}
@@ -148,7 +148,7 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
                   {onSlotClick && !resource.blocked && (
                     <button
                       type="button"
-                      className="pxui-swim-slots"
+                      className="lui-swim-slots"
                       aria-label={`Nieuw item bij ${String(resource.label)}`}
                       onClick={(clickEvent) => {
                         const rect = clickEvent.currentTarget.getBoundingClientRect();
@@ -159,7 +159,7 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
                   )}
 
                   {list.length === 0 && !resource.blocked && (
-                    <span className="pxui-swim-empty">{emptyLabel}</span>
+                    <span className="lui-swim-empty">{emptyLabel}</span>
                   )}
 
                   {list.map((event) => {
@@ -176,14 +176,14 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
                         role={onEventClick && !event.blocked ? "button" : undefined}
                         tabIndex={onEventClick && !event.blocked ? 0 : undefined}
                         className={cn(
-                          "pxui-swim-appt",
-                          event.blocked ? "pxui-swim-appt-blocked" : `pxui-swim-appt-${tone}`
+                          "lui-swim-appt",
+                          event.blocked ? "lui-swim-appt-blocked" : `lui-swim-appt-${tone}`
                         )}
                         style={{
                           left,
                           width,
                           ...(event.color
-                            ? ({ ["--pxui-event-color" as string]: event.color } as React.CSSProperties)
+                            ? ({ ["--lui-event-color" as string]: event.color } as React.CSSProperties)
                             : {}),
                         }}
                         title={`${formatTime(event.start)} – ${formatTime(event.end)}`}
@@ -199,8 +199,8 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
                           renderEvent(event)
                         ) : (
                           <>
-                            <span className="pxui-swim-appt-time">{formatTime(event.start)}</span>
-                            <span className="pxui-swim-appt-title">{event.title}</span>
+                            <span className="lui-swim-appt-time">{formatTime(event.start)}</span>
+                            <span className="lui-swim-appt-title">{event.title}</span>
                           </>
                         )}
                       </div>
@@ -209,7 +209,7 @@ export const Swimlanes = React.forwardRef<HTMLDivElement, SwimlanesProps>(functi
 
                   {nowIndicator && toonNu && currentMinutes >= dayStart && currentMinutes <= dayEnd && (
                     <div
-                      className="pxui-swim-now"
+                      className="lui-swim-now"
                       style={{ left: (currentMinutes - dayStart) * pxPerMinute }}
                     />
                   )}

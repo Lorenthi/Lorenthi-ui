@@ -20,10 +20,10 @@ export const RowList = React.forwardRef<HTMLDivElement, RowListProps>(function R
     <div
       ref={ref}
       className={cn(
-        "pxui-rowlist",
-        bordered && "pxui-rowlist-bordered",
-        separated && "pxui-rowlist-separated",
-        dense && "pxui-rowlist-dense",
+        "lui-rowlist",
+        bordered && "lui-rowlist-bordered",
+        separated && "lui-rowlist-separated",
+        dense && "lui-rowlist-dense",
         className
       )}
       {...rest}
@@ -84,22 +84,22 @@ export const ListRow = React.forwardRef<HTMLDivElement, ListRowProps>(function L
       data-disabled={disabled ? "" : undefined}
       tabIndex={clickable && !asChild ? 0 : undefined}
       role={clickable && !asChild ? "button" : undefined}
-      className={cn("pxui-row", clickable && "pxui-row-clickable", className)}
-      style={{ ...(accent ? ({ ["--pxui-row-accent" as string]: accent } as React.CSSProperties) : {}), ...style }}
+      className={cn("lui-row", clickable && "lui-row-clickable", className)}
+      style={{ ...(accent ? ({ ["--lui-row-accent" as string]: accent } as React.CSSProperties) : {}), ...style }}
       {...rest}
     >
-      {accent && <span className="pxui-row-accent" aria-hidden="true" />}
-      {lead && <div className="pxui-row-lead">{lead}</div>}
-      {leading && <div className="pxui-row-leading">{leading}</div>}
+      {accent && <span className="lui-row-accent" aria-hidden="true" />}
+      {lead && <div className="lui-row-lead">{lead}</div>}
+      {leading && <div className="lui-row-leading">{leading}</div>}
 
-      <div className="pxui-row-body">
-        <div className="pxui-row-title">{title}</div>
-        {subtitle && <div className="pxui-row-subtitle">{subtitle}</div>}
+      <div className="lui-row-body">
+        <div className="lui-row-title">{title}</div>
+        {subtitle && <div className="lui-row-subtitle">{subtitle}</div>}
         {children}
       </div>
 
-      {trailing && <div className="pxui-row-trailing">{trailing}</div>}
-      {actions && <div className="pxui-row-actions">{actions}</div>}
+      {trailing && <div className="lui-row-trailing">{trailing}</div>}
+      {actions && <div className="lui-row-actions">{actions}</div>}
     </Comp>
   );
 });
@@ -118,7 +118,7 @@ export const RowIcon = React.forwardRef<HTMLSpanElement, RowIconProps>(function 
   return (
     <span
       ref={ref}
-      className={cn("pxui-row-icon", `pxui-row-icon-${tone}`, className)}
+      className={cn("lui-row-icon", `lui-row-icon-${tone}`, className)}
       style={{ width: size, height: size, borderRadius: square ? "var(--r-sm)" : undefined, ...style }}
       {...rest}
     />

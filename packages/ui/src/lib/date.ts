@@ -10,7 +10,7 @@ export interface DateRange {
   to?: Date;
 }
 
-/** Standaardtaal van het ProjectX UI-design. */
+/** Standaardtaal van het Lorenthi UI-design. */
 export const DEFAULT_LOCALE = "nl-BE";
 
 /* ------------------------------------------------------------------ */

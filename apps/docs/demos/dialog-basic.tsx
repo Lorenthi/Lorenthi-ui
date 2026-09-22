@@ -1,7 +1,7 @@
 "use client";
 import {
   Button, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   return (

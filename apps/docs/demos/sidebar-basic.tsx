@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   AppShell, Avatar, Badge, Content, Icon, PageHeader, Sidebar, SidebarBrand, SidebarFooter, SidebarItem,
   SidebarNav, SidebarSection, Topbar, TopbarSpacer,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [actief, setActief] = useState("tenants");
@@ -12,7 +12,7 @@ export default function Demo() {
     <div style={{ height: 460, border: "1px solid var(--border)", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
       <AppShell style={{ minHeight: 0, height: "100%" }}>
         <Sidebar>
-          <SidebarBrand logo={<Icon name="shield" />} name="ProjectX" subtitle="Superadmin" />
+          <SidebarBrand logo={<Icon name="shield" />} name="Lorenthi" subtitle="Superadmin" />
           <SidebarNav>
             <SidebarSection>Platform</SidebarSection>
             {[
@@ -42,7 +42,7 @@ export default function Demo() {
           </SidebarFooter>
         </Sidebar>
 
-        <div className="pxui-shell-main">
+        <div className="lui-shell-main">
           <Topbar>
             <strong style={{ fontSize: 15 }}>Tenants</strong>
             <TopbarSpacer />

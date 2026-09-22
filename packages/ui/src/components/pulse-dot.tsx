@@ -20,7 +20,7 @@ export const PulseDot = React.forwardRef<HTMLSpanElement, PulseDotProps>(functio
       ref={ref}
       role={label ? "status" : undefined}
       aria-label={label}
-      className={cn("pxui-pulse", `pxui-pulse-${tone}`, still && "pxui-pulse-still", className)}
+      className={cn("lui-pulse", `lui-pulse-${tone}`, still && "lui-pulse-still", className)}
       style={{ width: size, height: size, ...style }}
       {...rest}
     />

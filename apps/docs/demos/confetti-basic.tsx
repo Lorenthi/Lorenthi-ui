@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, ConfettiBurst } from "@projectx/ui";
+import { Button, ConfettiBurst } from "@lorenthi/ui";
 
 export default function Demo() {
   const [feest, setFeest] = useState(false);

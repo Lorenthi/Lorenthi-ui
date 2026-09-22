@@ -14,7 +14,7 @@ export function useMounted(): boolean {
 
 /**
  * Werkt zowel controlled (`value` + `onChange`) als uncontrolled
- * (`defaultValue`). Elke interactieve component in ProjectX UI gebruikt dit.
+ * (`defaultValue`). Elke interactieve component in Lorenthi UI gebruikt dit.
  */
 export function useControllableState<T>(options: {
   value?: T;

@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Button, Card, CardContent, Icon, Segmented, ThemeToggle, useTheme } from "@projectx/ui";
+import { Badge, Button, Card, CardContent, Icon, Segmented, ThemeToggle, useTheme } from "@lorenthi/ui";
 
 export default function Demo() {
   const { theme, resolved, setTheme } = useTheme();

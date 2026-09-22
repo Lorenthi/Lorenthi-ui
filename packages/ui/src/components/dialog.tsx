@@ -43,8 +43,8 @@ export function Dialog({ open, defaultOpen = false, onOpenChange, children }: Di
       value={{
         open: isOpen,
         setOpen: setIsOpen,
-        titleId: `pxui-dialog-title-${id}`,
-        descriptionId: `pxui-dialog-desc-${id}`,
+        titleId: `lui-dialog-title-${id}`,
+        descriptionId: `lui-dialog-desc-${id}`,
       }}
     >
       {children}
@@ -121,14 +121,14 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
     return (
       <Portal>
         <div
-          className="pxui-overlay"
+          className="lui-overlay"
           data-state={state}
           onMouseDown={(event) => {
             if (isStatic) return;
             if (event.target === event.currentTarget) setOpen(false);
           }}
         >
-          <div className="pxui-overlay-blur" aria-hidden="true" />
+          <div className="lui-overlay-blur" aria-hidden="true" />
           <div
             ref={(node) => {
               (panelRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
@@ -141,14 +141,14 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
             aria-describedby={descriptionId}
             tabIndex={-1}
             data-state={state}
-            className={cn("pxui-dialog", `pxui-dialog-${size}`, className)}
+            className={cn("lui-dialog", `lui-dialog-${size}`, className)}
             {...rest}
           >
             {!hideClose && (
               <Button
                 variant="ghost"
                 size="sm"
-                className="pxui-dialog-close"
+                className="lui-dialog-close"
                 aria-label="Sluiten"
                 icon={<Icon name="x" size={16} />}
                 onClick={() => setOpen(false)}
@@ -164,14 +164,14 @@ export const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps
 
 export const DialogHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DialogHeader({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-dialog-header", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-dialog-header", className)} {...rest} />;
   }
 );
 
 export const DialogTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
   function DialogTitle({ className, ...rest }, ref) {
     const { titleId } = useDialog("DialogTitle");
-    return <h2 ref={ref} id={titleId} className={cn("pxui-dialog-title", className)} {...rest} />;
+    return <h2 ref={ref} id={titleId} className={cn("lui-dialog-title", className)} {...rest} />;
   }
 );
 
@@ -180,17 +180,17 @@ export const DialogDescription = React.forwardRef<
   React.HTMLAttributes<HTMLParagraphElement>
 >(function DialogDescription({ className, ...rest }, ref) {
   const { descriptionId } = useDialog("DialogDescription");
-  return <p ref={ref} id={descriptionId} className={cn("pxui-dialog-description", className)} {...rest} />;
+  return <p ref={ref} id={descriptionId} className={cn("lui-dialog-description", className)} {...rest} />;
 });
 
 export const DialogBody = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DialogBody({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-dialog-body", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-dialog-body", className)} {...rest} />;
   }
 );
 
 export const DialogFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DialogFooter({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-dialog-footer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-dialog-footer", className)} {...rest} />;
   }
 );

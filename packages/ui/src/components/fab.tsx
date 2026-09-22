@@ -27,16 +27,16 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(function Fab(
       ref={ref}
       type={asChild ? undefined : "button"}
       className={cn(
-        "pxui-fab",
-        `pxui-fab-${size}`,
-        position !== "static" && `pxui-fab-${position}`,
-        !children && "pxui-fab-rond",
+        "lui-fab",
+        `lui-fab-${size}`,
+        position !== "static" && `lui-fab-${position}`,
+        !children && "lui-fab-rond",
         className
       )}
       {...rest}
     >
       {icon ?? <Icon name="plus" size={size === "lg" ? 24 : 20} />}
-      {children && <span className="pxui-fab-label">{children}</span>}
+      {children && <span className="lui-fab-label">{children}</span>}
     </Comp>
   );
 });
@@ -79,13 +79,13 @@ export const SpeedDial = React.forwardRef<HTMLDivElement, SpeedDialProps>(functi
         else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
       }}
       data-state={isOpen ? "open" : "closed"}
-      className={cn("pxui-speeddial", position !== "static" && `pxui-fab-${position}`, className)}
+      className={cn("lui-speeddial", position !== "static" && `lui-fab-${position}`, className)}
       onKeyDown={(event) => {
         if (event.key === "Escape") setIsOpen(false);
       }}
       {...rest}
     >
-      <div className="pxui-speeddial-acties" role="menu" aria-label={label} hidden={!isOpen}>
+      <div className="lui-speeddial-acties" role="menu" aria-label={label} hidden={!isOpen}>
         {children}
       </div>
       {trigger ?? (
@@ -93,7 +93,7 @@ export const SpeedDial = React.forwardRef<HTMLDivElement, SpeedDialProps>(functi
           position="static"
           aria-expanded={isOpen}
           aria-label={label}
-          className="pxui-speeddial-trigger"
+          className="lui-speeddial-trigger"
           icon={<Icon name={isOpen ? "x" : "plus"} size={20} />}
           onClick={() => setIsOpen(!isOpen)}
         />
@@ -111,9 +111,9 @@ export interface SpeedDialActionProps extends React.ButtonHTMLAttributes<HTMLBut
 export const SpeedDialAction = React.forwardRef<HTMLButtonElement, SpeedDialActionProps>(
   function SpeedDialAction({ icon, label, className, ...rest }, ref) {
     return (
-      <button ref={ref} type="button" role="menuitem" className={cn("pxui-speeddial-actie", className)} {...rest}>
-        <span className="pxui-speeddial-actie-label">{label}</span>
-        <span className="pxui-speeddial-actie-icoon">{icon}</span>
+      <button ref={ref} type="button" role="menuitem" className={cn("lui-speeddial-actie", className)} {...rest}>
+        <span className="lui-speeddial-actie-label">{label}</span>
+        <span className="lui-speeddial-actie-icoon">{icon}</span>
       </button>
     );
   }

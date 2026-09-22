@@ -27,7 +27,7 @@ function useSelect(component: string): SelectContextValue {
   return context;
 }
 
-const OPTION_SELECTOR = '[data-pxui-option]:not([data-disabled])';
+const OPTION_SELECTOR = '[data-lui-option]:not([data-disabled])';
 
 export interface SelectProps {
   value?: string;
@@ -100,7 +100,7 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
         data-state={open ? "open" : "closed"}
         disabled={disabled ?? rest.disabled}
         aria-invalid={invalid || undefined}
-        className={cn("pxui-select-trigger", `pxui-input-${size}`, invalid && "pxui-input-invalid", className)}
+        className={cn("lui-select-trigger", `lui-input-${size}`, invalid && "lui-input-invalid", className)}
         onClick={() => setOpen(!open)}
         onKeyDown={(event) => {
           onKeyDown?.(event);
@@ -109,7 +109,7 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
             setOpen(true);
             window.setTimeout(() => {
               const active =
-                contentRef.current?.querySelector<HTMLElement>('[data-pxui-option][data-selected]') ??
+                contentRef.current?.querySelector<HTMLElement>('[data-lui-option][data-selected]') ??
                 contentRef.current?.querySelector<HTMLElement>(OPTION_SELECTOR);
               active?.focus();
             }, 0);
@@ -118,7 +118,7 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
         {...rest}
       >
         {children}
-        <Icon name="chevronDown" size={16} className="pxui-select-caret" />
+        <Icon name="chevronDown" size={16} className="lui-select-caret" />
       </button>
     );
   }
@@ -139,7 +139,7 @@ export const SelectValue = React.forwardRef<HTMLSpanElement, SelectValueProps>(f
   return (
     <span
       ref={ref}
-      className={cn("pxui-select-value", label === undefined && "pxui-select-placeholder", className)}
+      className={cn("lui-select-value", label === undefined && "lui-select-placeholder", className)}
       {...rest}
     >
       {label ?? placeholder}
@@ -207,25 +207,25 @@ export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps
         <div
           ref={composeRefs(ref, contentRef)}
           role="listbox"
-          className={cn("pxui-select-content", className)}
+          className={cn("lui-select-content", className)}
           style={{ ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
           onKeyDown={onKeyDown}
           {...rest}
         >
           {searchable && (
-            <div className="pxui-select-search">
+            <div className="lui-select-search">
               <Icon name="search" size={15} />
               <input
                 autoFocus
-                className="pxui-select-search-input"
+                className="lui-select-search-input"
                 placeholder={searchPlaceholder}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
             </div>
           )}
-          <div className="pxui-select-list">
-            {isEmpty ? <div className="pxui-select-empty">{emptyMessage}</div> : filtered}
+          <div className="lui-select-list">
+            {isEmpty ? <div className="lui-select-empty">{emptyMessage}</div> : filtered}
           </div>
         </div>
       </Portal>
@@ -268,38 +268,38 @@ export const SelectItem = React.forwardRef<HTMLButtonElement, SelectItemProps>(f
       role="option"
       tabIndex={-1}
       aria-selected={isSelected}
-      data-pxui-option=""
+      data-lui-option=""
       data-selected={isSelected ? "" : undefined}
       data-disabled={disabled ? "" : undefined}
       disabled={disabled}
-      className={cn("pxui-select-item", isSelected && "pxui-select-item-selected", className)}
+      className={cn("lui-select-item", isSelected && "lui-select-item-selected", className)}
       onClick={() => !disabled && setValue(value)}
       {...rest}
     >
-      {icon && <span className="pxui-select-item-icon">{icon}</span>}
-      <span className="pxui-select-item-text">
-        <span className="pxui-select-item-label">{children}</span>
-        {description && <span className="pxui-select-item-description">{description}</span>}
+      {icon && <span className="lui-select-item-icon">{icon}</span>}
+      <span className="lui-select-item-text">
+        <span className="lui-select-item-label">{children}</span>
+        {description && <span className="lui-select-item-description">{description}</span>}
       </span>
-      {isSelected && <Icon name="check" size={15} className="pxui-select-item-check" />}
+      {isSelected && <Icon name="check" size={15} className="lui-select-item-check" />}
     </button>
   );
 });
 
 export const SelectLabel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function SelectLabel({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-menu-label", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-menu-label", className)} {...rest} />;
   }
 );
 
 export const SelectSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function SelectSeparator({ className, ...rest }, ref) {
-    return <div ref={ref} role="separator" className={cn("pxui-menu-separator", className)} {...rest} />;
+    return <div ref={ref} role="separator" className={cn("lui-menu-separator", className)} {...rest} />;
   }
 );
 
 export const SelectGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function SelectGroup({ className, ...rest }, ref) {
-    return <div ref={ref} role="group" className={cn("pxui-menu-group", className)} {...rest} />;
+    return <div ref={ref} role="group" className={cn("lui-menu-group", className)} {...rest} />;
   }
 );

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   Icon, Textarea, Toolbar, ToolbarButton, ToolbarGroup, ToolbarSeparator, ToolbarSpacer,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [opmaak, setOpmaak] = useState<string[]>(["bold"]);

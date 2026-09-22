@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { Icon, Input } from "@projectx/ui";
+import { Icon, Input } from "@lorenthi/ui";
 import { Link, usePathname } from "@/i18n/navigation";
 import { COMPONENTS, componentsByCategory, entryTag } from "@/content/catalog";
 import { DocsTag } from "./docs-tag";
@@ -50,9 +50,9 @@ export function DocsNav({ open }: { open?: boolean }) {
   return (
     <nav className="docs-nav" data-open={open ? "" : undefined}>
       <Link href="/" className="docs-nav-brand">
-        <span className="docs-nav-mark">X</span>
+        <span className="docs-nav-mark">L</span>
         <span>
-          <span className="docs-nav-name">ProjectX UI</span>
+          <span className="docs-nav-name">Lorenthi UI</span>
           <span className="docs-nav-sub">{t("subtitle")}</span>
         </span>
       </Link>

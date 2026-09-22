@@ -55,7 +55,7 @@ export function Tooltip({
   const child = children as React.ReactElement<Record<string, unknown>>;
   const trigger = React.cloneElement(child, {
     ref: composeRefs(anchorRef, (child as unknown as { ref?: React.Ref<HTMLElement> }).ref),
-    "aria-describedby": open ? `pxui-tooltip-${id}` : undefined,
+    "aria-describedby": open ? `lui-tooltip-${id}` : undefined,
     onMouseEnter: (event: React.MouseEvent) => {
       (child.props.onMouseEnter as ((e: React.MouseEvent) => void) | undefined)?.(event);
       show();
@@ -83,11 +83,11 @@ export function Tooltip({
         <Portal>
           <div
             ref={tipRef}
-            id={`pxui-tooltip-${id}`}
+            id={`lui-tooltip-${id}`}
             role="tooltip"
             data-side={position.side}
             data-state={state}
-            className={cn("pxui-tooltip")}
+            className={cn("lui-tooltip")}
             style={{ ...position.style, opacity: position.ready ? 1 : 0 }}
           >
             {content}

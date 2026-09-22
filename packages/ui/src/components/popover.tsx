@@ -103,7 +103,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
           role="dialog"
           data-side={position.side}
           data-state={state}
-          className={cn("pxui-popover", flush && "pxui-popover-flush", className)}
+          className={cn("lui-popover", flush && "lui-popover-flush", className)}
           style={{ ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
           {...rest}
         >

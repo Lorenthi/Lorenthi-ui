@@ -72,7 +72,7 @@ export function ModalProvider<R extends ModalRegistry>({
   const api = React.useMemo<ModalApi<R>>(() => {
     const open = (kind: keyof R, props?: Record<string, unknown>) => {
       counter.current += 1;
-      const id = `pxui-modal-${counter.current}`;
+      const id = `lui-modal-${counter.current}`;
       setStack((prev) => [...prev, { id, kind: String(kind), props: props ?? {} }].slice(-maxStack));
       return id;
     };
@@ -102,7 +102,7 @@ export function ModalProvider<R extends ModalRegistry>({
         const Component = modals[entry.kind] as ModalComponent<Record<string, unknown>> | undefined;
         if (!Component) {
           if (process.env.NODE_ENV !== "production") {
-            console.warn(`[projectx-ui] Onbekende modal: "${entry.kind}"`);
+            console.warn(`[lorenthi-ui] Onbekende modal: "${entry.kind}"`);
           }
           return null;
         }

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PeriodNav, addDays, endOfWeek, formatDateRange, getISOWeek, startOfWeek } from "@projectx/ui";
+import { PeriodNav, addDays, endOfWeek, formatDateRange, getISOWeek, startOfWeek } from "@lorenthi/ui";
 
 export default function Demo() {
   const [anchor, setAnchor] = useState(new Date());

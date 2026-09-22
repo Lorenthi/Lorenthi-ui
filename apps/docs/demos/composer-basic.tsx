@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Card, CardContent, Chip, Composer, Icon } from "@projectx/ui";
+import { Card, CardContent, Chip, Composer, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   const [regels, setRegels] = useState<string[]>([]);

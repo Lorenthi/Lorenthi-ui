@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { Badge, Button, Icon, ThemeToggle } from "@projectx/ui";
+import { Badge, Button, Icon, ThemeToggle } from "@lorenthi/ui";
 import { Link } from "@/i18n/navigation";
 import { DocsNav } from "./docs-nav";
 import { LocaleSwitcher } from "./locale-switcher";

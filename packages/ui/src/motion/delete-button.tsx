@@ -50,7 +50,7 @@ export const DeleteButton = React.forwardRef<HTMLButtonElement, DeleteButtonProp
         type="button"
         layout
         data-state={stage}
-        className={cn("pxui-delb", `pxui-delb-${tone}`, className)}
+        className={cn("lui-delb", `lui-delb-${tone}`, className)}
         disabled={disabled || bezig || klaar}
         onClick={() => void run()}
         transition={traag ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 34 }}
@@ -59,7 +59,7 @@ export const DeleteButton = React.forwardRef<HTMLButtonElement, DeleteButtonProp
         {/* de bak: het deksel wipt open en ze schuift over het label */}
         <motion.span
           layout="position"
-          className="pxui-delb-bin"
+          className="lui-delb-bin"
           animate={
             bezig && !traag
               ? { x: [0, 6, 10, 0], rotate: [0, -10, 5, 0], scale: [1, 1.12, 1.12, 1] }
@@ -69,7 +69,7 @@ export const DeleteButton = React.forwardRef<HTMLButtonElement, DeleteButtonProp
           aria-hidden="true"
         >
           <motion.span
-            className="pxui-delb-lid"
+            className="lui-delb-lid"
             animate={bezig && !traag ? { rotate: [-2, -36, -36, -2], y: [0, -2, -2, 0] } : { rotate: 0, y: 0 }}
             transition={{ duration: traag ? 0 : 0.85, times: [0, 0.2, 0.62, 1] }}
           />
@@ -80,7 +80,7 @@ export const DeleteButton = React.forwardRef<HTMLButtonElement, DeleteButtonProp
           {!bezig && (
             <motion.span
               key={stage}
-              className="pxui-delb-label"
+              className="lui-delb-label"
               initial={{ opacity: 0, scaleX: 0.7 }}
               animate={{ opacity: 1, scaleX: 1 }}
               exit={{ opacity: 0, scaleX: 0.2, filter: "blur(2px)" }}

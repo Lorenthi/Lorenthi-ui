@@ -23,12 +23,12 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(functio
   const pages = buildRange(page, pageCount, siblings);
 
   return (
-    <nav ref={ref} aria-label="Paginering" className={cn("pxui-pagination", className)} {...rest}>
-      {summary && <div className="pxui-pagination-summary">{summary}</div>}
-      <div className="pxui-pagination-controls">
+    <nav ref={ref} aria-label="Paginering" className={cn("lui-pagination", className)} {...rest}>
+      {summary && <div className="lui-pagination-summary">{summary}</div>}
+      <div className="lui-pagination-controls">
         <button
           type="button"
-          className="pxui-pagination-btn"
+          className="lui-pagination-btn"
           disabled={page <= 1}
           aria-label="Vorige pagina"
           onClick={() => onPageChange(page - 1)}
@@ -39,14 +39,14 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(functio
 
         {pages.map((entry, index) =>
           entry === "…" ? (
-            <span key={`gap-${index}`} className="pxui-pagination-gap" aria-hidden="true">
+            <span key={`gap-${index}`} className="lui-pagination-gap" aria-hidden="true">
               …
             </span>
           ) : (
             <button
               key={entry}
               type="button"
-              className={cn("pxui-pagination-btn", entry === page && "pxui-pagination-btn-active")}
+              className={cn("lui-pagination-btn", entry === page && "lui-pagination-btn-active")}
               aria-current={entry === page ? "page" : undefined}
               onClick={() => onPageChange(entry)}
             >
@@ -57,7 +57,7 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(functio
 
         <button
           type="button"
-          className="pxui-pagination-btn"
+          className="lui-pagination-btn"
           disabled={page >= pageCount}
           aria-label="Volgende pagina"
           onClick={() => onPageChange(page + 1)}

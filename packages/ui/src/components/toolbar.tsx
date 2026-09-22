@@ -20,10 +20,10 @@ export const Toolbar = React.forwardRef<HTMLDivElement, ToolbarProps>(function T
       role="toolbar"
       aria-orientation={orientation}
       className={cn(
-        "pxui-toolbar",
-        `pxui-toolbar-${size}`,
-        `pxui-toolbar-${orientation}`,
-        bordered && "pxui-toolbar-bordered",
+        "lui-toolbar",
+        `lui-toolbar-${size}`,
+        `lui-toolbar-${orientation}`,
+        bordered && "lui-toolbar-bordered",
         className
       )}
       {...rest}
@@ -34,14 +34,14 @@ export const Toolbar = React.forwardRef<HTMLDivElement, ToolbarProps>(function T
 /** Groep knoppen die bij elkaar horen. */
 export const ToolbarGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function ToolbarGroup({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-toolbar-group", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-toolbar-group", className)} {...rest} />;
   }
 );
 
 export const ToolbarSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function ToolbarSeparator({ className, ...rest }, ref) {
     return (
-      <div ref={ref} role="separator" className={cn("pxui-toolbar-separator", className)} {...rest} />
+      <div ref={ref} role="separator" className={cn("lui-toolbar-separator", className)} {...rest} />
     );
   }
 );
@@ -49,7 +49,7 @@ export const ToolbarSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttri
 /** Duwt alles erna naar de rechterkant van de balk. */
 export const ToolbarSpacer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function ToolbarSpacer({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-toolbar-spacer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-toolbar-spacer", className)} {...rest} />;
   }
 );
 
@@ -70,7 +70,7 @@ export const ToolbarButton = React.forwardRef<HTMLButtonElement, ToolbarButtonPr
         data-active={active ? "" : undefined}
         aria-label={label}
         title={label}
-        className={cn("pxui-toolbar-btn", className)}
+        className={cn("lui-toolbar-btn", className)}
         {...rest}
       >
         {children}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Button, Command, CommandDialog, CommandEmpty, CommandFooter, CommandGroup, CommandInput, CommandItem,
   CommandList, Icon, Kbd,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [open, setOpen] = useState(false);

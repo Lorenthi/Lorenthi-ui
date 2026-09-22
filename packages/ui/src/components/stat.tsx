@@ -25,20 +25,20 @@ export const Stat = React.forwardRef<HTMLDivElement, StatProps>(function Stat(
   const direction = delta === undefined ? null : delta >= 0 ? "up" : "down";
 
   return (
-    <div ref={ref} className={cn("pxui-stat", className)} {...rest}>
-      <div className="pxui-stat-top">
-        <span className="pxui-stat-label">{label}</span>
-        {icon && <span className={cn("pxui-stat-icon", `pxui-stat-icon-${tone}`)}>{icon}</span>}
+    <div ref={ref} className={cn("lui-stat", className)} {...rest}>
+      <div className="lui-stat-top">
+        <span className="lui-stat-label">{label}</span>
+        {icon && <span className={cn("lui-stat-icon", `lui-stat-icon-${tone}`)}>{icon}</span>}
       </div>
-      <div className="pxui-stat-value">{value}</div>
+      <div className="lui-stat-value">{value}</div>
       {direction && (
-        <div className={cn("pxui-stat-delta", `pxui-stat-delta-${direction}`)}>
+        <div className={cn("lui-stat-delta", `lui-stat-delta-${direction}`)}>
           <Icon name={direction === "up" ? "arrowUp" : "arrowDown"} size={13} />
           {Math.abs(delta as number)}%
-          {deltaLabel && <span className="pxui-stat-delta-label">{deltaLabel}</span>}
+          {deltaLabel && <span className="lui-stat-delta-label">{deltaLabel}</span>}
         </div>
       )}
-      {chart && <div className="pxui-stat-chart">{chart}</div>}
+      {chart && <div className="lui-stat-chart">{chart}</div>}
     </div>
   );
 });
@@ -51,7 +51,7 @@ export const StatGrid = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("pxui-stat-grid", className)}
+      className={cn("lui-stat-grid", className)}
       style={{ gridTemplateColumns: `repeat(auto-fit, minmax(${min}px, 1fr))`, ...style }}
       {...rest}
     />

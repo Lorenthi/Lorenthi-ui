@@ -41,7 +41,7 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(function Field
   ref
 ) {
   const autoId = React.useId();
-  const fieldId = id ?? `pxui-field-${autoId}`;
+  const fieldId = id ?? `lui-field-${autoId}`;
   const hintId = hint ? `${fieldId}-hint` : undefined;
   const errorId = error ? `${fieldId}-error` : undefined;
   const describedBy = [errorId, hintId].filter(Boolean).join(" ") || undefined;
@@ -57,28 +57,28 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(function Field
     <FieldContext.Provider value={context}>
       <div
         ref={ref}
-        className={cn("pxui-field", `pxui-field-${orientation}`, disabled && "pxui-field-disabled", className)}
+        className={cn("lui-field", `lui-field-${orientation}`, disabled && "lui-field-disabled", className)}
         {...rest}
       >
         {(label || labelAction) && (
-          <div className="pxui-field-labelrow">
+          <div className="lui-field-labelrow">
             {label && (
               <Label htmlFor={fieldId} required={required}>
                 {label}
               </Label>
             )}
-            {labelAction && <span className="pxui-field-labelaction">{labelAction}</span>}
+            {labelAction && <span className="lui-field-labelaction">{labelAction}</span>}
           </div>
         )}
-        <div className="pxui-field-control">
+        <div className="lui-field-control">
           {children}
           {error && (
-            <span className="pxui-field-error" id={errorId} role="alert">
+            <span className="lui-field-error" id={errorId} role="alert">
               {error}
             </span>
           )}
           {hint && !error && (
-            <span className="pxui-field-hint" id={hintId}>
+            <span className="lui-field-hint" id={hintId}>
               {hint}
             </span>
           )}

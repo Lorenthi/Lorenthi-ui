@@ -39,7 +39,7 @@ export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(function Tabs(
 
   return (
     <TabsContext.Provider value={{ value: current, setValue: setCurrent, variant, baseId }}>
-      <div ref={ref} className={cn("pxui-tabs", className)} {...rest}>
+      <div ref={ref} className={cn("lui-tabs", className)} {...rest}>
         {children}
       </div>
     </TabsContext.Provider>
@@ -59,7 +59,7 @@ export const TabsList = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
           else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
         }}
         role="tablist"
-        className={cn("pxui-tabs-list", `pxui-tabs-list-${variant}`, className)}
+        className={cn("lui-tabs-list", `lui-tabs-list-${variant}`, className)}
         onKeyDown={(event) => {
           onKeyDown?.(event);
           const tabs = Array.from(
@@ -111,13 +111,13 @@ export const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>
       tabIndex={active ? 0 : -1}
       disabled={disabled}
       data-state={active ? "active" : "inactive"}
-      className={cn("pxui-tab", className)}
+      className={cn("lui-tab", className)}
       onClick={() => setValue(value)}
       {...rest}
     >
-      {icon && <span className="pxui-tab-icon">{icon}</span>}
+      {icon && <span className="lui-tab-icon">{icon}</span>}
       {children}
-      {badge !== undefined && <span className="pxui-tab-badge">{badge}</span>}
+      {badge !== undefined && <span className="lui-tab-badge">{badge}</span>}
     </button>
   );
 });
@@ -144,7 +144,7 @@ export const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(fu
       aria-labelledby={`${baseId}-tab-${value}`}
       hidden={!active || undefined}
       tabIndex={0}
-      className={cn("pxui-tabs-content", className)}
+      className={cn("lui-tabs-content", className)}
       {...rest}
     >
       {children}

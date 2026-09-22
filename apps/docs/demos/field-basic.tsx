@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Field, Input } from "@projectx/ui";
+import { Badge, Field, Input } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Card, CardContent, PulseDot } from "@projectx/ui";
+import { Badge, Card, CardContent, PulseDot } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

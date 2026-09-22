@@ -1788,7 +1788,7 @@
         "required": false,
         "type": "string",
         "description": "",
-        "default": "\"pxui-datefield-icon\""
+        "default": "\"lui-datefield-icon\""
       },
       {
         "name": "aria-describedby",
@@ -1875,7 +1875,7 @@
         "required": false,
         "type": "string",
         "description": "",
-        "default": "\"pxui-datefield-icon\""
+        "default": "\"lui-datefield-icon\""
       }
     ]
   },
@@ -2842,7 +2842,7 @@
         "name": "addon",
         "required": false,
         "type": "React.ReactNode",
-        "description": "Vaste tekst tegen het veld aan, bv. \".projectx.be\"."
+        "description": "Vaste tekst tegen het veld aan, bv. \".lorenthi.be\"."
       },
       {
         "name": "invalid",
@@ -5471,7 +5471,7 @@
         "required": false,
         "type": "string | null",
         "description": "Sleutel in localStorage; zet op null om niet te bewaren.",
-        "default": "\"pxui-theme\""
+        "default": "\"lui-theme\""
       }
     ]
   },
@@ -5652,7 +5652,7 @@
         "required": false,
         "type": "string",
         "description": "",
-        "default": "\"pxui-timefield-icon\""
+        "default": "\"lui-timefield-icon\""
       },
       {
         "name": "showDuration",
@@ -6896,7 +6896,7 @@
         "required": false,
         "type": "string",
         "description": "Eigen id wanneer er meerdere schakelaars naast elkaar staan.",
-        "default": "\"pxui-segmented-indicator\""
+        "default": "\"lui-segmented-indicator\""
       }
     ]
   },

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Badge, Countdown } from "@projectx/ui";
+import { Badge, Countdown } from "@lorenthi/ui";
 
 // Een vast moment: hetzelfde op de server en in de browser, dus geen verschil
 // tussen de HTML van de server en die van de client.

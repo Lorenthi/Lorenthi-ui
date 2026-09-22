@@ -14,7 +14,7 @@ export const Timeline = React.forwardRef<HTMLOListElement, TimelineProps>(functi
   { dense, className, ...rest },
   ref
 ) {
-  return <ol ref={ref} className={cn("pxui-timeline", dense && "pxui-timeline-dense", className)} {...rest} />;
+  return <ol ref={ref} className={cn("lui-timeline", dense && "lui-timeline-dense", className)} {...rest} />;
 });
 
 export interface TimelineItemProps extends Omit<React.HTMLAttributes<HTMLLIElement>, "title"> {
@@ -39,24 +39,24 @@ export const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(f
   return (
     <li
       ref={ref}
-      className={cn("pxui-timeline-item", `pxui-timeline-${tone}`, className)}
+      className={cn("lui-timeline-item", `lui-timeline-${tone}`, className)}
       data-active={active ? "" : undefined}
       data-pending={pending ? "" : undefined}
       {...rest}
     >
-      <span className="pxui-timeline-marker" aria-hidden="true">
-        <span className="pxui-timeline-dot">{icon}</span>
+      <span className="lui-timeline-marker" aria-hidden="true">
+        <span className="lui-timeline-dot">{icon}</span>
       </span>
 
-      <div className="pxui-timeline-content">
+      <div className="lui-timeline-content">
         {(title || time) && (
-          <div className="pxui-timeline-head">
-            {title && <span className="pxui-timeline-title">{title}</span>}
-            {time && <time className="pxui-timeline-time">{time}</time>}
+          <div className="lui-timeline-head">
+            {title && <span className="lui-timeline-title">{title}</span>}
+            {time && <time className="lui-timeline-time">{time}</time>}
           </div>
         )}
-        {by && <div className="pxui-timeline-by">{by}</div>}
-        {children && <div className="pxui-timeline-body">{children}</div>}
+        {by && <div className="lui-timeline-by">{by}</div>}
+        {children && <div className="lui-timeline-body">{children}</div>}
       </div>
     </li>
   );

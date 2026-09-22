@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Chip, ChipGroup, Icon } from "@projectx/ui";
+import { Chip, ChipGroup, Icon } from "@lorenthi/ui";
 
 const ARTSEN = ["Alle artsen", "Dr. Reyniers", "Dr. De Landsheer", "Mr. Miroir"];
 

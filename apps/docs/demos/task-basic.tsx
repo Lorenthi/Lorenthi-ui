@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Card, CardContent, Chip, ChipGroup, Composer, Icon, TaskItem, TaskList } from "@projectx/ui";
+import { Card, CardContent, Chip, ChipGroup, Composer, Icon, TaskItem, TaskList } from "@lorenthi/ui";
 
 type Taak = {
   id: number;

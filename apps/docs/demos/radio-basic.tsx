@@ -1,5 +1,5 @@
 "use client";
-import { Radio, RadioGroup } from "@projectx/ui";
+import { Radio, RadioGroup } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

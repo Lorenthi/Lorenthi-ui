@@ -1,5 +1,5 @@
 "use client";
-import { Button, ToastProvider, useToast } from "@projectx/ui";
+import { Button, ToastProvider, useToast } from "@lorenthi/ui";
 
 function Knoppen() {
   const toast = useToast();

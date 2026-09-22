@@ -31,7 +31,7 @@ export const MessageThread = React.forwardRef<HTMLDivElement, MessageThreadProps
         if (typeof ref === "function") ref(node as HTMLDivElement);
         else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
       }}
-      className={cn("pxui-thread", className)}
+      className={cn("lui-thread", className)}
       {...rest}
     >
       {children}
@@ -49,7 +49,7 @@ export const MessageDay = React.forwardRef<HTMLDivElement, MessageDayProps>(func
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-thread-day", className)} {...rest}>
+    <div ref={ref} className={cn("lui-thread-day", className)} {...rest}>
       <span>{children}</span>
     </div>
   );
@@ -75,29 +75,29 @@ export const Message = React.forwardRef<HTMLDivElement, MessageProps>(function M
 ) {
   if (from === "system") {
     return (
-      <div ref={ref} className={cn("pxui-thread-system", className)} {...rest}>
+      <div ref={ref} className={cn("lui-thread-system", className)} {...rest}>
         {children}
-        {time && <time className="pxui-thread-system-time">{time}</time>}
+        {time && <time className="lui-thread-system-time">{time}</time>}
       </div>
     );
   }
 
   return (
-    <div ref={ref} className={cn("pxui-message", `pxui-message-${from}`, className)} {...rest}>
-      {avatar && <span className="pxui-message-avatar">{avatar}</span>}
-      <div className="pxui-message-column">
+    <div ref={ref} className={cn("lui-message", `lui-message-${from}`, className)} {...rest}>
+      {avatar && <span className="lui-message-avatar">{avatar}</span>}
+      <div className="lui-message-column">
         {(author || time) && (
-          <div className="pxui-message-meta">
-            {author && <span className="pxui-message-author">{author}</span>}
-            {time && <time className="pxui-message-time">{time}</time>}
+          <div className="lui-message-meta">
+            {author && <span className="lui-message-author">{author}</span>}
+            {time && <time className="lui-message-time">{time}</time>}
           </div>
         )}
-        <div className={cn("pxui-message-bubble", internal && "pxui-message-internal")}>
-          {internal && <span className="pxui-message-internal-label">Interne notitie</span>}
+        <div className={cn("lui-message-bubble", internal && "lui-message-internal")}>
+          {internal && <span className="lui-message-internal-label">Interne notitie</span>}
           {children}
-          {footer && <div className="pxui-message-footer">{footer}</div>}
+          {footer && <div className="lui-message-footer">{footer}</div>}
         </div>
-        {status && <span className="pxui-message-status">{status}</span>}
+        {status && <span className="lui-message-status">{status}</span>}
       </div>
     </div>
   );

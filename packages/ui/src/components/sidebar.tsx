@@ -25,14 +25,14 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(function Side
   return (
     <aside
       ref={ref}
-      className={cn("pxui-sidebar", mobileOpen && "pxui-sidebar-open", className)}
+      className={cn("lui-sidebar", mobileOpen && "lui-sidebar-open", className)}
       data-collapsed={collapsed ? "" : undefined}
       data-tone={tone === "inverted" ? "inverted" : undefined}
       {...rest}
     >
       <button
         type="button"
-        className="pxui-sidebar-mobile-close"
+        className="lui-sidebar-mobile-close"
         aria-label="Menu sluiten"
         onClick={() => setMobileOpen(false)}
       >
@@ -42,12 +42,12 @@ export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(function Side
       {!hideCollapse && (
         <button
           type="button"
-          className="pxui-sidebar-collapse"
+          className="lui-sidebar-collapse"
           aria-label={collapsed ? "Zijbalk uitklappen" : "Zijbalk inklappen"}
           onClick={() => setCollapsed(!collapsed)}
         >
           <Icon name={collapsed ? "chevronsRight" : "chevronsLeft"} size={17} />
-          <span className="pxui-sidebar-label">Inklappen</span>
+          <span className="lui-sidebar-label">Inklappen</span>
         </button>
       )}
     </aside>
@@ -66,11 +66,11 @@ export const SidebarBrand = React.forwardRef<HTMLDivElement, SidebarBrandProps>(
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-sidebar-brand", className)} {...rest}>
-      {logo && <span className="pxui-sidebar-mark">{logo}</span>}
-      <span className="pxui-sidebar-brand-text pxui-sidebar-label">
-        <span className="pxui-sidebar-brand-name">{name}</span>
-        {subtitle && <span className="pxui-sidebar-brand-sub">{subtitle}</span>}
+    <div ref={ref} className={cn("lui-sidebar-brand", className)} {...rest}>
+      {logo && <span className="lui-sidebar-mark">{logo}</span>}
+      <span className="lui-sidebar-brand-text lui-sidebar-label">
+        <span className="lui-sidebar-brand-name">{name}</span>
+        {subtitle && <span className="lui-sidebar-brand-sub">{subtitle}</span>}
       </span>
     </div>
   );
@@ -78,14 +78,14 @@ export const SidebarBrand = React.forwardRef<HTMLDivElement, SidebarBrandProps>(
 
 export const SidebarNav = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>(
   function SidebarNav({ className, ...rest }, ref) {
-    return <nav ref={ref} className={cn("pxui-sidebar-nav", className)} {...rest} />;
+    return <nav ref={ref} className={cn("lui-sidebar-nav", className)} {...rest} />;
   }
 );
 
 export const SidebarSection = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function SidebarSection({ className, children, ...rest }, ref) {
     return (
-      <div ref={ref} className={cn("pxui-sidebar-section pxui-sidebar-label", className)} {...rest}>
+      <div ref={ref} className={cn("lui-sidebar-section lui-sidebar-label", className)} {...rest}>
         {children}
       </div>
     );
@@ -112,18 +112,18 @@ export const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>
       type={asChild ? undefined : "button"}
       aria-current={active ? "page" : undefined}
       data-active={active ? "" : undefined}
-      className={cn("pxui-sidebar-item", className)}
+      className={cn("lui-sidebar-item", className)}
       {...rest}
     >
-      {icon && <span className="pxui-sidebar-item-icon">{icon}</span>}
-      <span className="pxui-sidebar-item-label pxui-sidebar-label">{children}</span>
-      {badge !== undefined && <span className="pxui-sidebar-item-badge pxui-sidebar-label">{badge}</span>}
+      {icon && <span className="lui-sidebar-item-icon">{icon}</span>}
+      <span className="lui-sidebar-item-label lui-sidebar-label">{children}</span>
+      {badge !== undefined && <span className="lui-sidebar-item-badge lui-sidebar-label">{badge}</span>}
     </Comp>
   );
 });
 
 export const SidebarFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function SidebarFooter({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-sidebar-footer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-sidebar-footer", className)} {...rest} />;
   }
 );

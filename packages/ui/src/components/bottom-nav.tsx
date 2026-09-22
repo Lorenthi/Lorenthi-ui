@@ -12,7 +12,7 @@ export interface BottomNavProps extends React.HTMLAttributes<HTMLElement> {
 
 /**
  * BottomNav — vaste navigatiebalk onderaan op mobiel.
- * Zet in je layout `padding-bottom` gelijk aan `var(--pxui-bottomnav-h)`,
+ * Zet in je layout `padding-bottom` gelijk aan `var(--lui-bottomnav-h)`,
  * zodat de laatste inhoud niet onder de balk verdwijnt.
  */
 export const BottomNav = React.forwardRef<HTMLElement, BottomNavProps>(function BottomNav(
@@ -22,7 +22,7 @@ export const BottomNav = React.forwardRef<HTMLElement, BottomNavProps>(function 
   return (
     <nav
       ref={ref}
-      className={cn("pxui-bottomnav", className)}
+      className={cn("lui-bottomnav", className)}
       data-always={always ? "" : undefined}
       data-safe={safeArea ? "" : undefined}
       {...rest}
@@ -52,18 +52,18 @@ export const BottomNavItem = React.forwardRef<HTMLButtonElement, BottomNavItemPr
       type={asChild ? undefined : "button"}
       aria-current={active ? "page" : undefined}
       data-active={active ? "" : undefined}
-      className={cn("pxui-bottomnav-item", className)}
+      className={cn("lui-bottomnav-item", className)}
       {...rest}
     >
-      <span className="pxui-bottomnav-icon">
+      <span className="lui-bottomnav-icon">
         {icon}
         {badge !== undefined && badge !== false && (
-          <span className={cn("pxui-bottomnav-badge", badge === true && "pxui-bottomnav-dot")}>
+          <span className={cn("lui-bottomnav-badge", badge === true && "lui-bottomnav-dot")}>
             {badge === true ? null : badge}
           </span>
         )}
       </span>
-      <span className="pxui-bottomnav-label">{children}</span>
+      <span className="lui-bottomnav-label">{children}</span>
     </Comp>
   );
 });

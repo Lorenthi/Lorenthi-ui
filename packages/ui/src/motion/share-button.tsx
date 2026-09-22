@@ -112,7 +112,7 @@ export const ShareButton = React.forwardRef<HTMLDivElement, ShareButtonProps>(fu
         else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
       }}
       data-open={open ? "" : undefined}
-      className={cn("pxui-shareb", className)}
+      className={cn("lui-shareb", className)}
       {...rest}
     >
       <AnimatePresence initial={false} mode="popLayout">
@@ -120,7 +120,7 @@ export const ShareButton = React.forwardRef<HTMLDivElement, ShareButtonProps>(fu
           <motion.button
             key="trigger"
             type="button"
-            className="pxui-shareb-trigger"
+            className="lui-shareb-trigger"
             disabled={disabled}
             onClick={() => setOpen(true)}
             initial={{ opacity: 0, scale: 0.9 }}
@@ -134,7 +134,7 @@ export const ShareButton = React.forwardRef<HTMLDivElement, ShareButtonProps>(fu
         ) : (
           <motion.div
             key="fan"
-            className="pxui-shareb-fan"
+            className="lui-shareb-fan"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -144,7 +144,7 @@ export const ShareButton = React.forwardRef<HTMLDivElement, ShareButtonProps>(fu
               <motion.button
                 key={kanaal.id}
                 type="button"
-                className="pxui-shareb-channel"
+                className="lui-shareb-channel"
                 style={{ color: kanaal.tone }}
                 aria-label={kanaal.label}
                 title={kanaal.label}
@@ -169,14 +169,14 @@ export const ShareButton = React.forwardRef<HTMLDivElement, ShareButtonProps>(fu
 
             <button
               type="button"
-              className="pxui-shareb-close"
+              className="lui-shareb-close"
               aria-label={woorden.close}
               onClick={() => setOpen(false)}
             >
               {status === "copied" ? <Icon name="check" size={17} /> : <Icon name="x" size={17} />}
             </button>
 
-            <span className="pxui-shareb-hint" aria-live="polite">
+            <span className="lui-shareb-hint" aria-live="polite">
               {status === "copying" ? woorden.copying : status === "copied" ? woorden.copied : woorden.pick}
             </span>
           </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@projectx/ui";
-import { DeleteButton } from "@projectx/ui/motion";
+import { Badge } from "@lorenthi/ui";
+import { DeleteButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   const [status, setStatus] = useState("Niets verwijderd.");

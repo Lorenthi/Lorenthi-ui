@@ -1,5 +1,5 @@
 "use client";
-import { PaymentCheckout } from "@projectx/ui/motion";
+import { PaymentCheckout } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (

@@ -3,8 +3,8 @@ import { useState } from "react";
 import {
   Button, Drawer, DrawerBody, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger, Icon,
   Segmented,
-} from "@projectx/ui";
-import { MotionDrawerContent } from "@projectx/ui/motion";
+} from "@lorenthi/ui";
+import { MotionDrawerContent } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   const [zijde, setZijde] = useState("right");

@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Badge, Button, Icon, PeriodNav, Segmented, WeekSchedule, formatTime,
   type ScheduleChange, type ScheduleEvent, type ScheduleResource,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const DAGEN: ScheduleResource[] = [
   { key: "ma", label: "ma", sublabel: 16 },

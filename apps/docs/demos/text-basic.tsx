@@ -1,5 +1,5 @@
 "use client";
-import { Stack, Text } from "@projectx/ui";
+import { Stack, Text } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * projectx-ui — kopieert componenten uit de registry naar je project.
+ * lorenthi-ui — kopieert componenten uit de registry naar je project.
  * Zelfde idee als de shadcn-CLI, volledig zelf geschreven, zonder dependencies.
  *
- *   npx projectx-ui init
- *   npx projectx-ui add button card dialog
- *   npx projectx-ui add --all
- *   npx projectx-ui update
- *   npx projectx-ui list
+ *   npx lorenthi-ui init
+ *   npx lorenthi-ui add button card dialog
+ *   npx lorenthi-ui add --all
+ *   npx lorenthi-ui update
+ *   npx lorenthi-ui list
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname, basename, relative } from "node:path";
@@ -37,14 +37,14 @@ const fail = (message) => {
   process.exit(1);
 };
 
-const CONFIG_FILE = "projectx-ui.json";
+const CONFIG_FILE = "lorenthi-ui.json";
 const DEFAULT_CONFIG = {
   componentsDir: "components/ui",
   cssEntry: "components/ui/ui.css",
   importAlias: "@/components/ui",
 };
 
-const LOCK_FILE = "projectx-ui.lock.json";
+const LOCK_FILE = "lorenthi-ui.lock.json";
 
 let registryPath = null;
 
@@ -67,7 +67,7 @@ function readLock() {
 
 function writeLock(lock, registry) {
   const ordered = {
-    name: "projectx-ui",
+    name: "lorenthi-ui",
     version: registry.version,
     bijgewerkt: new Date().toISOString(),
     shared: lock.shared,
@@ -83,7 +83,7 @@ function writeLock(lock, registry) {
 async function loadRegistry(explicit) {
   const candidates = [
     explicit,
-    process.env.PROJECTX_UI_REGISTRY,
+    process.env.LORENTHI_UI_REGISTRY,
     findUp("registry/index.json"),
     join(here, "../registry/index.json"),
     // Ook buiten de monorepo (bv. na `npm link`): de registry naast deze CLI.
@@ -143,7 +143,7 @@ function ensureCssImport(config, cssFileName) {
     writeFileSync(
       entry,
       [
-        "/* ProjectX UI — verzamelbestand.",
+        "/* Lorenthi UI — verzamelbestand.",
         "   Importeer dit een keer in je globale stylesheet. */",
         line,
         "",
@@ -167,7 +167,7 @@ function ensureIndexExport(config, fileName) {
   const line = `export * from "./${fileName.replace(/\.tsx?$/, "")}";`;
 
   if (!existsSync(entry)) {
-    writeFileSync(entry, ["/* ProjectX UI — bijgehouden door de CLI. */", line, ""].join("\n"));
+    writeFileSync(entry, ["/* Lorenthi UI — bijgehouden door de CLI. */", line, ""].join("\n"));
     return;
   }
 
@@ -258,7 +258,7 @@ async function cmdInit(args) {
   ok("Klaar. Importeer het verzamelbestand in je globale stylesheet:");
   log(`  ${c.dim}@import "./${config.cssEntry}";${c.reset}`);
   log();
-  log(`Volgende stap: ${c.teal}npx projectx-ui add button${c.reset}`);
+  log(`Volgende stap: ${c.teal}npx lorenthi-ui add button${c.reset}`);
 }
 
 async function readComponentPayload(name) {
@@ -277,7 +277,7 @@ async function readComponentPayload(name) {
 async function cmdAdd(args) {
   const registry = await loadRegistry(flag(args, "--registry"));
   const config = readConfig();
-  if (!config) fail(`Geen ${CONFIG_FILE} gevonden. Draai eerst \`npx projectx-ui init\`.`);
+  if (!config) fail(`Geen ${CONFIG_FILE} gevonden. Draai eerst \`npx lorenthi-ui init\`.`);
 
   const force = args.includes("--force") || args.includes("-f");
   const all = args.includes("--all");
@@ -345,7 +345,7 @@ function meldPackages(components) {
 async function cmdUpdate(args) {
   const registry = await loadRegistry(flag(args, "--registry"));
   const config = readConfig();
-  if (!config) fail(`Geen ${CONFIG_FILE} gevonden. Draai eerst \`npx projectx-ui init\`.`);
+  if (!config) fail(`Geen ${CONFIG_FILE} gevonden. Draai eerst \`npx lorenthi-ui init\`.`);
 
   const force = args.includes("--force") || args.includes("-f");
   const dryRun = args.includes("--dry-run") || args.includes("-n");
@@ -481,7 +481,7 @@ async function cmdList(args) {
   }
 
   log();
-  log(`${c.bold}ProjectX UI${c.reset} ${c.dim}v${registry.version} - ${registry.components.length} componenten${c.reset}`);
+  log(`${c.bold}Lorenthi UI${c.reset} ${c.dim}v${registry.version} - ${registry.components.length} componenten${c.reset}`);
   for (const [category, items] of groups) {
     log();
     log(`${c.teal}${category}${c.reset}`);
@@ -508,10 +508,10 @@ async function main() {
       return cmdList(args);
     case "--version":
     case "-v":
-      return log("projectx-ui 0.1.0");
+      return log("lorenthi-ui 0.1.0");
     default:
       log();
-      log(`${c.bold}projectx-ui${c.reset} — je eigen componenten, in je eigen project.`);
+      log(`${c.bold}lorenthi-ui${c.reset} — je eigen componenten, in je eigen project.`);
       log();
       log(`  ${c.teal}init${c.reset}                 tokens, basis-CSS en hulpfuncties kopieren`);
       log(`  ${c.teal}add <namen...>${c.reset}       componenten kopieren (met hun afhankelijkheden)`);

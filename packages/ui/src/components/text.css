@@ -1,23 +1,23 @@
 /* ============================ Text ============================ */
-.pxui-text { margin: 0; color: var(--text); font-size: var(--fs-base); line-height: 1.6; }
-.pxui-text.pxui-display, .pxui-text.pxui-h1, .pxui-text.pxui-h2, .pxui-text.pxui-h3 { line-height: 1.15; }
+.lui-text { margin: 0; color: var(--text); font-size: var(--fs-base); line-height: 1.6; }
+.lui-text.lui-display, .lui-text.lui-h1, .lui-text.lui-h2, .lui-text.lui-h3 { line-height: 1.15; }
 
-.pxui-text-sm { font-size: var(--fs-sm); }
-.pxui-text-caption { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.45; }
+.lui-text-sm { font-size: var(--fs-sm); }
+.lui-text-caption { font-size: var(--fs-xs); color: var(--text-3); line-height: 1.45; }
 
-.pxui-text-muted { color: var(--text-2); }
-.pxui-text-subtle { color: var(--text-3); }
-.pxui-text-accent { color: var(--accent); }
-.pxui-text-green { color: var(--green); }
-.pxui-text-amber { color: var(--amber); }
-.pxui-text-red { color: var(--red); }
-.pxui-text-inverse { color: var(--text-inv); }
+.lui-text-muted { color: var(--text-2); }
+.lui-text-subtle { color: var(--text-3); }
+.lui-text-accent { color: var(--accent); }
+.lui-text-green { color: var(--green); }
+.lui-text-amber { color: var(--amber); }
+.lui-text-red { color: var(--red); }
+.lui-text-inverse { color: var(--text-inv); }
 
-.pxui-text-medium { font-weight: 500; }
-.pxui-text-semibold { font-weight: 650; }
-.pxui-text-bold { font-weight: 750; }
+.lui-text-medium { font-weight: 500; }
+.lui-text-semibold { font-weight: 650; }
+.lui-text-bold { font-weight: 750; }
 
-.pxui-text-center { text-align: center; }
-.pxui-text-right { text-align: right; }
+.lui-text-center { text-align: center; }
+.lui-text-right { text-align: right; }
 
-.pxui-text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lui-text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

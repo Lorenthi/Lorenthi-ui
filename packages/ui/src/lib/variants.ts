@@ -3,15 +3,15 @@
  * Geen cva. Bouwt een klassenreeks op basis van props.
  *
  *   const button = variants({
- *     base: "pxui-btn",
+ *     base: "lui-btn",
  *     variants: {
- *       variant: { primary: "pxui-btn-primary", ghost: "pxui-btn-ghost" },
- *       size:    { sm: "pxui-btn-sm", md: "", lg: "pxui-btn-lg" },
+ *       variant: { primary: "lui-btn-primary", ghost: "lui-btn-ghost" },
+ *       size:    { sm: "lui-btn-sm", md: "", lg: "lui-btn-lg" },
  *     },
  *     defaultVariants: { variant: "primary", size: "md" },
  *   });
  *
- *   button({ variant: "ghost" })  // -> "pxui-btn pxui-btn-ghost"
+ *   button({ variant: "ghost" })  // -> "lui-btn lui-btn-ghost"
  */
 import { cn, type ClassValue } from "./cn";
 

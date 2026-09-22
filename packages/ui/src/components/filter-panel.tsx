@@ -49,15 +49,15 @@ export const FilterPanel = React.forwardRef<HTMLDivElement, FilterPanelProps>(fu
   ref
 ) {
   return (
-    <div ref={ref} data-tone={tone} className={cn("pxui-filter", className)} {...rest}>
+    <div ref={ref} data-tone={tone} className={cn("lui-filter", className)} {...rest}>
       {(title || (activeCount > 0 && onClear)) && (
-        <div className="pxui-filter-head">
-          <span className="pxui-filter-title">
+        <div className="lui-filter-head">
+          <span className="lui-filter-title">
             {title}
-            {activeCount > 0 && <span className="pxui-filter-count">{activeCount}</span>}
+            {activeCount > 0 && <span className="lui-filter-count">{activeCount}</span>}
           </span>
           {activeCount > 0 && onClear && (
-            <button type="button" className="pxui-filter-clear" onClick={onClear}>
+            <button type="button" className="lui-filter-clear" onClick={onClear}>
               {clearLabel}
             </button>
           )}
@@ -97,26 +97,26 @@ export const FilterGroup = React.forwardRef<HTMLDivElement, FilterGroupProps>(fu
   const zichtbaar = verborgen ? items.slice(0, maxVisible) : items;
 
   return (
-    <div ref={ref} data-open={uitgeklapt ? "" : undefined} className={cn("pxui-filter-group", className)} {...rest}>
+    <div ref={ref} data-open={uitgeklapt ? "" : undefined} className={cn("lui-filter-group", className)} {...rest}>
       {collapsible ? (
         <button
           type="button"
-          className="pxui-filter-group-label"
+          className="lui-filter-group-label"
           aria-expanded={uitgeklapt}
           onClick={() => setUitgeklapt(!uitgeklapt)}
         >
           {label}
-          <Icon name="chevronDown" size={15} className="pxui-filter-chevron" />
+          <Icon name="chevronDown" size={15} className="lui-filter-chevron" />
         </button>
       ) : (
-        <div className="pxui-filter-group-label">{label}</div>
+        <div className="lui-filter-group-label">{label}</div>
       )}
 
       {(!collapsible || uitgeklapt) && (
-        <div className="pxui-filter-items">
+        <div className="lui-filter-items">
           {zichtbaar}
           {maxVisible !== undefined && items.length > maxVisible && (
-            <button type="button" className="pxui-filter-more" onClick={() => setAlles((vorig) => !vorig)}>
+            <button type="button" className="lui-filter-more" onClick={() => setAlles((vorig) => !vorig)}>
               {alles ? lessLabel : `${moreLabel} (${items.length - maxVisible})`}
             </button>
           )}
@@ -139,7 +139,7 @@ export const FilterOption = React.forwardRef<HTMLInputElement, FilterOptionProps
     }, [indeterminate]);
 
     return (
-      <label className={cn("pxui-filter-option", className)} data-disabled={disabled ? "" : undefined}>
+      <label className={cn("lui-filter-option", className)} data-disabled={disabled ? "" : undefined}>
         <input
           ref={(node) => {
             eigen.current = node;
@@ -147,18 +147,18 @@ export const FilterOption = React.forwardRef<HTMLInputElement, FilterOptionProps
             else if (ref) (ref as React.RefObject<HTMLInputElement | null>).current = node;
           }}
           type={type}
-          className="pxui-filter-input"
+          className="lui-filter-input"
           checked={checked}
           disabled={disabled}
           onChange={(event) => onCheckedChange?.(event.target.checked)}
           {...rest}
         />
-        <span className="pxui-filter-box" aria-hidden="true">
+        <span className="lui-filter-box" aria-hidden="true">
           <Icon name={indeterminate ? "minus" : "check"} size={12} strokeWidth={3} />
         </span>
-        {lead && <span className="pxui-filter-lead">{lead}</span>}
-        <span className="pxui-filter-label">{label}</span>
-        {count !== undefined && <span className="pxui-filter-badge">{count}</span>}
+        {lead && <span className="lui-filter-lead">{lead}</span>}
+        <span className="lui-filter-label">{label}</span>
+        {count !== undefined && <span className="lui-filter-badge">{count}</span>}
       </label>
     );
   }

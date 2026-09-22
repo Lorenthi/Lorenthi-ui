@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { Combobox, Field, Icon } from "@projectx/ui";
+import { Combobox, Field, Icon } from "@lorenthi/ui";
 
 const TENANTS = [
   { value: "itworxs", label: "ITWORXS BV", description: "BE 0123.456.789", group: "Actief", icon: <Icon name="building" size={16} /> },
-  { value: "projectx", label: "ProjectX NV", description: "BE 0987.654.321", group: "Actief", icon: <Icon name="building" size={16} /> },
+  { value: "lorenthi", label: "Lorenthi NV", description: "BE 0987.654.321", group: "Actief", icon: <Icon name="building" size={16} /> },
   { value: "delta", label: "Delta Solutions", description: "BE 0555.123.456", group: "Actief", icon: <Icon name="building" size={16} /> },
   { value: "oud", label: "Oude Zaak BVBA", description: "Opgeheven in 2023", group: "Gearchiveerd", disabled: true, icon: <Icon name="building" size={16} /> },
 ];

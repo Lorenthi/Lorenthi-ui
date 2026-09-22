@@ -49,10 +49,10 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(function 
       aria-pressed={aan}
       data-state={aan ? "on" : "off"}
       className={cn(
-        "pxui-toggle",
-        `pxui-toggle-${size}`,
-        `pxui-toggle-${variant}`,
-        !children && "pxui-toggle-icon-only",
+        "lui-toggle",
+        `lui-toggle-${size}`,
+        `lui-toggle-${variant}`,
+        !children && "lui-toggle-icon-only",
         className
       )}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
@@ -61,7 +61,7 @@ export const Toggle = React.forwardRef<HTMLButtonElement, ToggleProps>(function 
       }}
       {...rest}
     >
-      {icon && <span className="pxui-toggle-icon">{icon}</span>}
+      {icon && <span className="lui-toggle-icon">{icon}</span>}
       {children}
     </Comp>
   );
@@ -132,7 +132,7 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(fu
       <div
         ref={ref}
         role="group"
-        className={cn("pxui-toggle-group", joined && "pxui-toggle-group-joined", className)}
+        className={cn("lui-toggle-group", joined && "lui-toggle-group-joined", className)}
         {...rest}
       >
         {children}

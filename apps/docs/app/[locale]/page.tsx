@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Badge, Button, Card, CardDescription, CardHeader, CardTitle, Icon, ThemeToggle,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 import { Link } from "@/i18n/navigation";
 import { COMPONENTS, entryTag } from "@/content/catalog";
 import { CodeBlock } from "@/components/code-block";
@@ -36,8 +36,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           backdropFilter: "blur(8px)",
         }}
       >
-        <span className="docs-nav-mark" style={{ width: 32, height: 32, fontSize: 15 }}>X</span>
-        <strong style={{ fontSize: 15, letterSpacing: "-0.02em" }}>ProjectX UI</strong>
+        <span className="docs-nav-mark" style={{ width: 32, height: 32, fontSize: 15 }}>L</span>
+        <strong style={{ fontSize: 15, letterSpacing: "-0.02em" }}>Lorenthi UI</strong>
         <Badge tone="accent" size="sm">v0.1.0</Badge>
         <span style={{ flex: 1 }} />
         <Button variant="ghost" size="sm" asChild>
@@ -67,7 +67,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Button>
           </div>
           <div style={{ maxWidth: 520, margin: "28px auto 0", textAlign: "left" }}>
-            <CodeBlock code={"npx projectx-ui init\nnpx projectx-ui add button card dialog"} standalone />
+            <CodeBlock code={"npx lorenthi-ui init\nnpx lorenthi-ui add button card dialog"} standalone />
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardContent, DataPill, Icon, SectionHeader } from "@projectx/ui";
+import { Card, CardContent, DataPill, Icon, SectionHeader } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

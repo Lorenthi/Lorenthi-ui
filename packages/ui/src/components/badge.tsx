@@ -3,18 +3,18 @@ import * as React from "react";
 import { variants } from "../lib/variants";
 
 const badge = variants({
-  base: "pxui-badge",
+  base: "lui-badge",
   variants: {
     tone: {
-      neutral: "pxui-badge-neutral",
-      accent: "pxui-badge-accent",
-      green: "pxui-badge-green",
-      amber: "pxui-badge-amber",
-      red: "pxui-badge-red",
-      blue: "pxui-badge-blue",
-      violet: "pxui-badge-violet",
+      neutral: "lui-badge-neutral",
+      accent: "lui-badge-accent",
+      green: "lui-badge-green",
+      amber: "lui-badge-amber",
+      red: "lui-badge-red",
+      blue: "lui-badge-blue",
+      violet: "lui-badge-violet",
     },
-    size: { sm: "pxui-badge-sm", md: "" },
+    size: { sm: "lui-badge-sm", md: "" },
   },
   defaultVariants: { tone: "neutral", size: "md" },
 });
@@ -36,7 +36,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(function Badg
 ) {
   return (
     <span ref={ref} className={badge({ tone, size, className })} {...rest}>
-      {dot && <span className="pxui-badge-dot" aria-hidden="true" />}
+      {dot && <span className="lui-badge-dot" aria-hidden="true" />}
       {icon}
       {children}
     </span>

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   Field, Fieldset, Input, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Switch,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [uit, setUit] = useState(false);

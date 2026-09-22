@@ -1,45 +1,45 @@
 /* ============================ Progress ============================ */
-.pxui-progress-wrap { --pxui-progress-color: var(--accent); display: flex; flex-direction: column; gap: 7px; width: 100%; }
-.pxui-progress-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.pxui-progress-label { font-size: 13px; font-weight: 550; color: var(--text-2); }
-.pxui-progress-value { font-size: var(--fs-sm); font-weight: 650; color: var(--text); font-family: var(--mono); }
+.lui-progress-wrap { --lui-progress-color: var(--accent); display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.lui-progress-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lui-progress-label { font-size: 13px; font-weight: 550; color: var(--text-2); }
+.lui-progress-value { font-size: var(--fs-sm); font-weight: 650; color: var(--text); font-family: var(--mono); }
 
-.pxui-progress {
-  --pxui-progress-color: var(--accent);
+.lui-progress {
+  --lui-progress-color: var(--accent);
   position: relative; width: 100%; height: 8px; overflow: hidden;
   background: var(--surface-3); border-radius: var(--r-full);
 }
-.pxui-progress-sm { height: 5px; }
-.pxui-progress-lg { height: 12px; }
+.lui-progress-sm { height: 5px; }
+.lui-progress-lg { height: 12px; }
 
-.pxui-progress-accent { --pxui-progress-color: var(--accent); }
-.pxui-progress-green { --pxui-progress-color: var(--green); }
-.pxui-progress-amber { --pxui-progress-color: var(--amber); }
-.pxui-progress-red { --pxui-progress-color: var(--red); }
-.pxui-progress-blue { --pxui-progress-color: var(--blue); }
+.lui-progress-accent { --lui-progress-color: var(--accent); }
+.lui-progress-green { --lui-progress-color: var(--green); }
+.lui-progress-amber { --lui-progress-color: var(--amber); }
+.lui-progress-red { --lui-progress-color: var(--red); }
+.lui-progress-blue { --lui-progress-color: var(--blue); }
 
-.pxui-progress-bar {
+.lui-progress-bar {
   height: 100%; border-radius: inherit;
-  background: var(--pxui-progress-color);
+  background: var(--lui-progress-color);
   transition: width .45s var(--ease-out);
 }
-.pxui-progress-bar-indeterminate {
+.lui-progress-bar-indeterminate {
   width: 38%; position: absolute; left: 0;
-  animation: pxui-progress-slide 1.15s var(--ease) infinite;
+  animation: lui-progress-slide 1.15s var(--ease) infinite;
 }
-@keyframes pxui-progress-slide {
+@keyframes lui-progress-slide {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(365%); }
 }
 
 /* ---------- Circle ---------- */
-.pxui-progress-circle { position: relative; display: inline-grid; place-items: center; }
-.pxui-progress-circle svg { position: absolute; inset: 0; }
-.pxui-progress-circle-track { stroke: var(--surface-3); }
-.pxui-progress-circle-bar {
-  stroke: var(--pxui-progress-color, var(--accent));
+.lui-progress-circle { position: relative; display: inline-grid; place-items: center; }
+.lui-progress-circle svg { position: absolute; inset: 0; }
+.lui-progress-circle-track { stroke: var(--surface-3); }
+.lui-progress-circle-bar {
+  stroke: var(--lui-progress-color, var(--accent));
   transition: stroke-dashoffset .5s var(--ease-out);
 }
-.pxui-progress-circle-value {
+.lui-progress-circle-value {
   font-size: var(--fs-sm); font-weight: 700; color: var(--text); font-family: var(--mono);
 }

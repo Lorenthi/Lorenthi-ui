@@ -1,5 +1,5 @@
 "use client";
-import { Icon, Sparkline, Stat, StatGrid } from "@projectx/ui";
+import { Icon, Sparkline, Stat, StatGrid } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

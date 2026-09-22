@@ -1,64 +1,64 @@
 /* ============================ Drawer ============================ */
-.pxui-overlay-plain { display: block; padding: 0; }
+.lui-overlay-plain { display: block; padding: 0; }
 
-.pxui-drawer {
+.lui-drawer {
   position: fixed; background: var(--surface); box-shadow: var(--sh-xl);
   display: flex; flex-direction: column; overflow: hidden; z-index: 1;
 }
-.pxui-drawer-close { position: absolute; top: 14px; right: 14px; z-index: 1; }
+.lui-drawer-close { position: absolute; top: 14px; right: 14px; z-index: 1; }
 
-.pxui-drawer-right {
+.lui-drawer-right {
   top: 0; right: 0; bottom: 0; width: min(420px, 92vw);
   border-left: 1px solid var(--border);
-  animation: pxui-drawer-right .28s var(--ease) both;
+  animation: lui-drawer-right .28s var(--ease) both;
 }
-.pxui-drawer-left {
+.lui-drawer-left {
   top: 0; left: 0; bottom: 0; width: min(420px, 92vw);
   border-right: 1px solid var(--border);
-  animation: pxui-drawer-left .28s var(--ease) both;
+  animation: lui-drawer-left .28s var(--ease) both;
 }
-.pxui-drawer-top {
+.lui-drawer-top {
   top: 0; left: 0; right: 0; height: min(380px, 80vh);
   border-bottom: 1px solid var(--border);
-  animation: pxui-drawer-top .28s var(--ease) both;
+  animation: lui-drawer-top .28s var(--ease) both;
 }
-.pxui-drawer-bottom {
+.lui-drawer-bottom {
   bottom: 0; left: 0; right: 0; height: min(380px, 80vh);
   border-top: 1px solid var(--border);
   border-radius: var(--r-xl) var(--r-xl) 0 0;
-  animation: pxui-drawer-bottom .28s var(--ease) both;
+  animation: lui-drawer-bottom .28s var(--ease) both;
 }
 
-@keyframes pxui-drawer-right { from { transform: translateX(100%); } to { transform: none; } }
-@keyframes pxui-drawer-left { from { transform: translateX(-100%); } to { transform: none; } }
-@keyframes pxui-drawer-top { from { transform: translateY(-100%); } to { transform: none; } }
-@keyframes pxui-drawer-bottom { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes lui-drawer-right { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes lui-drawer-left { from { transform: translateX(-100%); } to { transform: none; } }
+@keyframes lui-drawer-top { from { transform: translateY(-100%); } to { transform: none; } }
+@keyframes lui-drawer-bottom { from { transform: translateY(100%); } to { transform: none; } }
 
-.pxui-drawer-header {
+.lui-drawer-header {
   padding: 22px 22px 14px; padding-right: 52px;
   display: flex; flex-direction: column; gap: 5px;
   border-bottom: 1px solid var(--border);
 }
-.pxui-drawer-title { font-size: var(--fs-xl); font-weight: 650; letter-spacing: -0.02em; color: var(--text); }
-.pxui-drawer-description { font-size: 13.5px; color: var(--text-3); line-height: 1.5; }
-.pxui-drawer-body { padding: 20px 22px; overflow-y: auto; flex: 1; min-height: 0; }
-.pxui-drawer-footer {
+.lui-drawer-title { font-size: var(--fs-xl); font-weight: 650; letter-spacing: -0.02em; color: var(--text); }
+.lui-drawer-description { font-size: 13.5px; color: var(--text-3); line-height: 1.5; }
+.lui-drawer-body { padding: 20px 22px; overflow-y: auto; flex: 1; min-height: 0; }
+.lui-drawer-footer {
   display: flex; gap: 10px; justify-content: flex-end;
   padding: 16px 22px; border-top: 1px solid var(--border); flex: none;
 }
 
 /* ---------- Sluiten ---------- */
-.pxui-overlay-plain[data-state="closed"] { animation: pxui-overlay-out .2s var(--ease) both; }
-.pxui-drawer-right[data-state="closed"] { animation: pxui-drawer-right-out .24s var(--ease) both; }
-.pxui-drawer-left[data-state="closed"] { animation: pxui-drawer-left-out .24s var(--ease) both; }
-.pxui-drawer-top[data-state="closed"] { animation: pxui-drawer-top-out .24s var(--ease) both; }
-.pxui-drawer-bottom[data-state="closed"] { animation: pxui-drawer-bottom-out .24s var(--ease) both; }
+.lui-overlay-plain[data-state="closed"] { animation: lui-overlay-out .2s var(--ease) both; }
+.lui-drawer-right[data-state="closed"] { animation: lui-drawer-right-out .24s var(--ease) both; }
+.lui-drawer-left[data-state="closed"] { animation: lui-drawer-left-out .24s var(--ease) both; }
+.lui-drawer-top[data-state="closed"] { animation: lui-drawer-top-out .24s var(--ease) both; }
+.lui-drawer-bottom[data-state="closed"] { animation: lui-drawer-bottom-out .24s var(--ease) both; }
 
-@keyframes pxui-drawer-right-out { from { transform: none; } to { transform: translateX(100%); } }
-@keyframes pxui-drawer-left-out { from { transform: none; } to { transform: translateX(-100%); } }
-@keyframes pxui-drawer-top-out { from { transform: none; } to { transform: translateY(-100%); } }
-@keyframes pxui-drawer-bottom-out { from { transform: none; } to { transform: translateY(100%); } }
+@keyframes lui-drawer-right-out { from { transform: none; } to { transform: translateX(100%); } }
+@keyframes lui-drawer-left-out { from { transform: none; } to { transform: translateX(-100%); } }
+@keyframes lui-drawer-top-out { from { transform: none; } to { transform: translateY(-100%); } }
+@keyframes lui-drawer-bottom-out { from { transform: none; } to { transform: translateY(100%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .pxui-drawer, .pxui-drawer[data-state="closed"] { animation-duration: .01ms; }
+  .lui-drawer, .lui-drawer[data-state="closed"] { animation-duration: .01ms; }
 }

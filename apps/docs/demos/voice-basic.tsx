@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Alert, Button, Card, CardContent, ConfettiBurst, Textarea, VoiceButton } from "@projectx/ui";
+import { Alert, Button, Card, CardContent, ConfettiBurst, Textarea, VoiceButton } from "@lorenthi/ui";
 
 export default function Demo() {
   const [tekst, setTekst] = useState("");

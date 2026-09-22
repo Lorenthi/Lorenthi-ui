@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Checkbox } from "@projectx/ui";
+import { Checkbox } from "@lorenthi/ui";
 
 export default function Demo() {
   const [items, setItems] = useState([true, false, false]);

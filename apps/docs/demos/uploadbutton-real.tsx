@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@projectx/ui";
-import { UploadButton } from "@projectx/ui/motion";
+import { Badge } from "@lorenthi/ui";
+import { UploadButton } from "@lorenthi/ui/motion";
 
 /** Met een echte upload: jij bepaalt de voortgang en of het lukt. */
 export default function Demo() {

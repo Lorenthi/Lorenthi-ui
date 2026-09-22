@@ -1,5 +1,5 @@
 "use client";
-import { UploadButton } from "@projectx/ui/motion";
+import { UploadButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (

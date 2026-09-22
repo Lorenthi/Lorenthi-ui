@@ -29,7 +29,7 @@ function useMenu(component: string): MenuContextValue {
 export const MenuProvider = MenuContext.Provider;
 export type { MenuContextValue };
 
-const ITEM_SELECTOR = '[data-pxui-menuitem]:not([data-disabled])';
+const ITEM_SELECTOR = '[data-lui-menuitem]:not([data-disabled])';
 
 export interface DropdownMenuProps {
   open?: boolean;
@@ -150,7 +150,7 @@ export const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenu
           ref={composeRefs(ref, contentRef)}
           role="menu"
           data-side={position.side}
-          className={cn("pxui-menu", className)}
+          className={cn("lui-menu", className)}
           style={{ minWidth, ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
           onKeyDown={onKeyDown}
           {...rest}
@@ -187,10 +187,10 @@ export const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenu
         type={asChild ? undefined : "button"}
         role="menuitem"
         tabIndex={-1}
-        data-pxui-menuitem=""
+        data-lui-menuitem=""
         data-disabled={disabled ? "" : undefined}
         disabled={asChild ? undefined : disabled}
-        className={cn("pxui-menu-item", destructive && "pxui-menu-item-destructive", className)}
+        className={cn("lui-menu-item", destructive && "lui-menu-item-destructive", className)}
         onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           if (disabled) return;
           onClick?.(event);
@@ -198,9 +198,9 @@ export const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenu
         }}
         {...rest}
       >
-        {icon && <span className="pxui-menu-item-icon">{icon}</span>}
-        <span className="pxui-menu-item-label">{children}</span>
-        {shortcut && <span className="pxui-menu-item-shortcut">{shortcut}</span>}
+        {icon && <span className="lui-menu-item-icon">{icon}</span>}
+        <span className="lui-menu-item-label">{children}</span>
+        {shortcut && <span className="lui-menu-item-shortcut">{shortcut}</span>}
       </Comp>
     );
   }
@@ -220,7 +220,7 @@ export const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, Drop
         aria-checked={checked}
         closeOnSelect={closeOnSelect}
         icon={
-          <span className={cn("pxui-menu-check", checked && "pxui-menu-check-on")}>
+          <span className={cn("lui-menu-check", checked && "lui-menu-check-on")}>
             {checked && <Icon name="check" size={13} strokeWidth={3} />}
           </span>
         }
@@ -235,18 +235,18 @@ export const DropdownMenuCheckboxItem = React.forwardRef<HTMLButtonElement, Drop
 
 export const DropdownMenuLabel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DropdownMenuLabel({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-menu-label", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-menu-label", className)} {...rest} />;
   }
 );
 
 export const DropdownMenuSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DropdownMenuSeparator({ className, ...rest }, ref) {
-    return <div ref={ref} role="separator" className={cn("pxui-menu-separator", className)} {...rest} />;
+    return <div ref={ref} role="separator" className={cn("lui-menu-separator", className)} {...rest} />;
   }
 );
 
 export const DropdownMenuGroup = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function DropdownMenuGroup({ className, ...rest }, ref) {
-    return <div ref={ref} role="group" className={cn("pxui-menu-group", className)} {...rest} />;
+    return <div ref={ref} role="group" className={cn("lui-menu-group", className)} {...rest} />;
   }
 );

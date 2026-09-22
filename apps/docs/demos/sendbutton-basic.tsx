@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@projectx/ui";
-import { SendButton } from "@projectx/ui/motion";
+import { Badge } from "@lorenthi/ui";
+import { SendButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   const [laatste, setLaatste] = useState("Nog niets verstuurd.");

@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Avatar, Badge, Icon, PeriodNav, ResourceColumns, Segmented, Swimlanes, TimeSlotList,
   WeekSchedule, type ScheduleEvent, type ScheduleResource,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 /* ---------- Eén datamodel voor alle vier de weergaven ---------- */
 const ARTSEN: ScheduleResource[] = [

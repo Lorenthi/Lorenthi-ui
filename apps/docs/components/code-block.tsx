@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { Button, Icon, useCopyToClipboard } from "@projectx/ui";
+import { Button, Icon, useCopyToClipboard } from "@lorenthi/ui";
 
 const KEYWORDS = new Set([
   "import", "from", "export", "default", "function", "return", "const", "let", "var", "if", "else",

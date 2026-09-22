@@ -33,22 +33,22 @@ export const Workspace = React.forwardRef<HTMLDivElement, WorkspaceProps>(functi
 
   // Het breekpunt is een prop, dus de query hoort bij deze ene instantie.
   // Zo blijft het stapelen pure CSS: geen flits bij het laden, geen meting in JS.
-  const scope = `pxuiws${React.useId().replace(/[^a-zA-Z0-9]/g, "")}`;
+  const scope = `luiws${React.useId().replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
     <div
-      className={cn("pxui-workspace-container", className)}
+      className={cn("lui-workspace-container", className)}
       style={{ containerType: "inline-size", containerName: scope }}
     >
       <style>
         {`@container ${scope} (max-width:${stackAt}px){` +
           `.${scope}-grid{grid-template-columns:minmax(0,1fr)!important}` +
-          `.${scope}-grid>*{order:var(--pxui-stack-order,0)}` +
-          `.${scope}-grid .pxui-workspace-rail{position:static}}`}
+          `.${scope}-grid>*{order:var(--lui-stack-order,0)}` +
+          `.${scope}-grid .lui-workspace-rail{position:static}}`}
       </style>
       <div
         ref={ref}
-        className={cn("pxui-workspace", `${scope}-grid`)}
+        className={cn("lui-workspace", `${scope}-grid`)}
         style={{ ...style, gap, gridTemplateColumns: columns.join(" ") }}
         {...rest}
       >
@@ -81,16 +81,16 @@ export const WorkspaceRail = React.forwardRef<HTMLElement, WorkspaceRailProps>(f
     <aside
       ref={ref}
       className={cn(
-        "pxui-workspace-rail",
-        `pxui-workspace-rail-${side}`,
-        sticky && "pxui-workspace-sticky",
+        "lui-workspace-rail",
+        `lui-workspace-rail-${side}`,
+        sticky && "lui-workspace-sticky",
         className
       )}
       style={
         {
           ...style,
           top: sticky ? offset : undefined,
-          ["--pxui-stack-order" as string]: stackOrder,
+          ["--lui-stack-order" as string]: stackOrder,
         } as React.CSSProperties
       }
       {...rest}
@@ -109,8 +109,8 @@ export const WorkspaceMain = React.forwardRef<HTMLDivElement, WorkspaceMainProps
     return (
       <div
         ref={ref}
-        className={cn("pxui-workspace-main", className)}
-        style={{ ...style, ["--pxui-stack-order" as string]: stackOrder } as React.CSSProperties}
+        className={cn("lui-workspace-main", className)}
+        style={{ ...style, ["--lui-stack-order" as string]: stackOrder } as React.CSSProperties}
         {...rest}
       />
     );
@@ -120,6 +120,6 @@ export const WorkspaceMain = React.forwardRef<HTMLDivElement, WorkspaceMainProps
 /** WorkspacePanel — blok binnen een rail: kaartje met een SectionHeader erboven. */
 export const WorkspacePanel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function WorkspacePanel({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-workspace-panel", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-workspace-panel", className)} {...rest} />;
   }
 );

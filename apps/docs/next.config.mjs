@@ -2,7 +2,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@projectx/ui"],
+  transpilePackages: ["@lorenthi/ui"],
   outputFileTracingRoot: new URL("../../", import.meta.url).pathname,
   webpack: (config) => {
     // De plugin van next-intl laadt zijn codec met een dynamische import

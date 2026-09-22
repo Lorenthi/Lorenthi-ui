@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@projectx/ui";
-import { OtpVerification } from "@projectx/ui/motion";
+import { Badge } from "@lorenthi/ui";
+import { OtpVerification } from "@lorenthi/ui/motion";
 
 /** De echte variant: jij controleert de code, een foute code schudt en wist. */
 export default function Demo() {

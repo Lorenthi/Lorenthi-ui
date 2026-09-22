@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardContent, Skeleton } from "@projectx/ui";
+import { Card, CardContent, Skeleton } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

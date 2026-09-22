@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Icon, Tabs, TabsContent, TabsList, TabsTrigger } from "@projectx/ui";
+import { Badge, Icon, Tabs, TabsContent, TabsList, TabsTrigger } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

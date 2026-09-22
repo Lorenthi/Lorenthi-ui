@@ -254,14 +254,14 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
       <div
         ref={ref}
         data-stage={stage}
-        className={cn("pxui-pay", className)}
+        className={cn("lui-pay", className)}
         {...rest}
       >
-        <motion.div className="pxui-pay-grid" data-collapsed={ingeklapt ? "" : undefined} layout transition={veer}>
+        <motion.div className="lui-pay-grid" data-collapsed={ingeklapt ? "" : undefined} layout transition={veer}>
           {/* ---------- de kaart ---------- */}
-          <motion.div className="pxui-pay-cardwrap" layout transition={veer}>
+          <motion.div className="lui-pay-cardwrap" layout transition={veer}>
             <motion.div
-              className="pxui-pay-card"
+              className="lui-pay-card"
               data-brand={label}
               data-state={gelukt ? "ok" : mislukt ? "error" : bezig ? "busy" : undefined}
               animate={{
@@ -275,30 +275,30 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
                 y: bezig && !traag ? { repeat: Infinity, duration: 2.4, ease: "easeInOut" } : { duration: 0.3 },
               }}
             >
-              <div className="pxui-pay-face pxui-pay-front">
-                <div className="pxui-pay-row">
-                  <span className="pxui-pay-chip" aria-hidden="true" />
-                  <span className="pxui-pay-wave" aria-hidden="true" />
-                  <span className="pxui-pay-brandword">{label === "card" ? "CARD" : label}</span>
+              <div className="lui-pay-face lui-pay-front">
+                <div className="lui-pay-row">
+                  <span className="lui-pay-chip" aria-hidden="true" />
+                  <span className="lui-pay-wave" aria-hidden="true" />
+                  <span className="lui-pay-brandword">{label === "card" ? "CARD" : label}</span>
                 </div>
-                <div className="pxui-pay-number">{groepeer(waarden.number)}</div>
-                <div className="pxui-pay-row pxui-pay-row-foot">
+                <div className="lui-pay-number">{groepeer(waarden.number)}</div>
+                <div className="lui-pay-row lui-pay-row-foot">
                   <div>
-                    <span className="pxui-pay-cardlabel">{woorden.cardHolder}</span>
-                    <span className="pxui-pay-cardvalue">{waarden.name || "—"}</span>
+                    <span className="lui-pay-cardlabel">{woorden.cardHolder}</span>
+                    <span className="lui-pay-cardvalue">{waarden.name || "—"}</span>
                   </div>
                   <div>
-                    <span className="pxui-pay-cardlabel">{woorden.cardExpiry}</span>
-                    <span className="pxui-pay-cardvalue">{toonVervaldatum(waarden.expiry)}</span>
+                    <span className="lui-pay-cardlabel">{woorden.cardExpiry}</span>
+                    <span className="lui-pay-cardvalue">{toonVervaldatum(waarden.expiry)}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="pxui-pay-face pxui-pay-back">
-                <span className="pxui-pay-stripe" aria-hidden="true" />
-                <div className="pxui-pay-cvcrow">
-                  <span className="pxui-pay-cardlabel">{woorden.cardCvc}</span>
-                  <span className="pxui-pay-cvc">{waarden.cvc.replace(/./g, "•") || "•••"}</span>
+              <div className="lui-pay-face lui-pay-back">
+                <span className="lui-pay-stripe" aria-hidden="true" />
+                <div className="lui-pay-cvcrow">
+                  <span className="lui-pay-cardlabel">{woorden.cardCvc}</span>
+                  <span className="lui-pay-cvc">{waarden.cvc.replace(/./g, "•") || "•••"}</span>
                 </div>
               </div>
             </motion.div>
@@ -308,7 +308,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
               {ingeklapt && (
                 <motion.span
                   key="glow"
-                  className="pxui-pay-glow"
+                  className="lui-pay-glow"
                   data-tone={gelukt ? "ok" : mislukt ? "error" : "busy"}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -325,7 +325,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
             {!ingeklapt && (
               <motion.form
                 key="form"
-                className="pxui-pay-form"
+                className="lui-pay-form"
                 initial={{ opacity: 0, x: traag ? 0 : 18 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: traag ? 0 : 18, transition: { duration: traag ? 0 : 0.25 } }}
@@ -335,9 +335,9 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
                   if (compleet) void betaal(waarden);
                 }}
               >
-                <div className="pxui-pay-head">
-                  <h3 className="pxui-pay-title">{woorden.title}</h3>
-                  <p className="pxui-pay-text">{woorden.description}</p>
+                <div className="lui-pay-head">
+                  <h3 className="lui-pay-title">{woorden.title}</h3>
+                  <p className="lui-pay-text">{woorden.description}</p>
                 </div>
 
                 <Field label={woorden.name}>
@@ -363,7 +363,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
                   />
                 </Field>
 
-                <div className="pxui-pay-duo">
+                <div className="lui-pay-duo">
                   <Field label={woorden.expiry}>
                     <Input
                       value={toonVervaldatum(waarden.expiry, "")}
@@ -389,7 +389,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
                   </Field>
                 </div>
 
-                <div className="pxui-pay-total">
+                <div className="lui-pay-total">
                   <span>{woorden.amount}</span>
                   <strong>{bedrag}</strong>
                 </div>
@@ -407,13 +407,13 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
           {bezig && (
             <motion.div
               key="bezig"
-              className="pxui-pay-status"
+              className="lui-pay-status"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: traag ? 0 : 0.35 }}
             >
-              <span className="pxui-pay-spin" aria-hidden="true" />
+              <span className="lui-pay-spin" aria-hidden="true" />
               {woorden.processing}
             </motion.div>
           )}
@@ -421,14 +421,14 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
           {gelukt && (
             <motion.div
               key="ok"
-              className="pxui-pay-status pxui-pay-status-ok"
+              className="lui-pay-status lui-pay-status-ok"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: traag ? 0 : 0.45, delay: traag ? 0 : 0.1 }}
             >
               <motion.span
-                className="pxui-pay-check"
+                className="lui-pay-check"
                 initial={{ scale: 0.4 }}
                 animate={{ scale: 1 }}
                 transition={traag ? { duration: 0 } : { type: "spring", stiffness: 320, damping: 18 }}
@@ -451,7 +451,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
           {mislukt && (
             <motion.div
               key="fout"
-              className="pxui-pay-status pxui-pay-status-error"
+              className="lui-pay-status lui-pay-status-error"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}

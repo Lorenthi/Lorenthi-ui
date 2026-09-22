@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Badge } from "@projectx/ui";
-import { PaymentCheckout } from "@projectx/ui/motion";
+import { Badge } from "@lorenthi/ui";
+import { PaymentCheckout } from "@lorenthi/ui/motion";
 
 /** Zelf invullen: de kaart schrijft mee en draait om bij de CVC. */
 export default function Demo() {

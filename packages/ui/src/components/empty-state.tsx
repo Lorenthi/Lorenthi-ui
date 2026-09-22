@@ -17,12 +17,12 @@ export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(func
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-empty", `pxui-empty-${size}`, className)} {...rest}>
-      {icon && <div className="pxui-empty-icon">{icon}</div>}
-      <div className="pxui-empty-title">{title}</div>
-      {description && <p className="pxui-empty-description">{description}</p>}
+    <div ref={ref} className={cn("lui-empty", `lui-empty-${size}`, className)} {...rest}>
+      {icon && <div className="lui-empty-icon">{icon}</div>}
+      <div className="lui-empty-title">{title}</div>
+      {description && <p className="lui-empty-description">{description}</p>}
       {children}
-      {action && <div className="pxui-empty-action">{action}</div>}
+      {action && <div className="lui-empty-action">{action}</div>}
     </div>
   );
 });

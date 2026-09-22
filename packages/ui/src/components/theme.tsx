@@ -37,7 +37,7 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
   defaultDensity = "regular",
-  storageKey = "pxui-theme",
+  storageKey = "lui-theme",
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(defaultTheme);
   const [density, setDensityState] = React.useState<Density>(defaultDensity);
@@ -135,7 +135,7 @@ export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>
     <button
       ref={ref}
       type="button"
-      className={cn("pxui-theme-toggle", size === "sm" && "pxui-theme-toggle-sm", className)}
+      className={cn("lui-theme-toggle", size === "sm" && "lui-theme-toggle-sm", className)}
       aria-label={resolved === "dark" ? "Naar lichte modus" : "Naar donkere modus"}
       onClick={toggle}
       {...rest}
@@ -149,7 +149,7 @@ export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>
  * Script dat het opgeslagen thema toepast vóór de eerste paint,
  * zodat er geen witte flits is. Plaats in <head>.
  */
-export function ThemeScript({ storageKey = "pxui-theme" }: { storageKey?: string }) {
+export function ThemeScript({ storageKey = "lui-theme" }: { storageKey?: string }) {
   const code = `(function(){try{var t=localStorage.getItem('${storageKey}')||'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;r.setAttribute('data-theme',d?'dark':'light');r.style.colorScheme=d?'dark':'light';var y=localStorage.getItem('${storageKey}-density');if(y)r.setAttribute('data-density',y);}catch(e){}})();`;
   return <script dangerouslySetInnerHTML={{ __html: code }} />;
 }
@@ -175,7 +175,7 @@ export const DensityToggle = React.forwardRef<HTMLDivElement, DensityToggleProps
         ref={ref}
         role="radiogroup"
         aria-label="Dichtheid"
-        className={cn("pxui-density-toggle", size === "sm" && "pxui-density-toggle-sm", className)}
+        className={cn("lui-density-toggle", size === "sm" && "lui-density-toggle-sm", className)}
         {...rest}
       >
         {options.map((option) => (
@@ -185,7 +185,7 @@ export const DensityToggle = React.forwardRef<HTMLDivElement, DensityToggleProps
             role="radio"
             aria-checked={density === option.value}
             data-active={density === option.value ? "" : undefined}
-            className="pxui-density-btn"
+            className="lui-density-btn"
             onClick={() => setDensity(option.value)}
           >
             {option.label}

@@ -45,7 +45,7 @@ export const FileDrop = React.forwardRef<HTMLDivElement, FileDropProps>(function
       role="button"
       tabIndex={disabled ? -1 : 0}
       aria-disabled={disabled || undefined}
-      className={cn("pxui-filedrop", dragging && "pxui-filedrop-dragging", disabled && "pxui-filedrop-disabled", className)}
+      className={cn("lui-filedrop", dragging && "lui-filedrop-dragging", disabled && "lui-filedrop-disabled", className)}
       onClick={() => !disabled && inputRef.current?.click()}
       onKeyDown={(event) => {
         if (disabled) return;
@@ -69,15 +69,15 @@ export const FileDrop = React.forwardRef<HTMLDivElement, FileDropProps>(function
       <input
         ref={inputRef}
         type="file"
-        className="pxui-sr-only"
+        className="lui-sr-only"
         accept={accept}
         multiple={multiple}
         disabled={disabled}
         onChange={(event) => handle(event.target.files)}
       />
-      <span className="pxui-filedrop-icon">{icon ?? <Icon name="upload" size={24} />}</span>
-      <span className="pxui-filedrop-title">{title}</span>
-      {description && <span className="pxui-filedrop-description">{description}</span>}
+      <span className="lui-filedrop-icon">{icon ?? <Icon name="upload" size={24} />}</span>
+      <span className="lui-filedrop-title">{title}</span>
+      {description && <span className="lui-filedrop-description">{description}</span>}
       {children}
     </div>
   );
@@ -98,19 +98,19 @@ export const FileItem = React.forwardRef<HTMLDivElement, FileItemProps>(function
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-fileitem", className)} {...rest}>
-      <span className="pxui-fileitem-icon">{icon ?? <Icon name="file" size={17} />}</span>
-      <div className="pxui-fileitem-body">
-        <span className="pxui-fileitem-name">{name}</span>
-        {size !== undefined && <span className="pxui-fileitem-size">{formatBytes(size)}</span>}
+    <div ref={ref} className={cn("lui-fileitem", className)} {...rest}>
+      <span className="lui-fileitem-icon">{icon ?? <Icon name="file" size={17} />}</span>
+      <div className="lui-fileitem-body">
+        <span className="lui-fileitem-name">{name}</span>
+        {size !== undefined && <span className="lui-fileitem-size">{formatBytes(size)}</span>}
         {progress !== undefined && progress < 100 && (
-          <span className="pxui-fileitem-progress">
-            <span className="pxui-fileitem-progress-bar" style={{ width: `${progress}%` }} />
+          <span className="lui-fileitem-progress">
+            <span className="lui-fileitem-progress-bar" style={{ width: `${progress}%` }} />
           </span>
         )}
       </div>
       {onRemove && (
-        <button type="button" className="pxui-fileitem-remove" aria-label={`${name} verwijderen`} onClick={onRemove}>
+        <button type="button" className="lui-fileitem-remove" aria-label={`${name} verwijderen`} onClick={onRemove}>
           <Icon name="x" size={15} />
         </button>
       )}

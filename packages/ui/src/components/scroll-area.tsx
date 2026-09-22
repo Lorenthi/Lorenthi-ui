@@ -57,7 +57,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(func
         if (typeof ref === "function") ref(node as HTMLDivElement);
         else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
       }}
-      className={cn("pxui-scroll-area", `pxui-scroll-${orientation}`, alwaysVisible && "pxui-scroll-visible", className)}
+      className={cn("lui-scroll-area", `lui-scroll-${orientation}`, alwaysVisible && "lui-scroll-visible", className)}
       style={{ height, maxHeight, ...style }}
       data-fade-top={fade && randen.boven ? "" : undefined}
       data-fade-bottom={fade && randen.onder ? "" : undefined}

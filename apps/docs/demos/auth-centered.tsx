@@ -1,5 +1,5 @@
 "use client";
-import { AuthCard, AuthDivider, AuthLayout, Button, Field, Icon, Input, SsoButton } from "@projectx/ui";
+import { AuthCard, AuthDivider, AuthLayout, Button, Field, Icon, Input, SsoButton } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

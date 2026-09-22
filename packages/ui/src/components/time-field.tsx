@@ -126,8 +126,8 @@ export const TimeField = React.forwardRef<HTMLInputElement, TimeFieldProps>(func
   }, [open]);
 
   return (
-    <div className={cn("pxui-timefield", className)} ref={wrapRef}>
-      <Icon name="clock" size={15} className="pxui-timefield-icon" />
+    <div className={cn("lui-timefield", className)} ref={wrapRef}>
+      <Icon name="clock" size={15} className="lui-timefield-icon" />
       <input
         ref={(node) => {
           inputRef.current = node;
@@ -145,9 +145,9 @@ export const TimeField = React.forwardRef<HTMLInputElement, TimeFieldProps>(func
         disabled={field.disabled}
         placeholder={placeholder}
         className={cn(
-          "pxui-timefield-input",
-          `pxui-timefield-${size}`,
-          field.invalid && "pxui-timefield-invalid"
+          "lui-timefield-input",
+          `lui-timefield-${size}`,
+          field.invalid && "lui-timefield-invalid"
         )}
         value={text}
         onChange={(event) => setText(event.target.value)}
@@ -184,7 +184,7 @@ export const TimeField = React.forwardRef<HTMLInputElement, TimeFieldProps>(func
           <div
             ref={listRef}
             role="listbox"
-            className="pxui-timefield-list"
+            className="lui-timefield-list"
             style={{ ...position.style, opacity: position.ready ? 1 : 0 }}
           >
             {visibleSlots.map((slot) => (
@@ -194,7 +194,7 @@ export const TimeField = React.forwardRef<HTMLInputElement, TimeFieldProps>(func
                 role="option"
                 aria-selected={slot === minutes}
                 data-selected={slot === minutes ? "" : undefined}
-                className="pxui-timefield-option"
+                className="lui-timefield-option"
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => {
                   setMinutes(slot);
@@ -263,7 +263,7 @@ export const TimeRangeField = React.forwardRef<HTMLDivElement, TimeRangeFieldPro
         : null;
 
     return (
-      <div ref={ref} className={cn("pxui-timerange", className)}>
+      <div ref={ref} className={cn("lui-timerange", className)}>
         <TimeField
           value={range.start}
           onValueChange={(start) => {
@@ -279,7 +279,7 @@ export const TimeRangeField = React.forwardRef<HTMLDivElement, TimeRangeFieldPro
           placeholder="Van"
           aria-label="Begintijd"
         />
-        <span className="pxui-timerange-sep" aria-hidden="true">
+        <span className="lui-timerange-sep" aria-hidden="true">
           –
         </span>
         <TimeField
@@ -295,7 +295,7 @@ export const TimeRangeField = React.forwardRef<HTMLDivElement, TimeRangeFieldPro
           aria-label="Eindtijd"
         />
         {showDuration && duration != null && (
-          <span className="pxui-timerange-duration">{formatDurationShort(duration)}</span>
+          <span className="lui-timerange-duration">{formatDurationShort(duration)}</span>
         )}
       </div>
     );

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Alert, Badge, Button, Icon } from "@projectx/ui";
+import { Alert, Badge, Button, Icon } from "@lorenthi/ui";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { COMPONENTS, componentBySlug, entryTag } from "@/content/catalog";
 import { CodeBlock } from "@/components/code-block";
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const component = componentBySlug(slug);
   return {
-    title: component ? `${component.name} — ProjectX UI` : "ProjectX UI",
+    title: component ? `${component.name} — Lorenthi UI` : "Lorenthi UI",
     description: component?.description,
   };
 }
@@ -59,7 +59,7 @@ export default async function ComponentPage({
 
       <div className="docs-section">
         <h2 className="docs-section-title">{t("install")}</h2>
-        <CodeBlock standalone code={`npx projectx-ui add ${component.slug}`} />
+        <CodeBlock standalone code={`npx lorenthi-ui add ${component.slug}`} />
         <p className="docs-p">
           {t("copies")}{" "}
           {component.files.map((file, fileIndex) => (

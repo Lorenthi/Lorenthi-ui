@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { Field, Input, QrCode, Segmented } from "@projectx/ui";
+import { Field, Input, QrCode, Segmented } from "@lorenthi/ui";
 
 export default function Demo() {
-  const [waarde, setWaarde] = useState("https://projectx.ui/docs/componenten/qr-code");
+  const [waarde, setWaarde] = useState("https://lorenthi.ui/docs/componenten/qr-code");
   const [niveau, setNiveau] = useState("M");
 
   return (

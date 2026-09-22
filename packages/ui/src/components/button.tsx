@@ -6,23 +6,23 @@ import { cn } from "../lib/cn";
 import { Spinner } from "./spinner";
 
 const button = variants({
-  base: "pxui-btn",
+  base: "lui-btn",
   variants: {
     variant: {
-      primary: "pxui-btn-primary",
-      secondary: "pxui-btn-secondary",
-      ghost: "pxui-btn-ghost",
-      danger: "pxui-btn-danger",
-      "danger-soft": "pxui-btn-danger-soft",
-      link: "pxui-btn-link",
+      primary: "lui-btn-primary",
+      secondary: "lui-btn-secondary",
+      ghost: "lui-btn-ghost",
+      danger: "lui-btn-danger",
+      "danger-soft": "lui-btn-danger-soft",
+      link: "lui-btn-link",
     },
     size: {
-      sm: "pxui-btn-sm",
+      sm: "lui-btn-sm",
       md: "",
-      lg: "pxui-btn-lg",
+      lg: "lui-btn-lg",
     },
-    block: { true: "pxui-btn-block", false: "" },
-    iconOnly: { true: "pxui-btn-icon", false: "" },
+    block: { true: "lui-btn-block", false: "" },
+    iconOnly: { true: "lui-btn-icon", false: "" },
   },
   defaultVariants: { variant: "primary", size: "md", block: false, iconOnly: false },
 });
@@ -107,10 +107,10 @@ export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(fu
       role="group"
       aria-label={label}
       className={cn(
-        "pxui-btn-group",
-        `pxui-btn-group-${orientation}`,
-        joined && "pxui-btn-group-joined",
-        block && "pxui-btn-group-block",
+        "lui-btn-group",
+        `lui-btn-group-${orientation}`,
+        joined && "lui-btn-group-joined",
+        block && "lui-btn-group-block",
         className
       )}
       {...rest}

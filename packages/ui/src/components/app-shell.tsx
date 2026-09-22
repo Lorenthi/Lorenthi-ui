@@ -43,12 +43,12 @@ export const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(function
     <ShellContext.Provider value={{ collapsed: isCollapsed, setCollapsed, mobileOpen, setMobileOpen }}>
       <div
         ref={ref}
-        className={cn("pxui-shell", isCollapsed && "pxui-shell-collapsed", className)}
+        className={cn("lui-shell", isCollapsed && "lui-shell-collapsed", className)}
         {...rest}
       >
         {children}
         <div
-          className={cn("pxui-shell-backdrop", mobileOpen && "pxui-shell-backdrop-open")}
+          className={cn("lui-shell-backdrop", mobileOpen && "lui-shell-backdrop-open")}
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -59,7 +59,7 @@ export const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(function
 
 export const AppMain = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function AppMain({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-shell-main", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-shell-main", className)} {...rest} />;
   }
 );
 
@@ -76,11 +76,11 @@ export const Topbar = React.forwardRef<HTMLElement, TopbarProps>(function Topbar
   const shell = React.useContext(ShellContext);
 
   return (
-    <header ref={ref} className={cn("pxui-topbar", className)} {...rest}>
+    <header ref={ref} className={cn("lui-topbar", className)} {...rest}>
       {!hideMenuButton && shell && (
         <button
           type="button"
-          className="pxui-topbar-menu"
+          className="lui-topbar-menu"
           aria-label="Menu openen"
           onClick={() => shell.setMobileOpen(true)}
         >
@@ -94,7 +94,7 @@ export const Topbar = React.forwardRef<HTMLElement, TopbarProps>(function Topbar
 
 export const TopbarSpacer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function TopbarSpacer({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-topbar-spacer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-topbar-spacer", className)} {...rest} />;
   }
 );
 
@@ -106,10 +106,10 @@ export interface TopbarSearchProps extends React.InputHTMLAttributes<HTMLInputEl
 export const TopbarSearch = React.forwardRef<HTMLInputElement, TopbarSearchProps>(
   function TopbarSearch({ shortcut, className, placeholder = "Zoeken…", ...rest }, ref) {
     return (
-      <div className={cn("pxui-topbar-search", className)}>
+      <div className={cn("lui-topbar-search", className)}>
         <Icon name="search" size={16} />
         <input ref={ref} placeholder={placeholder} {...rest} />
-        {shortcut && <span className="pxui-topbar-kbd">{shortcut}</span>}
+        {shortcut && <span className="lui-topbar-kbd">{shortcut}</span>}
       </div>
     );
   }
@@ -125,7 +125,7 @@ export const Content = React.forwardRef<HTMLElement, ContentProps>(function Cont
   { wide, className, ...rest },
   ref
 ) {
-  return <main ref={ref} className={cn("pxui-content", wide && "pxui-content-wide", className)} {...rest} />;
+  return <main ref={ref} className={cn("lui-content", wide && "lui-content-wide", className)} {...rest} />;
 });
 
 export interface PageHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
@@ -143,14 +143,14 @@ export const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(func
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-page-header", className)} {...rest}>
-      {breadcrumb && <div className="pxui-page-breadcrumb">{breadcrumb}</div>}
-      <div className="pxui-page-header-row">
-        <div className="pxui-page-header-text">
-          <h1 className="pxui-page-title">{title}</h1>
-          {description && <p className="pxui-page-description">{description}</p>}
+    <div ref={ref} className={cn("lui-page-header", className)} {...rest}>
+      {breadcrumb && <div className="lui-page-breadcrumb">{breadcrumb}</div>}
+      <div className="lui-page-header-row">
+        <div className="lui-page-header-text">
+          <h1 className="lui-page-title">{title}</h1>
+          {description && <p className="lui-page-description">{description}</p>}
         </div>
-        {actions && <div className="pxui-page-actions">{actions}</div>}
+        {actions && <div className="lui-page-actions">{actions}</div>}
       </div>
       {children}
     </div>

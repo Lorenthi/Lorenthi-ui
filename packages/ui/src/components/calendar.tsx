@@ -210,19 +210,19 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
   return (
     <div
       ref={ref}
-      className={cn("pxui-calendar", `pxui-calendar-${size}`, className)}
+      className={cn("lui-calendar", `lui-calendar-${size}`, className)}
       role="group"
       aria-label="Kalender"
       {...rest}
     >
-      <div className="pxui-calendar-months" ref={gridRef}>
+      <div className="lui-calendar-months" ref={gridRef}>
         {months.map((current, monthIndex) => (
-          <div className="pxui-calendar-month" key={current.toISOString()}>
-            <div className="pxui-calendar-header">
+          <div className="lui-calendar-month" key={current.toISOString()}>
+            <div className="lui-calendar-header">
               {monthIndex === 0 ? (
                 <button
                   type="button"
-                  className="pxui-calendar-nav"
+                  className="lui-calendar-nav"
                   aria-label="Vorige maand"
                   disabled={!canGoBack}
                   onClick={() => setMonth(addMonths(visibleMonth, -1))}
@@ -230,17 +230,17 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
                   <Icon name="chevronLeft" size={16} />
                 </button>
               ) : (
-                <span className="pxui-calendar-nav-spacer" />
+                <span className="lui-calendar-nav-spacer" />
               )}
 
-              <div className="pxui-calendar-title" aria-live="polite">
+              <div className="lui-calendar-title" aria-live="polite">
                 {monthName(current, locale)}
               </div>
 
               {monthIndex === months.length - 1 ? (
                 <button
                   type="button"
-                  className="pxui-calendar-nav"
+                  className="lui-calendar-nav"
                   aria-label="Volgende maand"
                   disabled={!canGoForward}
                   onClick={() => setMonth(addMonths(visibleMonth, 1))}
@@ -248,17 +248,17 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
                   <Icon name="chevronRight" size={16} />
                 </button>
               ) : (
-                <span className="pxui-calendar-nav-spacer" />
+                <span className="lui-calendar-nav-spacer" />
               )}
             </div>
 
             <div
-              className={cn("pxui-calendar-grid", showWeekNumbers && "pxui-calendar-grid-weeks")}
+              className={cn("lui-calendar-grid", showWeekNumbers && "lui-calendar-grid-weeks")}
               role="grid"
             >
-              {showWeekNumbers && <div className="pxui-calendar-weekhead" aria-hidden="true" />}
+              {showWeekNumbers && <div className="lui-calendar-weekhead" aria-hidden="true" />}
               {weekdays.map((day) => (
-                <div className="pxui-calendar-weekday" key={day} role="columnheader" aria-label={day}>
+                <div className="lui-calendar-weekday" key={day} role="columnheader" aria-label={day}>
                   {day}
                 </div>
               ))}
@@ -266,14 +266,14 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
               {chunk(getMonthGrid(current, weekStartsOn), 7).map((week) => (
                 <React.Fragment key={week[0].toISOString()}>
                   {showWeekNumbers && (
-                    <div className="pxui-calendar-weeknumber" aria-hidden="true">
+                    <div className="lui-calendar-weeknumber" aria-hidden="true">
                       {getISOWeek(week[0])}
                     </div>
                   )}
                   {week.map((date) => {
                     const outside = !isSameMonth(date, current);
                     if (outside && hideOutsideDays) {
-                      return <div className="pxui-calendar-day-empty" key={dayKey(date)} />;
+                      return <div className="lui-calendar-day-empty" key={dayKey(date)} />;
                     }
 
                     const state = dayState(mode, selected, date, hovered);
@@ -300,15 +300,15 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
                         data-range-start={state.rangeStart ? "" : undefined}
                         data-range-end={state.rangeEnd ? "" : undefined}
                         data-in-range={state.inRange ? "" : undefined}
-                        className="pxui-calendar-day"
+                        className="lui-calendar-day"
                         onClick={() => pick(date)}
                         onFocus={() => setFocused(date)}
                         onMouseEnter={() => setHovered(date)}
                         onMouseLeave={() => setHovered(null)}
                         onKeyDown={(event) => onKeyDown(event, date)}
                       >
-                        <span className="pxui-calendar-day-label">{date.getDate()}</span>
-                        {markers?.(date) && <span className="pxui-calendar-marker" />}
+                        <span className="lui-calendar-day-label">{date.getDate()}</span>
+                        {markers?.(date) && <span className="lui-calendar-marker" />}
                       </button>
                     );
                   })}
@@ -319,7 +319,7 @@ export const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(function
         ))}
       </div>
 
-      {footer && <div className="pxui-calendar-footer">{footer}</div>}
+      {footer && <div className="lui-calendar-footer">{footer}</div>}
     </div>
   );
 });

@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Alert, Badge, Card, CardContent, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@projectx/ui";
+import { Alert, Badge, Card, CardContent, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@lorenthi/ui";
 import { CodeBlock } from "@/components/code-block";
 import { richTags } from "@/components/rich";
 import { TOKEN_GROUPS, readTokens } from "@/lib/tokens";
@@ -52,7 +52,7 @@ export default async function ThemingPage({ params }: { params: Promise<{ locale
         <div className="docs-grid-2">
           <Card>
             <CardContent>
-              <div className="pxui-eyebrow" style={{ marginBottom: 14 }}>{t("radius")}</div>
+              <div className="lui-eyebrow" style={{ marginBottom: 14 }}>{t("radius")}</div>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 {radii.map((token) => (
                   <div key={token.name} style={{ textAlign: "center" }}>
@@ -72,7 +72,7 @@ export default async function ThemingPage({ params }: { params: Promise<{ locale
           </Card>
           <Card>
             <CardContent>
-              <div className="pxui-eyebrow" style={{ marginBottom: 14 }}>{t("shadow")}</div>
+              <div className="lui-eyebrow" style={{ marginBottom: 14 }}>{t("shadow")}</div>
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
                 {shadows.map((token) => (
                   <div key={token.name} style={{ textAlign: "center" }}>
@@ -122,7 +122,7 @@ export default async function ThemingPage({ params }: { params: Promise<{ locale
 [data-density="comfy"]   { --density: 1.14; }
 
 /* in een component */
-.pxui-btn { height: calc(40px * var(--density)); }`}
+.lui-btn { height: calc(40px * var(--density)); }`}
         />
         <p className="docs-p">{t.rich("densityProvider", richTags)}</p>
       </div>

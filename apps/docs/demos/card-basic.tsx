@@ -1,7 +1,7 @@
 "use client";
 import {
   Badge, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   return (

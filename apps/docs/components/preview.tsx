@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useTranslations } from "next-intl";
-import { Button, Icon, Segmented } from "@projectx/ui";
+import { Button, Icon, Segmented } from "@lorenthi/ui";
 import { DEMOS } from "../demos";
 import { CodeBlock } from "./code-block";
 

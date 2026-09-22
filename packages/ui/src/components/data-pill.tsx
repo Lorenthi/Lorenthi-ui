@@ -20,13 +20,13 @@ export const DataPill = React.forwardRef<HTMLSpanElement, DataPillProps>(functio
   return (
     <span
       ref={ref}
-      className={cn("pxui-datapill", `pxui-datapill-${tone}`, `pxui-datapill-${size}`, className)}
+      className={cn("lui-datapill", `lui-datapill-${tone}`, `lui-datapill-${size}`, className)}
       {...rest}
     >
-      {icon && <span className="pxui-datapill-icon">{icon}</span>}
-      <span className="pxui-datapill-label">{label}</span>
-      <b className="pxui-datapill-value">{value}</b>
-      {unit && <em className="pxui-datapill-unit">{unit}</em>}
+      {icon && <span className="lui-datapill-icon">{icon}</span>}
+      <span className="lui-datapill-label">{label}</span>
+      <b className="lui-datapill-value">{value}</b>
+      {unit && <em className="lui-datapill-unit">{unit}</em>}
     </span>
   );
 });

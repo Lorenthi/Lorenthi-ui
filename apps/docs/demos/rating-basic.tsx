@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Rating } from "@projectx/ui";
+import { Rating } from "@lorenthi/ui";
 
 export default function Demo() {
   const [score, setScore] = useState(3.5);

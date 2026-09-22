@@ -35,7 +35,7 @@ export const SwatchPicker = React.forwardRef<HTMLDivElement, SwatchPickerProps>(
         ref={ref}
         role="radiogroup"
         aria-label={label}
-        className={cn("pxui-swatches", className)}
+        className={cn("lui-swatches", className)}
         {...rest}
       >
         {colors.map((color) => (
@@ -46,7 +46,7 @@ export const SwatchPicker = React.forwardRef<HTMLDivElement, SwatchPickerProps>(
             aria-checked={current === color}
             aria-label={color}
             title={color}
-            className={cn("pxui-swatch", square && "pxui-swatch-square")}
+            className={cn("lui-swatch", square && "lui-swatch-square")}
             style={{ width: size, height: size, background: color }}
             onClick={() => setCurrent(color)}
           >
@@ -56,14 +56,14 @@ export const SwatchPicker = React.forwardRef<HTMLDivElement, SwatchPickerProps>(
 
         {allowCustom && (
           <label
-            className={cn("pxui-swatch", "pxui-swatch-custom", square && "pxui-swatch-square")}
+            className={cn("lui-swatch", "lui-swatch-custom", square && "lui-swatch-square")}
             style={{ width: size, height: size }}
             title="Eigen kleur"
           >
             <Icon name="plus" size={Math.max(12, size * 0.45)} />
             <input
               type="color"
-              className="pxui-sr-only"
+              className="lui-sr-only"
               value={current}
               onChange={(event) => setCurrent(event.target.value)}
             />

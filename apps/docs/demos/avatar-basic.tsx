@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, AvatarGroup } from "@projectx/ui";
+import { Avatar, AvatarGroup } from "@lorenthi/ui";
 
 export default function Demo() {
   return (
@@ -7,7 +7,7 @@ export default function Demo() {
       <Avatar name="Davey Verhoeven" size={28} />
       <Avatar name="Davey Verhoeven" />
       <Avatar name="Ilse Peeters" size={46} status="online" />
-      <Avatar name="ProjectX BV" square color="var(--violet)" size={46} />
+      <Avatar name="Lorenthi BV" square color="var(--violet)" size={46} />
       <AvatarGroup max={3}>
         <Avatar name="Davey Verhoeven" />
         <Avatar name="Ilse Peeters" color="var(--blue)" />

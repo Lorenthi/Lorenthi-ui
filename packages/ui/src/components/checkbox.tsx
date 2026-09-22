@@ -20,7 +20,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(functi
 ) {
   const context = useFieldContext();
   const autoId = React.useId();
-  const inputId = id ?? context?.id ?? `pxui-checkbox-${autoId}`;
+  const inputId = id ?? context?.id ?? `lui-checkbox-${autoId}`;
   const inner = React.useRef<HTMLInputElement | null>(null);
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(functi
   }, [indeterminate]);
 
   const control = (
-    <span className={cn("pxui-checkbox", `pxui-checkbox-${size}`)}>
+    <span className={cn("lui-checkbox", `lui-checkbox-${size}`)}>
       <input
         ref={(node) => {
           inner.current = node;
@@ -37,29 +37,29 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(functi
         }}
         id={inputId}
         type="checkbox"
-        className="pxui-checkbox-input"
+        className="lui-checkbox-input"
         disabled={disabled ?? context?.disabled}
         {...rest}
       />
-      <span className="pxui-checkbox-box" aria-hidden="true">
+      <span className="lui-checkbox-box" aria-hidden="true">
         <Icon name={indeterminate ? "minus" : "check"} size={size === "sm" ? 11 : 13} strokeWidth={3} />
       </span>
     </span>
   );
 
   if (!label && !description) {
-    return <span className={cn("pxui-checkbox-standalone", className)}>{control}</span>;
+    return <span className={cn("lui-checkbox-standalone", className)}>{control}</span>;
   }
 
   return (
     <label
-      className={cn("pxui-checkbox-row", disabled && "pxui-checkbox-row-disabled", className)}
+      className={cn("lui-checkbox-row", disabled && "lui-checkbox-row-disabled", className)}
       htmlFor={inputId}
     >
       {control}
-      <span className="pxui-checkbox-text">
-        {label && <span className="pxui-checkbox-label">{label}</span>}
-        {description && <span className="pxui-checkbox-description">{description}</span>}
+      <span className="lui-checkbox-text">
+        {label && <span className="lui-checkbox-label">{label}</span>}
+        {description && <span className="lui-checkbox-description">{description}</span>}
       </span>
     </label>
   );

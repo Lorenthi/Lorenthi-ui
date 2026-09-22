@@ -35,7 +35,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(fun
         else if (ref) (ref as React.MutableRefObject<HTMLTextAreaElement | null>).current = node;
       }}
       rows={rows}
-      className={cn("pxui-textarea", isInvalid && "pxui-input-invalid", className)}
+      className={cn("lui-textarea", isInvalid && "lui-input-invalid", className)}
       aria-invalid={isInvalid || undefined}
       onInput={(event) => {
         resize();

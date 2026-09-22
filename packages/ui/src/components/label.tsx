@@ -13,10 +13,10 @@ export const Label = React.forwardRef<HTMLLabelElement, LabelProps>(function Lab
   ref
 ) {
   return (
-    <label ref={ref} className={cn("pxui-label", className)} {...rest}>
+    <label ref={ref} className={cn("lui-label", className)} {...rest}>
       {children}
       {required && (
-        <span className="pxui-label-required" aria-hidden="true">
+        <span className="lui-label-required" aria-hidden="true">
           *
         </span>
       )}

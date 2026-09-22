@@ -54,7 +54,7 @@ export const Menubar = React.forwardRef<HTMLDivElement, MenubarProps>(function M
         ref={composeRefs(ref, eigen)}
         role="menubar"
         aria-label={label}
-        className={cn("pxui-menubar", className)}
+        className={cn("lui-menubar", className)}
         {...rest}
       >
         {children}
@@ -105,7 +105,7 @@ export const MenubarTrigger = React.forwardRef<HTMLButtonElement, MenubarTrigger
       aria-haspopup="menu"
       aria-expanded={isOpen}
       data-state={isOpen ? "open" : "closed"}
-      className={cn("pxui-menubar-trigger", className)}
+      className={cn("lui-menubar-trigger", className)}
       onClick={(event) => {
         onClick?.(event);
         setOpen(isOpen ? null : menu.value);

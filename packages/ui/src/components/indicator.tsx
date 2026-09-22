@@ -29,15 +29,15 @@ export const Indicator = React.forwardRef<HTMLSpanElement, IndicatorProps>(funct
     typeof badge === "number" && badge > max ? `${max}+` : badge;
 
   return (
-    <span ref={ref} className={cn("pxui-indicator", className)} {...rest}>
+    <span ref={ref} className={cn("lui-indicator", className)} {...rest}>
       {children}
       {!hidden && (
         <span
           className={cn(
-            "pxui-indicator-badge",
-            `pxui-indicator-${tone}`,
-            `pxui-indicator-${placement}`,
-            (dot || inhoud === undefined) && "pxui-indicator-dot"
+            "lui-indicator-badge",
+            `lui-indicator-${tone}`,
+            `lui-indicator-${placement}`,
+            (dot || inhoud === undefined) && "lui-indicator-dot"
           )}
           aria-label={label}
           role={label ? "status" : undefined}

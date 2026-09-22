@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   AppShell, Avatar, Badge, Content, Icon, PageHeader, Sidebar, SidebarBrand, SidebarFooter,
   SidebarItem, SidebarNav, SidebarSection, ThemeToggle, Topbar, TopbarSpacer,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const LOCATIES = [
   { naam: "Zuiderzicht", sub: "Hoofdpraktijk" },
@@ -22,13 +22,13 @@ export default function Demo() {
 
           <button
             type="button"
-            className="pxui-sidebar-panel"
+            className="lui-sidebar-panel"
             onClick={() => setLocatie((index) => (index + 1) % LOCATIES.length)}
           >
             <Icon name="globe" size={14} />
             <span style={{ flex: 1, minWidth: 0 }}>
-              <span className="pxui-sidebar-panel-title">{LOCATIES[locatie].naam}</span>
-              <span className="pxui-sidebar-panel-sub">{LOCATIES[locatie].sub}</span>
+              <span className="lui-sidebar-panel-title">{LOCATIES[locatie].naam}</span>
+              <span className="lui-sidebar-panel-sub">{LOCATIES[locatie].sub}</span>
             </span>
             <Icon name="chevronsUpDown" size={13} />
           </button>
@@ -60,7 +60,7 @@ export default function Demo() {
           </SidebarFooter>
         </Sidebar>
 
-        <div className="pxui-shell-main">
+        <div className="lui-shell-main">
           <Topbar>
             <strong style={{ fontSize: 15, textTransform: "capitalize" }}>{actief}</strong>
             <TopbarSpacer />
@@ -71,7 +71,7 @@ export default function Demo() {
           <Content style={{ overflowY: "auto" }}>
             <PageHeader
               title="Weekplanning"
-              description="De donkere rail gebruikt tokens die afgeleid zijn van het ProjectX UI-accent — geen nieuwe kleuren."
+              description="De donkere rail gebruikt tokens die afgeleid zijn van het Lorenthi UI-accent — geen nieuwe kleuren."
             />
           </Content>
         </div>

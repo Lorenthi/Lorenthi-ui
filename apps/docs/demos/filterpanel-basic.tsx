@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Avatar, FilterGroup, FilterOption, FilterPanel } from "@projectx/ui";
+import { Avatar, FilterGroup, FilterOption, FilterPanel } from "@lorenthi/ui";
 
 const ARTSEN = [
   { id: "reyniers", naam: "Dr. Reyniers", aantal: 38 },

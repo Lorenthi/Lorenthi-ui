@@ -346,14 +346,14 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
         aria-label={typeof woorden.title === "string" ? woorden.title : undefined}
         data-stage={stage}
         data-variant={variant}
-        className={cn("pxui-otpv", className)}
+        className={cn("lui-otpv", className)}
         {...rest}
       >
         <AnimatePresence>
           {klaar && (
             <motion.span
               key="glow"
-              className="pxui-otpv-glow"
+              className="lui-otpv-glow"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -363,11 +363,11 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
           )}
         </AnimatePresence>
 
-        {handle && <span className="pxui-otpv-handle" aria-hidden="true" />}
+        {handle && <span className="lui-otpv-handle" aria-hidden="true" />}
 
         {icon !== null && icon !== undefined && (
           <motion.span
-            className="pxui-otpv-chip"
+            className="lui-otpv-chip"
             data-ok={klaar ? "" : undefined}
             animate={klaar && !traag ? { scale: [1, 1.12, 1] } : { scale: 1 }}
             transition={{ duration: 0.45 }}
@@ -378,39 +378,39 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
         )}
 
         {/* ---------- koppen, kruislings vervagend ---------- */}
-        <div className="pxui-otpv-head">
+        <div className="lui-otpv-head">
           <AnimatePresence initial={false} mode="popLayout">
             {klaar ? (
               <motion.div
                 key="ok"
-                className="pxui-otpv-head-layer"
+                className="lui-otpv-head-layer"
                 initial={{ opacity: 0, filter: "blur(8px)", y: 6 }}
                 animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
                 transition={{ duration: traag ? 0 : 0.5, delay: traag ? 0 : 0.15 }}
               >
-                <h2 className="pxui-otpv-title pxui-otpv-title-ok">{woorden.successTitle}</h2>
-                <p className="pxui-otpv-text">{woorden.successDescription}</p>
+                <h2 className="lui-otpv-title lui-otpv-title-ok">{woorden.successTitle}</h2>
+                <p className="lui-otpv-text">{woorden.successDescription}</p>
               </motion.div>
             ) : (
               <motion.div
                 key="ask"
-                className="pxui-otpv-head-layer"
+                className="lui-otpv-head-layer"
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1, filter: "blur(0px)" }}
                 exit={{ opacity: 0, filter: "blur(6px)" }}
                 transition={{ duration: traag ? 0 : 0.4 }}
               >
-                <h2 className="pxui-otpv-title">{woorden.title}</h2>
-                <p className="pxui-otpv-text">{woorden.description}</p>
+                <h2 className="lui-otpv-title">{woorden.title}</h2>
+                <p className="lui-otpv-text">{woorden.description}</p>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
         {/* ---------- de vakjes ---------- */}
-        <div className="pxui-otpv-stage">
+        <div className="lui-otpv-stage">
           <motion.div
-            className="pxui-otpv-anchor"
+            className="lui-otpv-anchor"
             animate={fout && !traag ? { x: [0, -9, 8, -6, 4, 0] } : { x: 0 }}
             transition={{ duration: 0.45 }}
           >
@@ -419,7 +419,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
               {stage === "grid" && !baan && rijen > 1 && kolommen > 1 && (
                 <motion.svg
                   key="links"
-                  className="pxui-otpv-links"
+                  className="lui-otpv-links"
                   width={RASTER_X}
                   height={RASTER_Y}
                   viewBox={`0 0 ${RASTER_X} ${RASTER_Y}`}
@@ -448,7 +448,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
 
             {/* de baan draait; in "grid" staat deze laag stil */}
             <motion.div
-              className="pxui-otpv-orbit"
+              className="lui-otpv-orbit"
               animate={draait ? { rotate: 360 } : { rotate: 0 }}
               transition={
                 draait ? { repeat: Infinity, ease: "linear", duration: 2.6 } : { duration: 0.4 }
@@ -461,7 +461,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
                 return (
                   <motion.div
                     key={index}
-                    className="pxui-otpv-box"
+                    className="lui-otpv-box"
                     data-active={typt ? "" : undefined}
                     data-state={fout ? "error" : bezig ? "checking" : undefined}
                     style={{ width: BOX.w, height: BOX.h, marginLeft: -BOX.w / 2, marginTop: -BOX.h / 2 }}
@@ -496,7 +496,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
                         </motion.span>
                       )}
                     </AnimatePresence>
-                    {typt && !cijfer && <span className="pxui-otpv-caret" />}
+                    {typt && !cijfer && <span className="lui-otpv-caret" />}
                   </motion.div>
                 );
               })}
@@ -507,7 +507,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
               {klaar && (
                 <motion.div
                   key="badge"
-                  className="pxui-otpv-badge"
+                  className="lui-otpv-badge"
                   style={{ width: BOX.w, height: BOX.h, marginLeft: -BOX.w / 2, marginTop: -BOX.h / 2 }}
                   initial={{ scale: 0.4, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -529,7 +529,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
 
             {/* feest: ringen in "orbit", snippers in "grid" */}
             {klaar && celebrate && !traag && baan && (
-              <span className="pxui-otpv-rings" aria-hidden="true">
+              <span className="lui-otpv-rings" aria-hidden="true">
                 {[0, 1].map((index) => (
                   <motion.i
                     key={index}
@@ -542,7 +542,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
             )}
 
             {klaar && celebrate && !traag && !baan && (
-              <span className="pxui-otpv-burst" aria-hidden="true">
+              <span className="lui-otpv-burst" aria-hidden="true">
                 {SNIPPERS.map((snipper) => (
                   <motion.i
                     key={snipper.id}
@@ -571,7 +571,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
           {/* onzichtbaar veld, zodat je er echt in kan typen */}
           <input
             ref={veld}
-            className="pxui-otpv-input"
+            className="lui-otpv-input"
             aria-label={typeof woorden.title === "string" ? woorden.title : "Verificatiecode"}
             inputMode="numeric"
             autoComplete="one-time-code"
@@ -583,12 +583,12 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
         </div>
 
         {/* ---------- voettekst ---------- */}
-        <div className="pxui-otpv-foot" aria-live="polite">
+        <div className="lui-otpv-foot" aria-live="polite">
           <AnimatePresence mode="wait">
             {fout && (
               <motion.span
                 key="fout"
-                className="pxui-otpv-error"
+                className="lui-otpv-error"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -600,7 +600,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
             {stage === "typing" && onResend && (
               <motion.span
                 key="opnieuw"
-                className="pxui-otpv-resend"
+                className="lui-otpv-resend"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -608,7 +608,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
               >
                 {woorden.resendPrompt}{" "}
                 {tikken > 0 ? (
-                  <span className="pxui-otpv-timer">
+                  <span className="lui-otpv-timer">
                     {woorden.resendIn.replace("{time}", klok(tikken))}
                   </span>
                 ) : (
@@ -621,7 +621,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
             {klaar && !action && (
               <motion.span
                 key="veilig"
-                className="pxui-otpv-secure"
+                className="lui-otpv-secure"
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
@@ -638,7 +638,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
         {action && (
           <button
             type="button"
-            className="pxui-otpv-cta"
+            className="lui-otpv-cta"
             data-state={klaar ? "done" : bezig ? "busy" : undefined}
             disabled={disabled || bezig || klaar || !vol}
             onClick={() => {
@@ -654,7 +654,7 @@ export const OtpVerification = React.forwardRef<HTMLDivElement, OtpVerificationP
               </>
             ) : bezig ? (
               <>
-                <span className="pxui-otpv-cta-spin" aria-hidden="true" />
+                <span className="lui-otpv-cta-spin" aria-hidden="true" />
                 {woorden.actionBusy}
               </>
             ) : (

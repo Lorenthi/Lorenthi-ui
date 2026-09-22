@@ -1,5 +1,5 @@
 /* ============================ Popover ============================ */
-.pxui-popover {
+.lui-popover {
   z-index: var(--z-popover);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -7,21 +7,21 @@
   box-shadow: var(--sh-lg);
   padding: 14px;
   overflow-y: auto; overscroll-behavior: contain;
-  animation: pxui-menu-in var(--dur-fast) var(--ease) both;
+  animation: lui-menu-in var(--dur-fast) var(--ease) both;
   color: var(--text);
   font-size: var(--fs-base);
 }
-.pxui-popover-flush { padding: 0; }
-.pxui-popover[data-side="top"] { transform-origin: bottom; }
+.lui-popover-flush { padding: 0; }
+.lui-popover[data-side="top"] { transform-origin: bottom; }
 
 /* ---------- Sluiten ---------- */
-.pxui-popover[data-state="closed"] { animation: pxui-menu-out var(--dur-fast) var(--ease) both; }
+.lui-popover[data-state="closed"] { animation: lui-menu-out var(--dur-fast) var(--ease) both; }
 
-@keyframes pxui-menu-out {
+@keyframes lui-menu-out {
   from { opacity: 1; transform: none; }
   to { opacity: 0; transform: translateY(-4px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pxui-popover, .pxui-popover[data-state="closed"] { animation-duration: .01ms; }
+  .lui-popover, .lui-popover[data-state="closed"] { animation-duration: .01ms; }
 }

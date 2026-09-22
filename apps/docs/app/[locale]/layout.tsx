@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ThemeProvider, ThemeScript, ToastProvider } from "@projectx/ui";
+import { ThemeProvider, ThemeScript, ToastProvider } from "@lorenthi/ui";
 import { routing } from "@/i18n/routing";
 import "./globals.css";
 

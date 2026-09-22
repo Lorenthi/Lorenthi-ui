@@ -823,7 +823,7 @@ export const COMPONENTS: ComponentEntry[] = [
     dependsOn: ["app-shell"],
     demos: [
       { key: "sidebar-basic", title: "In een app-shell", align: "block" },
-      { key: "sidebar-inverted", title: "Donkere rail", description: "tone=\"inverted\" — kleuren afgeleid van het ProjectX UI-accent, werkt in beide thema's.", align: "block" },
+      { key: "sidebar-inverted", title: "Donkere rail", description: "tone=\"inverted\" — kleuren afgeleid van het Lorenthi UI-accent, werkt in beide thema's.", align: "block" },
     ],
     props: ["SidebarProps", "SidebarItemProps"],
   },

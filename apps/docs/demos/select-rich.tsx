@@ -1,7 +1,7 @@
 "use client";
 import {
   Icon, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   return (

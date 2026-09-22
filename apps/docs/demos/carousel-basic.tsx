@@ -1,7 +1,7 @@
 "use client";
 import {
   Carousel, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious, CarouselTrack,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const KAARTEN = [
   { titel: "Voorste oogkamer", tekst: "OD — 12/03", kleur: "var(--accent-tint)" },

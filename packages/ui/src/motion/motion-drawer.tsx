@@ -88,7 +88,7 @@ export const MotionDrawerContent = React.forwardRef<HTMLDivElement, MotionDrawer
         {open && (
           <Portal>
             <motion.div
-              className="pxui-overlay pxui-overlay-plain pxui-motion-overlay"
+              className="lui-overlay lui-overlay-plain lui-motion-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -107,7 +107,7 @@ export const MotionDrawerContent = React.forwardRef<HTMLDivElement, MotionDrawer
                 aria-modal="true"
                 aria-labelledby={titleId}
                 tabIndex={-1}
-                className={cn("pxui-drawer", `pxui-drawer-${side}`, "pxui-motion-drawer", className)}
+                className={cn("lui-drawer", `lui-drawer-${side}`, "lui-motion-drawer", className)}
                 style={{ ...(size ? { [horizontal ? "width" : "height"]: size } : {}), ...style }}
                 initial={reduced ? { opacity: 0 } : hidden}
                 animate={reduced ? { opacity: 1 } : { x: 0, y: 0 }}
@@ -124,7 +124,7 @@ export const MotionDrawerContent = React.forwardRef<HTMLDivElement, MotionDrawer
               >
                 {handle && (
                   <div
-                    className={cn("pxui-motion-handle", horizontal && "pxui-motion-handle-vertical")}
+                    className={cn("lui-motion-handle", horizontal && "lui-motion-handle-vertical")}
                     onPointerDown={(event) => dragControls.start(event)}
                   >
                     <span />
@@ -134,7 +134,7 @@ export const MotionDrawerContent = React.forwardRef<HTMLDivElement, MotionDrawer
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="pxui-drawer-close"
+                    className="lui-drawer-close"
                     aria-label="Sluiten"
                     icon={<Icon name="x" size={16} />}
                     onClick={() => setOpen(false)}

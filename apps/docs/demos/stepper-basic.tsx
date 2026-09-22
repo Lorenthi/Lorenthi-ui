@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, Stepper } from "@projectx/ui";
+import { Button, Stepper } from "@lorenthi/ui";
 
 const STAPPEN = [
   { label: "App kiezen", description: "Uit de marketplace" },

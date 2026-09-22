@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Badge, Calendar, Card, CardContent, formatDate } from "@projectx/ui";
+import { Badge, Calendar, Card, CardContent, formatDate } from "@lorenthi/ui";
 
 export default function Demo() {
   const [dates, setDates] = useState<Date[]>([]);

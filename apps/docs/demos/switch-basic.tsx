@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Switch } from "@projectx/ui";
+import { Switch } from "@lorenthi/ui";
 
 export default function Demo() {
   const [on, setOn] = useState(true);

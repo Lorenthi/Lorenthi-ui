@@ -35,12 +35,12 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(func
 
   return (
     <RadioGroupContext.Provider
-      value={{ name: name ?? `pxui-radio-${autoName}`, value: current, setValue: setCurrent, disabled }}
+      value={{ name: name ?? `lui-radio-${autoName}`, value: current, setValue: setCurrent, disabled }}
     >
       <div
         ref={ref}
         role="radiogroup"
-        className={cn("pxui-radio-group", `pxui-radio-group-${orientation}`, className)}
+        className={cn("lui-radio-group", `lui-radio-group-${orientation}`, className)}
         {...rest}
       >
         {children}
@@ -64,7 +64,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Rad
 ) {
   const group = React.useContext(RadioGroupContext);
   const autoId = React.useId();
-  const inputId = id ?? `pxui-radio-item-${autoId}`;
+  const inputId = id ?? `lui-radio-item-${autoId}`;
   const isDisabled = disabled ?? group?.disabled;
   const checked = group ? group.value === value : undefined;
 
@@ -72,19 +72,19 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Rad
     <label
       htmlFor={inputId}
       className={cn(
-        "pxui-radio-row",
-        card && "pxui-radio-card",
-        checked && "pxui-radio-checked",
-        isDisabled && "pxui-radio-disabled",
+        "lui-radio-row",
+        card && "lui-radio-card",
+        checked && "lui-radio-checked",
+        isDisabled && "lui-radio-disabled",
         className
       )}
     >
-      <span className="pxui-radio">
+      <span className="lui-radio">
         <input
           ref={ref}
           id={inputId}
           type="radio"
-          className="pxui-radio-input"
+          className="lui-radio-input"
           name={group?.name}
           value={value}
           checked={checked}
@@ -95,12 +95,12 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Rad
           }}
           {...rest}
         />
-        <span className="pxui-radio-dot" aria-hidden="true" />
+        <span className="lui-radio-dot" aria-hidden="true" />
       </span>
       {(label || description) && (
-        <span className="pxui-radio-text">
-          {label && <span className="pxui-radio-label">{label}</span>}
-          {description && <span className="pxui-radio-description">{description}</span>}
+        <span className="lui-radio-text">
+          {label && <span className="lui-radio-label">{label}</span>}
+          {description && <span className="lui-radio-description">{description}</span>}
         </span>
       )}
     </label>

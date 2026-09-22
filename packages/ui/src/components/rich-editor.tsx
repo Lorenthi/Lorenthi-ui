@@ -53,7 +53,7 @@ const TOOLS: Record<RichEditorTool, { command: string; value?: string; label: st
     command: "hiliteColor",
     value: "var(--amber-tint)",
     label: "Markeren",
-    glyph: <span className="pxui-editor-mark">A</span>,
+    glyph: <span className="lui-editor-mark">A</span>,
   },
   bulletList: { command: "insertUnorderedList", label: "Opsomming", glyph: <span aria-hidden>•—</span> },
   orderedList: { command: "insertOrderedList", label: "Genummerde lijst", glyph: <span aria-hidden>1.</span> },
@@ -141,19 +141,19 @@ export const RichEditor = React.forwardRef<HTMLDivElement, RichEditorProps>(func
   return (
     <div
       ref={ref}
-      className={cn("pxui-editor", invalid && "pxui-editor-invalid", className)}
+      className={cn("lui-editor", invalid && "lui-editor-invalid", className)}
       data-disabled={disabled ? "" : undefined}
       data-readonly={readOnly ? "" : undefined}
       {...rest}
     >
       {showToolbar &&
         (toolbar ?? (
-          <div className="pxui-editor-toolbar" role="toolbar" aria-label="Opmaak">
+          <div className="lui-editor-toolbar" role="toolbar" aria-label="Opmaak">
             {tools.map((tool) => (
               <button
                 key={tool}
                 type="button"
-                className="pxui-editor-tool"
+                className="lui-editor-tool"
                 aria-label={TOOLS[tool].label}
                 aria-pressed={active[tool] ? true : undefined}
                 data-active={active[tool] ? "" : undefined}
@@ -170,7 +170,7 @@ export const RichEditor = React.forwardRef<HTMLDivElement, RichEditorProps>(func
 
       <div
         ref={bodyRef}
-        className="pxui-editor-body"
+        className="lui-editor-body"
         style={{ minHeight }}
         contentEditable={!disabled && !readOnly}
         suppressContentEditableWarning
@@ -194,7 +194,7 @@ export const RichEditor = React.forwardRef<HTMLDivElement, RichEditorProps>(func
         }
       />
 
-      {footer && <div className="pxui-editor-footer">{footer}</div>}
+      {footer && <div className="lui-editor-footer">{footer}</div>}
     </div>
   );
 });

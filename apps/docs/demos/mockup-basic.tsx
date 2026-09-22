@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Icon, MockupBrowser, MockupPhone, MockupWindow, Segmented } from "@projectx/ui";
+import { Badge, Icon, MockupBrowser, MockupPhone, MockupWindow, Segmented } from "@lorenthi/ui";
 import { useState } from "react";
 
 export default function Demo() {
@@ -19,13 +19,13 @@ export default function Demo() {
       />
 
       {soort === "browser" && (
-        <MockupBrowser url="https://praktijk.projectx.be/agenda" style={{ width: "100%", maxWidth: 520 }}>
+        <MockupBrowser url="https://praktijk.lorenthi.be/agenda" style={{ width: "100%", maxWidth: 520 }}>
           <Scherm />
         </MockupBrowser>
       )}
 
       {soort === "window" && (
-        <MockupWindow title="ProjectX — Dossier Peeters" style={{ width: "100%", maxWidth: 520 }}>
+        <MockupWindow title="Lorenthi — Dossier Peeters" style={{ width: "100%", maxWidth: 520 }}>
           <Scherm />
         </MockupWindow>
       )}

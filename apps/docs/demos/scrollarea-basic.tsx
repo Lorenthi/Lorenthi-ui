@@ -1,5 +1,5 @@
 "use client";
-import { Icon, ScrollArea } from "@projectx/ui";
+import { Icon, ScrollArea } from "@lorenthi/ui";
 
 const REGELS = [
   "08:30 — Intake Ahmed Bakkali",

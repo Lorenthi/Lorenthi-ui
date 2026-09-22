@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { BottomNav, BottomNavItem, Icon } from "@projectx/ui";
+import { BottomNav, BottomNavItem, Icon } from "@lorenthi/ui";
 
 const ITEMS = [
   { key: "planning", label: "Planning", icon: "calendar" as const },

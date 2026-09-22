@@ -19,7 +19,7 @@ function useCommand(component: string): CommandContextValue {
   return context;
 }
 
-const ITEM_SELECTOR = '[data-pxui-command-item]:not([hidden]):not([data-disabled])';
+const ITEM_SELECTOR = '[data-lui-command-item]:not([hidden]):not([data-disabled])';
 
 export interface CommandProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Externe zoekterm (controlled). */
@@ -73,7 +73,7 @@ export const Command = React.forwardRef<HTMLDivElement, CommandProps>(function C
     <CommandContext.Provider value={{ query, setQuery, listRef, matches }}>
       <div
         ref={ref}
-        className={cn("pxui-command", className)}
+        className={cn("lui-command", className)}
         onKeyDown={(event) => {
           onKeyDown?.(event);
           if (event.key === "ArrowDown") {
@@ -109,11 +109,11 @@ export const CommandInput = React.forwardRef<HTMLInputElement, CommandInputProps
   const { query, setQuery } = useCommand("CommandInput");
 
   return (
-    <div className={cn("pxui-command-input-wrap", className)}>
-      <span className="pxui-command-input-icon">{icon ?? <Icon name="search" size={17} />}</span>
+    <div className={cn("lui-command-input-wrap", className)}>
+      <span className="lui-command-input-icon">{icon ?? <Icon name="search" size={17} />}</span>
       <input
         ref={ref}
-        className="pxui-command-input"
+        className="lui-command-input"
         placeholder={placeholder}
         value={query}
         autoFocus
@@ -135,7 +135,7 @@ export const CommandList = React.forwardRef<HTMLDivElement, React.HTMLAttributes
           else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
         }}
         role="listbox"
-        className={cn("pxui-command-list", className)}
+        className={cn("lui-command-list", className)}
         {...rest}
       >
         {children}
@@ -157,7 +157,7 @@ export const CommandEmpty = React.forwardRef<HTMLDivElement, React.HTMLAttribute
 
     if (!empty) return null;
     return (
-      <div ref={ref} className={cn("pxui-command-empty", className)} {...rest}>
+      <div ref={ref} className={cn("lui-command-empty", className)} {...rest}>
         {children ?? "Geen resultaten gevonden."}
       </div>
     );
@@ -190,10 +190,10 @@ export const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
       }}
       role="group"
       hidden={!visible || undefined}
-      className={cn("pxui-command-group", className)}
+      className={cn("lui-command-group", className)}
       {...rest}
     >
-      {heading && <div className="pxui-command-group-heading">{heading}</div>}
+      {heading && <div className="lui-command-group-heading">{heading}</div>}
       {children}
     </div>
   );
@@ -222,12 +222,12 @@ export const CommandItem = React.forwardRef<HTMLButtonElement, CommandItemProps>
       role="option"
       tabIndex={-1}
       hidden={!visible || undefined}
-      data-pxui-command-item=""
+      data-lui-command-item=""
       data-disabled={disabled ? "" : undefined}
       disabled={disabled}
-      className={cn("pxui-command-item", className)}
+      className={cn("lui-command-item", className)}
       onMouseEnter={(event) => {
-        const list = event.currentTarget.closest(".pxui-command-list");
+        const list = event.currentTarget.closest(".lui-command-list");
         list?.querySelectorAll("[data-active]").forEach((node) => node.removeAttribute("data-active"));
         event.currentTarget.setAttribute("data-active", "");
       }}
@@ -237,22 +237,22 @@ export const CommandItem = React.forwardRef<HTMLButtonElement, CommandItemProps>
       }}
       {...rest}
     >
-      {icon && <span className="pxui-command-item-icon">{icon}</span>}
-      <span className="pxui-command-item-label">{children}</span>
-      {shortcut && <span className="pxui-command-item-shortcut">{shortcut}</span>}
+      {icon && <span className="lui-command-item-icon">{icon}</span>}
+      <span className="lui-command-item-label">{children}</span>
+      {shortcut && <span className="lui-command-item-shortcut">{shortcut}</span>}
     </button>
   );
 });
 
 export const CommandSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function CommandSeparator({ className, ...rest }, ref) {
-    return <div ref={ref} role="separator" className={cn("pxui-command-separator", className)} {...rest} />;
+    return <div ref={ref} role="separator" className={cn("lui-command-separator", className)} {...rest} />;
   }
 );
 
 export const CommandFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function CommandFooter({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-command-footer", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-command-footer", className)} {...rest} />;
   }
 );
 
@@ -292,7 +292,7 @@ export function CommandDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setOpen}>
-      <DialogContent size="lg" hideClose className="pxui-command-dialog">
+      <DialogContent size="lg" hideClose className="lui-command-dialog">
         <Command {...commandProps}>{children}</Command>
       </DialogContent>
     </Dialog>

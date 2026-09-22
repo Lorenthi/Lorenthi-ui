@@ -27,10 +27,10 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(function Tab
     <table
       ref={ref}
       className={cn(
-        "pxui-table",
-        dense && "pxui-table-dense",
-        striped && "pxui-table-striped",
-        stickyHeader && "pxui-table-sticky",
+        "lui-table",
+        dense && "lui-table-dense",
+        striped && "lui-table-striped",
+        stickyHeader && "lui-table-sticky",
         className
       )}
       style={{ minWidth }}
@@ -41,34 +41,34 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(function Tab
   );
 
   const scroll = (
-    <div className="pxui-table-scroll" style={maxHeight ? { maxHeight, overflowY: "auto" } : undefined}>
+    <div className="lui-table-scroll" style={maxHeight ? { maxHeight, overflowY: "auto" } : undefined}>
       {table}
     </div>
   );
 
   if (!wrapped) return scroll;
-  return <div className="pxui-table-wrap">{scroll}</div>;
+  return <div className="lui-table-wrap">{scroll}</div>;
 });
 
 export const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(function TableHeader({ className, ...rest }, ref) {
-  return <thead ref={ref} className={cn("pxui-table-header", className)} {...rest} />;
+  return <thead ref={ref} className={cn("lui-table-header", className)} {...rest} />;
 });
 
 export const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(function TableBody({ className, ...rest }, ref) {
-  return <tbody ref={ref} className={cn("pxui-table-body", className)} {...rest} />;
+  return <tbody ref={ref} className={cn("lui-table-body", className)} {...rest} />;
 });
 
 export const TableFooter = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(function TableFooter({ className, ...rest }, ref) {
-  return <tfoot ref={ref} className={cn("pxui-table-footer", className)} {...rest} />;
+  return <tfoot ref={ref} className={cn("lui-table-footer", className)} {...rest} />;
 });
 
 export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
@@ -85,7 +85,7 @@ export const TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(fun
     <tr
       ref={ref}
       data-selected={selected ? "" : undefined}
-      className={cn("pxui-table-row", clickable && "pxui-table-row-clickable", className)}
+      className={cn("lui-table-row", clickable && "lui-table-row-clickable", className)}
       {...rest}
     />
   );
@@ -107,17 +107,17 @@ export const TableHead = React.forwardRef<HTMLTableCellElement, TableHeadProps>(
       ref={ref}
       scope="col"
       aria-sort={sorted === "asc" ? "ascending" : sorted === "desc" ? "descending" : undefined}
-      className={cn("pxui-table-head", `pxui-align-${align}`, sortable && "pxui-table-head-sortable", className)}
+      className={cn("lui-table-head", `lui-align-${align}`, sortable && "lui-table-head-sortable", className)}
       onClick={sortable ? onClick : undefined}
       {...rest}
     >
-      <span className="pxui-table-head-inner">
+      <span className="lui-table-head-inner">
         {children}
         {sortable && (
           <Icon
             name={sorted === "asc" ? "chevronUp" : sorted === "desc" ? "chevronDown" : "chevronsUpDown"}
             size={13}
-            className={cn("pxui-table-sort", sorted && "pxui-table-sort-active")}
+            className={cn("lui-table-sort", sorted && "lui-table-sort-active")}
           />
         )}
       </span>
@@ -138,7 +138,7 @@ export const TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(
   return (
     <td
       ref={ref}
-      className={cn("pxui-table-cell", `pxui-align-${align}`, strong && "pxui-table-cell-strong", className)}
+      className={cn("lui-table-cell", `lui-align-${align}`, strong && "lui-table-cell-strong", className)}
       {...rest}
     />
   );
@@ -148,12 +148,12 @@ export const TableCaption = React.forwardRef<
   HTMLTableCaptionElement,
   React.HTMLAttributes<HTMLTableCaptionElement>
 >(function TableCaption({ className, ...rest }, ref) {
-  return <caption ref={ref} className={cn("pxui-table-caption", className)} {...rest} />;
+  return <caption ref={ref} className={cn("lui-table-caption", className)} {...rest} />;
 });
 
 /** Toolbar boven een tabel (zoekveld, filters, knoppen). */
 export const TableToolbar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   function TableToolbar({ className, ...rest }, ref) {
-    return <div ref={ref} className={cn("pxui-table-toolbar", className)} {...rest} />;
+    return <div ref={ref} className={cn("lui-table-toolbar", className)} {...rest} />;
   }
 );

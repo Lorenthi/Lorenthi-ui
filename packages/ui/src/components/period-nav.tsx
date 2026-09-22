@@ -42,12 +42,12 @@ export const PeriodNav = React.forwardRef<HTMLDivElement, PeriodNavProps>(functi
   return (
     <div
       ref={ref}
-      className={cn("pxui-periodnav", `pxui-periodnav-${variant}`, `pxui-periodnav-${size}`, className)}
+      className={cn("lui-periodnav", `lui-periodnav-${variant}`, `lui-periodnav-${size}`, className)}
       {...rest}
     >
       <button
         type="button"
-        className="pxui-periodnav-btn"
+        className="lui-periodnav-btn"
         aria-label={previousLabel}
         disabled={disablePrevious}
         onClick={onPrevious}
@@ -55,11 +55,11 @@ export const PeriodNav = React.forwardRef<HTMLDivElement, PeriodNavProps>(functi
         <Icon name="chevronLeft" size={size === "sm" ? 14 : 16} />
       </button>
 
-      <span className="pxui-periodnav-label">{label}</span>
+      <span className="lui-periodnav-label">{label}</span>
 
       <button
         type="button"
-        className="pxui-periodnav-btn"
+        className="lui-periodnav-btn"
         aria-label={nextLabel}
         disabled={disableNext}
         onClick={onNext}
@@ -68,7 +68,7 @@ export const PeriodNav = React.forwardRef<HTMLDivElement, PeriodNavProps>(functi
       </button>
 
       {onToday && (
-        <button type="button" className="pxui-periodnav-today" onClick={onToday}>
+        <button type="button" className="lui-periodnav-today" onClick={onToday}>
           {todayLabel}
         </button>
       )}

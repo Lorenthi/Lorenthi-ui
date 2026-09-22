@@ -15,10 +15,10 @@ export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(functi
 ) {
   if (label) {
     return (
-      <div ref={ref} className={cn("pxui-separator-labelled", className)} {...rest}>
-        <span className="pxui-separator-line" />
-        <span className="pxui-separator-label">{label}</span>
-        <span className="pxui-separator-line" />
+      <div ref={ref} className={cn("lui-separator-labelled", className)} {...rest}>
+        <span className="lui-separator-line" />
+        <span className="lui-separator-label">{label}</span>
+        <span className="lui-separator-line" />
       </div>
     );
   }
@@ -28,7 +28,7 @@ export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(functi
       ref={ref}
       role="separator"
       aria-orientation={orientation}
-      className={cn("pxui-separator", `pxui-separator-${orientation}`, className)}
+      className={cn("lui-separator", `lui-separator-${orientation}`, className)}
       {...rest}
     />
   );

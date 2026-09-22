@@ -39,7 +39,7 @@ export const QrCode = React.forwardRef<HTMLDivElement, QrCodeProps>(function QrC
     return (
       <div
         ref={ref}
-        className={cn("pxui-qr", "pxui-qr-error", className)}
+        className={cn("lui-qr", "lui-qr-error", className)}
         style={{ width: size, height: size, ...style }}
         title={result.message}
         role="img"
@@ -63,7 +63,7 @@ export const QrCode = React.forwardRef<HTMLDivElement, QrCodeProps>(function QrC
   return (
     <div
       ref={ref}
-      className={cn("pxui-qr", framed && "pxui-qr-framed", className)}
+      className={cn("lui-qr", framed && "lui-qr-framed", className)}
       data-version={version}
       style={style}
       {...rest}
@@ -76,10 +76,10 @@ export const QrCode = React.forwardRef<HTMLDivElement, QrCodeProps>(function QrC
         role="img"
         aria-label={label ?? value}
       >
-        <rect width={span} height={span} className="pxui-qr-bg" />
-        <path d={path} className="pxui-qr-fg" />
+        <rect width={span} height={span} className="lui-qr-bg" />
+        <path d={path} className="lui-qr-fg" />
       </svg>
-      {caption && <div className="pxui-qr-caption">{caption}</div>}
+      {caption && <div className="lui-qr-caption">{caption}</div>}
     </div>
   );
 });

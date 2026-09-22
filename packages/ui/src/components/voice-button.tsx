@@ -49,7 +49,7 @@ export const VoiceButton = React.forwardRef<HTMLButtonElement, VoiceButtonProps>
         title={voice.listening ? labelStop : labelStart}
         disabled={!voice.supported && whenUnsupported === "disable"}
         data-listening={voice.listening ? "" : undefined}
-        className={cn("pxui-voice", `pxui-voice-${size}`, className)}
+        className={cn("lui-voice", `lui-voice-${size}`, className)}
         onClick={(event) => {
           onClick?.(event);
           voice.toggle();
@@ -57,7 +57,7 @@ export const VoiceButton = React.forwardRef<HTMLButtonElement, VoiceButtonProps>
         {...rest}
       >
         <Icon name="mic" size={size === "sm" ? 15 : size === "lg" ? 20 : 18} />
-        {voice.listening && <span className="pxui-voice-pulse" aria-hidden="true" />}
+        {voice.listening && <span className="lui-voice-pulse" aria-hidden="true" />}
       </button>
     );
   }

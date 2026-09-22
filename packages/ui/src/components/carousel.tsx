@@ -50,7 +50,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
   React.useEffect(() => {
     const spoor = spoorRef.current;
     if (!spoor) return;
-    const tel = () => setAantal(spoor.querySelectorAll("[data-pxui-carousel-item]").length);
+    const tel = () => setAantal(spoor.querySelectorAll("[data-lui-carousel-item]").length);
     tel();
     const observer = new MutationObserver(tel);
     observer.observe(spoor, { childList: true });
@@ -65,7 +65,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const items = [...spoor.querySelectorAll<HTMLElement>("[data-pxui-carousel-item]")];
+        const items = [...spoor.querySelectorAll<HTMLElement>("[data-lui-carousel-item]")];
         if (items.length === 0) return;
         const positie = orientation === "horizontal" ? spoor.scrollLeft : spoor.scrollTop;
         const dichtst = items.reduce(
@@ -93,7 +93,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     (doel: number) => {
       const spoor = spoorRef.current;
       if (!spoor) return;
-      const items = [...spoor.querySelectorAll<HTMLElement>("[data-pxui-carousel-item]")];
+      const items = [...spoor.querySelectorAll<HTMLElement>("[data-lui-carousel-item]")];
       const laatste = items.length - 1;
       const veilig = loop ? (doel < 0 ? laatste : doel > laatste ? 0 : doel) : Math.min(Math.max(doel, 0), laatste);
       const item = items[veilig];
@@ -134,7 +134,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         ref={ref}
         role="region"
         aria-roledescription="carousel"
-        className={cn("pxui-carousel", `pxui-carousel-${orientation}`, className)}
+        className={cn("lui-carousel", `lui-carousel-${orientation}`, className)}
         onKeyDown={(event) => {
           const terug = orientation === "horizontal" ? "ArrowLeft" : "ArrowUp";
           const heen = orientation === "horizontal" ? "ArrowRight" : "ArrowDown";
@@ -165,7 +165,7 @@ export const CarouselTrack = React.forwardRef<HTMLDivElement, React.HTMLAttribut
           else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
         }}
         tabIndex={0}
-        className={cn("pxui-carousel-track", className)}
+        className={cn("lui-carousel-track", className)}
         {...rest}
       />
     );
@@ -187,10 +187,10 @@ export const CarouselItem = React.forwardRef<HTMLDivElement, CarouselItemProps>(
   return (
     <div
       ref={ref}
-      data-pxui-carousel-item=""
+      data-lui-carousel-item=""
       role="group"
       aria-roledescription="slide"
-      className={cn("pxui-carousel-item", className)}
+      className={cn("lui-carousel-item", className)}
       style={{ ...(maat ? { flexBasis: maat, [orientation === "horizontal" ? "width" : "height"]: maat } : {}), ...style }}
       {...rest}
     />
@@ -211,7 +211,7 @@ export const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselButt
         size="sm"
         aria-label={label}
         disabled={!kanVorige}
-        className={cn("pxui-carousel-btn", className)}
+        className={cn("lui-carousel-btn", className)}
         icon={<Icon name={orientation === "horizontal" ? "chevronLeft" : "chevronUp"} size={16} />}
         onClick={vorige}
         {...rest}
@@ -232,7 +232,7 @@ export const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselButtonPr
       size="sm"
       aria-label={label}
       disabled={!kanVolgende}
-      className={cn("pxui-carousel-btn", className)}
+      className={cn("lui-carousel-btn", className)}
       icon={<Icon name={orientation === "horizontal" ? "chevronRight" : "chevronDown"} size={16} />}
       onClick={volgende}
       {...rest}
@@ -244,7 +244,7 @@ export const CarouselDots = React.forwardRef<HTMLDivElement, React.HTMLAttribute
   function CarouselDots({ className, ...rest }, ref) {
     const { aantal, index, ganaar } = useCarousel("CarouselDots");
     return (
-      <div ref={ref} className={cn("pxui-carousel-dots", className)} {...rest}>
+      <div ref={ref} className={cn("lui-carousel-dots", className)} {...rest}>
         {Array.from({ length: aantal }, (_, i) => (
           <button
             key={i}
@@ -252,7 +252,7 @@ export const CarouselDots = React.forwardRef<HTMLDivElement, React.HTMLAttribute
             aria-label={`Naar item ${i + 1}`}
             aria-current={i === index}
             data-active={i === index ? "" : undefined}
-            className="pxui-carousel-dot"
+            className="lui-carousel-dot"
             onClick={() => ganaar(i)}
           />
         ))}

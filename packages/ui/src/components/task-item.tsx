@@ -76,18 +76,18 @@ export const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(function
       ref={ref}
       data-done={done ? "" : undefined}
       data-removing={removing ? "" : undefined}
-      className={cn("pxui-task", `pxui-task-prio-${priority}`, onOpen && "pxui-task-clickable", className)}
+      className={cn("lui-task", `lui-task-prio-${priority}`, onOpen && "lui-task-clickable", className)}
       onClick={onOpen}
       {...rest}
     >
-      <span className="pxui-task-prio" aria-hidden="true" />
+      <span className="lui-task-prio" aria-hidden="true" />
 
       <button
         type="button"
         role="checkbox"
         aria-checked={done}
         aria-label={done ? "Vinkje weghalen" : "Afvinken"}
-        className="pxui-task-check"
+        className="lui-task-check"
         onClick={(event) => {
           event.stopPropagation();
           onToggle?.(!done);
@@ -97,22 +97,22 @@ export const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(function
         {burst && <ConfettiBurst onDone={() => setBurst(false)} />}
       </button>
 
-      <div className="pxui-task-body">
-        <div className="pxui-task-title">{title}</div>
+      <div className="lui-task-body">
+        <div className="lui-task-title">{title}</div>
 
         {(tags?.length || progress) && (
-          <div className="pxui-task-meta">
+          <div className="lui-task-meta">
             {tags?.map((tag, index) => (
-              <span key={index} className={cn("pxui-task-tag", tag.tone && `pxui-task-tag-${tag.tone}`)}>
-                {tag.dot && <span className="pxui-task-tag-dot" style={{ background: tag.dot }} />}
+              <span key={index} className={cn("lui-task-tag", tag.tone && `lui-task-tag-${tag.tone}`)}>
+                {tag.dot && <span className="lui-task-tag-dot" style={{ background: tag.dot }} />}
                 {tag.icon}
                 {tag.label}
               </span>
             ))}
 
             {progress && progress.total > 0 && (
-              <span className="pxui-task-progress">
-                <span className="pxui-task-progress-bar">
+              <span className="lui-task-progress">
+                <span className="lui-task-progress-bar">
                   <i style={{ width: `${(progress.done / progress.total) * 100}%` }} />
                 </span>
                 {progress.done}/{progress.total}
@@ -124,17 +124,17 @@ export const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(function
         {children}
       </div>
 
-      <div className="pxui-task-actions" onClick={(event) => event.stopPropagation()}>
+      <div className="lui-task-actions" onClick={(event) => event.stopPropagation()}>
         {actions}
         {onOpen && (
-          <button type="button" className="pxui-task-action" aria-label="Openen" onClick={onOpen}>
+          <button type="button" className="lui-task-action" aria-label="Openen" onClick={onOpen}>
             <Icon name="chevronRight" size={16} />
           </button>
         )}
         {onDelete && (
           <button
             type="button"
-            className="pxui-task-action pxui-task-action-danger"
+            className="lui-task-action lui-task-action-danger"
             aria-label="Verwijderen"
             onClick={remove}
           >
@@ -157,6 +157,6 @@ export const TaskList = React.forwardRef<HTMLDivElement, TaskListProps>(function
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-tasklist", bordered && "pxui-tasklist-bordered", className)} {...rest} />
+    <div ref={ref} className={cn("lui-tasklist", bordered && "lui-tasklist-bordered", className)} {...rest} />
   );
 });

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Field, Slider } from "@projectx/ui";
+import { Field, Slider } from "@lorenthi/ui";
 
 export default function Demo() {
   const [seats, setSeats] = useState(24);

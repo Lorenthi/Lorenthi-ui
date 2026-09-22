@@ -42,11 +42,11 @@ export const KeyValueList = React.forwardRef<HTMLDListElement, KeyValueListProps
         data-horizontal={horizontal ? "" : undefined}
         data-divided={divided ? "" : undefined}
         data-dense={dense ? "" : undefined}
-        className={cn("pxui-kv", className)}
+        className={cn("lui-kv", className)}
         style={
           {
-            "--pxui-kv-label": labelWidth,
-            "--pxui-kv-cols": columns && columns > 1 ? columns : undefined,
+            "--lui-kv-label": labelWidth,
+            "--lui-kv-cols": columns && columns > 1 ? columns : undefined,
             ...style,
           } as React.CSSProperties
         }
@@ -64,12 +64,12 @@ export const KeyValue = React.forwardRef<HTMLDivElement, KeyValueProps>(function
   const leeg = children === undefined || children === null || children === "";
 
   return (
-    <div ref={ref} className={cn("pxui-kv-row", className)} {...rest}>
-      <dt className="pxui-kv-key">
+    <div ref={ref} className={cn("lui-kv-row", className)} {...rest}>
+      <dt className="lui-kv-key">
         {icon}
         {label}
       </dt>
-      <dd className="pxui-kv-value" data-truncate={truncate ? "" : undefined} data-empty={leeg ? "" : undefined}>
+      <dd className="lui-kv-value" data-truncate={truncate ? "" : undefined} data-empty={leeg ? "" : undefined}>
         {leeg ? empty : children}
       </dd>
     </div>

@@ -67,7 +67,7 @@ export function ToastProvider({
 
   const push = React.useCallback(
     (options: ToastOptions) => {
-      const id = `pxui-toast-${Math.random().toString(36).slice(2, 10)}`;
+      const id = `lui-toast-${Math.random().toString(36).slice(2, 10)}`;
       setToasts((prev) => [...prev, { ...options, id }].slice(-max));
       const life = options.duration ?? duration;
       if (life > 0) {
@@ -107,27 +107,27 @@ export function Toaster({ position = "bottom-right" }: { position?: ToastProvide
 
   return (
     <Portal>
-      <div className={cn("pxui-toaster", `pxui-toaster-${position}`)} role="region" aria-label="Meldingen">
+      <div className={cn("lui-toaster", `lui-toaster-${position}`)} role="region" aria-label="Meldingen">
         {context.toasts.map((toast) => {
           const tone = toast.tone ?? "neutral";
           return (
             <div
               key={toast.id}
               data-state={toast.leaving ? "closed" : "open"}
-              className={cn("pxui-toast", `pxui-toast-${tone}`)}
+              className={cn("lui-toast", `lui-toast-${tone}`)}
               role="status"
             >
-              <span className="pxui-toast-icon">
+              <span className="lui-toast-icon">
                 {toast.icon ?? <Icon name={TONE_ICON[tone]} size={15} />}
               </span>
-              <div className="pxui-toast-body">
-                <div className="pxui-toast-title">{toast.title}</div>
-                {toast.description && <div className="pxui-toast-description">{toast.description}</div>}
+              <div className="lui-toast-body">
+                <div className="lui-toast-title">{toast.title}</div>
+                {toast.description && <div className="lui-toast-description">{toast.description}</div>}
               </div>
               {toast.action && (
                 <button
                   type="button"
-                  className="pxui-toast-action"
+                  className="lui-toast-action"
                   onClick={() => {
                     toast.action?.onClick();
                     context.dismiss(toast.id);
@@ -138,7 +138,7 @@ export function Toaster({ position = "bottom-right" }: { position?: ToastProvide
               )}
               <button
                 type="button"
-                className="pxui-toast-close"
+                className="lui-toast-close"
                 aria-label="Sluiten"
                 onClick={() => context.dismiss(toast.id)}
               >

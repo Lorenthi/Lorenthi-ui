@@ -63,7 +63,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(functi
 
   return (
     <AccordionContext.Provider value={{ open, toggle, variant }}>
-      <div ref={ref} className={cn("pxui-accordion", `pxui-accordion-${variant}`, className)} {...rest}>
+      <div ref={ref} className={cn("lui-accordion", `lui-accordion-${variant}`, className)} {...rest}>
         {children}
       </div>
     </AccordionContext.Provider>
@@ -88,7 +88,7 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
         ref={ref}
         data-state={isOpen ? "open" : "closed"}
         data-disabled={disabled ? "" : undefined}
-        className={cn("pxui-accordion-item", className)}
+        className={cn("lui-accordion-item", className)}
         {...rest}
       >
         {children}
@@ -113,13 +113,13 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
         type="button"
         aria-expanded={isOpen}
         data-state={isOpen ? "open" : "closed"}
-        className={cn("pxui-accordion-trigger", className)}
+        className={cn("lui-accordion-trigger", className)}
         onClick={() => value && toggle(value)}
         {...rest}
       >
-        {icon && <span className="pxui-accordion-icon">{icon}</span>}
-        <span className="pxui-accordion-label">{children}</span>
-        <Icon name="chevronDown" size={17} className="pxui-accordion-caret" />
+        {icon && <span className="lui-accordion-icon">{icon}</span>}
+        <span className="lui-accordion-label">{children}</span>
+        <Icon name="chevronDown" size={17} className="lui-accordion-caret" />
       </button>
     );
   }
@@ -138,13 +138,13 @@ export const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttri
         // De CSS zet visibility hidden zodra hij dicht is.
         aria-hidden={!isOpen || undefined}
         data-state={isOpen ? "open" : "closed"}
-        className={cn("pxui-accordion-content", className)}
+        className={cn("lui-accordion-content", className)}
         {...rest}
       >
         {/* De wikkel wordt door de grid-animatie naar nul geknepen; de padding
             zit een niveau dieper, anders blijft die zichtbaar als hij dicht is. */}
-        <div className="pxui-accordion-content-wrap">
-          <div className="pxui-accordion-content-inner">{children}</div>
+        <div className="lui-accordion-content-wrap">
+          <div className="lui-accordion-content-inner">{children}</div>
         </div>
       </div>
     );

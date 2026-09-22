@@ -39,7 +39,7 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(function Av
   return (
     <span
       ref={ref}
-      className={cn("pxui-avatar", square && "pxui-avatar-square", className)}
+      className={cn("lui-avatar", square && "lui-avatar-square", className)}
       style={{
         width: size,
         height: size,
@@ -50,13 +50,13 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(function Av
       {...rest}
     >
       {showImage ? (
-        <img className="pxui-avatar-img" src={src} alt={alt ?? name} onError={() => setFailed(true)} />
+        <img className="lui-avatar-img" src={src} alt={alt ?? name} onError={() => setFailed(true)} />
       ) : (
         (children ?? initials ?? initialsFrom(name))
       )}
       {status && (
         <span
-          className={cn("pxui-avatar-status", `pxui-avatar-status-${status}`)}
+          className={cn("lui-avatar-status", `lui-avatar-status-${status}`)}
           style={{ width: Math.max(8, size * 0.26), height: Math.max(8, size * 0.26) }}
         />
       )}
@@ -80,14 +80,14 @@ export const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(fu
   const rest_ = items.length - shown.length;
 
   return (
-    <div ref={ref} className={cn("pxui-avatar-group", className)} {...rest}>
+    <div ref={ref} className={cn("lui-avatar-group", className)} {...rest}>
       {shown.map((child, index) =>
         React.isValidElement(child)
           ? React.cloneElement(child as React.ReactElement<AvatarProps>, { size, key: index })
           : child
       )}
       {rest_ > 0 && (
-        <span className="pxui-avatar pxui-avatar-more" style={{ width: size, height: size, fontSize: size * 0.34 }}>
+        <span className="lui-avatar lui-avatar-more" style={{ width: size, height: size, fontSize: size * 0.34 }}>
           +{rest_}
         </span>
       )}

@@ -1,11 +1,11 @@
 "use client";
-import { Icon } from "@projectx/ui";
-import { ShareButton } from "@projectx/ui/motion";
+import { Icon } from "@lorenthi/ui";
+import { ShareButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (
     <ShareButton
-      url="https://projectx.ui/componenten/share-button"
+      url="https://lorenthi.ui/componenten/share-button"
       channels={[
         { id: "mail", label: "E-mail", href: "mailto:?body={url}", tone: "var(--red)" },
         { id: "chat", label: "Teams", icon: <Icon name="send" size={17} />, tone: "var(--blue)" },

@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Alert, Badge, Card, CardContent, Stepper } from "@projectx/ui";
+import { Alert, Badge, Card, CardContent, Stepper } from "@lorenthi/ui";
 import { CodeBlock } from "@/components/code-block";
 import { richTags } from "@/components/rich";
 
@@ -37,7 +37,7 @@ export default async function InstallatiePage({ params }: { params: Promise<{ lo
         />
         <CodeBlock
           standalone
-          code={"# eenmalig: tokens, basis-CSS en hulpfuncties\nnpx projectx-ui init\n\n# daarna per component\nnpx projectx-ui add button card dialog\n\n# alles in één keer\nnpx projectx-ui add --all\n\n# later: alles bijwerken + nieuwe componenten erbij\nnpx projectx-ui update\n\n# overzicht van wat er beschikbaar is\nnpx projectx-ui list"}
+          code={"# eenmalig: tokens, basis-CSS en hulpfuncties\nnpx lorenthi-ui init\n\n# daarna per component\nnpx lorenthi-ui add button card dialog\n\n# alles in één keer\nnpx lorenthi-ui add --all\n\n# later: alles bijwerken + nieuwe componenten erbij\nnpx lorenthi-ui update\n\n# overzicht van wat er beschikbaar is\nnpx lorenthi-ui list"}
         />
         <p className="docs-p">{t.rich("s2Init", richTags)}</p>
 

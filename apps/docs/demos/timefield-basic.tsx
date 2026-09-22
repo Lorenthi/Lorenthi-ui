@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Field, TimeField, TimeRangeField, formatTime, type TimeRangeValue } from "@projectx/ui";
+import { Field, TimeField, TimeRangeField, formatTime, type TimeRangeValue } from "@lorenthi/ui";
 
 export default function Demo() {
   const [start, setStart] = useState<number | null>(9 * 60);

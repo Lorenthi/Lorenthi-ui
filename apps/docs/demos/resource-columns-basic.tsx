@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   Avatar, Button, Icon, ResourceColumns, Switch, type ScheduleEvent, type ScheduleResource,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 const ARTSEN: ScheduleResource[] = [
   { key: "reyniers", label: "Dr. Reyniers", media: <Avatar name="Rik Reyniers" size={28} /> },

@@ -1,5 +1,5 @@
 "use client";
-import { Separator } from "@projectx/ui";
+import { Separator } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

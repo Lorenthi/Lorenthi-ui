@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardContent, CardHeader, CardTitle, DonutChart, Sparkline } from "@projectx/ui";
+import { Card, CardContent, CardHeader, CardTitle, DonutChart, Sparkline } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

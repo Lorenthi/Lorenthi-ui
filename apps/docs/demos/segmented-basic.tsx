@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Icon, Segmented } from "@projectx/ui";
+import { Icon, Segmented } from "@lorenthi/ui";
 
 export default function Demo() {
   const [view, setView] = useState("lijst");

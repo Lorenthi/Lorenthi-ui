@@ -246,47 +246,47 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
   return (
     <div
       ref={ref}
-      className={cn("pxui-schedule", drag && "pxui-schedule-dragging", className)}
+      className={cn("lui-schedule", drag && "lui-schedule-dragging", className)}
       style={
         {
           ...style,
-          ["--pxui-hour-height" as string]: `${hourHeight}px`,
-          ["--pxui-schedule-columns" as string]: String(columnsList.length),
+          ["--lui-hour-height" as string]: `${hourHeight}px`,
+          ["--lui-schedule-columns" as string]: String(columnsList.length),
         } as React.CSSProperties
       }
       {...rest}
     >
-      <div className="pxui-schedule-scroll">
-        <div className="pxui-schedule-inner">
+      <div className="lui-schedule-scroll">
+        <div className="lui-schedule-inner">
           {/* Kop met dagen */}
-          <div className="pxui-schedule-head">
-            <div className="pxui-schedule-gutter-head" />
+          <div className="lui-schedule-head">
+            <div className="lui-schedule-gutter-head" />
             {columnsList.map((day) => (
               <div
                 key={day.key}
-                className="pxui-schedule-dayhead"
+                className="lui-schedule-dayhead"
                 data-today={day.today ? "" : undefined}
               >
-                <span className="pxui-schedule-dayname">{day.label}</span>
-                {day.sublabel && <span className="pxui-schedule-daysub">{day.sublabel}</span>}
+                <span className="lui-schedule-dayname">{day.label}</span>
+                {day.sublabel && <span className="lui-schedule-daysub">{day.sublabel}</span>}
               </div>
             ))}
           </div>
 
           {/* Raster */}
           <div
-            className="pxui-schedule-body"
+            className="lui-schedule-body"
             ref={bodyRef}
             style={{ height: (totalMinutes / 60) * hourHeight }}
             onPointerMove={moveDrag}
             onPointerUp={endDrag}
             onPointerCancel={endDrag}
           >
-            <div className="pxui-schedule-gutter">
+            <div className="lui-schedule-gutter">
               {hours.map((hour) => (
                 <span
                   key={hour}
-                  className="pxui-schedule-hour"
+                  className="lui-schedule-hour"
                   style={{ top: toOffset(hour * 60) }}
                 >
                   {formatTime(hour * 60)}
@@ -299,15 +299,15 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
               const laid = packLanes(eventsByColumn.get(day.key) ?? []);
 
               return (
-                <div key={day.key} className="pxui-schedule-column" data-day-key={day.key}>
+                <div key={day.key} className="lui-schedule-column" data-day-key={day.key}>
                   {/* Uurlijnen */}
-                  <div className="pxui-schedule-lines" aria-hidden="true" />
+                  <div className="lui-schedule-lines" aria-hidden="true" />
 
                   {/* Buiten de werkuren */}
                   {day.blocked ? (
-                    <div className="pxui-schedule-hatch pxui-schedule-hatch-full">
+                    <div className="lui-schedule-hatch lui-schedule-hatch-full">
                       {day.blockedLabel && (
-                        <span className="pxui-schedule-hatch-label">{day.blockedLabel}</span>
+                        <span className="lui-schedule-hatch-label">{day.blockedLabel}</span>
                       )}
                     </div>
                   ) : (
@@ -315,13 +315,13 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
                       <>
                         {work.start > dayStart && (
                           <div
-                            className="pxui-schedule-hatch"
+                            className="lui-schedule-hatch"
                             style={{ top: 0, height: toOffset(work.start) }}
                           />
                         )}
                         {work.end < dayEnd && (
                           <div
-                            className="pxui-schedule-hatch"
+                            className="lui-schedule-hatch"
                             style={{ top: toOffset(work.end), bottom: 0 }}
                           />
                         )}
@@ -333,7 +333,7 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
                   {onSlotClick && !readOnly && !day.blocked && (
                     <button
                       type="button"
-                      className="pxui-schedule-slots"
+                      className="lui-schedule-slots"
                       aria-label={`Nieuw blok op ${day.label}`}
                       onClick={(event) => {
                         const rect = event.currentTarget.getBoundingClientRect();
@@ -344,8 +344,8 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
 
                   {/* Nu-lijn */}
                   {nowIndicator && toonNu && day.today && currentMinutes >= dayStart && currentMinutes <= dayEnd && (
-                    <div className="pxui-schedule-now" style={{ top: toOffset(currentMinutes) }}>
-                      <span className="pxui-schedule-now-dot" />
+                    <div className="lui-schedule-now" style={{ top: toOffset(currentMinutes) }}>
+                      <span className="lui-schedule-now-dot" />
                     </div>
                   )}
 
@@ -370,8 +370,8 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
                         data-locked={item.locked || isBlocked ? "" : undefined}
                         data-blocked={isBlocked ? "" : undefined}
                         className={cn(
-                          "pxui-schedule-event",
-                          isBlocked ? "pxui-schedule-event-blocked" : `pxui-schedule-event-${tone}`
+                          "lui-schedule-event",
+                          isBlocked ? "lui-schedule-event-blocked" : `lui-schedule-event-${tone}`
                         )}
                         style={{
                           top,
@@ -379,7 +379,7 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
                           left: `calc(${lane * width}% + 2px)`,
                           width: `calc(${width}% - 4px)`,
                           ...(item.color
-                            ? ({ ["--pxui-event-color" as string]: item.color } as React.CSSProperties)
+                            ? ({ ["--lui-event-color" as string]: item.color } as React.CSSProperties)
                             : {}),
                         }}
                         onPointerDown={(event) => !isBlocked && beginDrag(event, item, "move")}
@@ -391,19 +391,19 @@ export const WeekSchedule = React.forwardRef<HTMLDivElement, WeekScheduleProps>(
                           renderEvent(item)
                         ) : (
                           <>
-                            <span className="pxui-schedule-event-time">
+                            <span className="lui-schedule-event-time">
                               {formatTime(item.start)} – {formatTime(item.end)}
                             </span>
-                            <span className="pxui-schedule-event-title">{item.title}</span>
+                            <span className="lui-schedule-event-title">{item.title}</span>
                             {item.subtitle && height > 54 && (
-                              <span className="pxui-schedule-event-sub">{item.subtitle}</span>
+                              <span className="lui-schedule-event-sub">{item.subtitle}</span>
                             )}
                           </>
                         )}
 
                         {!readOnly && !item.locked && !isBlocked && onEventChange && (
                           <span
-                            className="pxui-schedule-handle"
+                            className="lui-schedule-handle"
                             aria-hidden="true"
                             onPointerDown={(event) => beginDrag(event, item, "resize")}
                           />

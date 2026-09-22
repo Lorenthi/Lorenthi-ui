@@ -1,5 +1,5 @@
 "use client";
-import { Spinner } from "@projectx/ui";
+import { Spinner } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

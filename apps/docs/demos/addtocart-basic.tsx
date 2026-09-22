@@ -1,5 +1,5 @@
 "use client";
-import { AddToCartButton } from "@projectx/ui/motion";
+import { AddToCartButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (

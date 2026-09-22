@@ -25,18 +25,18 @@ export const Chip = React.forwardRef<HTMLButtonElement, ChipProps>(function Chip
       type="button"
       aria-pressed={selected}
       data-selected={selected ? "" : undefined}
-      className={cn("pxui-chip", `pxui-chip-${size}`, className)}
+      className={cn("lui-chip", `lui-chip-${size}`, className)}
       {...rest}
     >
-      {icon && <span className="pxui-chip-icon">{icon}</span>}
+      {icon && <span className="lui-chip-icon">{icon}</span>}
       {children}
-      {count != null && <span className="pxui-chip-count">{count}</span>}
+      {count != null && <span className="lui-chip-count">{count}</span>}
       {onRemove && (
         <span
           role="button"
           tabIndex={-1}
           aria-label="Verwijderen"
-          className="pxui-chip-remove"
+          className="lui-chip-remove"
           onClick={(event) => {
             event.stopPropagation();
             onRemove();
@@ -62,7 +62,7 @@ export const ChipGroup = React.forwardRef<HTMLDivElement, ChipGroupProps>(functi
   return (
     <div
       ref={ref}
-      className={cn("pxui-chip-group", scrollable && "pxui-chip-group-scroll", className)}
+      className={cn("lui-chip-group", scrollable && "lui-chip-group-scroll", className)}
       {...rest}
     />
   );

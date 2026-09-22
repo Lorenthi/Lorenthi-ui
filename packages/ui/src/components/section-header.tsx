@@ -33,24 +33,24 @@ export const SectionHeader = React.forwardRef<HTMLDivElement, SectionHeaderProps
       <div
         ref={ref}
         className={cn(
-          "pxui-section-header",
-          `pxui-section-header-${size}`,
-          `pxui-section-${tone}`,
-          divider && "pxui-section-header-divider",
+          "lui-section-header",
+          `lui-section-header-${size}`,
+          `lui-section-${tone}`,
+          divider && "lui-section-header-divider",
           className
         )}
         {...rest}
       >
-        <span className="pxui-section-bar" aria-hidden="true" />
-        {icon && <span className="pxui-section-icon">{icon}</span>}
-        <div className="pxui-section-text">
-          <h3 className="pxui-section-title">
+        <span className="lui-section-bar" aria-hidden="true" />
+        {icon && <span className="lui-section-icon">{icon}</span>}
+        <div className="lui-section-text">
+          <h3 className="lui-section-title">
             {title}
-            {count != null && <span className="pxui-section-count">· {count}</span>}
+            {count != null && <span className="lui-section-count">· {count}</span>}
           </h3>
-          {description && <p className="pxui-section-description">{description}</p>}
+          {description && <p className="lui-section-description">{description}</p>}
         </div>
-        {actions && <div className="pxui-section-actions">{actions}</div>}
+        {actions && <div className="lui-section-actions">{actions}</div>}
       </div>
     );
   }

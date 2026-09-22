@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "ProjectX UI",
-    "description": "A fully custom React component library based on the ProjectX UI design. No shadcn, no Radix, no external UI dependencies."
+    "title": "Lorenthi UI",
+    "description": "A fully custom React component library based on the Lorenthi UI design. No shadcn, no Radix, no external UI dependencies."
   },
   "nav": {
     "subtitle": "Design system",
@@ -33,7 +33,7 @@
   "home": {
     "badge": "{count} components · fully custom code",
     "titleLine1": "Your own component library,",
-    "titleLine2": "built on the ProjectX UI design.",
+    "titleLine2": "built on the Lorenthi UI design.",
     "intro": "Works like shadcn — same composition, same copy-paste approach — but without a single line of code from shadcn, Radix or any other UI library. Everything lives in your own repo.",
     "ctaComponents": "Browse the components",
     "ctaInstall": "Installation",
@@ -46,11 +46,11 @@
       },
       "tokens": {
         "title": "Every color from one source",
-        "text": "Every color, radius and shadow comes from the ProjectX UI design. Components use tokens only, never a hardcoded hex."
+        "text": "Every color, radius and shadow comes from the Lorenthi UI design. Components use tokens only, never a hardcoded hex."
       },
       "copyPaste": {
         "title": "Copy-paste, your code",
-        "text": "Just like shadcn: `npx projectx-ui add button` copies the source into your project. You own the components and change them whenever you like."
+        "text": "Just like shadcn: `npx lorenthi-ui add button` copies the source into your project. You own the components and change them whenever you like."
       },
       "theme": {
         "title": "Light and dark",
@@ -80,7 +80,7 @@
   },
   "intro": {
     "badge": "Introduction",
-    "lead": "A React component library of our own, built from the ProjectX UI design. The API feels like shadcn — composition with sub-components, <code>asChild</code>, controlled and uncontrolled — but there is not a single line of external UI code in it. No shadcn, no Radix, no Headless UI, no cva, no clsx: everything lives in <code>packages/ui/src</code>.",
+    "lead": "A React component library of our own, built from the Lorenthi UI design. The API feels like shadcn — composition with sub-components, <code>asChild</code>, controlled and uncontrolled — but there is not a single line of external UI code in it. No shadcn, no Radix, no Headless UI, no cva, no clsx: everything lives in <code>packages/ui/src</code>.",
     "buildTitle": "How it grew",
     "buildBadge": "{done}/{total} steps",
     "buildDesc": "The library grows step by step. Each step adds components and their docs.",
@@ -94,10 +94,10 @@
     "getA11y": "Accessible",
     "getA11yText": "ARIA roles, keyboard navigation and visible focus on every interactive component.",
     "rulesTitle": "Rules of this design system",
-    "rule1Title": "Every colour comes from the ProjectX UI design",
+    "rule1Title": "Every colour comes from the Lorenthi UI design",
     "rule1Body": "Components use CSS variables only (<code>var(--accent)</code>, <code>var(--surface)</code>, …). Want to recolour? Change <code>tokens.css</code> and the whole library follows.",
     "rule2Title": "One class prefix",
-    "rule2Body": "Every class starts with <code>pxui-</code>, so nothing collides with existing CSS in your projects.",
+    "rule2Body": "Every class starts with <code>lui-</code>, so nothing collides with existing CSS in your projects.",
     "rule3Title": "Tailwind is only the engine",
     "rule3Body": "Tailwind v4 provides the reset and the utilities for your own markup. The components themselves are plain CSS classes — no utility soup, fully editable.",
     "overviewTitle": "Overview",
@@ -106,7 +106,7 @@
   "install": {
     "badge": "Getting started",
     "title": "Installation",
-    "lead": "ProjectX UI works in any React project with a bundler (Next.js, Vite, Remix). Two ways: copy components with the CLI, or use the monorepo directly.",
+    "lead": "Lorenthi UI works in any React project with a bundler (Next.js, Vite, Remix). Two ways: copy components with the CLI, or use the monorepo directly.",
     "s1Title": "1 · Run the monorepo locally",
     "s1Text": "This is the documentation site you are looking at, with all the source files next to it.",
     "s1Structure": "Structure: <code>packages/ui</code> (the library), <code>packages/cli</code> (the add CLI), <code>apps/docs</code> (this site) and <code>registry/</code> (generated JSON).",
@@ -115,15 +115,15 @@
     "stepAdd": "copy a component",
     "stepImport": "import",
     "stepImportDesc": "css + component",
-    "s2Init": "<code>init</code> creates <code>projectx-ui.json</code> with your paths and copies the shared files (tokens, base CSS, <code>cn()</code>, <code>variants()</code>, Slot, Portal, hooks and the icon set).",
+    "s2Init": "<code>init</code> creates <code>lorenthi-ui.json</code> with your paths and copies the shared files (tokens, base CSS, <code>cn()</code>, <code>variants()</code>, Slot, Portal, hooks and the icon set).",
     "npmTitle": "Not on npm yet?",
-    "npmBody": "Link the CLI once from this monorepo with <code>cd packages/cli && npm link</code>. After that <code>projectx-ui init</code> works in every project on your machine and the CLI finds the registry by itself. Or pass a path or URL with <code>--registry</code>, for example the raw URL of <code>registry/index.json</code> on GitHub.",
+    "npmBody": "Link the CLI once from this monorepo with <code>cd packages/cli && npm link</code>. After that <code>lorenthi-ui init</code> works in every project on your machine and the CLI finds the registry by itself. Or pass a path or URL with <code>--registry</code>, for example the raw URL of <code>registry/index.json</code> on GitHub.",
     "s2Index": "The CLI also maintains <code>components/ui/index.ts</code>, so you import everything through <code>@/components/ui</code>.",
-    "s2Update": "<code>update</code> pulls the latest version of everything already in your project and installs the components that have been added to the registry since. Files you changed yourself stay as they are — they are skipped unless you pass <code>--force</code>. Preview what would happen with <code>--dry-run</code>, or stick to what you have with <code>--only-installed</code>. The CLI keeps <code>projectx-ui.lock.json</code> for this; commit that file.",
+    "s2Update": "<code>update</code> pulls the latest version of everything already in your project and installs the components that have been added to the registry since. Files you changed yourself stay as they are — they are skipped unless you pass <code>--force</code>. Preview what would happen with <code>--dry-run</code>, or stick to what you have with <code>--only-installed</code>. The CLI keeps <code>lorenthi-ui.lock.json</code> for this; commit that file.",
     "s3Title": "3 · Load the CSS",
     "s3Text": "Import one stylesheet into your global CSS. The order does not matter; everything uses cascade-free classes.",
     "twTitle": "Tailwind is not required",
-    "twBody": "The components do not need Tailwind — they use their own <code>pxui-</code> classes. Tailwind v4 is there only for the reset and for utilities in your own markup.",
+    "twBody": "The components do not need Tailwind — they use their own <code>lui-</code> classes. Tailwind v4 is there only for the reset and for utilities in your own markup.",
     "s4Title": "4 · Providers",
     "s4Text": "Two providers go once at the top of your app: theme and notifications.",
     "fontsTitle": "Fonts",
@@ -138,7 +138,7 @@
     "badge": "Foundation",
     "title": "Theme & tokens",
     "lead": "Every colour in this library comes from one file: <code>tokens.css</code>. Components never write a hex value — they only use variables. Change a token and the whole UI follows, in light and dark.",
-    "sourceTitle": "Source: the ProjectX UI design",
+    "sourceTitle": "Source: the Lorenthi UI design",
     "sourceBody": "The values below are taken verbatim from the admin panel design. Need a second brand? Copy the <code>:root</code> block and override it under your own selector, for example <code>[data-brand=\"client-x\"]</code>.",
     "dark": "dark",
     "radiusTitle": "Radius & shadow",
@@ -156,7 +156,7 @@
   },
   "tokenGroups": {
     "accent": "Accent",
-    "accentDesc": "The teal accent colour of the ProjectX UI design and its tints.",
+    "accentDesc": "The teal accent colour of the Lorenthi UI design and its tints.",
     "surfaces": "Surfaces",
     "surfacesDesc": "Backgrounds, cards and borders.",
     "text": "Text",

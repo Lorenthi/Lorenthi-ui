@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, TimeSlotList, type ScheduleEvent, type ScheduleResource } from "@projectx/ui";
+import { Avatar, TimeSlotList, type ScheduleEvent, type ScheduleResource } from "@lorenthi/ui";
 
 const ARTSEN: ScheduleResource[] = [
   { key: "reyniers", label: "Dr. Reyniers", color: "var(--chart-1)", media: <Avatar name="Rik Reyniers" size={30} color="var(--chart-1)" /> },

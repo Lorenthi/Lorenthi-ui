@@ -25,7 +25,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(function S
   return (
     <div
       ref={ref}
-      className={cn("pxui-stepper", `pxui-stepper-${orientation}`, className)}
+      className={cn("lui-stepper", `lui-stepper-${orientation}`, className)}
       role="list"
       aria-label="Voortgang"
       {...rest}
@@ -35,23 +35,23 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(function S
         const clickable = Boolean(onStepClick) && index <= current;
 
         return (
-          <div key={index} className={cn("pxui-step", `pxui-step-${state}`)} role="listitem">
+          <div key={index} className={cn("lui-step", `lui-step-${state}`)} role="listitem">
             <button
               type="button"
-              className="pxui-step-main"
+              className="lui-step-main"
               disabled={!clickable}
               aria-current={state === "active" ? "step" : undefined}
               onClick={() => clickable && onStepClick?.(index)}
             >
-              <span className="pxui-step-marker">
+              <span className="lui-step-marker">
                 {state === "done" ? <Icon name="check" size={14} strokeWidth={3} /> : index + 1}
               </span>
-              <span className="pxui-step-text">
-                <span className="pxui-step-label">{step.label}</span>
-                {step.description && <span className="pxui-step-description">{step.description}</span>}
+              <span className="lui-step-text">
+                <span className="lui-step-label">{step.label}</span>
+                {step.description && <span className="lui-step-description">{step.description}</span>}
               </span>
             </button>
-            {index < steps.length - 1 && <span className="pxui-step-line" aria-hidden="true" />}
+            {index < steps.length - 1 && <span className="lui-step-line" aria-hidden="true" />}
           </div>
         );
       })}

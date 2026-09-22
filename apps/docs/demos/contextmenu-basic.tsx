@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   ContextMenu, ContextMenuContent, ContextMenuTrigger, DropdownMenuItem, DropdownMenuLabel,
   DropdownMenuSeparator, Icon, Kbd,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [laatste, setLaatste] = useState<string>();

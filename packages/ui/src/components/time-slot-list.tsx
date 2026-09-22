@@ -51,22 +51,22 @@ export const TimeSlotList = React.forwardRef<HTMLDivElement, TimeSlotListProps>(
 
     if (slots.length === 0) {
       return (
-        <div ref={ref} className={cn("pxui-slots", className)} {...rest}>
-          <div className="pxui-slots-empty">{emptyLabel}</div>
+        <div ref={ref} className={cn("lui-slots", className)} {...rest}>
+          <div className="lui-slots-empty">{emptyLabel}</div>
         </div>
       );
     }
 
     return (
-      <div ref={ref} className={cn("pxui-slots", className)} {...rest}>
+      <div ref={ref} className={cn("lui-slots", className)} {...rest}>
         {slots.map((slot) => (
-          <div className="pxui-slot" key={slot.start}>
-            <div className="pxui-slot-time">
-              <span className="pxui-slot-time-label">{formatTime(slot.start)}</span>
+          <div className="lui-slot" key={slot.start}>
+            <div className="lui-slot-time">
+              <span className="lui-slot-time-label">{formatTime(slot.start)}</span>
             </div>
 
             <div
-              className="pxui-slot-cards"
+              className="lui-slot-cards"
               style={{ gridTemplateColumns: `repeat(auto-fill, minmax(${minCardWidth}px, 1fr))` }}
             >
               {slot.events.map((event) => {
@@ -79,8 +79,8 @@ export const TimeSlotList = React.forwardRef<HTMLDivElement, TimeSlotListProps>(
                     key={event.id}
                     role={onEventClick && !event.blocked ? "button" : undefined}
                     tabIndex={onEventClick && !event.blocked ? 0 : undefined}
-                    className={cn("pxui-slot-card", event.blocked && "pxui-slot-card-blocked")}
-                    style={color ? ({ ["--pxui-event-color" as string]: color } as React.CSSProperties) : undefined}
+                    className={cn("lui-slot-card", event.blocked && "lui-slot-card-blocked")}
+                    style={color ? ({ ["--lui-event-color" as string]: color } as React.CSSProperties) : undefined}
                     onClick={() => !event.blocked && onEventClick?.(event)}
                     onKeyDown={(keyEvent) => {
                       if (keyEvent.key === "Enter" || keyEvent.key === " ") {
@@ -93,12 +93,12 @@ export const TimeSlotList = React.forwardRef<HTMLDivElement, TimeSlotListProps>(
                       renderEvent(event, resource)
                     ) : (
                       <>
-                        {resource?.media && <span className="pxui-slot-media">{resource.media}</span>}
-                        <span className="pxui-slot-body">
-                          <span className="pxui-slot-title">{event.title}</span>
-                          <span className="pxui-slot-meta">
+                        {resource?.media && <span className="lui-slot-media">{resource.media}</span>}
+                        <span className="lui-slot-body">
+                          <span className="lui-slot-title">{event.title}</span>
+                          <span className="lui-slot-meta">
                             {!event.blocked && (
-                              <span className={cn("pxui-slot-dot", `pxui-tone-${tone}`)} aria-hidden="true" />
+                              <span className={cn("lui-slot-dot", `lui-tone-${tone}`)} aria-hidden="true" />
                             )}
                             {event.subtitle ?? `${event.end - event.start} min`}
                             {renderEventMeta?.(event)}
@@ -106,7 +106,7 @@ export const TimeSlotList = React.forwardRef<HTMLDivElement, TimeSlotListProps>(
                         </span>
                         {showResource && resource && (
                           <span
-                            className="pxui-slot-tag"
+                            className="lui-slot-tag"
                             style={
                               resource.color
                                 ? {

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { AlertDialog, Button, ConfirmProvider, Icon, useConfirm } from "@projectx/ui";
+import { AlertDialog, Button, ConfirmProvider, Icon, useConfirm } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

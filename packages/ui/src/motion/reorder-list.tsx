@@ -32,7 +32,7 @@ export function ReorderList<T>({ values, onReorder, axis = "y", className, child
       axis={axis}
       values={values}
       onReorder={onReorder}
-      className={cn("pxui-reorder", axis === "x" && "pxui-reorder-x", className)}
+      className={cn("lui-reorder", axis === "x" && "lui-reorder-x", className)}
       {...rest}
     >
       {children}
@@ -66,14 +66,14 @@ export function ReorderListItem<T>({
       drag={disabled ? false : undefined}
       dragListener={!handle && !disabled}
       dragControls={controls}
-      className={cn("pxui-reorder-item", className)}
+      className={cn("lui-reorder-item", className)}
       whileDrag={{ scale: reduced ? 1 : 1.02, zIndex: 2 }}
       transition={{ type: "spring", stiffness: 500, damping: 45 }}
       {...rest}
     >
       {handle && !disabled && (
         <span
-          className="pxui-reorder-handle"
+          className="lui-reorder-handle"
           role="button"
           tabIndex={-1}
           aria-label="Verslepen"
@@ -82,7 +82,7 @@ export function ReorderListItem<T>({
           <Icon name="grip" size={15} />
         </span>
       )}
-      <span className="pxui-reorder-content">{children}</span>
+      <span className="lui-reorder-content">{children}</span>
     </Reorder.Item>
   );
 }

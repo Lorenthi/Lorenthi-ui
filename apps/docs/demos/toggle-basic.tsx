@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ButtonGroup, Icon, Toggle, ToggleGroup, ToggleGroupItem } from "@projectx/ui";
+import { ButtonGroup, Icon, Toggle, ToggleGroup, ToggleGroupItem } from "@lorenthi/ui";
 
 export default function Demo() {
   const [vet, setVet] = useState(true);

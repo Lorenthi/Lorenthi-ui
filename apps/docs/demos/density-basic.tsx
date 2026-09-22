@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Button, Card, CardContent, DensityToggle, Icon, useTheme } from "@projectx/ui";
+import { Badge, Button, Card, CardContent, DensityToggle, Icon, useTheme } from "@lorenthi/ui";
 
 export default function Demo() {
   const { density } = useTheme();

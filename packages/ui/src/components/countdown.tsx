@@ -68,17 +68,17 @@ export const Countdown = React.forwardRef<HTMLDivElement, CountdownProps>(functi
       ref={ref}
       role="timer"
       data-done={gemonteerd && tijd.klaar ? "" : undefined}
-      className={cn("pxui-countdown", compact && "pxui-countdown-compact", className)}
+      className={cn("lui-countdown", compact && "lui-countdown-compact", className)}
       {...rest}
     >
       {delen.map((deel, index) => (
         <React.Fragment key={deel.label}>
-          {compact && index > 0 && <span className="pxui-countdown-dubbelepunt">:</span>}
-          <span className="pxui-countdown-deel">
-            <span className="pxui-countdown-getal">
+          {compact && index > 0 && <span className="lui-countdown-dubbelepunt">:</span>}
+          <span className="lui-countdown-deel">
+            <span className="lui-countdown-getal">
               {gemonteerd ? String(deel.waarde).padStart(2, "0") : "--"}
             </span>
-            {!compact && <span className="pxui-countdown-label">{deel.label}</span>}
+            {!compact && <span className="lui-countdown-label">{deel.label}</span>}
           </span>
         </React.Fragment>
       ))}

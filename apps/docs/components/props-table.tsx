@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@projectx/ui";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@lorenthi/ui";
 import { propsFor } from "../lib/props";
 
 export async function PropsTable({ name }: { name: string }) {

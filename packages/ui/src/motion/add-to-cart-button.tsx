@@ -56,26 +56,26 @@ export const AddToCartButton = React.forwardRef<HTMLButtonElement, AddToCartButt
     const bezig = stage === "busy";
 
     return (
-      <span className={cn("pxui-cartb-wrap", block && "pxui-cartb-wrap-block")}>
+      <span className={cn("lui-cartb-wrap", block && "lui-cartb-wrap-block")}>
         <motion.button
           ref={ref}
           type="button"
           layout
           data-state={stage}
-          className={cn("pxui-cartb", block && !bezig && "pxui-cartb-block", className)}
+          className={cn("lui-cartb", block && !bezig && "lui-cartb-block", className)}
           disabled={disabled || bezig}
           onClick={() => void run()}
           transition={traag ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
           {...(rest as React.ComponentProps<typeof motion.button>)}
         >
-          <motion.span layout="position" className="pxui-cartb-icon">
+          <motion.span layout="position" className="lui-cartb-icon">
             <Icon name="cart" size={18} />
           </motion.span>
           <AnimatePresence initial={false}>
             {!bezig && (
               <motion.span
                 key="label"
-                className="pxui-cartb-label"
+                className="lui-cartb-label"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -91,7 +91,7 @@ export const AddToCartButton = React.forwardRef<HTMLButtonElement, AddToCartButt
             {bezig && !traag && (
               <motion.span
                 key="item"
-                className="pxui-cartb-item"
+                className="lui-cartb-item"
                 initial={{ y: -34, opacity: 0, scale: 0.7, rotate: -12 }}
                 animate={{ y: [-34, -6, 2], opacity: [0, 1, 1], scale: [0.7, 1, 0.5], rotate: [-12, 0, 6] }}
                 exit={{ opacity: 0 }}
@@ -103,7 +103,7 @@ export const AddToCartButton = React.forwardRef<HTMLButtonElement, AddToCartButt
         </motion.button>
 
         {hint !== null && (
-          <span className="pxui-cartb-hint" aria-live="polite">
+          <span className="lui-cartb-hint" aria-live="polite">
             <motion.strong
               key={aantal}
               initial={{ y: traag ? 0 : -8, opacity: 0 }}

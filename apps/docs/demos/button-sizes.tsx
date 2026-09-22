@@ -1,5 +1,5 @@
 "use client";
-import { Button, Icon } from "@projectx/ui";
+import { Button, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

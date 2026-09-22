@@ -28,22 +28,22 @@ export const AuthLayout = React.forwardRef<HTMLDivElement, AuthLayoutProps>(func
   return (
     <div
       ref={ref}
-      className={cn("pxui-auth", `pxui-auth-${variant}`, `pxui-auth-aside-${asidePosition}`, className)}
+      className={cn("lui-auth", `lui-auth-${variant}`, `lui-auth-aside-${asidePosition}`, className)}
       {...rest}
     >
       {variant === "split" && aside && (
-        <aside className={cn("pxui-auth-aside", `pxui-auth-aside-${asideTone}`)}>
-          <span className="pxui-auth-deco" aria-hidden="true" />
-          <span className="pxui-auth-grid" aria-hidden="true" />
-          <div className="pxui-auth-aside-inner">{aside}</div>
+        <aside className={cn("lui-auth-aside", `lui-auth-aside-${asideTone}`)}>
+          <span className="lui-auth-deco" aria-hidden="true" />
+          <span className="lui-auth-grid" aria-hidden="true" />
+          <div className="lui-auth-aside-inner">{aside}</div>
         </aside>
       )}
 
-      <main className="pxui-auth-main">
+      <main className="lui-auth-main">
         {variant === "centered" && (
           <>
-            <span className="pxui-auth-glow" aria-hidden="true" />
-            <span className="pxui-auth-glow pxui-auth-glow-two" aria-hidden="true" />
+            <span className="lui-auth-glow" aria-hidden="true" />
+            <span className="lui-auth-glow lui-auth-glow-two" aria-hidden="true" />
           </>
         )}
         {children}
@@ -71,12 +71,12 @@ export const AuthCard = React.forwardRef<HTMLElement, AuthCardProps>(function Au
   const Comp = as as React.ElementType;
 
   return (
-    <Comp ref={ref} className={cn("pxui-auth-card", className)} {...rest}>
-      {brand && <div className="pxui-auth-brand">{brand}</div>}
-      <h1 className="pxui-auth-title">{title}</h1>
-      {description && <p className="pxui-auth-description">{description}</p>}
-      <div className="pxui-auth-body">{children}</div>
-      {footer && <div className="pxui-auth-footer">{footer}</div>}
+    <Comp ref={ref} className={cn("lui-auth-card", className)} {...rest}>
+      {brand && <div className="lui-auth-brand">{brand}</div>}
+      <h1 className="lui-auth-title">{title}</h1>
+      {description && <p className="lui-auth-description">{description}</p>}
+      <div className="lui-auth-body">{children}</div>
+      {footer && <div className="lui-auth-footer">{footer}</div>}
     </Comp>
   );
 });
@@ -91,7 +91,7 @@ export const AuthDivider = React.forwardRef<HTMLDivElement, AuthDividerProps>(fu
   ref
 ) {
   return (
-    <div ref={ref} className={cn("pxui-auth-divider", className)} {...rest}>
+    <div ref={ref} className={cn("lui-auth-divider", className)} {...rest}>
       <span>{children}</span>
     </div>
   );
@@ -121,18 +121,18 @@ export const SsoButton = React.forwardRef<HTMLButtonElement, SsoButtonProps>(fun
       type="button"
       disabled={disabled || loading}
       data-loading={loading ? "" : undefined}
-      className={cn("pxui-sso", className)}
-      style={color ? ({ ["--pxui-sso-color" as string]: color, ...style } as React.CSSProperties) : style}
+      className={cn("lui-sso", className)}
+      style={color ? ({ ["--lui-sso-color" as string]: color, ...style } as React.CSSProperties) : style}
       {...rest}
     >
-      <span className="pxui-sso-icon">
-        {loading ? <Icon name="loader" size={18} className="pxui-sso-spin" /> : icon}
+      <span className="lui-sso-icon">
+        {loading ? <Icon name="loader" size={18} className="lui-sso-spin" /> : icon}
       </span>
-      <span className="pxui-sso-text">
-        <span className="pxui-sso-label">{loading ? loadingLabel : label}</span>
-        {description && !loading && <span className="pxui-sso-description">{description}</span>}
+      <span className="lui-sso-text">
+        <span className="lui-sso-label">{loading ? loadingLabel : label}</span>
+        {description && !loading && <span className="lui-sso-description">{description}</span>}
       </span>
-      {!loading && <Icon name="chevronRight" size={17} className="pxui-sso-arrow" />}
+      {!loading && <Icon name="chevronRight" size={17} className="lui-sso-arrow" />}
     </button>
   );
 });

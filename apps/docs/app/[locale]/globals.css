@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Het volledige ProjectX UI design system (tokens + alle componenten). */
+/* Het volledige Lorenthi UI design system (tokens + alle componenten). */
 @import "../../../../packages/ui/src/styles/index.css";
 
 /* ------------------------------------------------------------
@@ -102,7 +102,7 @@ a { color: inherit; }
 
 /* ---------- Props tabel ---------- */
 .docs-props { margin-top: 14px; }
-.docs-props .pxui-table-cell { font-size: 13.5px; }
+.docs-props .lui-table-cell { font-size: 13.5px; }
 .docs-type { font-family: var(--mono); font-size: 12px; color: var(--accent); word-break: break-word; }
 .docs-default { font-family: var(--mono); font-size: 12px; color: var(--text-3); }
 

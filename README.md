@@ -1,6 +1,6 @@
-# ProjectX UI
+# Lorenthi UI
 
-Een volledig eigen React component library, gebouwd op het **ProjectX UI-design**.
+Een volledig eigen React component library, gebouwd op het **Lorenthi UI-design**.
 Werkt zoals shadcn/ui — dezelfde compositie, dezelfde copy-paste-aanpak — maar **zonder één regel
 code van shadcn, Radix, Headless UI, cva of clsx**. Alles staat in `packages/ui/src`.
 
@@ -18,7 +18,7 @@ code van shadcn, Radix, Headless UI, cva of clsx**. Alles staat in `packages/ui/
 | Datum & planning | 8 | Calendar, WeekSchedule, ResourceColumns, Swimlanes … |
 | Layout | 10 | AppShell, Resizable, ScrollArea, AspectRatio, Mockup … |
 | Feedback | 5 | Alert, EmptyState, Indicator, Confetti, PulseDot |
-| Motion | 3 | Optioneel, achter `@projectx/ui/motion` |
+| Motion | 3 | Optioneel, achter `@lorenthi/ui/motion` |
 
 ---
 
@@ -43,16 +43,16 @@ npm run dev        # documentatiesite op http://localhost:3000 (of 3001, 3002, .
 ## Structuur
 
 ```
-projectx-ui/
+lorenthi-ui/
 ├─ packages/
 │  ├─ ui/                 De library
 │  │  └─ src/
 │  │     ├─ components/   89 componenten (.tsx + .css per component)
-│  │     ├─ motion/       3 componenten achter @projectx/ui/motion (optioneel)
+│  │     ├─ motion/       3 componenten achter @lorenthi/ui/motion (optioneel)
 │  │     ├─ lib/          cn, variants, Slot, Portal, hooks, positionering, datums
 │  │     ├─ icons/        eigen icon set (één path per glyph)
 │  │     └─ styles/       tokens.css + base.css + index.css
-│  └─ cli/                npx projectx-ui  (init / add / update / list)
+│  └─ cli/                npx lorenthi-ui  (init / add / update / list)
 ├─ apps/
 │  └─ docs/               De documentatiesite met live previews
 ├─ registry/              Gegenereerd: bron per component voor de CLI
@@ -67,26 +67,26 @@ projectx-ui/
 Zolang de CLI niet op npm staat, koppel je hem eenmalig vanuit deze repo:
 
 ```bash
-cd packages/cli && npm link            # daarna werkt `projectx-ui` overal op je machine
+cd packages/cli && npm link            # daarna werkt `lorenthi-ui` overal op je machine
 ```
 
 ```bash
-npx projectx-ui init                   # tokens, base-CSS en hulpfuncties
-npx projectx-ui add button card dialog # componenten kopiëren (+ afhankelijkheden)
-npx projectx-ui add --all              # alles in één keer
-npx projectx-ui update                 # alles bijwerken + nieuwe componenten erbij
-npx projectx-ui list                   # overzicht
-npx projectx-ui add button --registry https://raw.githubusercontent.com/<jij>/<repo>/main/registry/index.json
+npx lorenthi-ui init                   # tokens, base-CSS en hulpfuncties
+npx lorenthi-ui add button card dialog # componenten kopiëren (+ afhankelijkheden)
+npx lorenthi-ui add --all              # alles in één keer
+npx lorenthi-ui update                 # alles bijwerken + nieuwe componenten erbij
+npx lorenthi-ui list                   # overzicht
+npx lorenthi-ui add button --registry https://raw.githubusercontent.com/<jij>/<repo>/main/registry/index.json
 ```
 
-De CLI schrijft naar `components/ui/` (instelbaar in `projectx-ui.json`), herschrijft de imports naar
+De CLI schrijft naar `components/ui/` (instelbaar in `lorenthi-ui.json`), herschrijft de imports naar
 één platte map en houdt `components/ui/ui.css` (CSS-imports) en `components/ui/index.ts` (exports) bij. Importeer dat ene
 bestand in je globale stylesheet en je bent klaar.
 
 `update` haalt de nieuwste versie van alles wat al in je project staat, installeert meteen de componenten
 die sinds je laatste update in de registry bijgekomen zijn, en laat bestanden die je zelf aangepast hebt met
 rust — die worden overgeslagen tenzij je `--force` meegeeft. Wat er precies zou gebeuren zie je vooraf met
-`--dry-run`; met `--only-installed` blijf je bij wat je al hebt. De CLI houdt daarvoor `projectx-ui.lock.json`
+`--dry-run`; met `--only-installed` blijf je bij wat je al hebt. De CLI houdt daarvoor `lorenthi-ui.lock.json`
 bij (welke componenten je hebt + een hash per bestand) — commit dat bestand mee.
 
 ---
@@ -117,7 +117,7 @@ npm i motion            # alleen nodig als je hieruit importeert
 ```
 
 ```tsx
-import { MotionDrawerContent, ReorderList, MotionSegmented } from "@projectx/ui/motion";
+import { MotionDrawerContent, ReorderList, MotionSegmented } from "@lorenthi/ui/motion";
 ```
 
 | Component | Wat het toevoegt |
@@ -127,10 +127,10 @@ import { MotionDrawerContent, ReorderList, MotionSegmented } from "@projectx/ui/
 | `MotionSegmented` | Zelfde API als `Segmented`, maar de actieve achtergrond schuift mee |
 
 `motion` staat in `package.json` als **optionele** peer dependency: importeer je niets uit
-`@projectx/ui/motion`, dan hoef je het niet te installeren en komt het ook niet in je bundel.
+`@lorenthi/ui/motion`, dan hoef je het niet te installeren en komt het ook niet in je bundel.
 
-De CLI houdt dat onderscheid vast: `npx projectx-ui add --all` slaat deze drie over, en
-`npx projectx-ui update` installeert ze niet vanzelf. Je haalt ze er bewust bij met hun naam
+De CLI houdt dat onderscheid vast: `npx lorenthi-ui add --all` slaat deze drie over, en
+`npx lorenthi-ui update` installeert ze niet vanzelf. Je haalt ze er bewust bij met hun naam
 of met `--with-extras`; daarna vertelt de CLI welk npm-package je nog nodig hebt.
 
 Alle drie respecteren `prefers-reduced-motion`: dan vervagen ze in plaats van te bewegen en
@@ -140,7 +140,7 @@ staat slepen uit.
 
 ## Meertalige documentatiesite
 
-De docs-site draait op [next-intl](https://next-intl.dev), opgezet zoals de ProjectX-frontend:
+De docs-site draait op [next-intl](https://next-intl.dev), opgezet zoals de Lorenthi-frontend:
 
 ```
 apps/docs/i18n/routing.ts      # locales + defaultLocale + localePrefix
@@ -168,7 +168,7 @@ in `content/catalog.ts`) staan nog hardcoded in het Nederlands.
 ## Design tokens
 
 **Alle kleuren komen uit `packages/ui/src/styles/tokens.css`** — exact overgenomen uit het
-ProjectX UI-design. Componenten schrijven nooit een hex-waarde; ze gebruiken uitsluitend variabelen:
+Lorenthi UI-design. Componenten schrijven nooit een hex-waarde; ze gebruiken uitsluitend variabelen:
 
 ```css
 --accent: #0d9488;   --surface: #ffffff;   --text: #0f1729;
@@ -218,7 +218,7 @@ zichtbare focus, licht + donker.
 
 ## Conventies
 
-- Elke CSS-klasse begint met `pxui-` — botst nooit met bestaande styling.
+- Elke CSS-klasse begint met `lui-` — botst nooit met bestaande styling.
 - Eén `.tsx` + één `.css` per component, altijd samen gekopieerd.
 - Sub-componenten volgen de compositie die je van shadcn kent:
   `Dialog / DialogTrigger / DialogContent / DialogHeader / DialogTitle / DialogFooter`.
@@ -226,7 +226,7 @@ zichtbare focus, licht + donker.
 - Tailwind v4 draait enkel als CSS-engine (reset + utilities voor je eigen markup) en is niet verplicht.
 - Drag & drop (WeekSchedule) is eigen pointer-code: geen dnd-kit, geen react-beautiful-dnd.
 - `Sidebar` heeft een `tone="inverted"` variant: een donkere rail waarvan alle kleuren met `color-mix`
-  uit de bestaande tokens komen, dus ook die blijft binnen het ProjectX UI-palet.
+  uit de bestaande tokens komen, dus ook die blijft binnen het Lorenthi UI-palet.
 - `Workspace` stapelt op basis van zijn eigen breedte (container query), niet op vensterbreedte.
 - De vier agendaweergaven delen `ScheduleResource` en `ScheduleEvent` uit `lib/schedule.ts`, dus wisselen
   van weergave kost geen omzetting van je data.

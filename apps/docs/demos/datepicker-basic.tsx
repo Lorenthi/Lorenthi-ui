@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   DatePicker, DateRangePicker, type DateRange, Field, addDays, startOfWeek,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [date, setDate] = useState<Date | null>(null);

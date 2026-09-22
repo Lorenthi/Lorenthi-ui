@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Icon, ResizableGroup, ResizableHandle, ResizablePanel } from "@projectx/ui";
+import { Icon, ResizableGroup, ResizableHandle, ResizablePanel } from "@lorenthi/ui";
 
 export default function Demo() {
   const [verdeling, setVerdeling] = useState([32, 68]);
@@ -17,7 +17,7 @@ export default function Demo() {
       >
         <ResizablePanel index={0} minSize={20} maxSize={60}>
           <div style={{ padding: 14 }}>
-            <div className="pxui-eyebrow" style={{ marginBottom: 10 }}>Patiënten</div>
+            <div className="lui-eyebrow" style={{ marginBottom: 10 }}>Patiënten</div>
             {["Jan Peeters", "Marie Dubois", "Ahmed Bakkali"].map((naam) => (
               <div key={naam} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 0", fontSize: 13 }}>
                 <Icon name="user" size={14} />

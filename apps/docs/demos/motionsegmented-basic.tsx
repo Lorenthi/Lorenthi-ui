@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Icon } from "@projectx/ui";
-import { MotionSegmented } from "@projectx/ui/motion";
+import { Icon } from "@lorenthi/ui";
+import { MotionSegmented } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   const [weergave, setWeergave] = useState("dag");

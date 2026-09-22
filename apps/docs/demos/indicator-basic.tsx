@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Button, Icon, Indicator } from "@projectx/ui";
+import { Avatar, Button, Icon, Indicator } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

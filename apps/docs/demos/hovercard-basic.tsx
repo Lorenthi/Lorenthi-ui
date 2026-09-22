@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Badge, HoverCard, HoverCardContent, HoverCardTrigger, Icon } from "@projectx/ui";
+import { Avatar, Badge, HoverCard, HoverCardContent, HoverCardTrigger, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

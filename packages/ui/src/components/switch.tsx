@@ -44,25 +44,25 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(function 
       aria-checked={on}
       disabled={disabled}
       data-state={on ? "on" : "off"}
-      className={cn("pxui-switch", `pxui-switch-${size}`, !label && !description && className)}
+      className={cn("lui-switch", `lui-switch-${size}`, !label && !description && className)}
       onClick={(event) => {
         setOn(!on);
         rest.onClick?.(event);
       }}
       {...rest}
     >
-      <span className="pxui-switch-thumb" />
+      <span className="lui-switch-thumb" />
     </button>
   );
 
   if (!label && !description) return control;
 
   return (
-    <label className={cn("pxui-switch-row", labelPosition === "left" && "pxui-switch-row-reverse", disabled && "pxui-switch-row-disabled", className)}>
+    <label className={cn("lui-switch-row", labelPosition === "left" && "lui-switch-row-reverse", disabled && "lui-switch-row-disabled", className)}>
       {control}
-      <span className="pxui-switch-text">
-        {label && <span className="pxui-switch-label">{label}</span>}
-        {description && <span className="pxui-switch-description">{description}</span>}
+      <span className="lui-switch-text">
+        {label && <span className="lui-switch-label">{label}</span>}
+        {description && <span className="lui-switch-description">{description}</span>}
       </span>
     </label>
   );

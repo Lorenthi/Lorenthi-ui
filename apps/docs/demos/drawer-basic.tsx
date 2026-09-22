@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   Button, Drawer, DrawerBody, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader,
   DrawerTitle, DrawerTrigger,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 type Side = "left" | "right" | "top" | "bottom";
 

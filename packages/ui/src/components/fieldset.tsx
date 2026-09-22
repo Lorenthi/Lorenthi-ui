@@ -23,12 +23,12 @@ export const Fieldset = React.forwardRef<HTMLFieldSetElement, FieldsetProps>(fun
   return (
     <fieldset
       ref={ref}
-      className={cn("pxui-fieldset", bordered && "pxui-fieldset-bordered", className)}
+      className={cn("lui-fieldset", bordered && "lui-fieldset-bordered", className)}
       {...rest}
     >
-      {legend && <legend className="pxui-fieldset-legend">{legend}</legend>}
-      {description && <p className="pxui-fieldset-description">{description}</p>}
-      <div className={cn("pxui-fieldset-velden", row && "pxui-fieldset-row")}>{children}</div>
+      {legend && <legend className="lui-fieldset-legend">{legend}</legend>}
+      {description && <p className="lui-fieldset-description">{description}</p>}
+      <div className={cn("lui-fieldset-velden", row && "lui-fieldset-row")}>{children}</div>
     </fieldset>
   );
 });

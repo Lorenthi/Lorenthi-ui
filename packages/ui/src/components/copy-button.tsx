@@ -30,7 +30,7 @@ export const CopyButton = React.forwardRef<HTMLButtonElement, CopyButtonProps>(f
       data-copied={copied ? "" : undefined}
       aria-label={label ? undefined : copied ? String(copiedLabel) : "Kopiëren"}
       title={label ? undefined : "Kopiëren"}
-      className={cn("pxui-copy", `pxui-copy-${size}`, `pxui-copy-${variant}`, className)}
+      className={cn("lui-copy", `lui-copy-${size}`, `lui-copy-${variant}`, className)}
       onClick={async (event) => {
         onClick?.(event);
         const ok = await copy(value);

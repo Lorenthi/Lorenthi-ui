@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, ButtonGroup, Icon } from "@projectx/ui";
+import { Button, ButtonGroup, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   const [loading, setLoading] = useState(false);

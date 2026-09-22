@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardContent, CopyButton, DataPill, Icon } from "@projectx/ui";
+import { Card, CardContent, CopyButton, DataPill, Icon } from "@lorenthi/ui";
 
 export default function Demo() {
   return (
@@ -16,7 +16,7 @@ export default function Demo() {
         </div>
 
         <div style={{ marginTop: 16 }}>
-          <CopyButton variant="outline" value="npx projectx-ui add copy-button" label="Commando kopiëren" />
+          <CopyButton variant="outline" value="npx lorenthi-ui add copy-button" label="Commando kopiëren" />
         </div>
       </CardContent>
     </Card>

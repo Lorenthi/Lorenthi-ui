@@ -85,14 +85,14 @@ export const OtpInput = React.forwardRef<HTMLDivElement, OtpInputProps>(function
   };
 
   return (
-    <div ref={ref} className={cn("pxui-otp", invalid && "pxui-otp-invalid", className)} {...rest}>
+    <div ref={ref} className={cn("lui-otp", invalid && "lui-otp-invalid", className)} {...rest}>
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}
           ref={(node) => {
             inputs.current[index] = node;
           }}
-          className="pxui-otp-box"
+          className="lui-otp-box"
           inputMode={numeric ? "numeric" : "text"}
           autoComplete={index === 0 ? "one-time-code" : "off"}
           maxLength={length}

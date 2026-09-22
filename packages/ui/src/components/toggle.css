@@ -1,5 +1,5 @@
 /* ============================ Toggle ============================ */
-.pxui-toggle {
+.lui-toggle {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
   height: calc(36px * var(--density)); padding: 0 12px;
   border: 1px solid transparent; border-radius: var(--r-sm);
@@ -9,42 +9,42 @@
   transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease),
     border-color var(--dur-fast) var(--ease);
 }
-.pxui-toggle:hover:not(:disabled) { background: var(--surface-3); color: var(--text); }
-.pxui-toggle:focus-visible { outline: none; box-shadow: var(--ring); }
-.pxui-toggle:disabled { opacity: .45; cursor: not-allowed; }
+.lui-toggle:hover:not(:disabled) { background: var(--surface-3); color: var(--text); }
+.lui-toggle:focus-visible { outline: none; box-shadow: var(--ring); }
+.lui-toggle:disabled { opacity: .45; cursor: not-allowed; }
 
-.pxui-toggle[data-state="on"] {
+.lui-toggle[data-state="on"] {
   background: var(--accent-tint); color: var(--accent); border-color: var(--accent-border);
 }
-.pxui-toggle[data-state="on"]:hover:not(:disabled) {
+.lui-toggle[data-state="on"]:hover:not(:disabled) {
   background: color-mix(in srgb, var(--accent-tint) 72%, var(--accent));
 }
 
-.pxui-toggle-outline { border-color: var(--border); background: var(--surface); }
-.pxui-toggle-outline:hover:not(:disabled) { background: var(--surface-2); }
+.lui-toggle-outline { border-color: var(--border); background: var(--surface); }
+.lui-toggle-outline:hover:not(:disabled) { background: var(--surface-2); }
 
-.pxui-toggle-sm { height: calc(30px * var(--density)); padding: 0 9px; font-size: 12.5px; }
-.pxui-toggle-lg { height: calc(42px * var(--density)); padding: 0 16px; font-size: 14.5px; }
+.lui-toggle-sm { height: calc(30px * var(--density)); padding: 0 9px; font-size: 12.5px; }
+.lui-toggle-lg { height: calc(42px * var(--density)); padding: 0 16px; font-size: 14.5px; }
 
-.pxui-toggle-icon-only { padding: 0; width: calc(36px * var(--density)); }
-.pxui-toggle-sm.pxui-toggle-icon-only { width: calc(30px * var(--density)); }
-.pxui-toggle-lg.pxui-toggle-icon-only { width: calc(42px * var(--density)); }
+.lui-toggle-icon-only { padding: 0; width: calc(36px * var(--density)); }
+.lui-toggle-sm.lui-toggle-icon-only { width: calc(30px * var(--density)); }
+.lui-toggle-lg.lui-toggle-icon-only { width: calc(42px * var(--density)); }
 
-.pxui-toggle-icon { display: inline-flex; }
-.pxui-toggle-icon svg { width: 16px; height: 16px; }
+.lui-toggle-icon { display: inline-flex; }
+.lui-toggle-icon svg { width: 16px; height: 16px; }
 
 /* ---------- ToggleGroup ---------- */
-.pxui-toggle-group { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.lui-toggle-group { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 
-.pxui-toggle-group-joined { gap: 0; }
-.pxui-toggle-group-joined .pxui-toggle {
+.lui-toggle-group-joined { gap: 0; }
+.lui-toggle-group-joined .lui-toggle {
   border-color: var(--border); background: var(--surface); border-radius: 0;
 }
-.pxui-toggle-group-joined .pxui-toggle + .pxui-toggle { margin-left: -1px; }
-.pxui-toggle-group-joined .pxui-toggle:first-child {
+.lui-toggle-group-joined .lui-toggle + .lui-toggle { margin-left: -1px; }
+.lui-toggle-group-joined .lui-toggle:first-child {
   border-radius: var(--r-sm) 0 0 var(--r-sm);
 }
-.pxui-toggle-group-joined .pxui-toggle:last-child {
+.lui-toggle-group-joined .lui-toggle:last-child {
   border-radius: 0 var(--r-sm) var(--r-sm) 0;
 }
-.pxui-toggle-group-joined .pxui-toggle[data-state="on"] { position: relative; z-index: 1; }
+.lui-toggle-group-joined .lui-toggle[data-state="on"] { position: relative; z-index: 1; }

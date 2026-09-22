@@ -1,5 +1,5 @@
 "use client";
-import { Kbd } from "@projectx/ui";
+import { Kbd } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

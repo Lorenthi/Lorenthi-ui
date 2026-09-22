@@ -1,5 +1,5 @@
 /**
- * ProjectX UI — publieke API.
+ * Lorenthi UI — publieke API.
  * Alles is zelf geschreven: geen shadcn, geen Radix, geen externe UI-dependencies.
  */
 

@@ -1,5 +1,5 @@
 "use client";
-import { Field, Input } from "@projectx/ui";
+import { Field, Input } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

@@ -44,20 +44,20 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(function S
   const percent = max === min ? 0 : ((current - min) / (max - min)) * 100;
 
   return (
-    <div className={cn("pxui-slider", `pxui-slider-${tone}`, disabled && "pxui-slider-disabled", className)}>
+    <div className={cn("lui-slider", `lui-slider-${tone}`, disabled && "lui-slider-disabled", className)}>
       {showValue && (
-        <div className="pxui-slider-value">{format ? format(current) : current}</div>
+        <div className="lui-slider-value">{format ? format(current) : current}</div>
       )}
       <input
         ref={ref}
         type="range"
-        className="pxui-slider-input"
+        className="lui-slider-input"
         min={min}
         max={max}
         step={step}
         value={current}
         disabled={disabled}
-        style={{ ["--pxui-slider-fill" as string]: `${percent}%` }}
+        style={{ ["--lui-slider-fill" as string]: `${percent}%` }}
         onChange={(event) => setCurrent(Number(event.target.value))}
         {...rest}
       />

@@ -63,17 +63,17 @@ export const AvatarUpload = React.forwardRef<HTMLDivElement, AvatarUploadProps>(
     };
 
     return (
-      <div ref={ref} className={cn("pxui-avatar-upload", className)} {...rest}>
+      <div ref={ref} className={cn("lui-avatar-upload", className)} {...rest}>
         <button
           type="button"
-          className="pxui-avatar-upload-btn"
+          className="lui-avatar-upload-btn"
           onClick={pick}
           disabled={disabled}
           aria-label={value ? changeLabel : addLabel}
           title={value ? changeLabel : addLabel}
         >
           <Avatar name={name} src={value ?? undefined} size={size} />
-          <span className="pxui-avatar-upload-badge" style={{ width: size * 0.34, height: size * 0.34 }}>
+          <span className="lui-avatar-upload-badge" style={{ width: size * 0.34, height: size * 0.34 }}>
             <Icon name="camera" size={Math.max(11, size * 0.18)} />
           </span>
         </button>
@@ -82,7 +82,7 @@ export const AvatarUpload = React.forwardRef<HTMLDivElement, AvatarUploadProps>(
           ref={input}
           type="file"
           accept="image/*"
-          className="pxui-sr-only"
+          className="lui-sr-only"
           disabled={disabled}
           onChange={(event) => {
             const file = event.target.files?.[0];
@@ -92,15 +92,15 @@ export const AvatarUpload = React.forwardRef<HTMLDivElement, AvatarUploadProps>(
         />
 
         {showActions && (
-          <div className="pxui-avatar-upload-actions">
-            <button type="button" className="pxui-avatar-upload-action" onClick={pick} disabled={disabled}>
+          <div className="lui-avatar-upload-actions">
+            <button type="button" className="lui-avatar-upload-action" onClick={pick} disabled={disabled}>
               <Icon name="camera" size={14} />
               {value ? changeLabel : addLabel}
             </button>
             {value && (
               <button
                 type="button"
-                className="pxui-avatar-upload-action pxui-avatar-upload-remove"
+                className="lui-avatar-upload-action lui-avatar-upload-remove"
                 onClick={() => onChange?.(null)}
                 disabled={disabled}
               >

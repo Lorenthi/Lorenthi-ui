@@ -1,5 +1,5 @@
 "use client";
-import { Badge, Card, CardContent, Icon, KeyValue, KeyValueList, Text } from "@projectx/ui";
+import { Badge, Card, CardContent, Icon, KeyValue, KeyValueList, Text } from "@lorenthi/ui";
 
 export default function Demo() {
   return (

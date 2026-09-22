@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Bouwt:
- *  1. /registry/*.json          — bron voor de CLI (`npx projectx-ui add button`)
+ *  1. /registry/*.json          — bron voor de CLI (`npx lorenthi-ui add button`)
  *  2. /apps/docs/content/props.generated.json — props-tabellen voor de docs
  *  3. /apps/docs/demos/index.ts — map van alle demo's
  *
@@ -234,9 +234,9 @@ writeFileSync(
   join(registryDir, "index.json"),
   `${JSON.stringify(
     {
-      name: "projectx-ui",
+      name: "lorenthi-ui",
       version: JSON.parse(readFileSync(join(root, "packages/ui/package.json"), "utf8")).version,
-      style: "projectx",
+      style: "lorenthi",
       shared: sharedFiles.filter((file) => existsSync(join(uiSrc, file))).map((file) => ({ path: file, content: readFileSync(join(uiSrc, file), "utf8") })),
       components: index,
     },

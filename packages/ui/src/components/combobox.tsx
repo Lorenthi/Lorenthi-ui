@@ -100,7 +100,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
 
   React.useEffect(() => {
     if (!open) return;
-    const node = listRef.current?.querySelectorAll<HTMLElement>("[data-pxui-combobox-item]")[activeIndex];
+    const node = listRef.current?.querySelectorAll<HTMLElement>("[data-lui-combobox-item]")[activeIndex];
     node?.scrollIntoView({ block: "nearest" });
   }, [activeIndex, open]);
 
@@ -139,7 +139,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
   let flatIndex = -1;
 
   return (
-    <div ref={ref} className={cn("pxui-combobox", className)} {...rest}>
+    <div ref={ref} className={cn("lui-combobox", className)} {...rest}>
       <button
         ref={triggerRef}
         type="button"
@@ -149,7 +149,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
         disabled={disabled}
         aria-invalid={invalid || undefined}
         data-state={open ? "open" : "closed"}
-        className={cn("pxui-select-trigger", `pxui-input-${size}`, invalid && "pxui-input-invalid")}
+        className={cn("lui-select-trigger", `lui-input-${size}`, invalid && "lui-input-invalid")}
         onClick={() => setOpen(!open)}
         onKeyDown={(event) => {
           if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
@@ -158,8 +158,8 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
           }
         }}
       >
-        {selected?.icon && <span className="pxui-select-item-icon">{selected.icon}</span>}
-        <span className={cn("pxui-select-value", !selected && "pxui-select-placeholder")}>
+        {selected?.icon && <span className="lui-select-item-icon">{selected.icon}</span>}
+        <span className={cn("lui-select-value", !selected && "lui-select-placeholder")}>
           {selected?.label ?? placeholder}
         </span>
         {clearable && selected && !disabled && (
@@ -167,7 +167,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
             role="button"
             tabIndex={-1}
             aria-label="Wissen"
-            className="pxui-combobox-clear"
+            className="lui-combobox-clear"
             onClick={(event) => {
               event.stopPropagation();
               setCurrent("");
@@ -176,32 +176,32 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
             <Icon name="x" size={14} />
           </span>
         )}
-        <Icon name="chevronsUpDown" size={15} className="pxui-select-caret" />
+        <Icon name="chevronsUpDown" size={15} className="lui-select-caret" />
       </button>
 
       {open && (
         <Portal>
           <div
             ref={contentRef}
-            className="pxui-select-content"
+            className="lui-select-content"
             style={{ ...position.style, opacity: position.ready ? 1 : 0 }}
             onKeyDown={onKeyDown}
           >
-            <div className="pxui-select-search">
+            <div className="lui-select-search">
               <Icon name="search" size={15} />
               <input
                 autoFocus
-                className="pxui-select-search-input"
+                className="lui-select-search-input"
                 placeholder={searchPlaceholder}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
             </div>
-            <div className="pxui-select-list" ref={listRef} role="listbox">
-              {filtered.length === 0 && <div className="pxui-select-empty">{emptyMessage}</div>}
+            <div className="lui-select-list" ref={listRef} role="listbox">
+              {filtered.length === 0 && <div className="lui-select-empty">{emptyMessage}</div>}
               {Array.from(groups.entries()).map(([group, items]) => (
                 <div key={group || "_"} role="group">
-                  {group && <div className="pxui-menu-label">{group}</div>}
+                  {group && <div className="lui-menu-label">{group}</div>}
                   {items.map((option) => {
                     flatIndex += 1;
                     const index = flatIndex;
@@ -213,21 +213,21 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(function
                         role="option"
                         tabIndex={-1}
                         aria-selected={isSelected}
-                        data-pxui-combobox-item=""
+                        data-lui-combobox-item=""
                         data-active={index === activeIndex ? "" : undefined}
                         data-disabled={option.disabled ? "" : undefined}
-                        className={cn("pxui-select-item", isSelected && "pxui-select-item-selected")}
+                        className={cn("lui-select-item", isSelected && "lui-select-item-selected")}
                         onMouseEnter={() => setActiveIndex(index)}
                         onClick={() => choose(option)}
                       >
-                        {option.icon && <span className="pxui-select-item-icon">{option.icon}</span>}
-                        <span className="pxui-select-item-text">
-                          <span className="pxui-select-item-label">{option.label}</span>
+                        {option.icon && <span className="lui-select-item-icon">{option.icon}</span>}
+                        <span className="lui-select-item-text">
+                          <span className="lui-select-item-label">{option.label}</span>
                           {option.description && (
-                            <span className="pxui-select-item-description">{option.description}</span>
+                            <span className="lui-select-item-description">{option.description}</span>
                           )}
                         </span>
-                        {isSelected && <Icon name="check" size={15} className="pxui-select-item-check" />}
+                        {isSelected && <Icon name="check" size={15} className="lui-select-item-check" />}
                       </button>
                     );
                   })}

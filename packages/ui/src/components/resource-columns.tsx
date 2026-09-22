@@ -59,7 +59,7 @@ export const ResourceColumns = React.forwardRef<HTMLDivElement, ResourceColumnsP
     const byResource = React.useMemo(() => groupByResource(events, resources), [events, resources]);
 
     return (
-      <div ref={ref} className={cn("pxui-rescols", className)} {...rest}>
+      <div ref={ref} className={cn("lui-rescols", className)} {...rest}>
         {resources.map((resource) => {
           const list = byResource.get(resource.key) ?? [];
           const empty = list.length === 0;
@@ -67,10 +67,10 @@ export const ResourceColumns = React.forwardRef<HTMLDivElement, ResourceColumnsP
 
           if (collapsed) {
             return (
-              <div className="pxui-rescol pxui-rescol-collapsed" key={resource.key}>
-                <div className="pxui-rescol-rail">
+              <div className="lui-rescol lui-rescol-collapsed" key={resource.key}>
+                <div className="lui-rescol-rail">
                   {resource.media}
-                  <span className="pxui-rescol-rail-label">{resource.label} · vrij</span>
+                  <span className="lui-rescol-rail-label">{resource.label} · vrij</span>
                 </div>
               </div>
             );
@@ -78,40 +78,40 @@ export const ResourceColumns = React.forwardRef<HTMLDivElement, ResourceColumnsP
 
           return (
             <div
-              className="pxui-rescol"
+              className="lui-rescol"
               key={resource.key}
               style={{ minWidth: minColumnWidth }}
               data-today={resource.today ? "" : undefined}
             >
-              <div className="pxui-rescol-head">
-                {resource.media && <span className="pxui-rescol-media">{resource.media}</span>}
-                <div className="pxui-rescol-info">
-                  <div className="pxui-rescol-name">{resource.label}</div>
-                  <div className="pxui-rescol-count">
+              <div className="lui-rescol-head">
+                {resource.media && <span className="lui-rescol-media">{resource.media}</span>}
+                <div className="lui-rescol-info">
+                  <div className="lui-rescol-name">{resource.label}</div>
+                  <div className="lui-rescol-count">
                     {resource.sublabel ?? `${countBookable(list)} ${countLabel}`}
                   </div>
                 </div>
                 {renderResourceActions && (
-                  <div className="pxui-rescol-actions">{renderResourceActions(resource)}</div>
+                  <div className="lui-rescol-actions">{renderResourceActions(resource)}</div>
                 )}
               </div>
 
-              <div className="pxui-rescol-list" style={{ maxHeight }}>
+              <div className="lui-rescol-list" style={{ maxHeight }}>
                 {empty ? (
-                  <div className="pxui-rescol-empty">{emptyLabel}</div>
+                  <div className="lui-rescol-empty">{emptyLabel}</div>
                 ) : (
                   list.map((event) =>
                     event.blocked ? (
-                      <div className="pxui-rescol-blocked" key={event.id}>
-                        <span className="pxui-rescol-time">{formatTime(event.start)}</span>
-                        <span className="pxui-rescol-blocked-label">{event.title}</span>
+                      <div className="lui-rescol-blocked" key={event.id}>
+                        <span className="lui-rescol-time">{formatTime(event.start)}</span>
+                        <span className="lui-rescol-blocked-label">{event.title}</span>
                       </div>
                     ) : (
                       <div
                         key={event.id}
                         role={onEventClick ? "button" : undefined}
                         tabIndex={onEventClick ? 0 : undefined}
-                        className={cn("pxui-rescol-row", onEventClick && "pxui-rescol-row-clickable")}
+                        className={cn("lui-rescol-row", onEventClick && "lui-rescol-row-clickable")}
                         onClick={() => onEventClick?.(event)}
                         onKeyDown={(keyEvent) => {
                           if (keyEvent.key === "Enter" || keyEvent.key === " ") {
@@ -124,22 +124,22 @@ export const ResourceColumns = React.forwardRef<HTMLDivElement, ResourceColumnsP
                           renderEvent(event)
                         ) : (
                           <>
-                            <span className="pxui-rescol-time">{formatTime(event.start)}</span>
+                            <span className="lui-rescol-time">{formatTime(event.start)}</span>
                             <span
-                              className={cn("pxui-rescol-dot", `pxui-tone-${event.tone ?? "neutral"}`)}
+                              className={cn("lui-rescol-dot", `lui-tone-${event.tone ?? "neutral"}`)}
                               style={event.color ? { background: event.color } : undefined}
                             />
-                            <span className="pxui-rescol-title">
+                            <span className="lui-rescol-title">
                               {event.title}
                               {event.subtitle && (
-                                <span className="pxui-rescol-sub">{event.subtitle}</span>
+                                <span className="lui-rescol-sub">{event.subtitle}</span>
                               )}
                             </span>
                           </>
                         )}
                         {renderEventActions && (
                           <span
-                            className="pxui-rescol-row-actions"
+                            className="lui-rescol-row-actions"
                             onClick={(clickEvent) => clickEvent.stopPropagation()}
                           >
                             {renderEventActions(event)}

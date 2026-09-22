@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Pagination } from "@projectx/ui";
+import { Pagination } from "@lorenthi/ui";
 
 export default function Demo() {
   const [page, setPage] = useState(4);

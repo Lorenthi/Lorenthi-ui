@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Alert, Button } from "@projectx/ui";
+import { Alert, Button } from "@lorenthi/ui";
 
 export default function Demo() {
   const [zichtbaar, setZichtbaar] = useState(true);

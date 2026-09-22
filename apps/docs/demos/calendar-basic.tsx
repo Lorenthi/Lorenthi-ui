@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Calendar, Card, CardContent, type DateRange, formatDate, formatDateRange } from "@projectx/ui";
+import { Calendar, Card, CardContent, type DateRange, formatDate, formatDateRange } from "@lorenthi/ui";
 
 export default function Demo() {
   const [single, setSingle] = useState<Date | null>(new Date());

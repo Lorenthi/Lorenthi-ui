@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { RichEditor } from "@projectx/ui";
+import { RichEditor } from "@lorenthi/ui";
 
 const START =
   "<p>Controle na <b>cataractoperatie</b> rechteroog. Patiënt meldt lichte wazigheid bij fel licht.</p>" +

@@ -9,7 +9,7 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   prefix?: React.ReactNode;
   /** Icoon of knop rechts in het veld. */
   suffix?: React.ReactNode;
-  /** Vaste tekst tegen het veld aan, bv. ".projectx.be". */
+  /** Vaste tekst tegen het veld aan, bv. ".lorenthi.be". */
   addon?: React.ReactNode;
   invalid?: boolean;
 }
@@ -26,11 +26,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
     <input
       ref={ref}
       className={cn(
-        "pxui-input",
-        `pxui-input-${size}`,
-        prefix && "pxui-input-has-prefix",
-        suffix && "pxui-input-has-suffix",
-        isInvalid && "pxui-input-invalid",
+        "lui-input",
+        `lui-input-${size}`,
+        prefix && "lui-input-has-prefix",
+        suffix && "lui-input-has-suffix",
+        isInvalid && "lui-input-invalid",
         !prefix && !suffix && !addon && className
       )}
       aria-invalid={isInvalid || undefined}
@@ -43,16 +43,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
   return (
     <div
       className={cn(
-        "pxui-input-wrap",
-        `pxui-input-wrap-${size}`,
-        isInvalid && "pxui-input-wrap-invalid",
+        "lui-input-wrap",
+        `lui-input-wrap-${size}`,
+        isInvalid && "lui-input-wrap-invalid",
         className
       )}
     >
-      {prefix && <span className="pxui-input-affix pxui-input-prefix">{prefix}</span>}
+      {prefix && <span className="lui-input-affix lui-input-prefix">{prefix}</span>}
       {input}
-      {suffix && <span className="pxui-input-affix pxui-input-suffix">{suffix}</span>}
-      {addon && <span className="pxui-input-addon">{addon}</span>}
+      {suffix && <span className="lui-input-affix lui-input-suffix">{suffix}</span>}
+      {addon && <span className="lui-input-addon">{addon}</span>}
     </div>
   );
 });

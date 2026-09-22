@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Alert, AvatarUpload, Card, CardContent, Field, Input, SwatchPicker } from "@projectx/ui";
+import { Alert, AvatarUpload, Card, CardContent, Field, Input, SwatchPicker } from "@lorenthi/ui";
 
 const KLEUREN = [
   "var(--accent)",

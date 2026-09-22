@@ -1,5 +1,5 @@
 "use client";
-import { OrderButton } from "@projectx/ui/motion";
+import { OrderButton } from "@lorenthi/ui/motion";
 
 export default function Demo() {
   return (

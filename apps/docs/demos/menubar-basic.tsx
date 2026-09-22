@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, Icon, Kbd,
   Menubar, MenubarContent, MenubarMenu, MenubarTrigger,
-} from "@projectx/ui";
+} from "@lorenthi/ui";
 
 export default function Demo() {
   const [laatste, setLaatste] = useState<string>();

@@ -46,7 +46,7 @@ export const ResizableGroup = React.forwardRef<HTMLDivElement, ResizableGroupPro
   const grenzen = React.useRef<Array<{ min: number; max: number }>>([]);
 
   const aantal = React.Children.toArray(children).filter(
-    (kind) => React.isValidElement(kind) && (kind.type as { pxuiPanel?: boolean }).pxuiPanel
+    (kind) => React.isValidElement(kind) && (kind.type as { luiPanel?: boolean }).luiPanel
   ).length;
 
   const [sizes, setSizes] = React.useState<number[]>(
@@ -73,7 +73,7 @@ export const ResizableGroup = React.forwardRef<HTMLDivElement, ResizableGroupPro
           if (typeof ref === "function") ref(node as HTMLDivElement);
           else if (ref) (ref as React.RefObject<HTMLDivElement | null>).current = node;
         }}
-        className={cn("pxui-resizable", `pxui-resizable-${direction}`, className)}
+        className={cn("lui-resizable", `lui-resizable-${direction}`, className)}
         {...rest}
       >
         {children}
@@ -105,13 +105,13 @@ export const ResizablePanel = Object.assign(
     return (
       <div
         ref={ref}
-        className={cn("pxui-resizable-panel", className)}
+        className={cn("lui-resizable-panel", className)}
         style={{ flexBasis: `${sizes[index] ?? 50}%`, ...style }}
         {...rest}
       />
     );
   }),
-  { pxuiPanel: true }
+  { luiPanel: true }
 );
 
 export interface ResizableHandleProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -179,7 +179,7 @@ export const ResizableHandle = React.forwardRef<HTMLDivElement, ResizableHandleP
       aria-orientation={direction === "horizontal" ? "vertical" : "horizontal"}
       tabIndex={0}
       data-dragging={bezig ? "" : undefined}
-      className={cn("pxui-resizable-handle", className)}
+      className={cn("lui-resizable-handle", className)}
       onPointerDown={onPointerDown}
       onKeyDown={(event) => {
         const stap = event.shiftKey ? 10 : 2;
@@ -195,7 +195,7 @@ export const ResizableHandle = React.forwardRef<HTMLDivElement, ResizableHandleP
       }}
       {...rest}
     >
-      {withGrip && <span className="pxui-resizable-grip" aria-hidden="true" />}
+      {withGrip && <span className="lui-resizable-grip" aria-hidden="true" />}
     </div>
   );
 });
