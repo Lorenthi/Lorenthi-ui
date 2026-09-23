@@ -812,7 +812,129 @@
       "requires": [],
       "files": [
         "components/chart.tsx",
-        "components/chart.css"
+        "components/chart.css",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "area-chart",
+      "title": "AreaChart",
+      "description": "Gevuld vlak per reeks, met assen, hulplijnen en tooltip.",
+      "category": "Data",
+      "dependencies": [
+        "chart"
+      ],
+      "requires": [],
+      "files": [
+        "components/area-chart.tsx",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "combo-chart",
+      "title": "ComboChart",
+      "description": "Staven en lijnen in één beeld, elk met een eigen as.",
+      "category": "Data",
+      "dependencies": [
+        "chart"
+      ],
+      "requires": [],
+      "files": [
+        "components/combo-chart.tsx",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "scatter-chart",
+      "title": "ScatterChart",
+      "description": "Punten op twee doorlopende assen, met optionele bubbelgrootte.",
+      "category": "Data",
+      "dependencies": [
+        "chart"
+      ],
+      "requires": [],
+      "files": [
+        "components/scatter-chart.tsx",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "bar-list",
+      "title": "BarList",
+      "description": "Rangschikking als horizontale balken met het label erin.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/bar-list.tsx",
+        "components/bar-list.css",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "category-bar",
+      "title": "CategoryBar",
+      "description": "Eén balk in gekleurde stukken, met een wijzer op een waarde.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/category-bar.tsx",
+        "components/category-bar.css",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "tracker",
+      "title": "Tracker",
+      "description": "Eén blokje per periode, gekleurd naar status — de uptimestrook.",
+      "category": "Data",
+      "dependencies": [
+        "visually-hidden"
+      ],
+      "requires": [],
+      "files": [
+        "components/tracker.tsx",
+        "components/tracker.css"
+      ]
+    },
+    {
+      "name": "contribution-graph",
+      "title": "ContributionGraph",
+      "description": "Kalenderraster met één vakje per dag, donkerder bij meer activiteit.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/contribution-graph.tsx",
+        "components/contribution-graph.css"
+      ]
+    },
+    {
+      "name": "gauge",
+      "title": "Gauge",
+      "description": "Boog met één waarde in het midden en drempelkleuren.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/gauge.tsx",
+        "components/gauge.css",
+        "lib/chart-utils.tsx"
+      ]
+    },
+    {
+      "name": "radar-chart",
+      "title": "RadarChart",
+      "description": "Spinnenweb waarin elke reeks een veelhoek over de assen vormt.",
+      "category": "Data",
+      "dependencies": [
+        "chart"
+      ],
+      "requires": [],
+      "files": [
+        "components/radar-chart.tsx",
+        "lib/chart-utils.tsx"
       ]
     },
     {

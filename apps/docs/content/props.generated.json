@@ -280,6 +280,105 @@
       }
     ]
   },
+  "AreaChartProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "series",
+        "required": true,
+        "type": "ChartSeries[]",
+        "description": ""
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "type": "string[]",
+        "description": "Eén label per punt; bepaalt de x-as."
+      },
+      {
+        "name": "height",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "220"
+      },
+      {
+        "name": "stacked",
+        "required": false,
+        "type": "boolean",
+        "description": "Reeksen op elkaar stapelen in plaats van over elkaar leggen."
+      },
+      {
+        "name": "curved",
+        "required": false,
+        "type": "boolean",
+        "description": "Zachte lijn in plaats van rechte segmenten.",
+        "default": "true"
+      },
+      {
+        "name": "grid",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "axis",
+        "required": false,
+        "type": "boolean",
+        "description": "Waardes langs de verticale as tonen.",
+        "default": "true"
+      },
+      {
+        "name": "yTicks",
+        "required": false,
+        "type": "number",
+        "description": "Gewenst aantal stappen op de verticale as.",
+        "default": "5"
+      },
+      {
+        "name": "startAtZero",
+        "required": false,
+        "type": "boolean",
+        "description": "De as laten beginnen bij nul, ook als de data hoger ligt.",
+        "default": "true"
+      },
+      {
+        "name": "legend",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "formatValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "maxLabels",
+        "required": false,
+        "type": "number",
+        "description": "Hoogstens zoveel labels onder de as; de rest valt weg.",
+        "default": "8"
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
+      }
+    ]
+  },
   "AspectRatioProps": {
     "extends": "React.HTMLAttributes<HTMLDivElement>",
     "props": [
@@ -727,6 +826,111 @@
       }
     ]
   },
+  "BarListItem": {
+    "extends": "",
+    "props": [
+      {
+        "name": "label",
+        "required": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "href",
+        "required": false,
+        "type": "string",
+        "description": "Maakt de rij klikbaar als link."
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"var(--chart-1)\""
+      }
+    ]
+  },
+  "BarListProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onSelect\">",
+    "props": [
+      {
+        "name": "data",
+        "required": true,
+        "type": "BarListItem[]",
+        "description": ""
+      },
+      {
+        "name": "sorted",
+        "required": false,
+        "type": "boolean",
+        "description": "Hoogste waarde eerst.",
+        "default": "true"
+      },
+      {
+        "name": "limit",
+        "required": false,
+        "type": "number",
+        "description": "Alleen de eerste n rijen tonen."
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": "Eigen maximum voor de balkbreedte; standaard de hoogste waarde."
+      },
+      {
+        "name": "formatValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": "Eén kleur voor alle balken in plaats van het palet.",
+        "default": "\"var(--chart-1)\""
+      },
+      {
+        "name": "multicolor",
+        "required": false,
+        "type": "boolean",
+        "description": "Kleur per rij uit het palet in plaats van één kleur."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(item: BarListItem, index: number) => void",
+        "description": ""
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
+      }
+    ]
+  },
   "BottomNavProps": {
     "extends": "React.HTMLAttributes<HTMLElement>",
     "props": [
@@ -1132,6 +1336,83 @@
         "type": "string",
         "description": "",
         "default": "\"Vorige\""
+      }
+    ]
+  },
+  "CategoryBarSegment": {
+    "extends": "",
+    "props": [
+      {
+        "name": "value",
+        "required": true,
+        "type": "number",
+        "description": "Grootte van het segment; wordt omgerekend naar een percentage."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "CategoryBarProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "data",
+        "required": true,
+        "type": "Array<CategoryBarSegment | number>",
+        "description": "Segmenten als getallen of als objecten met label en kleur."
+      },
+      {
+        "name": "marker",
+        "required": false,
+        "type": "number",
+        "description": "Wijzer op een waarde binnen het totaal."
+      },
+      {
+        "name": "markerLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "showScale",
+        "required": false,
+        "type": "boolean",
+        "description": "Schaalverdeling onder de balk."
+      },
+      {
+        "name": "showLabels",
+        "required": false,
+        "type": "boolean",
+        "description": "Labels boven de balk met hun aandeel."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "formatValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "total",
+        "required": false,
+        "type": "number",
+        "description": "Totaal waartegen gerekend wordt; standaard de som van de segmenten."
       }
     ]
   },
@@ -1629,6 +1910,111 @@
       }
     ]
   },
+  "ComboChartProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "labels",
+        "required": true,
+        "type": "string[]",
+        "description": "Eén label per kolom; bepaalt de x-as."
+      },
+      {
+        "name": "bars",
+        "required": false,
+        "type": "ChartSeries[]",
+        "description": "Reeksen als staaf, op de linkeras.",
+        "default": "[]"
+      },
+      {
+        "name": "lines",
+        "required": false,
+        "type": "ChartSeries[]",
+        "description": "Reeksen als lijn; standaard op een eigen rechteras.",
+        "default": "[]"
+      },
+      {
+        "name": "height",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "240"
+      },
+      {
+        "name": "stackedBars",
+        "required": false,
+        "type": "boolean",
+        "description": "Staven op elkaar in plaats van naast elkaar."
+      },
+      {
+        "name": "sharedAxis",
+        "required": false,
+        "type": "boolean",
+        "description": "Lijnen mee op de linkeras zetten in plaats van een tweede as."
+      },
+      {
+        "name": "curved",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "grid",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "yTicks",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "5"
+      },
+      {
+        "name": "legend",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "formatBarValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "formatLineValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "maxLabels",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "8"
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
+      }
+    ]
+  },
   "ComboboxOption": {
     "extends": "",
     "props": [
@@ -2008,6 +2394,107 @@
         "required": false,
         "type": "boolean",
         "description": ""
+      }
+    ]
+  },
+  "ContributionDay": {
+    "extends": "",
+    "props": [
+      {
+        "name": "date",
+        "required": true,
+        "type": "string | Date",
+        "description": "Datum als \"jjjj-mm-dd\" of een Date."
+      },
+      {
+        "name": "value",
+        "required": true,
+        "type": "number",
+        "description": ""
+      }
+    ]
+  },
+  "ContributionGraphProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onSelect\">",
+    "props": [
+      {
+        "name": "data",
+        "required": true,
+        "type": "ContributionDay[]",
+        "description": ""
+      },
+      {
+        "name": "until",
+        "required": false,
+        "type": "Date",
+        "description": "Laatste dag in beeld; standaard vandaag."
+      },
+      {
+        "name": "weeks",
+        "required": false,
+        "type": "number",
+        "description": "Aantal weken dat getoond wordt.",
+        "default": "53"
+      },
+      {
+        "name": "thresholds",
+        "required": false,
+        "type": "[number, number, number]",
+        "description": "Grenswaarden voor de vier kleurstappen; standaard afgeleid uit de data."
+      },
+      {
+        "name": "weekStartsOn",
+        "required": false,
+        "type": "0 | 1",
+        "description": "Eerste dag van de week; 1 = maandag.",
+        "default": "1"
+      },
+      {
+        "name": "showMonths",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "showWeekdays",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "showLegend",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "formatTooltip",
+        "required": false,
+        "type": "(day: ContributionDay, iso: string) => React.ReactNode",
+        "description": "Eigen tekst in de tooltip."
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(day: ContributionDay, iso: string) => void",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"var(--accent)\""
+      },
+      {
+        "name": "locale",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"nl-BE\""
       }
     ]
   },
@@ -3098,6 +3585,117 @@
         "required": false,
         "type": "React.ReactNode",
         "description": "Avatar of icoontje voor het label."
+      }
+    ]
+  },
+  "GaugeThreshold": {
+    "extends": "",
+    "props": [
+      {
+        "name": "from",
+        "required": true,
+        "type": "number",
+        "description": "Vanaf welke waarde deze kleur geldt."
+      },
+      {
+        "name": "tone",
+        "required": true,
+        "type": "\"accent\" | \"green\" | \"amber\" | \"red\"",
+        "description": ""
+      }
+    ]
+  },
+  "GaugeProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "value",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "0"
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "100"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "180"
+      },
+      {
+        "name": "thickness",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "14"
+      },
+      {
+        "name": "sweep",
+        "required": false,
+        "type": "number",
+        "description": "Hoeveel graden de boog beslaat; 180 is een halve cirkel.",
+        "default": "220"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "valueLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst in het midden; standaard de waarde."
+      },
+      {
+        "name": "unit",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "tone",
+        "required": false,
+        "type": "\"accent\" | \"green\" | \"amber\" | \"red\"",
+        "description": ""
+      },
+      {
+        "name": "thresholds",
+        "required": false,
+        "type": "GaugeThreshold[]",
+        "description": ""
+      },
+      {
+        "name": "target",
+        "required": false,
+        "type": "number",
+        "description": "Streepje op een doelwaarde."
+      },
+      {
+        "name": "showBounds",
+        "required": false,
+        "type": "boolean",
+        "description": "Waardes bij het begin en het einde van de boog tonen."
+      },
+      {
+        "name": "formatValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
       }
     ]
   },
@@ -4701,6 +5299,77 @@
       }
     ]
   },
+  "RadarChartProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "axes",
+        "required": true,
+        "type": "string[]",
+        "description": "Eén naam per as, met de klok mee vanaf boven."
+      },
+      {
+        "name": "series",
+        "required": true,
+        "type": "ChartSeries[]",
+        "description": "Per reeks één waarde per as, in dezelfde volgorde."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "260"
+      },
+      {
+        "name": "rings",
+        "required": false,
+        "type": "number",
+        "description": "Aantal ringen in het web.",
+        "default": "4"
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": "Bovengrens van de assen; standaard afgeleid uit de data."
+      },
+      {
+        "name": "filled",
+        "required": false,
+        "type": "boolean",
+        "description": "Vlak onder de lijn vullen.",
+        "default": "true"
+      },
+      {
+        "name": "dots",
+        "required": false,
+        "type": "boolean",
+        "description": "Stip op elk hoekpunt.",
+        "default": "true"
+      },
+      {
+        "name": "legend",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "formatValue",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
+      }
+    ]
+  },
   "RadioGroupProps": {
     "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"defaultValue\">",
     "props": [
@@ -5059,6 +5728,148 @@
         "required": false,
         "type": "boolean",
         "description": ""
+      }
+    ]
+  },
+  "ScatterPoint": {
+    "extends": "",
+    "props": [
+      {
+        "name": "x",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "y",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "number",
+        "description": "Derde grootheid; bepaalt de straal van de stip."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "ScatterSeries": {
+    "extends": "",
+    "props": [
+      {
+        "name": "name",
+        "required": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "points",
+        "required": true,
+        "type": "ScatterPoint[]",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "ScatterChartProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "series",
+        "required": true,
+        "type": "ScatterSeries[]",
+        "description": ""
+      },
+      {
+        "name": "height",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "260"
+      },
+      {
+        "name": "xLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Naam onder de horizontale as."
+      },
+      {
+        "name": "yLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Naam links van de verticale as."
+      },
+      {
+        "name": "grid",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "xTicks",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "6"
+      },
+      {
+        "name": "yTicks",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "5"
+      },
+      {
+        "name": "legend",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "type": "boolean",
+        "description": "",
+        "default": "true"
+      },
+      {
+        "name": "sizeRange",
+        "required": false,
+        "type": "[number, number]",
+        "description": "Kleinste en grootste straal wanneer punten een `size` hebben."
+      },
+      {
+        "name": "formatX",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "formatY",
+        "required": false,
+        "type": "(value: number) => string",
+        "description": ""
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
       }
     ]
   },
@@ -7012,6 +7823,78 @@
       }
     ]
   },
+  "TrackerBlock": {
+    "extends": "",
+    "props": [
+      {
+        "name": "tone",
+        "required": true,
+        "type": "TrackerTone",
+        "description": ""
+      },
+      {
+        "name": "tooltip",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst in de tooltip; zonder tekst blijft het blokje stil."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "TrackerProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "data",
+        "required": true,
+        "type": "TrackerBlock[]",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "startLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst links en rechts onder de reeks, bv. \"30 dagen geleden\" en \"vandaag\"."
+      },
+      {
+        "name": "endLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "string",
+        "description": "Toegankelijke naam voor de hele reeks."
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Geen gegevens\""
+      }
+    ]
+  },
   "TreeProps": {
     "extends": "Omit<React.HTMLAttributes<HTMLUListElement>, \"onSelect\">",
     "props": [
@@ -7451,6 +8334,250 @@
         "required": true,
         "type": "boolean",
         "description": ""
+      }
+    ]
+  },
+  "ChartSeries": {
+    "extends": "",
+    "props": [
+      {
+        "name": "name",
+        "required": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "data",
+        "required": true,
+        "type": "number[]",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "ChartMargin": {
+    "extends": "",
+    "props": [
+      {
+        "name": "top",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "right",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "bottom",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "left",
+        "required": true,
+        "type": "number",
+        "description": ""
+      }
+    ]
+  },
+  "ChartPoint": {
+    "extends": "",
+    "props": [
+      {
+        "name": "x",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "y",
+        "required": true,
+        "type": "number",
+        "description": ""
+      }
+    ]
+  },
+  "ChartScale": {
+    "extends": "",
+    "props": [
+      {
+        "name": "min",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "ticks",
+        "required": true,
+        "type": "number[]",
+        "description": ""
+      }
+    ]
+  },
+  "ChartGridProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "ticks",
+        "required": true,
+        "type": "number[]",
+        "description": ""
+      },
+      {
+        "name": "toY",
+        "required": true,
+        "type": "(waarde: number) => number",
+        "description": "Zet een tickwaarde om naar een y-coördinaat."
+      },
+      {
+        "name": "x1",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "x2",
+        "required": true,
+        "type": "number",
+        "description": ""
+      }
+    ]
+  },
+  "ChartAxisYProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "ticks",
+        "required": true,
+        "type": "number[]",
+        "description": ""
+      },
+      {
+        "name": "toY",
+        "required": true,
+        "type": "(waarde: number) => number",
+        "description": ""
+      },
+      {
+        "name": "x",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "format",
+        "required": false,
+        "type": "(waarde: number) => string",
+        "description": ""
+      },
+      {
+        "name": "right",
+        "required": false,
+        "type": "boolean",
+        "description": "Labels rechts van de as in plaats van links."
+      }
+    ]
+  },
+  "ChartAxisXProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "labels",
+        "required": true,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "toX",
+        "required": true,
+        "type": "(index: number) => number",
+        "description": "Zet een index om naar een x-coördinaat."
+      },
+      {
+        "name": "y",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "maxLabels",
+        "required": false,
+        "type": "number",
+        "description": "Laat labels weg zodra ze niet meer passen.",
+        "default": "8"
+      }
+    ]
+  },
+  "ChartTooltipItem": {
+    "extends": "",
+    "props": [
+      {
+        "name": "label",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "color",
+        "required": false,
+        "type": "string",
+        "description": ""
+      }
+    ]
+  },
+  "ChartTooltipProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"title\">",
+    "props": [
+      {
+        "name": "x",
+        "required": true,
+        "type": "number",
+        "description": "Positie binnen de grafiekcontainer, in pixels."
+      },
+      {
+        "name": "y",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "items",
+        "required": true,
+        "type": "ChartTooltipItem[]",
+        "description": ""
+      },
+      {
+        "name": "containerWidth",
+        "required": false,
+        "type": "number",
+        "description": "Breedte van de container, om binnen de rand te blijven."
       }
     ]
   },

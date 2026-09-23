@@ -1,13 +1,12 @@
 "use client";
 import * as React from "react";
 import { cn } from "../lib/cn";
+import { CHART_PALETTE as PALETTE } from "../lib/chart-utils";
 
 /**
  * Grafieken — eigen SVG-implementatie, geen chartbibliotheek.
  * Kleuren komen uit --chart-1 … --chart-6 (afgeleid van het design).
  */
-
-const PALETTE = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--chart-6)"];
 
 export interface ChartDatum {
   label: string;
@@ -295,5 +294,3 @@ export const ChartLegend = React.forwardRef<HTMLDivElement, ChartLegendProps>(fu
     </div>
   );
 });
-
-export { PALETTE as CHART_PALETTE };

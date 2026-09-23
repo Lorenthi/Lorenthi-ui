@@ -8,6 +8,7 @@ import AgendaViews from "./agenda-views";
 import AlertBasic from "./alert-basic";
 import AlertdialogBasic from "./alertdialog-basic";
 import AppshellBasic from "./appshell-basic";
+import AreachartBasic from "./areachart-basic";
 import AspectratioBasic from "./aspectratio-basic";
 import AuthCentered from "./auth-centered";
 import AuthSplit from "./auth-split";
@@ -16,6 +17,7 @@ import AvatarBasic from "./avatar-basic";
 import AvatarUploadBasic from "./avatar-upload-basic";
 import BadgeTones from "./badge-tones";
 import BadgeUsage from "./badge-usage";
+import BarlistBasic from "./barlist-basic";
 import BottomnavBasic from "./bottomnav-basic";
 import BreadcrumbBasic from "./breadcrumb-basic";
 import ButtonSizes from "./button-sizes";
@@ -25,6 +27,7 @@ import CalendarBasic from "./calendar-basic";
 import CalendarMultiple from "./calendar-multiple";
 import CardBasic from "./card-basic";
 import CarouselBasic from "./carousel-basic";
+import CategorybarBasic from "./categorybar-basic";
 import ChartBar from "./chart-bar";
 import ChartDonut from "./chart-donut";
 import CheckboxBasic from "./checkbox-basic";
@@ -33,10 +36,12 @@ import CodeblockBasic from "./codeblock-basic";
 import CollapsibleBasic from "./collapsible-basic";
 import ColorpickerBasic from "./colorpicker-basic";
 import ComboboxBasic from "./combobox-basic";
+import CombochartBasic from "./combochart-basic";
 import CommandBasic from "./command-basic";
 import ComposerBasic from "./composer-basic";
 import ConfettiBasic from "./confetti-basic";
 import ContextmenuBasic from "./contextmenu-basic";
+import ContributiongraphBasic from "./contributiongraph-basic";
 import CopybuttonBasic from "./copybutton-basic";
 import CountdownBasic from "./countdown-basic";
 import DatapillBasic from "./datapill-basic";
@@ -54,6 +59,7 @@ import FieldBasic from "./field-basic";
 import FieldsetBasic from "./fieldset-basic";
 import FiledropBasic from "./filedrop-basic";
 import FilterpanelBasic from "./filterpanel-basic";
+import GaugeBasic from "./gauge-basic";
 import HovercardBasic from "./hovercard-basic";
 import IconGallery from "./icon-gallery";
 import IndicatorBasic from "./indicator-basic";
@@ -87,6 +93,7 @@ import PopoverBasic from "./popover-basic";
 import ProgressBasic from "./progress-basic";
 import PulsedotBasic from "./pulsedot-basic";
 import QrBasic from "./qr-basic";
+import RadarchartBasic from "./radarchart-basic";
 import RadioBasic from "./radio-basic";
 import RadioCards from "./radio-cards";
 import RatingBasic from "./rating-basic";
@@ -94,6 +101,7 @@ import ReorderBasic from "./reorder-basic";
 import ResizableBasic from "./resizable-basic";
 import ResourceColumnsBasic from "./resource-columns-basic";
 import RicheditorBasic from "./richeditor-basic";
+import ScatterchartBasic from "./scatterchart-basic";
 import ScheduleBasic from "./schedule-basic";
 import ScrollareaBasic from "./scrollarea-basic";
 import ScrollspyBasic from "./scrollspy-basic";
@@ -128,6 +136,7 @@ import ToastBasic from "./toast-basic";
 import ToggleBasic from "./toggle-basic";
 import ToolbarBasic from "./toolbar-basic";
 import TooltipBasic from "./tooltip-basic";
+import TrackerBasic from "./tracker-basic";
 import TreeBasic from "./tree-basic";
 import UploadbuttonBasic from "./uploadbutton-basic";
 import UploadbuttonReal from "./uploadbutton-real";
@@ -142,6 +151,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "alert-basic": AlertBasic,
   "alertdialog-basic": AlertdialogBasic,
   "appshell-basic": AppshellBasic,
+  "areachart-basic": AreachartBasic,
   "aspectratio-basic": AspectratioBasic,
   "auth-centered": AuthCentered,
   "auth-split": AuthSplit,
@@ -150,6 +160,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "avatar-upload-basic": AvatarUploadBasic,
   "badge-tones": BadgeTones,
   "badge-usage": BadgeUsage,
+  "barlist-basic": BarlistBasic,
   "bottomnav-basic": BottomnavBasic,
   "breadcrumb-basic": BreadcrumbBasic,
   "button-sizes": ButtonSizes,
@@ -159,6 +170,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "calendar-multiple": CalendarMultiple,
   "card-basic": CardBasic,
   "carousel-basic": CarouselBasic,
+  "categorybar-basic": CategorybarBasic,
   "chart-bar": ChartBar,
   "chart-donut": ChartDonut,
   "checkbox-basic": CheckboxBasic,
@@ -167,10 +179,12 @@ export const DEMOS: Record<string, ComponentType> = {
   "collapsible-basic": CollapsibleBasic,
   "colorpicker-basic": ColorpickerBasic,
   "combobox-basic": ComboboxBasic,
+  "combochart-basic": CombochartBasic,
   "command-basic": CommandBasic,
   "composer-basic": ComposerBasic,
   "confetti-basic": ConfettiBasic,
   "contextmenu-basic": ContextmenuBasic,
+  "contributiongraph-basic": ContributiongraphBasic,
   "copybutton-basic": CopybuttonBasic,
   "countdown-basic": CountdownBasic,
   "datapill-basic": DatapillBasic,
@@ -188,6 +202,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "fieldset-basic": FieldsetBasic,
   "filedrop-basic": FiledropBasic,
   "filterpanel-basic": FilterpanelBasic,
+  "gauge-basic": GaugeBasic,
   "hovercard-basic": HovercardBasic,
   "icon-gallery": IconGallery,
   "indicator-basic": IndicatorBasic,
@@ -221,6 +236,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "progress-basic": ProgressBasic,
   "pulsedot-basic": PulsedotBasic,
   "qr-basic": QrBasic,
+  "radarchart-basic": RadarchartBasic,
   "radio-basic": RadioBasic,
   "radio-cards": RadioCards,
   "rating-basic": RatingBasic,
@@ -228,6 +244,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "resizable-basic": ResizableBasic,
   "resource-columns-basic": ResourceColumnsBasic,
   "richeditor-basic": RicheditorBasic,
+  "scatterchart-basic": ScatterchartBasic,
   "schedule-basic": ScheduleBasic,
   "scrollarea-basic": ScrollareaBasic,
   "scrollspy-basic": ScrollspyBasic,
@@ -262,6 +279,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "toggle-basic": ToggleBasic,
   "toolbar-basic": ToolbarBasic,
   "tooltip-basic": TooltipBasic,
+  "tracker-basic": TrackerBasic,
   "tree-basic": TreeBasic,
   "uploadbutton-basic": UploadbuttonBasic,
   "uploadbutton-real": UploadbuttonReal,
