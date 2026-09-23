@@ -59,7 +59,7 @@ export interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
 
 /** Radio — één optie binnen een RadioGroup. */
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Radio(
-  { value, label, description, card, className, id, disabled, ...rest },
+  { value, label, description, card, className, id, disabled, onChange, ...rest },
   ref
 ) {
   const group = React.useContext(RadioGroupContext);
@@ -89,11 +89,13 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(function Rad
           value={value}
           checked={checked}
           disabled={isDisabled}
-          onChange={(event) => {
-            group?.setValue(value);
-            rest.onChange?.(event);
-          }}
           {...rest}
+          // Ná {...rest}: een eigen onChange mag de groepskeuze niet stilzwijgend
+          // overschrijven, anders selecteert de optie niet meer.
+          onChange={(event) => {
+            onChange?.(event);
+            group?.setValue(value);
+          }}
         />
         <span className="lui-radio-dot" aria-hidden="true" />
       </span>

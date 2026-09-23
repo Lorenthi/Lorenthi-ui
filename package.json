@@ -10,7 +10,7 @@
     "dev": "npm run registry && npm run dev -w @lorenthi/docs",
     "build": "npm run registry && npm run build -w @lorenthi/docs",
     "registry": "node scripts/build-registry.mjs",
-    "typecheck": "tsc -p packages/ui/tsconfig.json --noEmit",
+    "typecheck": "tsc -p packages/ui/tsconfig.json --noEmit && tsc -p apps/docs/tsconfig.json --noEmit",
     "cli": "node packages/cli/bin/lorenthi-ui.mjs",
     "test:ui": "node scripts/ui-test.mjs --build"
   },

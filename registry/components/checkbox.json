@@ -3,7 +3,9 @@
   "title": "Checkbox",
   "description": "Aanvinkvakje met derde staat en beschrijving.",
   "category": "Formulieren",
-  "dependencies": [],
+  "dependencies": [
+    "field"
+  ],
   "requires": [],
   "files": [
     {

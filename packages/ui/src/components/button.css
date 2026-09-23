@@ -74,8 +74,16 @@
 .lui-btn-group-joined > .lui-toggle:hover,
 .lui-btn-group-joined > .lui-toggle:focus-visible,
 .lui-btn-group-joined > .lui-toggle[data-state="on"] { position: relative; z-index: 1; }
-.lui-btn-group > .lui-btn { border-radius: 0; margin-left: -1px; }
-.lui-btn-group > .lui-btn:first-child { border-radius: var(--r-sm) 0 0 var(--r-sm); margin-left: 0; }
-.lui-btn-group > .lui-btn:last-child { border-radius: 0 var(--r-sm) var(--r-sm) 0; }
-.lui-btn-group > .lui-btn:only-child { border-radius: var(--r-sm); }
+/* Horizontaal aan elkaar. Bewust gescoped op -joined: met joined={false} horen
+   de knoppen los te staan, dus met hun eigen ronde hoeken en zonder overlap. */
+.lui-btn-group-joined:not(.lui-btn-group-vertical) > .lui-btn {
+  border-radius: 0; margin-left: -1px;
+}
+.lui-btn-group-joined:not(.lui-btn-group-vertical) > .lui-btn:first-child {
+  border-radius: var(--r-sm) 0 0 var(--r-sm); margin-left: 0;
+}
+.lui-btn-group-joined:not(.lui-btn-group-vertical) > .lui-btn:last-child {
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.lui-btn-group-joined > .lui-btn:only-child { border-radius: var(--r-sm); }
 .lui-btn-group > .lui-btn:hover, .lui-btn-group > .lui-btn:focus-visible { z-index: 1; }

@@ -278,17 +278,22 @@ export function CommandDialog({
     onOpenChange?.(next);
   };
 
+  // De listener mag niet bij elke render opnieuw aangehangen worden, maar moet
+  // wel de actuele staat zien. Vandaar een ref, zoals in useEscapeKey.
+  const wissel = React.useRef<() => void>(() => undefined);
+  wissel.current = () => setOpen(!isOpen);
+
   React.useEffect(() => {
     if (!shortcut) return;
     const listener = (event: KeyboardEvent) => {
       if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey)) {
         event.preventDefault();
-        setOpen(!isOpen);
+        wissel.current();
       }
     };
     document.addEventListener("keydown", listener);
     return () => document.removeEventListener("keydown", listener);
-  });
+  }, [shortcut]);
 
   return (
     <Dialog open={isOpen} onOpenChange={setOpen}>

@@ -85,7 +85,12 @@ export const Stack = React.forwardRef<HTMLElement, StackProps>(function Stack(
   );
 });
 
-/** Row — kinderen naast elkaar, standaard verticaal gecentreerd. */
+/**
+ * Row — kinderen naast elkaar, standaard verticaal gecentreerd.
+ *
+ * De klasse heet `lui-hstack` en niet `lui-row`: die laatste is van ListRow,
+ * en twee componenten op dezelfde klasse overschrijven elkaars opmaak.
+ */
 export const Row = React.forwardRef<HTMLElement, RowProps>(function Row(
   { gap = "sm", align = "center", justify, wrap = true, as: Comp = "div", className, ...rest },
   ref
@@ -95,7 +100,7 @@ export const Row = React.forwardRef<HTMLElement, RowProps>(function Row(
       ref={ref}
       data-wrap={wrap ? "" : undefined}
       {...data({ gap, align, justify })}
-      className={cn("lui-row", className)}
+      className={cn("lui-hstack", className)}
       {...rest}
     />
   );

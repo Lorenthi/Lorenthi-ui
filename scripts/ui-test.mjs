@@ -350,7 +350,9 @@ async function testAlles(page, basis) {
 function bouw() {
   console.log("Site bouwen …");
   rmSync(join(root, "apps/docs/.next"), { recursive: true, force: true });
-  const resultaat = spawnSync("npm", ["run", "build"], { cwd: root, stdio: "inherit", shell: true });
+  // Eén commandostring in plaats van een args-array: met shell: true zou een
+  // aparte args-array de DEP0190-waarschuwing van Node opleveren.
+  const resultaat = spawnSync("npm run build", { cwd: root, stdio: "inherit", shell: true });
   if (resultaat.status !== 0) {
     console.error("De build is mislukt; de test kan niet draaien.");
     process.exit(2);
@@ -368,11 +370,13 @@ if (!basis) {
   const poort = await vrijePoort();
   basis = `http://localhost:${poort}`;
   console.log(`Site starten op ${basis} …`);
-  server = spawn("npm", ["start", "-w", "@lorenthi/docs"], {
-    cwd: root,
+  // Rechtstreeks via node, niet via `npm ... --shell`: dat scheelt de DEP0190-
+  // waarschuwing, en belangrijker — zonder tussenliggende shell doodt
+  // server.kill() straks echt de Next-server in plaats van alleen zijn ouder.
+  server = spawn(process.execPath, [join(root, "apps/docs/scripts/dev.mjs"), "start"], {
+    cwd: join(root, "apps/docs"),
     env: { ...process.env, PORT: String(poort) },
     stdio: "ignore",
-    shell: true,
   });
   if (!(await wachtOpServer(basis))) {
     console.error("De site kwam niet op. Draai eerst `npm run build`.");

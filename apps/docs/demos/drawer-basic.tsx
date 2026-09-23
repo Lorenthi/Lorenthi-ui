@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import {
   Button, Drawer, DrawerBody, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader,
   DrawerTitle, DrawerTrigger,
@@ -8,16 +7,12 @@ import {
 type Side = "left" | "right" | "top" | "bottom";
 
 export default function Demo() {
-  const [side, setSide] = useState<Side>("right");
-
   return (
     <>
       {(["left", "right", "top", "bottom"] as Side[]).map((option) => (
         <Drawer key={option}>
           <DrawerTrigger asChild>
-            <Button variant="secondary" onClick={() => setSide(option)}>
-              {option}
-            </Button>
+            <Button variant="secondary">{option}</Button>
           </DrawerTrigger>
           <DrawerContent side={option}>
             <DrawerHeader>

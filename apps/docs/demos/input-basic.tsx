@@ -9,7 +9,7 @@ export default function Demo() {
       <Input size="lg" placeholder="Groot veld" />
       <Input placeholder="Uitgeschakeld" disabled />
       <Field error="Dit e-mailadres is al in gebruik.">
-        <Input defaultValue="davey@itworxs.be" invalid />
+        <Input defaultValue="jan.janssens@voorbeeld.be" invalid />
       </Field>
     </div>
   );

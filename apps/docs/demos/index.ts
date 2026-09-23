@@ -11,6 +11,7 @@ import AppshellBasic from "./appshell-basic";
 import AspectratioBasic from "./aspectratio-basic";
 import AuthCentered from "./auth-centered";
 import AuthSplit from "./auth-split";
+import AutocompleteBasic from "./autocomplete-basic";
 import AvatarBasic from "./avatar-basic";
 import AvatarUploadBasic from "./avatar-upload-basic";
 import BadgeTones from "./badge-tones";
@@ -28,7 +29,9 @@ import ChartBar from "./chart-bar";
 import ChartDonut from "./chart-donut";
 import CheckboxBasic from "./checkbox-basic";
 import ChipBasic from "./chip-basic";
+import CodeblockBasic from "./codeblock-basic";
 import CollapsibleBasic from "./collapsible-basic";
+import ColorpickerBasic from "./colorpicker-basic";
 import ComboboxBasic from "./combobox-basic";
 import CommandBasic from "./command-basic";
 import ComposerBasic from "./composer-basic";
@@ -56,6 +59,7 @@ import IconGallery from "./icon-gallery";
 import IndicatorBasic from "./indicator-basic";
 import InputAffix from "./input-affix";
 import InputBasic from "./input-basic";
+import InputgroupBasic from "./inputgroup-basic";
 import KbdBasic from "./kbd-basic";
 import KeyvalueBasic from "./keyvalue-basic";
 import LabelBasic from "./label-basic";
@@ -63,10 +67,13 @@ import LayoutBasic from "./layout-basic";
 import ListRowBasic from "./list-row-basic";
 import MenubarBasic from "./menubar-basic";
 import MessagethreadBasic from "./messagethread-basic";
+import MeterBasic from "./meter-basic";
 import MockupBasic from "./mockup-basic";
 import ModalManagerBasic from "./modal-manager-basic";
 import MotiondrawerBasic from "./motiondrawer-basic";
 import MotionsegmentedBasic from "./motionsegmented-basic";
+import NavigationmenuBasic from "./navigationmenu-basic";
+import NumberfieldBasic from "./numberfield-basic";
 import OrderbuttonBasic from "./orderbutton-basic";
 import OtpBasic from "./otp-basic";
 import OtpverificationBasic from "./otpverification-basic";
@@ -89,6 +96,7 @@ import ResourceColumnsBasic from "./resource-columns-basic";
 import RicheditorBasic from "./richeditor-basic";
 import ScheduleBasic from "./schedule-basic";
 import ScrollareaBasic from "./scrollarea-basic";
+import ScrollspyBasic from "./scrollspy-basic";
 import SectionHeaderBasic from "./section-header-basic";
 import SegmentedBasic from "./segmented-basic";
 import SelectBasic from "./select-basic";
@@ -108,6 +116,7 @@ import SwimlanesBasic from "./swimlanes-basic";
 import SwitchBasic from "./switch-basic";
 import TableBasic from "./table-basic";
 import TabsBasic from "./tabs-basic";
+import TagsinputBasic from "./tagsinput-basic";
 import TaskBasic from "./task-basic";
 import TextBasic from "./text-basic";
 import TextareaBasic from "./textarea-basic";
@@ -119,8 +128,10 @@ import ToastBasic from "./toast-basic";
 import ToggleBasic from "./toggle-basic";
 import ToolbarBasic from "./toolbar-basic";
 import TooltipBasic from "./tooltip-basic";
+import TreeBasic from "./tree-basic";
 import UploadbuttonBasic from "./uploadbutton-basic";
 import UploadbuttonReal from "./uploadbutton-real";
+import VisuallyhiddenBasic from "./visuallyhidden-basic";
 import VoiceBasic from "./voice-basic";
 import WorkspaceBasic from "./workspace-basic";
 
@@ -134,6 +145,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "aspectratio-basic": AspectratioBasic,
   "auth-centered": AuthCentered,
   "auth-split": AuthSplit,
+  "autocomplete-basic": AutocompleteBasic,
   "avatar-basic": AvatarBasic,
   "avatar-upload-basic": AvatarUploadBasic,
   "badge-tones": BadgeTones,
@@ -151,7 +163,9 @@ export const DEMOS: Record<string, ComponentType> = {
   "chart-donut": ChartDonut,
   "checkbox-basic": CheckboxBasic,
   "chip-basic": ChipBasic,
+  "codeblock-basic": CodeblockBasic,
   "collapsible-basic": CollapsibleBasic,
+  "colorpicker-basic": ColorpickerBasic,
   "combobox-basic": ComboboxBasic,
   "command-basic": CommandBasic,
   "composer-basic": ComposerBasic,
@@ -179,6 +193,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "indicator-basic": IndicatorBasic,
   "input-affix": InputAffix,
   "input-basic": InputBasic,
+  "inputgroup-basic": InputgroupBasic,
   "kbd-basic": KbdBasic,
   "keyvalue-basic": KeyvalueBasic,
   "label-basic": LabelBasic,
@@ -186,10 +201,13 @@ export const DEMOS: Record<string, ComponentType> = {
   "list-row-basic": ListRowBasic,
   "menubar-basic": MenubarBasic,
   "messagethread-basic": MessagethreadBasic,
+  "meter-basic": MeterBasic,
   "mockup-basic": MockupBasic,
   "modal-manager-basic": ModalManagerBasic,
   "motiondrawer-basic": MotiondrawerBasic,
   "motionsegmented-basic": MotionsegmentedBasic,
+  "navigationmenu-basic": NavigationmenuBasic,
+  "numberfield-basic": NumberfieldBasic,
   "orderbutton-basic": OrderbuttonBasic,
   "otp-basic": OtpBasic,
   "otpverification-basic": OtpverificationBasic,
@@ -212,6 +230,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "richeditor-basic": RicheditorBasic,
   "schedule-basic": ScheduleBasic,
   "scrollarea-basic": ScrollareaBasic,
+  "scrollspy-basic": ScrollspyBasic,
   "section-header-basic": SectionHeaderBasic,
   "segmented-basic": SegmentedBasic,
   "select-basic": SelectBasic,
@@ -231,6 +250,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "switch-basic": SwitchBasic,
   "table-basic": TableBasic,
   "tabs-basic": TabsBasic,
+  "tagsinput-basic": TagsinputBasic,
   "task-basic": TaskBasic,
   "text-basic": TextBasic,
   "textarea-basic": TextareaBasic,
@@ -242,8 +262,10 @@ export const DEMOS: Record<string, ComponentType> = {
   "toggle-basic": ToggleBasic,
   "toolbar-basic": ToolbarBasic,
   "tooltip-basic": TooltipBasic,
+  "tree-basic": TreeBasic,
   "uploadbutton-basic": UploadbuttonBasic,
   "uploadbutton-real": UploadbuttonReal,
+  "visuallyhidden-basic": VisuallyhiddenBasic,
   "voice-basic": VoiceBasic,
   "workspace-basic": WorkspaceBasic,
 };

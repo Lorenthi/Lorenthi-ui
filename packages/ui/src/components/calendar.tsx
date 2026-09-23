@@ -28,7 +28,12 @@ import {
 
 export type CalendarMode = "single" | "range" | "multiple";
 
-interface CalendarBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
+/**
+ * De props die elke modus deelt. Geëxporteerd omdat de props-tabel in de docs
+ * uit `export interface` gelezen wordt: `CalendarProps` zelf is een doorsnede
+ * met een union en komt daar dus niet in terecht.
+ */
+export interface CalendarBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   /** Zichtbare maand (controlled). */
   month?: Date;
   defaultMonth?: Date;
@@ -53,25 +58,29 @@ interface CalendarBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
   size?: "sm" | "md";
 }
 
-interface SingleProps {
+/** Eén datum kiezen (de standaard). */
+export interface CalendarSingleProps {
   mode?: "single";
   selected?: Date | null;
   onSelect?: (date: Date | null) => void;
 }
 
-interface RangeProps {
+/** Een periode kiezen: eerste klik zet `from`, tweede `to`. */
+export interface CalendarRangeProps {
   mode: "range";
   selected?: DateRange | null;
   onSelect?: (range: DateRange) => void;
 }
 
-interface MultipleProps {
+/** Losse dagen aan- en uitvinken. */
+export interface CalendarMultipleProps {
   mode: "multiple";
   selected?: Date[];
   onSelect?: (dates: Date[]) => void;
 }
 
-export type CalendarProps = CalendarBaseProps & (SingleProps | RangeProps | MultipleProps);
+export type CalendarProps = CalendarBaseProps &
+  (CalendarSingleProps | CalendarRangeProps | CalendarMultipleProps);
 
 /**
  * Calendar — maandkalender met enkelvoudige, bereik- en meervoudige selectie.

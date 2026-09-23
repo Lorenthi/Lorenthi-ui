@@ -1,35 +1,39 @@
 /* ============================ Layout ============================ */
-/* Eén afstandsschaal voor Stack, Row, Grid en Container. */
-.lui-stack, .lui-row, .lui-grid, .lui-container {
+/* Eén afstandsschaal voor Stack, Row, Grid en Container.
+   Row gebruikt .lui-hstack en niet .lui-row: die laatste hoort bij ListRow. */
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container) {
   --lui-gap: 16px;
   min-width: 0;
 }
-[data-gap="none"] { --lui-gap: 0; }
-[data-gap="xs"] { --lui-gap: 6px; }
-[data-gap="sm"] { --lui-gap: 10px; }
-[data-gap="md"] { --lui-gap: 16px; }
-[data-gap="lg"] { --lui-gap: 24px; }
-[data-gap="xl"] { --lui-gap: 36px; }
+
+/* Bewust gescoped op de layout-klassen: een losse [data-gap] zou ook markup
+   van de gebruiker raken, en daar zijn deze regels niet voor. */
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="none"] { --lui-gap: 0; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="xs"] { --lui-gap: 6px; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="sm"] { --lui-gap: 10px; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="md"] { --lui-gap: 16px; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="lg"] { --lui-gap: 24px; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-gap="xl"] { --lui-gap: 36px; }
 
 .lui-stack { display: flex; flex-direction: column; gap: var(--lui-gap); }
-.lui-row { display: flex; flex-direction: row; gap: var(--lui-gap); }
-.lui-row[data-wrap] { flex-wrap: wrap; }
+.lui-hstack { display: flex; flex-direction: row; gap: var(--lui-gap); }
+.lui-hstack[data-wrap] { flex-wrap: wrap; }
 .lui-grid {
   display: grid; gap: var(--lui-gap);
   grid-template-columns: var(--lui-grid-cols, repeat(auto-fit, minmax(min(var(--lui-grid-min, 220px), 100%), 1fr)));
 }
 
-.lui-stack[data-align="start"], .lui-row[data-align="start"], .lui-grid[data-align="start"] { align-items: flex-start; }
-.lui-stack[data-align="center"], .lui-row[data-align="center"], .lui-grid[data-align="center"] { align-items: center; }
-.lui-stack[data-align="end"], .lui-row[data-align="end"], .lui-grid[data-align="end"] { align-items: flex-end; }
-.lui-stack[data-align="stretch"], .lui-row[data-align="stretch"], .lui-grid[data-align="stretch"] { align-items: stretch; }
-.lui-stack[data-align="baseline"], .lui-row[data-align="baseline"] { align-items: baseline; }
+:is(.lui-stack, .lui-hstack, .lui-grid)[data-align="start"] { align-items: flex-start; }
+:is(.lui-stack, .lui-hstack, .lui-grid)[data-align="center"] { align-items: center; }
+:is(.lui-stack, .lui-hstack, .lui-grid)[data-align="end"] { align-items: flex-end; }
+:is(.lui-stack, .lui-hstack, .lui-grid)[data-align="stretch"] { align-items: stretch; }
+:is(.lui-stack, .lui-hstack)[data-align="baseline"] { align-items: baseline; }
 
-[data-justify="start"] { justify-content: flex-start; }
-[data-justify="center"] { justify-content: center; }
-[data-justify="end"] { justify-content: flex-end; }
-[data-justify="between"] { justify-content: space-between; }
-[data-justify="around"] { justify-content: space-around; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-justify="start"] { justify-content: flex-start; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-justify="center"] { justify-content: center; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-justify="end"] { justify-content: flex-end; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-justify="between"] { justify-content: space-between; }
+:is(.lui-stack, .lui-hstack, .lui-grid, .lui-container)[data-justify="around"] { justify-content: space-around; }
 
 /* Scheidingslijnen tussen de kinderen van een Stack. */
 .lui-stack[data-divided] > * + * {

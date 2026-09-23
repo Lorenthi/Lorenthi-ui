@@ -126,7 +126,7 @@ export interface ThemeToggleProps extends React.ButtonHTMLAttributes<HTMLButtonE
 
 /** ThemeToggle — knop die wisselt tussen licht en donker. */
 export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>(function ThemeToggle(
-  { size = "md", className, ...rest },
+  { size = "md", className, onClick, ...rest },
   ref
 ) {
   const { resolved, toggle } = useTheme();
@@ -137,8 +137,13 @@ export const ThemeToggle = React.forwardRef<HTMLButtonElement, ThemeToggleProps>
       type="button"
       className={cn("lui-theme-toggle", size === "sm" && "lui-theme-toggle-sm", className)}
       aria-label={resolved === "dark" ? "Naar lichte modus" : "Naar donkere modus"}
-      onClick={toggle}
       {...rest}
+      // Ná {...rest}: anders schakelt de knop niet meer zodra de gebruiker
+      // zelf een onClick meegeeft.
+      onClick={(event) => {
+        onClick?.(event);
+        toggle();
+      }}
     >
       <Icon name={resolved === "dark" ? "sun" : "moon"} size={size === "sm" ? 15 : 17} />
     </button>

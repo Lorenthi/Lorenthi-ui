@@ -11,7 +11,7 @@ export default function Demo() {
         <Input placeholder="BE 0123.456.789" />
       </Field>
       <Field label="E-mailadres" error="Vul een geldig e-mailadres in.">
-        <Input defaultValue="davey@" />
+        <Input defaultValue="jan.janssens@" />
       </Field>
       <Field label="Land" disabled hint="Wordt afgeleid uit je ondernemingsnummer.">
         <Input defaultValue="België" />

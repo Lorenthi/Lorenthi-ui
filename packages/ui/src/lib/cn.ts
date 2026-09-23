@@ -19,7 +19,7 @@ export function cn(...inputs: ClassValue[]): string {
 
   const walk = (value: ClassValue): void => {
     if (!value) return;
-    if (typeof value === "string" || typeof value === "number") {
+    if (typeof value === "string" || typeof value === "number" || typeof value === "bigint") {
       out.push(String(value));
       return;
     }

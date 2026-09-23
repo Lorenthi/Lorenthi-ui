@@ -156,7 +156,16 @@ export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement>
 
 export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps>(
   function SelectContent(
-    { searchable, searchPlaceholder = "Zoeken…", emptyMessage = "Geen resultaten", className, children, style, ...rest },
+    {
+      searchable,
+      searchPlaceholder = "Zoeken…",
+      emptyMessage = "Geen resultaten",
+      className,
+      children,
+      style,
+      onKeyDown,
+      ...rest
+    },
     ref
   ) {
     const { open, setOpen, triggerRef, contentRef } = useSelect("SelectContent");
@@ -180,7 +189,8 @@ export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps
 
     if (!open) return null;
 
-    const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const navigeer = (event: React.KeyboardEvent<HTMLDivElement>) => {
+      onKeyDown?.(event);
       const items = Array.from(contentRef.current?.querySelectorAll<HTMLElement>(OPTION_SELECTOR) ?? []);
       if (items.length === 0) return;
       const index = items.indexOf(document.activeElement as HTMLElement);
@@ -209,8 +219,9 @@ export const SelectContent = React.forwardRef<HTMLDivElement, SelectContentProps
           role="listbox"
           className={cn("lui-select-content", className)}
           style={{ ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
-          onKeyDown={onKeyDown}
           {...rest}
+          // Ná {...rest}, zodat een eigen onKeyDown de pijltjesnavigatie niet wegneemt.
+          onKeyDown={navigeer}
         >
           {searchable && (
             <div className="lui-select-search">

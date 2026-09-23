@@ -124,7 +124,18 @@ export interface HoverCardContentProps extends React.HTMLAttributes<HTMLDivEleme
 
 export const HoverCardContent = React.forwardRef<HTMLDivElement, HoverCardContentProps>(
   function HoverCardContent(
-    { side = "bottom", align = "start", offset = 8, width = 280, className, children, style, ...rest },
+    {
+      side = "bottom",
+      align = "start",
+      offset = 8,
+      width = 280,
+      className,
+      children,
+      style,
+      onMouseEnter,
+      onMouseLeave,
+      ...rest
+    },
     ref
   ) {
     const { open, setOpen, anchorRef, contentRef, openen, sluiten } = useHoverCard("HoverCardContent");
@@ -142,9 +153,17 @@ export const HoverCardContent = React.forwardRef<HTMLDivElement, HoverCardConten
           data-side={position.side}
           className={cn("lui-hovercard", className)}
           style={{ width, ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
-          onMouseEnter={openen}
-          onMouseLeave={sluiten}
           {...rest}
+          // Ná {...rest}: de kaart moet open blijven terwijl je er met de muis
+          // naartoe beweegt, ook als de gebruiker zelf mouse-handlers meegeeft.
+          onMouseEnter={(event) => {
+            onMouseEnter?.(event);
+            openen();
+          }}
+          onMouseLeave={(event) => {
+            onMouseLeave?.(event);
+            sluiten();
+          }}
         >
           {children}
         </div>

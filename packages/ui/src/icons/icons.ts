@@ -101,6 +101,7 @@ export const ICONS = {
   grip: "M9 5h.01 M9 12h.01 M9 19h.01 M15 5h.01 M15 12h.01 M15 19h.01",
   star: "M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3-6.2 3.3L7 14.2l-5-4.9 6.9-1z",
   heart: "M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 000-7.8z",
+  pipette: "M18.5 2.5a2.1 2.1 0 013 3L14 13l-3-3 7.5-7.5z M11 10l-7 7v3h3l7-7 M9.5 11.5l3 3",
 } as const;
 
 export type IconName = keyof typeof ICONS;

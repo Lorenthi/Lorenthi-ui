@@ -5,20 +5,20 @@ Werkt zoals shadcn/ui — dezelfde compositie, dezelfde copy-paste-aanpak — ma
 code van shadcn, Radix, Headless UI, cva of clsx**. Alles staat in `packages/ui/src`.
 
 ```
-92 componenten · 4 talen · 2 thema's · 3 dichtheden · 0 UI-dependencies in de kern
+104 componenten · 4 talen · 2 thema's · 3 dichtheden · 0 UI-dependencies in de kern
 ```
 
 | Categorie | Aantal | Waarvoor |
 | --- | --- | --- |
-| Basis | 11 | Button, Badge, Card, Avatar, Icon, Kbd, Skeleton … |
+| Basis | 12 | Button, Badge, Card, Avatar, Icon, Text, Kbd, Skeleton … |
 | Formulieren | 20 | Input, Select, Combobox, Toggle, Rating, Fieldset, RichEditor … |
 | Overlays | 11 | Dialog, AlertDialog, Drawer, Popover, ContextMenu, HoverCard … |
-| Data | 12 | Table, Chart, Stat, Timeline, MessageThread, Carousel, Countdown … |
-| Navigatie | 12 | Tabs, Sidebar, BottomNav, Menubar, Fab, Collapsible, Stepper … |
+| Data | 13 | Table, Chart, Stat, Timeline, MessageThread, Carousel, Countdown … |
+| Navigatie | 13 | Tabs, Sidebar, BottomNav, Menubar, Fab, Collapsible, FilterPanel … |
 | Datum & planning | 8 | Calendar, WeekSchedule, ResourceColumns, Swimlanes … |
-| Layout | 10 | AppShell, Resizable, ScrollArea, AspectRatio, Mockup … |
+| Layout | 11 | AppShell, Workspace, Resizable, ScrollArea, Mockup, Stack/Row/Grid … |
 | Feedback | 5 | Alert, EmptyState, Indicator, Confetti, PulseDot |
-| Motion | 3 | Optioneel, achter `@lorenthi/ui/motion` |
+| Motion | 11 | Optioneel, achter `@lorenthi/ui/motion` |
 
 ---
 
@@ -47,8 +47,8 @@ lorenthi-ui/
 ├─ packages/
 │  ├─ ui/                 De library
 │  │  └─ src/
-│  │     ├─ components/   89 componenten (.tsx + .css per component)
-│  │     ├─ motion/       3 componenten achter @lorenthi/ui/motion (optioneel)
+│  │     ├─ components/   92 componenten (.tsx + .css per component)
+│  │     ├─ motion/       11 componenten achter @lorenthi/ui/motion (optioneel)
 │  │     ├─ lib/          cn, variants, Slot, Portal, hooks, positionering, datums
 │  │     ├─ icons/        eigen icon set (één path per glyph)
 │  │     └─ styles/       tokens.css + base.css + index.css
@@ -117,7 +117,7 @@ npm i motion            # alleen nodig als je hieruit importeert
 ```
 
 ```tsx
-import { MotionDrawerContent, ReorderList, MotionSegmented } from "@lorenthi/ui/motion";
+import { MotionDrawerContent, ReorderList, SendButton } from "@lorenthi/ui/motion";
 ```
 
 | Component | Wat het toevoegt |
@@ -125,15 +125,26 @@ import { MotionDrawerContent, ReorderList, MotionSegmented } from "@lorenthi/ui/
 | `MotionDrawerContent` | Vervangt `DrawerContent`: veerbeweging, echte exit-animatie, wegvegen om te sluiten |
 | `ReorderList` | Lijst waarvan je de volgorde sleept, met of zonder greepje |
 | `MotionSegmented` | Zelfde API als `Segmented`, maar de actieve achtergrond schuift mee |
+| `OtpVerification` | Verificatiekaart die zichzelf controleert: rij → raster → bevestiging |
+| `PaymentCheckout` | Kaartgegevens met een kaart die meeschrijft en omdraait voor de CVC |
+| `UploadButton` | Bestandsveld waarvan de knop openklapt en zich vult met de voortgang |
+| `SendButton` | Vouwt zich tot een papieren vliegtuigje dat wegvliegt |
+| `OrderButton` | Bestelwagen die door de knop rijdt |
+| `AddToCartButton` | Trekt samen tot een mandje waar het artikel in valt |
+| `ShareButton` | Waaiert open naar je deelkanalen |
+| `DeleteButton` | Vuilnisbak die het label opeet |
+
+De actieknoppen delen één statusmachine: `useAction` (idle → busy → done of error),
+met een minimale speelduur zodat een snelle backend de animatie niet afkapt.
 
 `motion` staat in `package.json` als **optionele** peer dependency: importeer je niets uit
 `@lorenthi/ui/motion`, dan hoef je het niet te installeren en komt het ook niet in je bundel.
 
-De CLI houdt dat onderscheid vast: `npx lorenthi-ui add --all` slaat deze drie over, en
+De CLI houdt dat onderscheid vast: `npx lorenthi-ui add --all` slaat deze map over, en
 `npx lorenthi-ui update` installeert ze niet vanzelf. Je haalt ze er bewust bij met hun naam
 of met `--with-extras`; daarna vertelt de CLI welk npm-package je nog nodig hebt.
 
-Alle drie respecteren `prefers-reduced-motion`: dan vervagen ze in plaats van te bewegen en
+Ze respecteren allemaal `prefers-reduced-motion`: dan vervagen ze in plaats van te bewegen en
 staat slepen uit.
 
 ---
@@ -201,15 +212,15 @@ Donkere modus staat in hetzelfde bestand onder `[data-theme="dark"]`.
 
 ## Componenten
 
-**Basis** — Button, Badge, Chip, Avatar, Card, Separator, Kbd, Skeleton, Spinner, CopyButton, Icon
-**Formulieren** — Input, Textarea, Field, Label, Checkbox, RadioGroup, Switch, Select, Combobox, Slider, OtpInput, FileDrop, Composer, VoiceButton, AvatarUpload, SwatchPicker
-**Overlays** — Dialog, Drawer, Popover, DropdownMenu, Tooltip, Command, Toast, ModalProvider (imperatief)
-**Navigatie** — Tabs, Accordion, Breadcrumb, Pagination, Segmented, Stepper, Toolbar, Sidebar
+**Basis** — Button, Badge, Chip, Avatar, Card, Text, Separator, Kbd, Skeleton, Spinner, CopyButton, Icon
+**Formulieren** — Input, Textarea, Field, Fieldset, Label, Checkbox, RadioGroup, Switch, Toggle, Select, Combobox, Slider, Rating, OtpInput, FileDrop, RichEditor, Composer, VoiceButton, AvatarUpload, SwatchPicker
+**Overlays** — Dialog, AlertDialog (+ useConfirm), Drawer, Popover, HoverCard, DropdownMenu, ContextMenu, Tooltip, Command, Toast, ModalProvider (imperatief)
+**Navigatie** — Tabs, Accordion, Collapsible, Breadcrumb, Pagination, Segmented, Stepper, Toolbar, Menubar, Sidebar, BottomNav, Fab (+ SpeedDial), FilterPanel
 **Datum & planning** — Calendar, DatePicker, DateRangePicker, TimeField, TimeRangeField, PeriodNav
 **Agendaweergaven** — WeekSchedule (tijdraster), ResourceColumns, Swimlanes, TimeSlotList — één datamodel
-**Data** — Table, ListRow, TaskItem, Stat, DataPill, Charts (bar / line / donut / sparkline), Progress
-**Feedback** — Alert, EmptyState, PulseDot, ConfettiBurst
-**Layout** — AppShell, Workspace, SectionHeader, EntityHeader, AuthLayout, Theme (+ DensityToggle)
+**Data** — Table, ListRow, TaskItem, KeyValueList, Stat, DataPill, Timeline, MessageThread, Carousel, Countdown, QrCode, Charts (bar / line / donut / sparkline), Progress
+**Feedback** — Alert, EmptyState, Indicator, PulseDot, ConfettiBurst
+**Layout** — AppShell, Workspace, Resizable, ScrollArea, AspectRatio, Mockup, SectionHeader, EntityHeader, AuthLayout, Stack/Row/Grid, Theme (+ DensityToggle)
 
 Elk component: TypeScript, controlled + uncontrolled, ARIA-rollen, toetsenbordnavigatie,
 zichtbare focus, licht + donker.
@@ -241,8 +252,11 @@ zichtbare focus, licht + donker.
 
 ## Opbouw
 
-Deze library is in acht stappen opgebouwd (zie `apps/docs/content/roadmap.ts` en de introductiepagina):
-fundament → formulieren & basis → navigatie & feedback → overlays → datum & planning → data & layout → extra's → CLI.
+Deze library is in vijftien stappen opgebouwd (zie `apps/docs/content/roadmap.ts` en de
+introductiepagina): fundament → formulieren & basis → navigatie & feedback → overlays →
+datum & planning → data & layout → extra's → CLI → meertalig → de gaten uit de designs →
+beweging → wat shadcn en daisyUI wél hadden → animatie in de kern → de lijst afgewerkt →
+alles vertaald.
 
 ## Labels per release
 

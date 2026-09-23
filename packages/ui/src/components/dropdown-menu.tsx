@@ -102,7 +102,18 @@ export interface DropdownMenuContentProps extends React.HTMLAttributes<HTMLDivEl
 
 export const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenuContentProps>(
   function DropdownMenuContent(
-    { side = "bottom", align = "start", offset = 6, matchWidth, minWidth = 200, className, children, style, ...rest },
+    {
+      side = "bottom",
+      align = "start",
+      offset = 6,
+      matchWidth,
+      minWidth = 200,
+      className,
+      children,
+      style,
+      onKeyDown,
+      ...rest
+    },
     ref
   ) {
     const { open, setOpen, anchorRef, contentRef } = useMenu("DropdownMenuContent");
@@ -122,7 +133,8 @@ export const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenu
 
     if (!open) return null;
 
-    const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    const navigeer = (event: React.KeyboardEvent<HTMLDivElement>) => {
+      onKeyDown?.(event);
       const items = Array.from(contentRef.current?.querySelectorAll<HTMLElement>(ITEM_SELECTOR) ?? []);
       if (items.length === 0) return;
       const index = items.indexOf(document.activeElement as HTMLElement);
@@ -152,8 +164,10 @@ export const DropdownMenuContent = React.forwardRef<HTMLDivElement, DropdownMenu
           data-side={position.side}
           className={cn("lui-menu", className)}
           style={{ minWidth, ...position.style, ...style, opacity: position.ready ? 1 : 0 }}
-          onKeyDown={onKeyDown}
           {...rest}
+          // Ná {...rest}: de pijltjesnavigatie mag niet wegvallen doordat de
+          // gebruiker zelf een onKeyDown meegeeft. `navigeer` roept die eerst op.
+          onKeyDown={navigeer}
         >
           {children}
         </div>

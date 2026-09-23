@@ -26,6 +26,7 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(function 
     labelPosition = "right",
     className,
     disabled,
+    onClick,
     ...rest
   },
   ref
@@ -37,6 +38,8 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(function 
   });
 
   const control = (
+    // onClick staat bewust ná {...rest}: anders overschrijft een eigen onClick
+    // de handler die de schakelaar omzet, en schakelt hij niet meer.
     <button
       ref={ref}
       type="button"
@@ -45,11 +48,11 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(function 
       disabled={disabled}
       data-state={on ? "on" : "off"}
       className={cn("lui-switch", `lui-switch-${size}`, !label && !description && className)}
-      onClick={(event) => {
-        setOn(!on);
-        rest.onClick?.(event);
-      }}
       {...rest}
+      onClick={(event) => {
+        onClick?.(event);
+        setOn(!on);
+      }}
     >
       <span className="lui-switch-thumb" />
     </button>

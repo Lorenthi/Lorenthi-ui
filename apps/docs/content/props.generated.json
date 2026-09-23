@@ -414,6 +414,136 @@
       }
     ]
   },
+  "AutocompleteOption": {
+    "extends": "",
+    "props": [
+      {
+        "name": "value",
+        "required": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Wissen\""
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ]
+  },
+  "AutocompleteProps": {
+    "extends": "Omit<React.InputHTMLAttributes<HTMLInputElement>, \"value\" | \"defaultValue\" | \"onChange\" | \"onSelect\" | \"size\" | \"prefix\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "string",
+        "description": "De getypte tekst (controlled)."
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"\""
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: string) => void",
+        "description": ""
+      },
+      {
+        "name": "options",
+        "required": true,
+        "type": "Array<AutocompleteOption | string>",
+        "description": "Suggesties; strings mogen ook."
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(option: AutocompleteOption) => void",
+        "description": "Wordt aangeroepen wanneer je een suggestie kiest."
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "type": "false | ((option: AutocompleteOption, query: string) => boolean)",
+        "description": "Zelf filteren (bv. serverkant); standaard filtert het component op \"bevat\"."
+      },
+      {
+        "name": "loading",
+        "required": false,
+        "type": "boolean",
+        "description": "Toont een spinner-regel in de lijst."
+      },
+      {
+        "name": "loadingLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Zoeken…\""
+      },
+      {
+        "name": "emptyLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Niets gevonden\""
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "maxResults",
+        "required": false,
+        "type": "number",
+        "description": "Maximum aantal getoonde suggesties.",
+        "default": "8"
+      },
+      {
+        "name": "openOnFocus",
+        "required": false,
+        "type": "boolean",
+        "description": "Opent de lijst zodra het veld focus krijgt, ook zonder tekst."
+      },
+      {
+        "name": "invalid",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ]
+  },
   "AvatarUploadProps": {
     "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"onError\">",
     "props": [
@@ -766,6 +896,170 @@
         "required": false,
         "type": "string",
         "description": "Toegankelijk label voor de groep, bijvoorbeeld \"Weergave\"."
+      }
+    ]
+  },
+  "CalendarBaseProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onSelect\">",
+    "props": [
+      {
+        "name": "month",
+        "required": false,
+        "type": "Date",
+        "description": "Zichtbare maand (controlled)."
+      },
+      {
+        "name": "defaultMonth",
+        "required": false,
+        "type": "Date",
+        "description": ""
+      },
+      {
+        "name": "onMonthChange",
+        "required": false,
+        "type": "(month: Date) => void",
+        "description": ""
+      },
+      {
+        "name": "weekStartsOn",
+        "required": false,
+        "type": "0 | 1",
+        "description": "0 = zondag, 1 = maandag (standaard).",
+        "default": "1"
+      },
+      {
+        "name": "numberOfMonths",
+        "required": false,
+        "type": "number",
+        "description": "Aantal maanden naast elkaar.",
+        "default": "1"
+      },
+      {
+        "name": "min",
+        "required": false,
+        "type": "Date",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "Date",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "type": "(date: Date) => boolean",
+        "description": "Extra dagen uitschakelen, bv. feestdagen of weekends."
+      },
+      {
+        "name": "showWeekNumbers",
+        "required": false,
+        "type": "boolean",
+        "description": "Toont de ISO-weeknummers in een extra kolom."
+      },
+      {
+        "name": "hideOutsideDays",
+        "required": false,
+        "type": "boolean",
+        "description": "Verbergt de dagen van de vorige/volgende maand."
+      },
+      {
+        "name": "markers",
+        "required": false,
+        "type": "(date: Date) => boolean",
+        "description": "Klein bolletje onder een dag, bv. \"er staat iets gepland\"."
+      },
+      {
+        "name": "locale",
+        "required": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "footer",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Inhoud onderaan de kalender, bv. knoppen."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\"",
+        "description": "",
+        "default": "\"md\""
+      }
+    ]
+  },
+  "CalendarSingleProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "mode",
+        "required": false,
+        "type": "\"single\"",
+        "description": "",
+        "default": "\"single\""
+      },
+      {
+        "name": "selected",
+        "required": false,
+        "type": "Date | null",
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(date: Date | null) => void",
+        "description": ""
+      }
+    ]
+  },
+  "CalendarRangeProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "mode",
+        "required": true,
+        "type": "\"range\"",
+        "description": "",
+        "default": "\"single\""
+      },
+      {
+        "name": "selected",
+        "required": false,
+        "type": "DateRange | null",
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(range: DateRange) => void",
+        "description": ""
+      }
+    ]
+  },
+  "CalendarMultipleProps": {
+    "extends": "",
+    "props": [
+      {
+        "name": "mode",
+        "required": true,
+        "type": "\"multiple\"",
+        "description": "",
+        "default": "\"single\""
+      },
+      {
+        "name": "selected",
+        "required": false,
+        "type": "Date[]",
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(dates: Date[]) => void",
+        "description": ""
       }
     ]
   },
@@ -1147,6 +1441,65 @@
       }
     ]
   },
+  "CodeBlockProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"children\">",
+    "props": [
+      {
+        "name": "code",
+        "required": true,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "language",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Label linksboven, bv. \"tsx\" of een bestandsnaam."
+      },
+      {
+        "name": "copyable",
+        "required": false,
+        "type": "boolean",
+        "description": "Kopieerknop rechtsboven.",
+        "default": "true"
+      },
+      {
+        "name": "lineNumbers",
+        "required": false,
+        "type": "boolean",
+        "description": "Regelnummers in de kantlijn."
+      },
+      {
+        "name": "highlightLines",
+        "required": false,
+        "type": "number[]",
+        "description": "Regels die je wil oplichten, 1-gebaseerd.",
+        "default": "[]"
+      },
+      {
+        "name": "wrap",
+        "required": false,
+        "type": "boolean",
+        "description": "Lange regels afbreken in plaats van horizontaal scrollen."
+      },
+      {
+        "name": "maxHeight",
+        "required": false,
+        "type": "number",
+        "description": "Maximale hoogte in pixels; daarboven scrollt het blok."
+      },
+      {
+        "name": "plain",
+        "required": false,
+        "type": "boolean",
+        "description": "Kleuring uitzetten voor tekst die geen code is."
+      }
+    ]
+  },
+  "CodeProps": {
+    "extends": "React.HTMLAttributes<HTMLElement>",
+    "props": []
+  },
   "CollapsibleProps": {
     "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\">",
     "props": [
@@ -1203,6 +1556,76 @@
         "type": "boolean",
         "description": "Blijft in de DOM staan als hij dicht is (standaard), zodat zoeken op de pagina werkt.",
         "default": "true"
+      }
+    ]
+  },
+  "ColorPickerProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLDivElement>, \"onChange\" | \"defaultValue\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "string",
+        "description": "Hexkleur, bv. \"#3b82f6\" of \"#3b82f680\" met alpha."
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"#3b82f6\""
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: string) => void",
+        "description": ""
+      },
+      {
+        "name": "alpha",
+        "required": false,
+        "type": "boolean",
+        "description": "Extra schuif voor doorzichtigheid.",
+        "default": "1"
+      },
+      {
+        "name": "presets",
+        "required": false,
+        "type": "string[]",
+        "description": "Vaste kleuren onderaan. Geef een lege array om ze te verbergen."
+      },
+      {
+        "name": "hideInput",
+        "required": false,
+        "type": "boolean",
+        "description": "Hexveld verbergen."
+      },
+      {
+        "name": "eyeDropper",
+        "required": false,
+        "type": "boolean",
+        "description": "Pipetknop tonen wanneer de browser EyeDropper ondersteunt.",
+        "default": "true"
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "string",
+        "description": "Toegankelijke naam voor het kleurvlak.",
+        "default": "\"Kleur\""
       }
     ]
   },
@@ -2816,6 +3239,40 @@
       }
     ]
   },
+  "InputGroupProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "Maat van de gekoppelde onderdelen.",
+        "default": "\"md\""
+      },
+      {
+        "name": "vertical",
+        "required": false,
+        "type": "boolean",
+        "description": "Onder elkaar in plaats van naast elkaar."
+      },
+      {
+        "name": "block",
+        "required": false,
+        "type": "boolean",
+        "description": "Volle breedte."
+      },
+      {
+        "name": "invalid",
+        "required": false,
+        "type": "boolean",
+        "description": "Rode rand rond de hele groep."
+      }
+    ]
+  },
+  "InputGroupTextProps": {
+    "extends": "React.HTMLAttributes<HTMLSpanElement>",
+    "props": []
+  },
   "InputProps": {
     "extends": "Omit<React.InputHTMLAttributes<HTMLInputElement>, \"size\" | \"prefix\">",
     "props": [
@@ -3247,6 +3704,97 @@
       }
     ]
   },
+  "MeterThreshold": {
+    "extends": "",
+    "props": [
+      {
+        "name": "from",
+        "required": true,
+        "type": "number",
+        "description": "Vanaf welke waarde deze toon geldt."
+      },
+      {
+        "name": "tone",
+        "required": true,
+        "type": "\"accent\" | \"green\" | \"amber\" | \"red\"",
+        "description": ""
+      }
+    ]
+  },
+  "MeterProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "value",
+        "required": true,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "0"
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "100"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "valueLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst rechts; standaard de waarde met eenheid."
+      },
+      {
+        "name": "unit",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "tone",
+        "required": false,
+        "type": "\"accent\" | \"green\" | \"amber\" | \"red\"",
+        "description": "Vaste toon; laat weg om de drempels te gebruiken."
+      },
+      {
+        "name": "thresholds",
+        "required": false,
+        "type": "MeterThreshold[]",
+        "description": "Drempels van laag naar hoog, bv. [{from:0,tone:\"green\"},{from:70,tone:\"amber\"}]."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "marker",
+        "required": false,
+        "type": "number",
+        "description": "Streepje op de balk, bv. een doel of limiet."
+      },
+      {
+        "name": "markerLabel",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      }
+    ]
+  },
   "MockupBrowserProps": {
     "extends": "React.HTMLAttributes<HTMLDivElement>",
     "props": [
@@ -3445,6 +3993,215 @@
         "type": "number",
         "description": "Maximaal aantal dialogs boven elkaar.",
         "default": "3"
+      }
+    ]
+  },
+  "NavigationMenuProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLElement>, \"onChange\" | \"defaultValue\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "string | null",
+        "description": "Welk item openstaat (controlled)."
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "string | null",
+        "description": ""
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: string | null) => void",
+        "description": ""
+      },
+      {
+        "name": "openOnHover",
+        "required": false,
+        "type": "boolean",
+        "description": "Panelen openen bij hover; standaard aan op een muis.",
+        "default": "true"
+      },
+      {
+        "name": "block",
+        "required": false,
+        "type": "boolean",
+        "description": "Vult de volle breedte en zet de items uit elkaar."
+      }
+    ]
+  },
+  "NavigationMenuItemProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLLIElement>, \"title\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "string",
+        "description": "Unieke sleutel; nodig zodra er een paneel onder hangt."
+      },
+      {
+        "name": "label",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": "Tekst op de knop of link."
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "href",
+        "required": false,
+        "type": "string",
+        "description": "Zonder kinderen wordt het een gewone link."
+      },
+      {
+        "name": "active",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "mega",
+        "required": false,
+        "type": "boolean",
+        "description": "Breed paneel over de hele balk in plaats van een smal menu."
+      }
+    ]
+  },
+  "NavigationMenuLinkProps": {
+    "extends": "Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, \"title\">",
+    "props": [
+      {
+        "name": "title",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "asChild",
+        "required": false,
+        "type": "boolean",
+        "description": "Rendert jouw eigen element, bv. next/link."
+      }
+    ]
+  },
+  "NavigationMenuSectionProps": {
+    "extends": "React.HTMLAttributes<HTMLDivElement>",
+    "props": [
+      {
+        "name": "label",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": ""
+      }
+    ]
+  },
+  "NumberFieldProps": {
+    "extends": "Omit<React.InputHTMLAttributes<HTMLInputElement>, \"value\" | \"defaultValue\" | \"onChange\" | \"size\" | \"prefix\" | \"step\" | \"min\" | \"max\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "number | null",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "number | null",
+        "description": ""
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: number | null) => void",
+        "description": ""
+      },
+      {
+        "name": "min",
+        "required": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": ""
+      },
+      {
+        "name": "step",
+        "required": false,
+        "type": "number",
+        "description": "",
+        "default": "1"
+      },
+      {
+        "name": "largeStep",
+        "required": false,
+        "type": "number",
+        "description": "Grotere stap met PageUp en PageDown."
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "format",
+        "required": false,
+        "type": "Intl.NumberFormatOptions",
+        "description": "Opmaak van het getal, bv. { style: \"currency\", currency: \"EUR\" }."
+      },
+      {
+        "name": "locale",
+        "required": false,
+        "type": "string",
+        "description": "",
+        "default": "\"nl-BE\""
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst of icoon links in het veld."
+      },
+      {
+        "name": "unit",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Eenheid rechts van het getal, bv. \"kg\"."
+      },
+      {
+        "name": "invalid",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "hideSteppers",
+        "required": false,
+        "type": "boolean",
+        "description": "Knoppen verbergen en alleen typen en pijltjestoetsen toelaten."
       }
     ]
   },
@@ -4339,6 +5096,73 @@
         "required": false,
         "type": "boolean",
         "description": "Balk blijft altijd zichtbaar in plaats van alleen bij hoveren."
+      }
+    ]
+  },
+  "ScrollspyItem": {
+    "extends": "",
+    "props": [
+      {
+        "name": "id",
+        "required": true,
+        "type": "string",
+        "description": "Id van de sectie in de pagina, zonder hekje."
+      },
+      {
+        "name": "label",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Op deze pagina\""
+      },
+      {
+        "name": "level",
+        "required": false,
+        "type": "number",
+        "description": "Diepte: 1 is een hoofdstuk, 2 een paragraaf."
+      }
+    ]
+  },
+  "ScrollspyProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLElement>, \"onChange\" | \"title\">",
+    "props": [
+      {
+        "name": "items",
+        "required": true,
+        "type": "ScrollspyItem[]",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Kop boven de lijst."
+      },
+      {
+        "name": "offset",
+        "required": false,
+        "type": "number",
+        "description": "Ruimte boven de sectie voor een plakkende balk, in pixels.",
+        "default": "96"
+      },
+      {
+        "name": "smooth",
+        "required": false,
+        "type": "boolean",
+        "description": "Zacht scrollen bij een klik.",
+        "default": "true"
+      },
+      {
+        "name": "onChange",
+        "required": false,
+        "type": "(id: string) => void",
+        "description": ""
+      },
+      {
+        "name": "root",
+        "required": false,
+        "type": "React.RefObject<HTMLElement | null>",
+        "description": "De container waarin gescrold wordt; standaard het venster."
       }
     ]
   },
@@ -5265,6 +6089,79 @@
       }
     ]
   },
+  "TagsInputProps": {
+    "extends": "Omit<React.InputHTMLAttributes<HTMLInputElement>, \"value\" | \"defaultValue\" | \"onChange\" | \"size\">",
+    "props": [
+      {
+        "name": "value",
+        "required": false,
+        "type": "string[]",
+        "description": ""
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "string[]",
+        "description": "",
+        "default": "[]"
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: string[]) => void",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "required": false,
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "description": "",
+        "default": "\"md\""
+      },
+      {
+        "name": "max",
+        "required": false,
+        "type": "number",
+        "description": "Maximaal aantal tags; daarna verdwijnt het invoerveld."
+      },
+      {
+        "name": "delimiters",
+        "required": false,
+        "type": "string[]",
+        "description": "Tekens die een tag afsluiten, naast Enter."
+      },
+      {
+        "name": "validate",
+        "required": false,
+        "type": "(tag: string) => boolean",
+        "description": "Keurt een tag goed of af (bv. een e-mailcheck)."
+      },
+      {
+        "name": "allowDuplicates",
+        "required": false,
+        "type": "boolean",
+        "description": "Dezelfde tag twee keer toelaten."
+      },
+      {
+        "name": "suggestions",
+        "required": false,
+        "type": "string[]",
+        "description": "Suggesties in een datalist."
+      },
+      {
+        "name": "invalid",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "renderTag",
+        "required": false,
+        "type": "(tag: string, index: number) => React.ReactNode",
+        "description": "Eigen weergave van een tag."
+      }
+    ]
+  },
   "TaskMetaTag": {
     "extends": "",
     "props": [
@@ -6112,6 +7009,132 @@
         "required": false,
         "type": "boolean",
         "description": ""
+      }
+    ]
+  },
+  "TreeProps": {
+    "extends": "Omit<React.HTMLAttributes<HTMLUListElement>, \"onSelect\">",
+    "props": [
+      {
+        "name": "expanded",
+        "required": false,
+        "type": "string[]",
+        "description": "Welke takken openstaan (controlled)."
+      },
+      {
+        "name": "defaultExpanded",
+        "required": false,
+        "type": "string[]",
+        "description": "",
+        "default": "[]"
+      },
+      {
+        "name": "onExpandedChange",
+        "required": false,
+        "type": "(expanded: string[]) => void",
+        "description": ""
+      },
+      {
+        "name": "value",
+        "required": false,
+        "type": "string",
+        "description": "Welk item geselecteerd is (controlled)."
+      },
+      {
+        "name": "defaultValue",
+        "required": false,
+        "type": "string",
+        "description": ""
+      },
+      {
+        "name": "onValueChange",
+        "required": false,
+        "type": "(value: string) => void",
+        "description": ""
+      },
+      {
+        "name": "guides",
+        "required": false,
+        "type": "boolean",
+        "description": "Lijnen langs de inspringing.",
+        "default": "true"
+      },
+      {
+        "name": "dense",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      }
+    ]
+  },
+  "TreeItemProps": {
+    "extends": "Omit<React.LiHTMLAttributes<HTMLLIElement>, \"onSelect\">",
+    "props": [
+      {
+        "name": "value",
+        "required": true,
+        "type": "string",
+        "description": "Unieke sleutel van dit item."
+      },
+      {
+        "name": "label",
+        "required": true,
+        "type": "React.ReactNode",
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Icoon voor het label; standaard een map of bestand."
+      },
+      {
+        "name": "trailing",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "Tekst of badge helemaal rechts."
+      },
+      {
+        "name": "disabled",
+        "required": false,
+        "type": "boolean",
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "required": false,
+        "type": "(value: string) => void",
+        "description": ""
+      }
+    ]
+  },
+  "VisuallyHiddenProps": {
+    "extends": "React.HTMLAttributes<HTMLElement>",
+    "props": [
+      {
+        "name": "as",
+        "required": false,
+        "type": "React.ElementType",
+        "description": "Eigen element, standaard een span."
+      }
+    ]
+  },
+  "SkipLinkProps": {
+    "extends": "React.AnchorHTMLAttributes<HTMLAnchorElement>",
+    "props": [
+      {
+        "name": "targetId",
+        "required": false,
+        "type": "string",
+        "description": "Id van het element waar de link naartoe springt, zonder hekje.",
+        "default": "\"inhoud\""
+      },
+      {
+        "name": "children",
+        "required": false,
+        "type": "React.ReactNode",
+        "description": "",
+        "default": "\"Naar de inhoud\""
       }
     ]
   },

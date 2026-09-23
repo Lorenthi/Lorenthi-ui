@@ -53,6 +53,7 @@ export const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(function
     actions,
     className,
     children,
+    onClick,
     ...rest
   },
   ref
@@ -77,8 +78,12 @@ export const TaskItem = React.forwardRef<HTMLDivElement, TaskItemProps>(function
       data-done={done ? "" : undefined}
       data-removing={removing ? "" : undefined}
       className={cn("lui-task", `lui-task-prio-${priority}`, onOpen && "lui-task-clickable", className)}
-      onClick={onOpen}
       {...rest}
+      // Ná {...rest}: een eigen onClick mag onOpen niet stilzwijgend vervangen.
+      onClick={(event) => {
+        onClick?.(event);
+        onOpen?.();
+      }}
     >
       <span className="lui-task-prio" aria-hidden="true" />
 

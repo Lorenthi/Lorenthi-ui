@@ -345,7 +345,7 @@ export const PaymentCheckout = React.forwardRef<HTMLDivElement, PaymentCheckoutP
                     value={waarden.name}
                     disabled={disabled}
                     autoComplete="cc-name"
-                    placeholder="Davey Verhoeven"
+                    placeholder="Voornaam Achternaam"
                     onFocus={() => setAchterkant(false)}
                     onChange={(event) => zet({ name: event.target.value })}
                   />

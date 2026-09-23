@@ -6,7 +6,7 @@ import { Portal } from "../lib/portal";
 import { useAnchorPosition } from "../lib/anchor";
 import { useControllableState, useEscapeKey, useOutsideClick } from "../lib/hooks";
 import { useFieldProps } from "./field";
-import { formatTime, parseTime, roundToStep, timeSlots } from "../lib/date";
+import { formatDuration, formatTime, parseTime, roundToStep, timeSlots } from "../lib/date";
 
 export interface TimeFieldProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "defaultValue" | "onChange" | "size" | "min" | "max" | "step"> {
@@ -295,17 +295,10 @@ export const TimeRangeField = React.forwardRef<HTMLDivElement, TimeRangeFieldPro
           aria-label="Eindtijd"
         />
         {showDuration && duration != null && (
-          <span className="lui-timerange-duration">{formatDurationShort(duration)}</span>
+          <span className="lui-timerange-duration">{formatDuration(duration)}</span>
         )}
       </div>
     );
   }
 );
 
-function formatDurationShort(minutes: number): string {
-  const hours = Math.floor(minutes / 60);
-  const rest = minutes % 60;
-  if (hours === 0) return `${rest} min`;
-  if (rest === 0) return `${hours} u`;
-  return `${hours} u ${rest}`;
-}

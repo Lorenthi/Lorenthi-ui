@@ -36,7 +36,9 @@ function parseCatalog() {
     const dependsOn = [...(block.match(/dependsOn:\s*\[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((m) => m[1]);
     // npm-packages die dit component nodig heeft (alleen de motion-laag).
     const requires = [...(block.match(/requires:\s*\[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    entries.push({ slug, name, description, category, files, dependsOn, requires });
+    // Namen van de props-tabellen, zodat we kunnen nakijken of ze echt bestaan.
+    const props = [...(block.match(/props:\s*\[([^\]]*)\]/)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+    entries.push({ slug, name, description, category, files, dependsOn, requires, props });
   }
   return entries;
 }
@@ -206,9 +208,24 @@ function withLibDependencies(files) {
   return result;
 }
 
+const waarschuwingen = [];
+
+/* Props-tabellen die naar een niet-bestaande interface verwijzen renderen stil
+   niets. Dat gebeurt zodra een type een `export type` is in plaats van een
+   `export interface` — de parser hierboven leest alleen het laatste. */
+for (const entry of components) {
+  for (const naam of entry.props ?? []) {
+    if (!interfaces[naam]) {
+      waarschuwingen.push(`${entry.slug}: props-tabel "${naam}" bestaat niet als export interface — de tabel blijft leeg`);
+    }
+  }
+}
+
+const payloads = new Map();
 const index = [];
 for (const entry of components) {
   const files = withLibDependencies(entry.files.map(readSource));
+  payloads.set(entry.slug, files);
   const payload = {
     name: entry.slug,
     title: entry.name,
@@ -246,6 +263,40 @@ writeFileSync(
 );
 
 /* ------------------------------------------------------------------ */
+/* 3b. Zuster-imports nakijken                                          */
+/* ------------------------------------------------------------------ */
+/* withLibDependencies volgt alleen ../lib/ en ../icons/. Een import van een
+   ander component (from "./field") moet met de hand in dependsOn staan; vergeet
+   je dat, dan levert `add <component>` een bestand dat naar een onbestaande
+   buur verwijst. Daarom hier de controle. */
+const perSlug = new Map(components.map((entry) => [entry.slug, entry]));
+const gedeeldeNamen = new Set(sharedFiles.map((file) => basename(file)));
+
+function transitief(slug, gezien = new Set()) {
+  if (gezien.has(slug)) return gezien;
+  gezien.add(slug);
+  for (const dep of perSlug.get(slug)?.dependsOn ?? []) transitief(dep, gezien);
+  return gezien;
+}
+
+for (const entry of components) {
+  const beschikbaar = new Set(gedeeldeNamen);
+  for (const slug of transitief(entry.slug)) {
+    for (const file of payloads.get(slug) ?? []) beschikbaar.add(basename(file.path));
+  }
+  for (const file of payloads.get(entry.slug) ?? []) {
+    if (!/\.tsx?$/.test(file.path)) continue;
+    for (const match of file.content.matchAll(/from "\.\/([\w-]+)"/g)) {
+      const naam = match[1];
+      if (beschikbaar.has(`${naam}.tsx`) || beschikbaar.has(`${naam}.ts`)) continue;
+      waarschuwingen.push(
+        `${entry.slug}: ${basename(file.path)} importeert "./${naam}" maar dat bestand komt niet mee — zet "${naam}" in dependsOn`
+      );
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* 4. Demo-index genereren                                              */
 /* ------------------------------------------------------------------ */
 const demoDir = join(docsDir, "demos");
@@ -271,3 +322,14 @@ writeFileSync(
 console.log(
   `registry: ${index.length} componenten · props: ${Object.keys(interfaces).length} interfaces · demo's: ${demoFiles.length}`
 );
+
+if (waarschuwingen.length > 0) {
+  const streep = "-".repeat(72);
+  console.warn(`
+${streep}
+${waarschuwingen.length} waarschuwing(en) uit de catalogus:
+`);
+  for (const regel of waarschuwingen) console.warn(`  ! ${regel}`);
+  console.warn(`${streep}
+`);
+}
