@@ -482,3 +482,155 @@
 /* Het dekseltje hoort niet bij het vinkje of het uitroepteken. */
 .lui-delb[data-state="done"] .lui-delb-lid,
 .lui-delb[data-state="error"] .lui-delb-lid { opacity: 0; }
+
+/* ---------- NumberFlow ---------- */
+.lui-numberflow {
+  display: inline-flex; align-items: baseline; gap: 2px;
+  font-variant-numeric: tabular-nums; font-weight: 650; color: var(--text);
+  transition: color var(--dur) var(--ease);
+}
+.lui-numberflow-sm { font-size: var(--fs-sm); }
+.lui-numberflow-md { font-size: var(--fs-lg); }
+.lui-numberflow-lg { font-size: 26px; letter-spacing: -0.02em; }
+.lui-numberflow-xl { font-size: 40px; letter-spacing: -0.03em; }
+.lui-numberflow-up { color: var(--green); }
+.lui-numberflow-down { color: var(--red); }
+
+.lui-numberflow-digits { display: inline-flex; align-items: baseline; }
+.lui-numberflow-slot {
+  position: relative; display: inline-flex; justify-content: center;
+  overflow: hidden; height: 1.2em; line-height: 1.2em;
+}
+.lui-numberflow-digit { display: block; }
+.lui-numberflow-sep { display: inline-block; }
+
+/* ---------- Dock ---------- */
+.lui-dock {
+  --lui-dock-size: 42px;
+  display: flex; align-items: flex-end; gap: 8px;
+  padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--surface-2); box-shadow: var(--sh-md);
+  width: max-content;
+}
+.lui-dock-vertical { flex-direction: column; align-items: flex-start; }
+
+.lui-dock-slot { display: grid; place-items: center; flex: none; }
+.lui-dock-item {
+  position: relative; display: grid; place-items: center;
+  width: 100%; height: 100%; padding: 0;
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface); color: var(--text-2); cursor: pointer;
+  text-decoration: none; transition: color var(--dur-fast), border-color var(--dur-fast);
+}
+.lui-dock-item:hover { color: var(--accent); border-color: var(--accent); }
+.lui-dock-item:focus-visible { outline: none; box-shadow: var(--ring); }
+.lui-dock-icon { display: grid; place-items: center; width: 52%; height: 52%; }
+.lui-dock-icon > svg { width: 100%; height: 100%; }
+
+.lui-dock-label {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  padding: 3px 8px; white-space: nowrap; pointer-events: none; opacity: 0;
+  border: 1px solid var(--border); border-radius: var(--r-xs);
+  background: var(--surface); box-shadow: var(--sh-md);
+  font-size: 12px; color: var(--text);
+  transition: opacity var(--dur-fast);
+}
+.lui-dock-item:hover .lui-dock-label,
+.lui-dock-item:focus-visible .lui-dock-label { opacity: 1; }
+.lui-dock-vertical .lui-dock-label { bottom: auto; left: calc(100% + 8px); top: 50%; transform: translateY(-50%); }
+
+.lui-dock-dot {
+  position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+}
+.lui-dock-vertical .lui-dock-dot { bottom: auto; left: -5px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- AnimatedList ---------- */
+.lui-animlist { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.lui-animlist-item { list-style: none; }
+.lui-animlist-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--r-sm);
+  background: var(--surface); box-shadow: var(--sh-sm);
+}
+
+/* ---------- MultiStepLoader ---------- */
+.lui-loader-overlay {
+  position: fixed; inset: 0; z-index: var(--z-overlay);
+  display: grid; place-items: center;
+  background: color-mix(in oklab, var(--surface) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+.lui-loader {
+  display: grid; gap: 12px; padding: 18px 22px;
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  background: var(--surface); box-shadow: var(--sh-lg);
+  min-width: 260px;
+}
+.lui-loader-title { margin: 0; font-size: var(--fs-md); font-weight: 650; color: var(--text); }
+.lui-loader-steps { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.lui-loader-step { display: flex; align-items: center; gap: 10px; font-size: var(--fs-sm); color: var(--text-2); }
+.lui-loader-step[data-state="busy"] { color: var(--text); font-weight: 600; }
+.lui-loader-step[data-state="done"] { color: var(--text-3); }
+
+.lui-loader-mark { display: grid; place-items: center; width: 18px; height: 18px; flex: none; color: var(--accent); }
+.lui-loader-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
+.lui-loader-spin {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--accent) 28%, transparent);
+  border-top-color: var(--accent);
+  animation: lui-loader-spin .7s linear infinite;
+}
+@keyframes lui-loader-spin { to { transform: rotate(360deg); } }
+
+/* ---------- SwipeToDelete ---------- */
+.lui-swipe {
+  position: relative; overflow: hidden; border-radius: var(--r-sm);
+}
+.lui-swipe-behind {
+  position: absolute; inset: 0; display: flex; align-items: center;
+  padding: 0 16px; background: var(--red); color: #fff;
+  font-size: var(--fs-sm); font-weight: 600;
+}
+.lui-swipe-behind[data-side="left"] { justify-content: flex-end; }
+.lui-swipe-behind[data-side="right"] { justify-content: flex-start; }
+.lui-swipe-hint, .lui-swipe-confirm { display: inline-flex; align-items: center; gap: 7px; }
+.lui-swipe-confirm {
+  padding: 6px 12px; border: 0; border-radius: var(--r-xs);
+  background: rgba(255, 255, 255, .18); color: #fff;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.lui-swipe-confirm:hover { background: rgba(255, 255, 255, .3); }
+.lui-swipe-confirm:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.lui-swipe-front { position: relative; background: var(--surface); touch-action: pan-y; cursor: grab; }
+.lui-swipe-front:active { cursor: grabbing; }
+
+/* ---------- HoldToConfirm ---------- */
+.lui-hold {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  overflow: hidden; border: 1px solid var(--border-strong); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--text);
+  font: inherit; font-weight: 600; cursor: pointer; user-select: none;
+  transition: border-color var(--dur-fast), color var(--dur-fast);
+}
+.lui-hold-sm { height: calc(32px * var(--density)); padding: 0 12px; font-size: var(--fs-sm); }
+.lui-hold-md { height: calc(38px * var(--density)); padding: 0 16px; font-size: var(--fs-sm); }
+.lui-hold-lg { height: calc(44px * var(--density)); padding: 0 20px; font-size: var(--fs-base); }
+.lui-hold[data-tone="red"] { border-color: color-mix(in oklab, var(--red) 45%, var(--border)); color: var(--red); }
+.lui-hold[data-tone="accent"] { border-color: color-mix(in oklab, var(--accent) 45%, var(--border)); color: var(--accent); }
+.lui-hold:focus-visible { outline: none; box-shadow: var(--ring); }
+.lui-hold:disabled { opacity: .5; cursor: not-allowed; }
+
+.lui-hold-fill {
+  position: absolute; inset: 0; transform-origin: left center;
+  background: color-mix(in oklab, var(--red) 16%, transparent);
+}
+.lui-hold[data-tone="accent"] .lui-hold-fill { background: color-mix(in oklab, var(--accent) 16%, transparent); }
+.lui-hold[data-state="done"] { color: var(--green); border-color: color-mix(in oklab, var(--green) 45%, var(--border)); }
+.lui-hold[data-state="done"] .lui-hold-fill { background: color-mix(in oklab, var(--green) 16%, transparent); }
+
+.lui-hold-label { position: relative; display: inline-flex; align-items: center; gap: 7px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lui-loader-spin { animation-duration: 1.6s; }
+}

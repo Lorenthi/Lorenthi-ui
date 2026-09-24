@@ -938,6 +938,318 @@
       ]
     },
     {
+      "name": "data-table",
+      "title": "DataTable",
+      "description": "Tabel met sorteren, zoeken, selecteren en paginering in één component.",
+      "category": "Data",
+      "dependencies": [
+        "table",
+        "checkbox",
+        "input",
+        "pagination",
+        "skeleton",
+        "empty-state"
+      ],
+      "requires": [],
+      "files": [
+        "components/data-table.tsx",
+        "components/data-table.css"
+      ]
+    },
+    {
+      "name": "form",
+      "title": "Form",
+      "description": "Formulierstatus, validatieregels en foutmeldingen zonder externe library.",
+      "category": "Formulieren",
+      "dependencies": [
+        "field"
+      ],
+      "requires": [],
+      "files": [
+        "components/form.tsx",
+        "components/form.css"
+      ]
+    },
+    {
+      "name": "editable",
+      "title": "Editable",
+      "description": "Tekst die je ter plekke bewerkt, met Enter bevestigen en Escape annuleren.",
+      "category": "Formulieren",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/editable.tsx",
+        "components/editable.css"
+      ]
+    },
+    {
+      "name": "kanban",
+      "title": "Kanban",
+      "description": "Kolommen met kaarten die je sleept of met de pijltjes verplaatst.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/kanban.tsx",
+        "components/kanban.css"
+      ]
+    },
+    {
+      "name": "lightbox",
+      "title": "Lightbox",
+      "description": "Afbeeldingen schermvullend bekijken, met bladeren, miniaturen en zoom.",
+      "category": "Overlays",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/lightbox.tsx",
+        "components/lightbox.css"
+      ]
+    },
+    {
+      "name": "image-compare",
+      "title": "ImageCompare",
+      "description": "Twee afbeeldingen over elkaar met een schuif ertussen.",
+      "category": "Data",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/image-compare.tsx",
+        "components/image-compare.css"
+      ]
+    },
+    {
+      "name": "masonry",
+      "title": "Masonry",
+      "description": "Kolommen waarin kaarten van ongelijke hoogte in elkaar schuiven.",
+      "category": "Layout",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/masonry.tsx",
+        "components/masonry.css"
+      ]
+    },
+    {
+      "name": "tour",
+      "title": "Tour",
+      "description": "Rondleiding die stap voor stap een element uitlicht met een kaartje ernaast.",
+      "category": "Overlays",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/tour.tsx",
+        "components/tour.css"
+      ]
+    },
+    {
+      "name": "marquee",
+      "title": "Marquee",
+      "description": "Rij die eindeloos doorloopt, in pure CSS.",
+      "category": "Layout",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/marquee.tsx",
+        "components/marquee.css"
+      ]
+    },
+    {
+      "name": "in-view",
+      "title": "InView",
+      "description": "Inhoud die binnenkomt zodra ze in beeld scrolt, plus een leesbalk.",
+      "category": "Layout",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/in-view.tsx",
+        "components/in-view.css"
+      ]
+    },
+    {
+      "name": "prompt-input",
+      "title": "PromptInput",
+      "description": "Invoerveld voor een gesprek met een model: groeit mee, bijlagen, stopknop.",
+      "category": "AI",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/prompt-input.tsx",
+        "components/prompt-input.css"
+      ]
+    },
+    {
+      "name": "streaming-text",
+      "title": "StreamingText",
+      "description": "Tekst die binnenkomt terwijl je kijkt, met een redeneerblok erbij.",
+      "category": "AI",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/streaming-text.tsx",
+        "components/streaming-text.css"
+      ]
+    },
+    {
+      "name": "tool-call",
+      "title": "ToolCall",
+      "description": "Welk gereedschap een model aanriep, met invoer, resultaat en een goedkeuringskaart.",
+      "category": "AI",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/tool-call.tsx",
+        "components/tool-call.css"
+      ]
+    },
+    {
+      "name": "citations",
+      "title": "Citations",
+      "description": "Bronverwijzingen in de tekst met een lijst eronder, plus een verbruiksmeter.",
+      "category": "AI",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/citations.tsx",
+        "components/citations.css"
+      ]
+    },
+    {
+      "name": "number-flow",
+      "title": "NumberFlow",
+      "description": "Getal dat naar zijn nieuwe waarde rolt in plaats van te verspringen.",
+      "category": "Motion",
+      "dependencies": [],
+      "requires": [
+        "motion"
+      ],
+      "files": [
+        "motion/number-flow.tsx",
+        "motion/motion.css"
+      ]
+    },
+    {
+      "name": "dock",
+      "title": "Dock",
+      "description": "Rij iconen die opzwelt onder de muis, zoals de dock van macOS.",
+      "category": "Motion",
+      "dependencies": [],
+      "requires": [
+        "motion"
+      ],
+      "files": [
+        "motion/dock.tsx",
+        "motion/motion.css"
+      ]
+    },
+    {
+      "name": "animated-list",
+      "title": "AnimatedList",
+      "description": "Lijst waarin items binnenschuiven en weggaan zonder sprong.",
+      "category": "Motion",
+      "dependencies": [],
+      "requires": [
+        "motion"
+      ],
+      "files": [
+        "motion/animated-list.tsx",
+        "motion/motion.css"
+      ]
+    },
+    {
+      "name": "multi-step-loader",
+      "title": "MultiStepLoader",
+      "description": "Wachtscherm dat vertelt wát er gebeurt in plaats van alleen te draaien.",
+      "category": "Motion",
+      "dependencies": [],
+      "requires": [
+        "motion"
+      ],
+      "files": [
+        "motion/multi-step-loader.tsx",
+        "motion/motion.css"
+      ]
+    },
+    {
+      "name": "swipe-to-delete",
+      "title": "SwipeToDelete",
+      "description": "Rij die je opzij veegt om hem te verwijderen, met een knop om het vast te houden.",
+      "category": "Motion",
+      "dependencies": [],
+      "requires": [
+        "motion"
+      ],
+      "files": [
+        "motion/swipe-to-delete.tsx",
+        "motion/hold-to-confirm.tsx",
+        "motion/motion.css"
+      ]
+    },
+    {
+      "name": "phone-input",
+      "title": "PhoneInput",
+      "description": "Telefoonnummer met landkiezer; de waarde komt er als E.164 uit.",
+      "category": "Formulieren",
+      "dependencies": [
+        "field"
+      ],
+      "requires": [],
+      "files": [
+        "components/phone-input.tsx",
+        "components/phone-input.css"
+      ]
+    },
+    {
+      "name": "cookie-consent",
+      "title": "CookieConsent",
+      "description": "Toestemmingsbalk met categorieën, zoals de GDPR ze verlangt.",
+      "category": "Overlays",
+      "dependencies": [
+        "switch"
+      ],
+      "requires": [],
+      "files": [
+        "components/cookie-consent.tsx",
+        "components/cookie-consent.css"
+      ]
+    },
+    {
+      "name": "signature",
+      "title": "Signature",
+      "description": "Vlak om met muis, vinger of pen een handtekening te zetten.",
+      "category": "Formulieren",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/signature.tsx",
+        "components/signature.css"
+      ]
+    },
+    {
+      "name": "relative-time",
+      "title": "RelativeTime",
+      "description": "\\",
+      "category": "Datum & planning",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/relative-time.tsx",
+        "components/relative-time.css"
+      ]
+    },
+    {
+      "name": "direction",
+      "title": "DirectionProvider",
+      "description": "Zet de leesrichting voor alles eronder; de componenten spiegelen mee.",
+      "category": "Layout",
+      "dependencies": [],
+      "requires": [],
+      "files": [
+        "components/direction.tsx",
+        "components/direction.css"
+      ]
+    },
+    {
       "name": "countdown",
       "title": "Countdown",
       "description": "Telt af naar een moment en stopt vanzelf op nul.",

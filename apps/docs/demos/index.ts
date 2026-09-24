@@ -7,6 +7,7 @@ import AddtocartBasic from "./addtocart-basic";
 import AgendaViews from "./agenda-views";
 import AlertBasic from "./alert-basic";
 import AlertdialogBasic from "./alertdialog-basic";
+import AnimatedlistBasic from "./animatedlist-basic";
 import AppshellBasic from "./appshell-basic";
 import AreachartBasic from "./areachart-basic";
 import AspectratioBasic from "./aspectratio-basic";
@@ -32,6 +33,7 @@ import ChartBar from "./chart-bar";
 import ChartDonut from "./chart-donut";
 import CheckboxBasic from "./checkbox-basic";
 import ChipBasic from "./chip-basic";
+import CitationsBasic from "./citations-basic";
 import CodeblockBasic from "./codeblock-basic";
 import CollapsibleBasic from "./collapsible-basic";
 import ColorpickerBasic from "./colorpicker-basic";
@@ -42,16 +44,20 @@ import ComposerBasic from "./composer-basic";
 import ConfettiBasic from "./confetti-basic";
 import ContextmenuBasic from "./contextmenu-basic";
 import ContributiongraphBasic from "./contributiongraph-basic";
+import CookieconsentBasic from "./cookieconsent-basic";
 import CopybuttonBasic from "./copybutton-basic";
 import CountdownBasic from "./countdown-basic";
 import DatapillBasic from "./datapill-basic";
+import DatatableBasic from "./datatable-basic";
 import DatepickerBasic from "./datepicker-basic";
 import DeletebuttonBasic from "./deletebutton-basic";
 import DensityBasic from "./density-basic";
 import DialogBasic from "./dialog-basic";
 import DialogForm from "./dialog-form";
+import DockBasic from "./dock-basic";
 import DrawerBasic from "./drawer-basic";
 import DropdownBasic from "./dropdown-basic";
+import EditableBasic from "./editable-basic";
 import EmptyBasic from "./empty-basic";
 import EntityHeaderBasic from "./entity-header-basic";
 import FabBasic from "./fab-basic";
@@ -59,18 +65,25 @@ import FieldBasic from "./field-basic";
 import FieldsetBasic from "./fieldset-basic";
 import FiledropBasic from "./filedrop-basic";
 import FilterpanelBasic from "./filterpanel-basic";
+import FormBasic from "./form-basic";
 import GaugeBasic from "./gauge-basic";
 import HovercardBasic from "./hovercard-basic";
 import IconGallery from "./icon-gallery";
+import ImagecompareBasic from "./imagecompare-basic";
 import IndicatorBasic from "./indicator-basic";
 import InputAffix from "./input-affix";
 import InputBasic from "./input-basic";
 import InputgroupBasic from "./inputgroup-basic";
+import InviewBasic from "./inview-basic";
+import KanbanBasic from "./kanban-basic";
 import KbdBasic from "./kbd-basic";
 import KeyvalueBasic from "./keyvalue-basic";
 import LabelBasic from "./label-basic";
 import LayoutBasic from "./layout-basic";
+import LightboxBasic from "./lightbox-basic";
 import ListRowBasic from "./list-row-basic";
+import MarqueeBasic from "./marquee-basic";
+import MasonryBasic from "./masonry-basic";
 import MenubarBasic from "./menubar-basic";
 import MessagethreadBasic from "./messagethread-basic";
 import MeterBasic from "./meter-basic";
@@ -78,8 +91,10 @@ import MockupBasic from "./mockup-basic";
 import ModalManagerBasic from "./modal-manager-basic";
 import MotiondrawerBasic from "./motiondrawer-basic";
 import MotionsegmentedBasic from "./motionsegmented-basic";
+import MultisteploaderBasic from "./multisteploader-basic";
 import NavigationmenuBasic from "./navigationmenu-basic";
 import NumberfieldBasic from "./numberfield-basic";
+import NumberflowBasic from "./numberflow-basic";
 import OrderbuttonBasic from "./orderbutton-basic";
 import OtpBasic from "./otp-basic";
 import OtpverificationBasic from "./otpverification-basic";
@@ -89,14 +104,17 @@ import PaginationBasic from "./pagination-basic";
 import PaymentcheckoutBasic from "./paymentcheckout-basic";
 import PaymentcheckoutReal from "./paymentcheckout-real";
 import PeriodnavBasic from "./periodnav-basic";
+import PhoneinputBasic from "./phoneinput-basic";
 import PopoverBasic from "./popover-basic";
 import ProgressBasic from "./progress-basic";
+import PromptinputBasic from "./promptinput-basic";
 import PulsedotBasic from "./pulsedot-basic";
 import QrBasic from "./qr-basic";
 import RadarchartBasic from "./radarchart-basic";
 import RadioBasic from "./radio-basic";
 import RadioCards from "./radio-cards";
 import RatingBasic from "./rating-basic";
+import RelativetimeBasic from "./relativetime-basic";
 import ReorderBasic from "./reorder-basic";
 import ResizableBasic from "./resizable-basic";
 import ResourceColumnsBasic from "./resource-columns-basic";
@@ -114,13 +132,16 @@ import SeparatorBasic from "./separator-basic";
 import SharebuttonBasic from "./sharebutton-basic";
 import SidebarBasic from "./sidebar-basic";
 import SidebarInverted from "./sidebar-inverted";
+import SignatureBasic from "./signature-basic";
 import SkeletonBasic from "./skeleton-basic";
 import SliderBasic from "./slider-basic";
 import SpinnerBasic from "./spinner-basic";
 import StatBasic from "./stat-basic";
 import StepperBasic from "./stepper-basic";
+import StreamingtextBasic from "./streamingtext-basic";
 import SwatchBasic from "./swatch-basic";
 import SwimlanesBasic from "./swimlanes-basic";
+import SwipetodeleteBasic from "./swipetodelete-basic";
 import SwitchBasic from "./switch-basic";
 import TableBasic from "./table-basic";
 import TabsBasic from "./tabs-basic";
@@ -135,7 +156,9 @@ import TimeslotBasic from "./timeslot-basic";
 import ToastBasic from "./toast-basic";
 import ToggleBasic from "./toggle-basic";
 import ToolbarBasic from "./toolbar-basic";
+import ToolcallBasic from "./toolcall-basic";
 import TooltipBasic from "./tooltip-basic";
+import TourBasic from "./tour-basic";
 import TrackerBasic from "./tracker-basic";
 import TreeBasic from "./tree-basic";
 import UploadbuttonBasic from "./uploadbutton-basic";
@@ -150,6 +173,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "agenda-views": AgendaViews,
   "alert-basic": AlertBasic,
   "alertdialog-basic": AlertdialogBasic,
+  "animatedlist-basic": AnimatedlistBasic,
   "appshell-basic": AppshellBasic,
   "areachart-basic": AreachartBasic,
   "aspectratio-basic": AspectratioBasic,
@@ -175,6 +199,7 @@ export const DEMOS: Record<string, ComponentType> = {
   "chart-donut": ChartDonut,
   "checkbox-basic": CheckboxBasic,
   "chip-basic": ChipBasic,
+  "citations-basic": CitationsBasic,
   "codeblock-basic": CodeblockBasic,
   "collapsible-basic": CollapsibleBasic,
   "colorpicker-basic": ColorpickerBasic,
@@ -185,16 +210,20 @@ export const DEMOS: Record<string, ComponentType> = {
   "confetti-basic": ConfettiBasic,
   "contextmenu-basic": ContextmenuBasic,
   "contributiongraph-basic": ContributiongraphBasic,
+  "cookieconsent-basic": CookieconsentBasic,
   "copybutton-basic": CopybuttonBasic,
   "countdown-basic": CountdownBasic,
   "datapill-basic": DatapillBasic,
+  "datatable-basic": DatatableBasic,
   "datepicker-basic": DatepickerBasic,
   "deletebutton-basic": DeletebuttonBasic,
   "density-basic": DensityBasic,
   "dialog-basic": DialogBasic,
   "dialog-form": DialogForm,
+  "dock-basic": DockBasic,
   "drawer-basic": DrawerBasic,
   "dropdown-basic": DropdownBasic,
+  "editable-basic": EditableBasic,
   "empty-basic": EmptyBasic,
   "entity-header-basic": EntityHeaderBasic,
   "fab-basic": FabBasic,
@@ -202,18 +231,25 @@ export const DEMOS: Record<string, ComponentType> = {
   "fieldset-basic": FieldsetBasic,
   "filedrop-basic": FiledropBasic,
   "filterpanel-basic": FilterpanelBasic,
+  "form-basic": FormBasic,
   "gauge-basic": GaugeBasic,
   "hovercard-basic": HovercardBasic,
   "icon-gallery": IconGallery,
+  "imagecompare-basic": ImagecompareBasic,
   "indicator-basic": IndicatorBasic,
   "input-affix": InputAffix,
   "input-basic": InputBasic,
   "inputgroup-basic": InputgroupBasic,
+  "inview-basic": InviewBasic,
+  "kanban-basic": KanbanBasic,
   "kbd-basic": KbdBasic,
   "keyvalue-basic": KeyvalueBasic,
   "label-basic": LabelBasic,
   "layout-basic": LayoutBasic,
+  "lightbox-basic": LightboxBasic,
   "list-row-basic": ListRowBasic,
+  "marquee-basic": MarqueeBasic,
+  "masonry-basic": MasonryBasic,
   "menubar-basic": MenubarBasic,
   "messagethread-basic": MessagethreadBasic,
   "meter-basic": MeterBasic,
@@ -221,8 +257,10 @@ export const DEMOS: Record<string, ComponentType> = {
   "modal-manager-basic": ModalManagerBasic,
   "motiondrawer-basic": MotiondrawerBasic,
   "motionsegmented-basic": MotionsegmentedBasic,
+  "multisteploader-basic": MultisteploaderBasic,
   "navigationmenu-basic": NavigationmenuBasic,
   "numberfield-basic": NumberfieldBasic,
+  "numberflow-basic": NumberflowBasic,
   "orderbutton-basic": OrderbuttonBasic,
   "otp-basic": OtpBasic,
   "otpverification-basic": OtpverificationBasic,
@@ -232,14 +270,17 @@ export const DEMOS: Record<string, ComponentType> = {
   "paymentcheckout-basic": PaymentcheckoutBasic,
   "paymentcheckout-real": PaymentcheckoutReal,
   "periodnav-basic": PeriodnavBasic,
+  "phoneinput-basic": PhoneinputBasic,
   "popover-basic": PopoverBasic,
   "progress-basic": ProgressBasic,
+  "promptinput-basic": PromptinputBasic,
   "pulsedot-basic": PulsedotBasic,
   "qr-basic": QrBasic,
   "radarchart-basic": RadarchartBasic,
   "radio-basic": RadioBasic,
   "radio-cards": RadioCards,
   "rating-basic": RatingBasic,
+  "relativetime-basic": RelativetimeBasic,
   "reorder-basic": ReorderBasic,
   "resizable-basic": ResizableBasic,
   "resource-columns-basic": ResourceColumnsBasic,
@@ -257,13 +298,16 @@ export const DEMOS: Record<string, ComponentType> = {
   "sharebutton-basic": SharebuttonBasic,
   "sidebar-basic": SidebarBasic,
   "sidebar-inverted": SidebarInverted,
+  "signature-basic": SignatureBasic,
   "skeleton-basic": SkeletonBasic,
   "slider-basic": SliderBasic,
   "spinner-basic": SpinnerBasic,
   "stat-basic": StatBasic,
   "stepper-basic": StepperBasic,
+  "streamingtext-basic": StreamingtextBasic,
   "swatch-basic": SwatchBasic,
   "swimlanes-basic": SwimlanesBasic,
+  "swipetodelete-basic": SwipetodeleteBasic,
   "switch-basic": SwitchBasic,
   "table-basic": TableBasic,
   "tabs-basic": TabsBasic,
@@ -278,7 +322,9 @@ export const DEMOS: Record<string, ComponentType> = {
   "toast-basic": ToastBasic,
   "toggle-basic": ToggleBasic,
   "toolbar-basic": ToolbarBasic,
+  "toolcall-basic": ToolcallBasic,
   "tooltip-basic": TooltipBasic,
+  "tour-basic": TourBasic,
   "tracker-basic": TrackerBasic,
   "tree-basic": TreeBasic,
   "uploadbutton-basic": UploadbuttonBasic,
